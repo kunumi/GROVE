@@ -1,0 +1,1033 @@
+{
+  "description": "Retrieval benchmark: questions that describe a problem without naming the SWEBOK technique. Each question lists evidence phrases copied from the SWEBOK v4 text; build_qrels.py turns them into the expected leaves (every leaf under swebok-v4/root that contains an evidence phrase). Review the questions and the evidence, not the computed leaves. v2 (19/11/2026): the 12 original questions with a reviewed gold standard, plus one question per SWEBOK knowledge area the original set did not cover (N01-N13).",
+  "answer_format": "Answer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "questions": [
+    {
+      "id": "Q01",
+      "area": "testing + construction",
+      "question": "How should I derive test cases for a component whose behavior depends on its current state and on the events it receives?",
+      "evidence": [
+        "[SWEBOK excerpt 6e21c823216463e51c70]",
+        "[SWEBOK excerpt f2d8a55feb05b9720395]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+          "why": "The leaf starts with the last sentence of §3.1.7 on state transition testing ([SWEBOK excerpt 1e051e7dde1a64e3a5e8]). A page header (###### 5-12) between “test” and “suite” prevents build_qrels from matching the whole sentence. The heading and remaining text cover scenario-based testing in §3.1.8, so this leaf is secondary."
+        },
+        {
+          "leaf": "Requirements Management, Quality, and Testing Practices/Requirements Measurement, Quality, and Process Improvement/Software Requirements Tools Categories and Functions.md",
+          "why": "The heading and opening sentence of §8.3 explain that more formal specifications allow more mechanical test generation. The state-model example is in the next leaf, which is in the answer key."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+          "why": "This construction leaf defines state-based programming and describes program behavior with finite-state machines. It gives no procedure for deriving tests. The phrase [SWEBOK excerpt a71d862323a113735b4e] originally put it in the key."
+        },
+        {
+          "leaf": "Software Design Concerns, Documentation, and Modeling/Modeling, Patterns, and Domain-Specific Design Approaches/Interaction and Behavioral Diagrams in Software Design.md",
+          "why": "The wording about state diagrams and statecharts is close to the question. The leaf describes how to model the effect of events and the current state on a component, which makes it a plausible distractor."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Semantic Assumptions and Modeling Techniques/Semantic Models and Behavioral Modeling in Software.md",
+          "why": "Behavioral modeling in §2.2 of Models and Methods describes states, events and transitions. The procedure for deriving tests is outside its scope."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/GUI, Gaming, and Real-Time Domain Software Testing.md",
+          "why": "The discussion of GUI testing briefly mentions approaches based on finite-state machines."
+        },
+        {
+          "leaf": "Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+          "why": "Defines model-based testing using a behavioral specification. State-based testing falls within this broader category."
+        },
+        {
+          "leaf": "Data Systems, Networks, and Computational Foundations/Predicate Logic, Proof Methods, and Formal Systems/Tree Traversal and Finite-State Machines/Finite-State Machines and Transition Functions.md",
+          "why": "The foundations leaf defines the finite-state machine formally, including its transition function T: S × I → S × O. It does not discuss testing."
+        }
+      ],
+      "expected_leaves": [
+        "Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md",
+        "Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md"
+      ]
+    },
+    {
+      "id": "Q02",
+      "area": "construction",
+      "question": "A function has grown into a long chain of conditionals that maps combinations of conditions to results, and it is hard to change. What construction approach helps, and what has to be decided when applying it?",
+      "evidence": [
+        "[SWEBOK excerpt d7bae75bfae3ad1891a9]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md",
+          "why": "The end of §4.7 explains how tables simplify changes to complex logic and how programmers choose table contents and access methods. Only this leaf answers the second half of the question. Its heading and most of its text cover runtime configuration and internationalization (§4.8)."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+          "why": "This leaf contains the heading [SWEBOK excerpt 11c538398bfaf0b056d7] and the part on state-based programming. It has no discussion of tables. The parse_citations function in common.py resolves a citation by the title of §4.7 to this leaf."
+        },
+        {
+          "leaf": "Software Design Concerns, Documentation, and Modeling/Modeling, Patterns, and Domain-Specific Design Approaches/Interaction and Behavioral Diagrams in Software Design.md",
+          "why": "Decision tables in design model combinations of conditions and actions. The similar terminology makes this design notation a distractor for the construction technique."
+        }
+      ],
+      "expected_leaves": [
+        "Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md"
+      ]
+    },
+    {
+      "id": "Q03",
+      "area": "construction",
+      "question": "What principles should guide the design of how a program signals and deals with abnormal conditions, and what alternatives exist for handling errors?",
+      "evidence": [
+        "[SWEBOK excerpt b7e4a8cfc0f4d3ed2590]",
+        "[SWEBOK excerpt 2f0e5c6459c8fe54e931]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md",
+          "why": "The rest of §4.5 covers fault-tolerance strategies such as backup and retry, auxiliary code and voting, or returning a harmless substitute value. These are possible responses to errors. The leaf belongs to the Q04 answer key and is secondary here."
+        },
+        {
+          "leaf": "Construction Practices, Standards, and Development Models/Applying Standards in Construction.md",
+          "why": "Lists exception-handling policies as a construction pattern, including what information to put in an exception and how to handle it once caught."
+        },
+        {
+          "leaf": "Software Design Concerns, Documentation, and Modeling/Software Design Concerns and Architectural Patterns.md",
+          "why": "Design §3.5 mentions prevention, avoidance, mitigation, tolerance and processing of errors in one sentence about design concerns."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Software Coding and Construction Testing Practices.md",
+          "why": "Coding §3.3 lists handling anticipated and exceptional error conditions as a coding consideration without further detail."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+          "why": "Defensive programming covers checking inputs and deciding how to handle invalid ones. Its scope is narrower than a general error policy."
+        }
+      ],
+      "expected_leaves": [
+        "Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md"
+      ]
+    },
+    {
+      "id": "Q04",
+      "area": "construction",
+      "question": "Which strategies let software keep working when errors occur at runtime instead of failing?",
+      "evidence": [
+        "[SWEBOK excerpt 26086293dde14fb59343]",
+        "[SWEBOK excerpt f6dd3c5103b2c1c403d6]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Design Concerns, Documentation, and Modeling/Software Design Concerns and Architectural Patterns.md",
+          "why": "Design §3.5 identifies exception handling and fault tolerance as design concerns in one line. It lists no strategies. The remainder discusses other design concerns."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+          "why": "Section 4.4, adjacent to §4.5 in the same folder, describes how parameter checks and handling invalid input protect a routine. It covers only input failures and is also secondary for Q03."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Software Failure Handling and Information Security Management.md",
+          "why": "The leaf opens with the end of Operations §2.5, which calls for planning application failure handling during development. It names no strategies. The remainder covers information security in §2.6."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Disaster Recovery Testing and Automated Failover.md",
+          "why": "Operations §2.5 describes checkpoints and automated failover to reduce service recovery time. The question concerns program construction."
+        },
+        {
+          "leaf": "Software Maintenance Costs, Metrics, and Quality/Software Maintenance Quality Metrics and Process Tailoring.md",
+          "why": "Defines fault tolerance and recoverability as reliability characteristics for maintenance measurement. It identifies what to measure without explaining how to keep software running."
+        }
+      ],
+      "expected_leaves": [
+        "Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+        "Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md"
+      ]
+    },
+    {
+      "id": "Q05",
+      "area": "testing",
+      "question": "How should test inputs be chosen for a function that accepts numeric values within a valid range?",
+      "evidence": [
+        "[SWEBOK excerpt bb061752587bc7b35163]",
+        "[SWEBOK excerpt 6e9e902430d9ceb2eaca]",
+        "[SWEBOK excerpt a8dae984f064c697edc2]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Engineering Fundamentals and System Architecture/Runtime and Logical Errors in Programs/Runtime Errors and Testing Strategies.md",
+          "why": "Computing Foundations briefly recommends valid, invalid and boundary-value data sets without explaining the technique."
+        },
+        {
+          "leaf": "Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md",
+          "why": "Random testing (§3.1.9) also selects values from an input domain, and fuzzing uses invalid inputs. These are secondary alternatives for a question about a valid range."
+        },
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+          "why": "Mentions domain testing and boundary value analysis as functional coverage criteria for ATDD/BDD and refers to the Testing knowledge area."
+        }
+      ],
+      "expected_leaves": [
+        "Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+        "Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md"
+      ]
+    },
+    {
+      "id": "Q06",
+      "area": "testing",
+      "question": "A function takes six configuration parameters, each with several possible values, and testing every possible mix of their values is too expensive. How should the test cases be derived?",
+      "evidence": [
+        "[SWEBOK excerpt 92b2dcf0d60b06ac1f8f]",
+        "[SWEBOK excerpt 84129f160b87efa4ccba]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+          "why": "Mentions pairwise testing as an ATDD/BDD functional coverage criterion and refers to the Testing knowledge area. It gives no procedure for deriving cases."
+        }
+      ],
+      "expected_leaves": [
+        "Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+        "Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md"
+      ]
+    },
+    {
+      "id": "Q07",
+      "area": "testing",
+      "question": "Beyond code coverage, how can I evaluate whether my test suite is good at detecting faults?",
+      "evidence": [
+        "[SWEBOK excerpt 1fc3f454055bbf4b6c8b]",
+        "[SWEBOK excerpt 17e168658143b248b3e8]",
+        "[SWEBOK excerpt 70492ae4501ab17c5e03]",
+        "[SWEBOK excerpt 9b986249a678d5dcb38c]",
+        "[SWEBOK excerpt 7557e0fdc78d4b8bf17d]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Mutation Testing as a Testing Criterion.md",
+          "why": "The continuation of §3.4 uses surviving mutants to generate additional tests. This complements the question about measuring an existing suite."
+        },
+        {
+          "leaf": "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Measurement and Coverage Analysis/Coverage Measures in Software Testing Techniques.md",
+          "why": "The leaf discusses coverage measures, which the question sets aside. Only the last sentence mentions measures that assess [SWEBOK excerpt e9b320107a45e3bdbec7]."
+        },
+        {
+          "leaf": "Software Development Systems and Quality Assurance/Software Construction Testing and Quality Assurance/Test Case Creation, Selection, and Prioritization.md",
+          "why": "Section 1.2.2 defines selection and adequacy criteria, including suite sufficiency and fault detection rate. It does not specify how to measure a suite's ability to find defects."
+        },
+        {
+          "leaf": "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Management and Process Monitoring/Test Team Organization and Process Measures.md",
+          "why": "Section 5.1.6 compares the defect detection effectiveness of testing phases and mentions defect detection percentage as a process-control measure. The first half of the leaf covers test teams (§5.1.5)."
+        }
+      ],
+      "expected_leaves": [
+        "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md",
+        "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation Testing and Fault Injection Evaluation.md",
+        "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Reliability Growth Models and Test Evaluation.md",
+        "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Effectiveness and Process Levels/Test Suite Effectiveness and Testing Process Integration.md"
+      ]
+    },
+    {
+      "id": "Q08",
+      "area": "testing",
+      "question": "After each change to a system, how should the team decide what to test again, and at which point of the process?",
+      "evidence": [
+        "[SWEBOK excerpt 01730d4eb6618630ff54]",
+        "[SWEBOK excerpt 15beb482f7972eaa992e]",
+        "[SWEBOK excerpt 521ff7c748ac2d014657]",
+        "[SWEBOK excerpt cd3bc3050c68817b6640]",
+        "[SWEBOK excerpt 6d5016e3ba6feecf5609]",
+        "[SWEBOK excerpt 66c396f8183925c565f8]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Development Systems and Quality Assurance/Software Construction Testing and Quality Assurance/Test Case Creation, Selection, and Prioritization.md",
+          "why": "The regression section refers to selection (§1.2.2) and prioritization (§1.2.3) to decide what to retest. These general sections do not discuss changes or retesting."
+        },
+        {
+          "leaf": "Software Testing Levels, Objectives, and Approaches/Test Case Prioritization for Fault Detection.md",
+          "why": "The regression section cites test case prioritization in §2.2.6. This leaf does not mention system changes."
+        },
+        {
+          "leaf": "Software Development Systems and Quality Assurance/Software Construction Testing and Quality Assurance/Test Case Minimization and Testing Purposes.md",
+          "why": "Only the opening sentence on suite minimization at the end of §1.2.3 is relevant. Sections 1.2.4 and 1.2.5 cover testing objectives, evaluation and certification."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Testing Strategies Across Methodologies and Domains/Test Automation and Domain-Specific Testing Approaches.md",
+          "why": "Continuous regression testing in CI/DevOps and automation as a way to manage regression risk help answer when to retest. They appear in a broader survey of strategies by methodology and domain."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Management and Organization/Impact Analysis in Software Maintenance.md",
+          "why": "Change impact analysis considers the testing a modification requires. It helps determine the scope of retesting without specifying test selection."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Impact Analysis in Software Maintenance.md",
+          "why": "Maintenance §2.1.3 identifies what a change affects. This can narrow retesting, although the Guide does not connect this leaf to selecting tests."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Testing Tools and Standards/Software Testing Tools and Techniques/Software Testing Tools and Techniques.md",
+          "why": "Regression testing tools rerun a suite after a modification. This is one entry in a tool list."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Testing Tools and Standards/Software Testing Tools and Techniques/Software Testing and Reliability Evaluation Tools.md",
+          "why": "The leaf starts with the end of the regression tools entry ([SWEBOK excerpt 2385d456b65f4063aae4]), which addresses choosing a subset based on the change. The remainder covers reliability and injection tools."
+        }
+      ],
+      "expected_leaves": [
+        "Software Testing Levels, Objectives, and Approaches/Alpha, Beta, and Regression Testing Procedures.md",
+        "Software Testing Levels, Objectives, and Approaches/Regression Testing in Software Development.md",
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Regression Testing Challenges in Software Maintenance.md",
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Installation and Operational Verification Processes/Effective Testing and Troubleshooting.md",
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance_ Technical, Management, and Comprehension Challenges/Software Comprehension and Testing in Maintenance.md"
+      ]
+    },
+    {
+      "id": "Q09",
+      "area": "security",
+      "question": "What general practices should developers follow when writing code so that attackers cannot exploit it?",
+      "evidence": [
+        "[SWEBOK excerpt cbd06b110f58c76ede3b].",
+        "[SWEBOK excerpt 3407c8e87c1a39fbebd9]",
+        "[SWEBOK excerpt c0a81ea6787b8d5799de]",
+        "[SWEBOK excerpt 8f40b96c3eae4c81b59a]",
+        "[SWEBOK excerpt f2e1c9cd563b0e6a0a20]",
+        "[SWEBOK excerpt 81a070864d9803e8ed76]",
+        "[SWEBOK excerpt f87e4e54fe032ae150bd]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Cryptographic Controls and Secure Software Construction.md",
+          "why": "The opening of §4.4 discusses the meaning and ambiguity of security in construction. It lists no practices. The remaining material covers security design (§4.2) and patterns (§4.3)."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+          "why": "Construction §3.6 relates construction defects to vulnerabilities ([SWEBOK excerpt 9536bea715ff8d35654a]) and mentions static security analysis in a broader discussion of construction quality."
+        },
+        {
+          "leaf": "Software Security Engineering and Professional Practice/Security Development and Testing Practices/Security Testing and Vulnerability Detection/Vulnerability Detection and Analysis Tools/Vulnerability Management and Security Tools.md",
+          "why": "Section 4.6 discusses coding practices, consulting CVE/CWE/CAPEC, and analysis tools for injection and buffer overflow. Its focus is vulnerability management."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Software Coding and Construction Testing Practices.md",
+          "why": "One item in the Construction coding checklist addresses preventing security flaws, including buffer overflows and array bounds."
+        },
+        {
+          "leaf": "Software Construction Methods and Languages/Programming Language Notation and Security Implications/Programming Language Notations and Security Considerations.md",
+          "why": "Language choice and unsafe C/C++ library use can affect vulnerability introduction. The leaf lists no coding practices."
+        },
+        {
+          "leaf": "Software Security Engineering and Professional Practice/Security Development and Testing Practices/Security Testing and Vulnerability Detection/Security Testing and Vulnerability Detection Methods/Security Testing Approaches and Vulnerability Detection.md",
+          "why": "Section 4.5 discusses static analysis for security testing. It relates to practice 9 in the CERT list, while the question asks about writing code."
+        }
+      ],
+      "expected_leaves": [
+        "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Secure Software Design and Implementation Practices/Secure Module Design and Error Handling Principles.md",
+        "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Secure Software Design and Implementation Practices/Software Construction Security and Privilege Management.md",
+        "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Security Best Practices and Design Principles.md",
+        "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Security Best Practices for Software Development.md",
+        "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Top 10 Software Security Practices.md",
+        "Software Security Engineering and Professional Practice/Security Development and Testing Practices/Software Security Best Practices.md"
+      ]
+    },
+    {
+      "id": "Q10",
+      "area": "construction",
+      "question": "How can a routine make its assumptions about inputs and outputs explicit and guard itself against callers passing it values it was not built to accept?",
+      "evidence": [
+        "[SWEBOK excerpt af145750616f7b99e184]",
+        "[SWEBOK excerpt 8befb527c08de3af0183]",
+        "[SWEBOK excerpt 135a69b5e6bb50e291a0]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Construction Techniques and Practices/Parameterization, Templates, Generics, and Assertions.md",
+          "why": "Includes the heading of §4.4 and a definition of assertions as executable predicates. The remainder concerns parameterized and generic types in §4.3."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Semantic Assumptions and Modeling Techniques/Semantic Assumptions in Models and Software/Semantic Discord and Function Modeling in Software.md",
+          "why": "Contains the title and opening sentence of Models §1.4 about assumptions before, during and after execution. The rest covers semantic disagreements in models."
+        },
+        {
+          "leaf": "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Secure Software Design and Implementation Practices/Secure Module Design and Error Handling Principles.md",
+          "why": "This secure coding rule ([SWEBOK excerpt 9451c10e38fc41e33d45]) covers checking and documenting assumptions at program level from a security perspective."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+          "why": "Explains responses after an error has been detected, including neutral values, error codes and exceptions. It complements input defense without covering explicit assumptions or input checks."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Software Coding and Construction Testing Practices.md",
+          "why": "One line in the coding considerations list (§3.3) mentions [SWEBOK excerpt bed528a62e7b385062e9] without further explanation."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+          "why": "Lists assertions and defensive programming among construction quality techniques without explaining them."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Verification and Prototyping Approaches/Formal Verification Methods and Approaches.md",
+          "why": "Logical inference specifies and proves preconditions and postconditions for design blocks. It addresses formal verification rather than writing a routine."
+        },
+        {
+          "leaf": "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Top 10 Software Security Practices.md",
+          "why": "The first CERT practice covers input validation from a security perspective. It does not discuss assumptions or individual routines."
+        }
+      ],
+      "expected_leaves": [
+        "Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+        "Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+        "Software Engineering Processes and Quality Assurance/Semantic Assumptions and Modeling Techniques/Preconditions, Postconditions, and Invariants in Functions.md"
+      ]
+    },
+    {
+      "id": "Q11",
+      "area": "maintenance",
+      "question": "What kinds of changes are made to software that is already in use, and what distinguishes each kind from the others?",
+      "evidence": [
+        "[SWEBOK excerpt 8dd31baf8d9fe24796f8]",
+        "[SWEBOK excerpt 785b1023ebf6381e0213]",
+        "[SWEBOK excerpt ec01b0a9b6142526e762]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Management and Organization/Software Maintainability and Technical Debt Management/Software Maintainability Definition and Importance.md",
+          "why": "In the maintainability leaf (§2.1.4), the ISO/IEC/IEEE 14764 definition lists modification types ([SWEBOK excerpt 024b5c699e78b8bf06d5]). Because of the extraction gap, this is one of the few places naming correction and adaptation. It does not distinguish the categories."
+        },
+        {
+          "leaf": "Software Maintenance Costs, Metrics, and Quality/Software Quality and Maintainability Metrics/Software Quality Measurement and Maintenance Metrics.md",
+          "why": "Names corrective, preventive, adaptive, additive and perfective maintenance as effort categories without defining or distinguishing them."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Role and Necessity.md",
+          "why": "The opening of §1.3 contains [SWEBOK excerpt f5658b7fbb60796ba696]. The list of purposes continues in the next leaf."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Effort Categories.md",
+          "why": "Refers to the §1.6 categories to present costs per category. It gives no descriptions."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Management and Organization/Software Maintainability and Technical Debt Management/Software Maintainability and Technical Debt in Development.md",
+          "why": "Briefly mentions corrective, emergency and additive work as a source of technical debt."
+        }
+      ],
+      "expected_leaves": [
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md",
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md"
+      ]
+    },
+    {
+      "id": "Q12",
+      "area": "design + maintenance",
+      "question": "How should modules be organized so that the software stays easy to maintain, and how can an existing badly structured program be improved without its users noticing any difference?",
+      "evidence": [
+        "[SWEBOK excerpt 747a57aa9e93586dca62]",
+        "[SWEBOK excerpt 39742602fae3ff95f6c7]",
+        "[SWEBOK excerpt 94a71ae6de3f6d77ae41]",
+        "[SWEBOK excerpt 7d0735930d47d881cda0]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Separation of Concerns and Modularization in Software Design.md",
+          "why": "The leaf finishes the separation of concerns item begun in Software Design Principles and Decision-Making Methods.md. It contains only the first sentence on modularization, which continues in the Component Modularization leaf."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/Architectural Design Languages, Decisions, and Technical Debt/Technical Debt and Software Architecture Process.md",
+          "why": "An architectural debt example connects poor modularity to maintainability and the need for extensive refactoring before adding features. It gives neither a module organization method nor a definition of refactoring."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Technical Debt Cost Estimation and Maintenance.md",
+          "why": "Lists ISO/IEC/IEEE 14764 suggestions for maintainable code, including structured code, lower complexity, comments, indentation and inspections. The question concerns reorganizing an existing program while preserving behavior."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Metrics and Evaluation.md",
+          "why": "Lists module coupling and cohesion as architectural metrics without elaboration."
+        },
+        {
+          "leaf": "Foundations of Mathematics and Computational Systems/Abstraction Levels and Encapsulation in Software Engineering.md",
+          "why": "Computing Foundations describes encapsulation as hiding details. This complements the design principle without discussing maintenance."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Reengineering and Legacy System Modernization.md",
+          "why": "Defines reengineering, which includes refactoring, and notes that replacing legacy software is a common objective. The question focuses on maintainability."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Agile Development Methodologies_ XP and Scrum.md",
+          "why": "Briefly mentions continuous refactoring in XP."
+        }
+      ],
+      "expected_leaves": [
+        "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Component Modularization and Single Responsibility Principle.md",
+        "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md",
+        "Software Maintenance Costs, Metrics, and Quality/Software Quality and Maintainability Metrics/Measurable Characteristics of Software Maintainability.md",
+        "Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md"
+      ]
+    },
+    {
+      "id": "N01",
+      "area": "Software Requirements",
+      "question": "A feature request I have to implement is written as loose prose, and the product owner and I keep reading it differently. How should the team pin down, together with the domain experts and before any code is written, what the feature must do, so that it cannot be misread?",
+      "evidence": [
+        "[SWEBOK excerpt f149680c20f12105777f]",
+        "[SWEBOK excerpt f8cf3730af2e7079bb00]",
+        "[SWEBOK excerpt 8ab172adb0860b3cbf7d]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Acceptance Testing/Failing Test Cases Drive Production Code Changes.md",
+          "why": "ATDD step 3 requires at least one failing acceptance test before changing code. This describes the workflow rather than how to write the requirement."
+        },
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Requirements Specification/Acceptance Test-Driven Development Process Cycle.md",
+          "why": "The ATDD cycle ends when all acceptance tests for the feature pass. This adds process context."
+        },
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+          "why": "The leaf finishes §4.3 on the limitations of ATDD/BDD and combining it with coverage criteria. Section 4.4 introduces modeling as another way to reduce natural-language ambiguity."
+        },
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Natural Language Requirements Specifications/Structured Natural Language Requirements Specification.md",
+          "why": "Structured natural language, actor-action formats and use cases can also improve precision. This is a weaker alternative."
+        },
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Analysis and Refinement/Software Requirements Properties and Quality Criteria.md",
+          "why": "Lists desirable requirement properties such as testability and lack of ambiguity without explaining how to write the requirement."
+        },
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Requirement Specification Formats and Structures/User Story Format and Specification Guidelines.md",
+          "why": "A short leaf on the BDD user story format. It omits the technique itself."
+        },
+        {
+          "leaf": "Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md",
+          "why": "Mentions the ease of converting BDD scenarios to test cases in the context of generation tools."
+        },
+        {
+          "leaf": "Software Testing Levels, Objectives, and Approaches/System and Acceptance Testing/Acceptance Testing and User Verification.md",
+          "why": "The Testing knowledge area describes defining acceptance tests before implementation as an ATDD activity and refers to Requirements §4.3."
+        },
+        {
+          "leaf": "Software Development Systems and Quality Assurance/Software Construction Techniques and Tools/Performance Optimization and Development Practices/Test-First Programming and Test-Driven Development.md",
+          "why": "Construction covers TDD and test-first development, which underpin ATDD, at the unit level."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Agile Development Methodologies_ XP and Scrum.md",
+          "why": "Models and Methods briefly mentions that the customer participates in the XP team and often defines acceptance tests."
+        }
+      ],
+      "expected_leaves": [
+        "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Acceptance Testing/Acceptance Criteria-Based Requirements Specification.md",
+        "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Requirements Specification/Acceptance Criteria and BDD Scenarios for Banking Systems.md",
+        "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Requirements Specification/Test Cases, Requirements, and Behavior-Driven Development.md"
+      ]
+    },
+    {
+      "id": "N02",
+      "area": "Software Architecture",
+      "question": "A coding agent proposes splitting a large module into several networked services. Before anyone implements it, how can the team check whether this high-level structure will meet goals that pull against each other, such as response time, hosting cost and ease of future change?",
+      "evidence": [
+        "[SWEBOK excerpt 4c9aee4911a12d4273b8]",
+        "[SWEBOK excerpt 877d12fda202aa627241]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Documentation and Use Case Evaluation.md",
+          "why": "At the end of §4.2, undocumented architecture is evaluated from participants' knowledge, and use cases check completeness and consistency. This is a functional evaluation method. The question asks about conflicting quality goals."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Evaluating Software Architectures Through Specialized Representations.md",
+          "why": "The start of §4.2 discusses a basis for evaluating each concern, the value of existing descriptions, and representations specific to security and reliability. It describes no specific method."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Architecting in the Large and Architecture Evaluation.md",
+          "why": "Most of the leaf covers architecting in the large (§3.4). Only the end introduces independent evaluation at defined milestones (§4.1)."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Architecture Evaluation and Practices Methods.md",
+          "why": "Section 3.2.3 briefly describes checking solutions against architecturally significant requirements and refers to topic 4."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/Architectural Design Languages, Decisions, and Technical Debt/Architecture as Significant Decisions.md",
+          "why": "Trade-offs between competing quality attributes often guide architectural decisions. This leaf concerns making the decision rather than evaluating it."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture_ Contexts, Methods, and Design Processes/Architecture Analysis and Synthesis/Architecture Synthesis and Design Problem Resolution.md",
+          "why": "In §3.2.2 synthesis trades off interactions among candidate solutions. This precedes evaluation."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Metrics and Evaluation.md",
+          "why": "Section 4.4 covers architecture metrics such as dependencies, cycles and coupling, alongside DevOps metrics. It is secondary and also relates to Q12."
+        },
+        {
+          "leaf": "Software Design Quality Evaluation and Assessment/Software Quality Analysis and Evaluation Techniques.md",
+          "why": "Design §6.3 lists architecture reviews and scenario-based techniques for evaluating designs."
+        },
+        {
+          "leaf": "Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Design Documentation and Evaluation/Software Design Analysis and Work Product Evaluation.md",
+          "why": "Design outputs are analyzed against requirements and constraints, with alternative solutions and trade-offs considered. This provides general context."
+        },
+        {
+          "leaf": "Professional Practice and Collaboration in Software Engineering/Professional Responsibility and Intellectual Property in Software Engineering/Documentation and Requirements Trade-off Management/Trade-Off Analysis in Software Engineering.md",
+          "why": "Professional Practice discusses identifying competing requirements and assigning relative weights to design goals. Its focus is requirements."
+        },
+        {
+          "leaf": "Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md",
+          "why": "Economics briefly classifies ATAM as a compensatory multiattribute decision technique."
+        }
+      ],
+      "expected_leaves": [
+        "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Reviews and Metrics for Quality Assessment.md",
+        "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md"
+      ]
+    },
+    {
+      "id": "N03",
+      "area": "Software Engineering Models and Methods",
+      "question": "A component handles messages from several concurrent producers and misbehaves only when the messages come in some rare order that our tests almost never hit. How can we show, before release, that it works whatever order they come in, and what do we need to build to do that?",
+      "evidence": [
+        "[SWEBOK excerpt e0ded7e26660f8e788a9].",
+        "[SWEBOK excerpt 0688b91b3eb311b0f5eb]."
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Development Methodologies and Approaches/Formal Methods in Software Engineering.md",
+          "why": "The opening of Models and Methods §4.2 discusses using formal methods to check model consistency, completeness and correctness. It has yet to introduce model checking."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Formal Methods and Specification Languages.md",
+          "why": "The short continuation of §4.2 introduces specification languages and lists refinement, formal verification, logical inference and lightweight methods."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Specification Languages and Program Refinement.md",
+          "why": "Specification languages provide the syntax, semantics and relationships for a rigorous model. This partially answers what to construct, while leaving the ordering checks unspecified."
+        },
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Engineering_ Viability, Verification, and Stakeholder Management/Formal Analysis in Requirements Engineering.md",
+          "why": "Requirements §3.3 discusses proving properties such as freedom from deadlock from formal requirements. It applies the same idea in a different setting."
+        },
+        {
+          "leaf": "Requirements Management, Quality, and Testing Practices/Requirements Measurement, Quality, and Process Improvement/Software Requirements Tools Categories and Functions.md",
+          "why": "Formal analysis tools include theorem provers and model checkers. The discussion notes the limits of automated proof."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Development Methods/Analyzing Software Requirements for Completeness.md",
+          "why": "Models and Methods §3.1 describes modeling tools that use state-space reachability analysis to check completeness."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Verification, Validation, and Quality Assurance Practices/Software Analysis Techniques and Verification Methods/Dynamic and Formal Analysis Techniques in Software Engineering.md",
+          "why": "Quality §§3.4.2–3.4.3 briefly classifies model checking as dynamic analysis and defines formal analysis."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Verification, Validation, and Quality Assurance Practices/Verification and Validation Analysis Techniques/Boundaries Between Static, Dynamic, and Formal Analysis.md",
+          "why": "Quality notes that the boundaries between forms of analysis are indistinct and mentions model checking."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Verification, Validation, and Quality Assurance Practices/Formal Methods and Testing in Software Development.md",
+          "why": "Quality briefly notes the use of formal methods for critical parts of a system, including security and safety."
+        }
+      ],
+      "expected_leaves": [
+        "Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Formal Verification and Specification Refinement in Software Engineering.md",
+        "Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Verification and Prototyping Approaches/Formal Verification Methods and Approaches.md"
+      ]
+    },
+    {
+      "id": "N04",
+      "area": "Software Engineering Operations",
+      "question": "Each new version of our web service is switched on for every user at the same moment, so a single faulty version breaks the service for everyone and getting the previous version back takes hours. How should we change the way new versions go live to limit the damage?",
+      "evidence": [
+        "[SWEBOK excerpt c7b067e621bd55e8baec]",
+        "[SWEBOK excerpt 1ec382bc07b0da2816e2]",
+        "[SWEBOK excerpt 5a9fb7b5d027756af2b1]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Rollback and Data Migration in Software Deployment.md",
+          "why": "The leaf ends §3.2 with automatic reversal of changes that fail validation. It gives only the one-line opening of §3.3. The main rollback discussion is in the evidence leaf."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Deployment and Release Engineering in Software Operations.md",
+          "why": "Distinguishes deployment from releasing a feature to a segment such as 5% of customers. Automated deployment steps and smoke testing provide background on the strategy."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Installation and Operational Verification Processes/Production Environment Testing and Verification/Production System Testing Challenges and Techniques.md",
+          "why": "Briefly mentions canary testing and dark launches as production testing techniques."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Engineering Operations Control Techniques.md",
+          "why": "Change management assesses each change's risk and the need for a rollback strategy on failure."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Operations Planning and Supplier Management/Operations Planning and Request Management Strategy.md",
+          "why": "Version planning calls for assessing risk and preparing rollback and data migration plans."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Operational Risk Management in Software Operations.md",
+          "why": "Recommends matching the deployment process to the service's risk profile and automating alerts."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/DevOps Continuous Delivery and Independent Deployments.md",
+          "why": "Delivering small, independent changes reduces the impact of each change compared with large releases. This is indirect support."
+        }
+      ],
+      "expected_leaves": [
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Automated Deployment and Canary Release Testing.md",
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Release Engineering Strategies and Risk Reduction.md",
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Rollback and Problem Resolution in DevOps.md"
+      ]
+    },
+    {
+      "id": "N05",
+      "area": "Software Configuration Management",
+      "question": "A customer reports a defect in the executable we shipped to them two years ago, and to investigate it we need that very same executable back, byte for byte, but the toolchain and third-party libraries on our machines have been upgraded since then. What should the team have been tracking and preserving so that this would be possible?",
+      "evidence": [
+        "[SWEBOK excerpt 794372d26323c59924f7]",
+        "[SWEBOK excerpt fc32d136512cdcba6f40]",
+        "[SWEBOK excerpt 0fdd814e97c1328ca64d]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Release Management Tools and Documentation Requirements.md",
+          "why": "The end of §6.2 covers tracking product distribution by customer or target system and maintaining customer platform and environment information. This helps identify a customer's version without specifying what to preserve for a rebuild."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Item Definition and Management.md",
+          "why": "Section 2.1.2 starts by defining configuration items and software configuration items and explaining why SCM controls more than source code. The expected leaf continues that paragraph with the tools, executables and libraries."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Software Release Management and Deployment Processes.md",
+          "why": "Defines the version description document (VDD), which records a release's physical contents. It helps identify what was delivered. The leaf begins with the end of §6.1 on continuous integration."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Build Quality Assurance and Configuration Management/Software Build Artifacts and Continuous Integration Processes.md",
+          "why": "Opens with the SBOM and the artifacts included in a build, including libraries. The remaining text discusses continuous integration."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Build Quality Assurance and Configuration Management/Build Process Quality Verification and Documentation.md",
+          "why": "Briefly states that build outputs may be needed for future reference."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Configuration Management System Tools and Components.md",
+          "why": "Mentions a repository for storing built binaries for redeployment. This provides tooling context."
+        }
+      ],
+      "expected_leaves": [
+        "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/In-Process Audits and Software Release Management.md",
+        "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Software Build Tools and Version Control Management.md",
+        "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management and Change Control/Software Configuration Items Selection and Change Recording.md"
+      ]
+    },
+    {
+      "id": "N06",
+      "area": "Software Quality",
+      "question": "At the end of each release our bug tracker tells us only how many bugs were found, and that count gives the team nothing to act on. What should we do with our bug records so that they help us introduce fewer bugs in later releases?",
+      "evidence": [
+        "[SWEBOK excerpt 3488522c10f5d5562e37]",
+        "[SWEBOK excerpt bcc82cdbad3e6dcf9632]",
+        "[SWEBOK excerpt a9b4f9e7e26c2c8283ce]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Software Quality Measurements and Reliability Models.md",
+          "why": "In §2.3, software process improvement uses defect density to prevent recurrence and domain-specific defect profiles to focus effort on the next project. Half the leaf concerns reliability models and when to stop testing."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Assurance Process and Activities.md",
+          "why": "The leaf finishes §2.4.1 on recording review data and producing tool-generated defect trend reports. It then starts the SQA section."
+        },
+        {
+          "leaf": "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Root Cause Analysis Methods and Application/Root Cause Analysis Techniques.md",
+          "why": "Engineering Foundations lists [SWEBOK excerpt ac92d9b4434a6b594a2f] as a purpose of RCA and describes the Five Whys and Ishikawa techniques. This is central to N13 on investigation methods and secondary here, where the question concerns using defect records."
+        },
+        {
+          "leaf": "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Root Cause Analysis Methods and Application/Root Cause Analysis in Process Improvement.md",
+          "why": "Engineering Foundations describes choosing a problem by Pareto analysis or by frequency and severity. This provides general guidance."
+        },
+        {
+          "leaf": "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/SUT Measurements and Fault Classification for Test Planning.md",
+          "why": "Testing §4.1.2 connects failure taxonomies and historical frequencies with process improvement and refers to defect characterization in Quality."
+        },
+        {
+          "leaf": "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md",
+          "why": "Testing mentions orthogonal defect classification (ODC) for recording defect semantics and reducing RCA effort. The same leaf is expected for Q07 because of its separate discussion of mutation testing."
+        }
+      ],
+      "expected_leaves": [
+        "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Corrective and Preventive Actions in Quality Management.md",
+        "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md",
+        "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md"
+      ]
+    },
+    {
+      "id": "N07",
+      "area": "Software Engineering Management",
+      "question": "We are planning a project that depends on a third-party API nobody on the team has used and on a performance target we may not be able to reach. How should we handle these things that could go wrong, both when planning the work and while it is under way?",
+      "evidence": [
+        "[SWEBOK excerpt 7ab06a8ab9bf144b1ccb]",
+        "[SWEBOK excerpt 20fa4dff62c3aa291a87])",
+        "[SWEBOK excerpt 9796a64f0b7b797d303d]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Project Planning and Lifecycle Management/Adaptive Software Development and Stakeholder Engagement.md",
+          "why": "Management §2.1 calls for risk assessment during initial planning in any lifecycle and for stakeholders to discuss and accept the risk profile. This addresses planning, but appears only in the last sentence of a leaf on predictive and adaptive lifecycles."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Project Planning and Lifecycle Management/Software Project Planning and SDLC Model Selection.md",
+          "why": "Management §2.1 briefly connects lifecycle selection and tailoring to scope, requirements and risk. Detailed planning can reduce risk and cost."
+        },
+        {
+          "leaf": "Software Quality Management and Project Oversight/Software Acquisition and Project Oversight/Risk Monitoring and Control Management/Risk Exposure Recalculation and Threshold Monitoring.md",
+          "why": "Monitor Process (§3.4) calls for recalculating exposure and reporting exceeded thresholds during a project. This is general monitoring outside §2.5."
+        },
+        {
+          "leaf": "Software Quality Management and Project Oversight/Software Acquisition and Project Oversight/Risk Monitoring and Control Management/Project Monitoring and Risk-Based Decision Making.md",
+          "why": "Control Process (§3.5) describes changing a project through corrective action when risk likelihood and impact are known. This is secondary."
+        },
+        {
+          "leaf": "Software Quality Management and Project Oversight/Software Acquisition and Project Oversight/Data Acquisition and Project Measurement/Implementation and Monitoring of Software Project Measurement.md",
+          "why": "Section 3.4 devotes one sentence to revisiting the project's risk profile during monitoring."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Data Collection, Quality Assurance, and Project Monitoring/Project Tracking and Risk Management Tools.md",
+          "why": "Management lists decision trees and Monte Carlo simulation as risk monitoring tools. These support the practice."
+        },
+        {
+          "leaf": "Professional Practice and Collaboration in Software Engineering/Collaboration, Communication, and Cognition in Software Engineering/Managing Uncertainty and Team Dynamics in Software Projects/Managing Uncertainty and Risk in Software Projects.md",
+          "why": "Professional Practice treats uncertainty that investigation cannot resolve as project risk that changes estimates. It refers to Risk Management in the Management knowledge area."
+        },
+        {
+          "leaf": "Engineering Decision-Making and Financial Analysis/Estimation, Decision Analysis, and Investment Evaluation/Engineering Decision-Making Under Uncertainty and Risk.md",
+          "why": "Economics discusses selecting alternatives under risk and uncertainty using estimate ranges, sensitivity analysis and expected value. Its focus differs."
+        }
+      ],
+      "expected_leaves": [
+        "Risk Management and Quality Assessment/Continuous Risk and Quality Management/Risk Management Throughout Project Life Cycle.md",
+        "Risk Management and Quality Assessment/Risk Assessment Methods and Software Project Risk Management.md",
+        "Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md"
+      ]
+    },
+    {
+      "id": "N08",
+      "area": "Software Engineering Process",
+      "question": "A recurring workflow in our team passes work from one person to the next, and today only two senior developers know how it goes. I want to write it down so that new developers and automated coding agents follow it the same way every time: what must the write-up state, and in what forms can it be written?",
+      "evidence": [
+        "[SWEBOK excerpt 47bd2c965711c92d2c7a]",
+        "[SWEBOK excerpt 3d38e79e462547e07bb3]",
+        "[SWEBOK excerpt 7a55250453a07381894a]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Engineering Processes and System Lifecycles/Software Engineering Process Definition and Structure/Software Engineering Process Definition.md",
+          "why": "The first half of §1.2 defines processes, activities and tasks, including inputs, outputs and outcomes. The expected leaf in the same section already summarizes these points, so this leaf was left out of the three evidence selections. Only this leaf matches [SWEBOK excerpt 2a1dcb8796de5195e2dd]."
+        },
+        {
+          "leaf": "Engineering Decision-Making Through Data and Standards/ISO_IEC_IEEE Software Engineering Standards Overview/Software Engineering Standards and Development Organizations/ISO Standard for Process Description in Software Engineering.md",
+          "why": "Outside the knowledge area, Appendix B cites ISO/IEC/IEEE 24774 on process purpose, outcomes, activities, tasks and possible inputs and outputs. This directly addresses what the written description should state."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Integrated Tools and Software Engineering Environments.md",
+          "why": "The continuation of §2.10 says that tools should support and integrate with the methods. It is secondary."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Engineering Lifecycle Management and Evolution/Life Cycle Process Definition for Very Small Entities.md",
+          "why": "Sections 2.8 and 2.9 discuss documenting lifecycle tailoring decisions and their rationale and specifying four process categories for a lifecycle. This is broader than one workflow."
+        }
+      ],
+      "expected_leaves": [
+        "Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Engineering Processes and System Lifecycles/Software Engineering Process Definition and Structure/Software Process Definition and Components.md",
+        "Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Process Foundations and Measurement/Software Process Infrastructure Tools and Notations.md",
+        "Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Processes and Life Cycle Management/Software Process Definition and Life Cycle Specification.md"
+      ]
+    },
+    {
+      "id": "N09",
+      "area": "Software Engineering Economics",
+      "question": "I must choose one of three candidate libraries for our product. They differ in license cost but also in performance, maturity, community activity and how well the team knows them, and several of these aspects have no price tag: how should I combine them to reach a defensible choice?",
+      "evidence": [
+        "[SWEBOK excerpt a825f07be0399624ab5e]",
+        "[SWEBOK excerpt 7191cefe3345494b26db]",
+        "[SWEBOK excerpt 5bbe2ab76399af5890eb]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md",
+          "why": "Section 2.4 explains when a decision involves several attributes, how to express objective criteria and how to handle intangible criteria. Too many or too few criteria can be problematic. This helps define criteria but leaves their combination open. Only this leaf matches [SWEBOK excerpt ee68d297e70de515ebc1]."
+        },
+        {
+          "leaf": "Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Evaluating Alternatives Against Selection Criteria.md",
+          "why": "Sections 2.5 and 2.6 describe evaluating alternatives against each criterion using a common basis and time horizon, then selecting a technique to evaluate criteria together. This precedes combination."
+        },
+        {
+          "leaf": "Professional Practice and Collaboration in Software Engineering/Professional Responsibility and Intellectual Property in Software Engineering/Documentation and Requirements Trade-off Management/Trade-Off Analysis in Software Engineering.md",
+          "why": "Professional Practice §1.9 starts trade-off analysis by defining goals and their relative importance. It addresses how to combine them from another knowledge area."
+        },
+        {
+          "leaf": "Professional Practice and Collaboration in Software Engineering/Professional Responsibility and Intellectual Property in Software Engineering/Ethical Trade-off Analysis in Software Engineering Design.md",
+          "why": "Professional Practice §1.9 continues with examples such as minimizing cost and maximizing performance. Objective and impartial selection of criteria and weights makes the choice defensible."
+        },
+        {
+          "leaf": "Engineering Decision-Making and Financial Analysis/Intangible Asset Valuation and Software Estimation Methods/Decision-Making for Software Product Selection.md",
+          "why": "Economics §7.7 uses selecting a software product as an example of a multiattribute decision. It illustrates an application."
+        },
+        {
+          "leaf": "Software Product Management and Engineering Frameworks/Software and Systems Life Cycle Management/Pricing Strategy and Project Prioritization/Pricing Strategy and Prioritization in Project Management.md",
+          "why": "Economics §10.14 on prioritization ranks alternatives using common criteria and makes the ordering explicit with compensatory techniques. The tree boundary places the end of the pricing discussion at the start of this leaf."
+        },
+        {
+          "leaf": "Software Construction Methods and Languages/Dependency Management and Construction Practices/Managing Software Dependencies and Supply Chain Risks.md",
+          "why": "Construction discusses avoiding unreliable or unnecessary dependencies and license conflicts. The scenario might retrieve this leaf, although it gives no way to combine criteria."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Software Reuse and Cloud-Based Development/Software Construction for and with Reuse.md",
+          "why": "Construction with reuse lists selecting reusable units and evaluating third-party open-source libraries. These list entries are another plausible search result."
+        }
+      ],
+      "expected_leaves": [
+        "Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory Techniques for Multiple Criteria Assessment.md",
+        "Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md",
+        "Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Multiple-Attribute Decision-Making Beyond Financial Criteria.md"
+      ]
+    },
+    {
+      "id": "N10",
+      "area": "Software Engineering Professional Practice",
+      "question": "I am handing over a finished system to a client whose in-house team will keep developing it after delivery. Besides the program itself, what written material should I prepare for the client, for its end users and for my own organization, and for how long should it be retained?",
+      "evidence": [
+        "[SWEBOK excerpt e91afdd4c63d2fb83150]",
+        "[SWEBOK excerpt 03093f1055a52d120f04]",
+        "[SWEBOK excerpt 25b9ffd7c214c0b41f8e]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Professional Practice and Collaboration in Software Engineering/Collaboration, Communication, and Cognition in Software Engineering/Writing and Communication in Software Engineering.md",
+          "why": "Writing (§3.2) lists plans, requirements, designs, test plans and user manuals, and discusses making them accessible and relevant to their audience. This is general guidance outside the handover setting."
+        },
+        {
+          "leaf": "Professional Practice and Collaboration in Software Engineering/Collaboration, Communication, and Cognition in Software Engineering/Communication and Technical Literacy Skills/Communication Skills in Software Engineering.md",
+          "why": "Section 3 devotes one sentence to the role of training and documentation in acceptance and safe use."
+        },
+        {
+          "leaf": "Software Security Engineering and Professional Practice/Professional Standards, Certification, and Legal Frameworks/Professional Ethics, Standards, and Business Practices in Software Engineering/Professional Ethics and Conduct Standards/Professional Ethics Codes and Enforcement in Computing.md",
+          "why": "Section 1.2 treats withholding risk or important information as a breach of ethics by omission. It provides ethical context without specifying what to document."
+        },
+        {
+          "leaf": "Software Quality Management and Project Oversight/Software Measurement and Organizational Learning/Project Closure and Archival Procedures.md",
+          "why": "Management §5.2 covers agreements with stakeholders on how, where and for how long to archive project materials at closure. It is the other passage addressing the retention period."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Release Management Tools and Documentation Requirements.md",
+          "why": "Release Management describes release notes covering features, known issues and platform requirements, plus installation or upgrade instructions. It concerns written material delivered with a release in a different knowledge area."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Software Release Management and Deployment Processes.md",
+          "why": "Configuration Management §6.2 groups executables, documentation, release notes and configuration data into a release whose contents are recorded in a VDD. This is secondary."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Management and Organization/Organizing Software Maintenance Responsibilities/Developer vs. Separate Maintenance Team Trade-offs.md",
+          "why": "Maintenance briefly discusses handover to another team and maintaining sound documentation of work and changes."
+        },
+        {
+          "leaf": "Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+          "why": "Maintenance defines transition as a controlled transfer to the people responsible for operation and maintenance. It gives no documentation requirements."
+        }
+      ],
+      "expected_leaves": [
+        "Professional Practice and Collaboration in Software Engineering/Professional Responsibility and Intellectual Property in Software Engineering/Documentation and Requirements Trade-off Management/Documentation Standards and Requirements for Software Engineers.md"
+      ]
+    },
+    {
+      "id": "N11",
+      "area": "Computing Foundations",
+      "question": "Our orders table repeats the customer's name and address on every order row, and after a customer moves some rows show the old address while others show the new one. How should the tables be restructured, and what does that cost when querying the data?",
+      "evidence": [
+        "[SWEBOK excerpt d604dd5d2cc31beb2cbe]",
+        "[SWEBOK excerpt 1804ac2ec9ad86e3d10f]",
+        "[SWEBOK excerpt 573f71b61ba3b023911d]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms Fourth Through Sixth.md",
+          "why": "Defines 4NF through 6NF/DKNF, beyond what the question requires, and notes that most databases are normalized to 3NF or BCNF. This is useful secondary context."
+        },
+        {
+          "leaf": "Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Languages and Relational Database Management Systems.md",
+          "why": "Section 6.4 opens with redundancy and inconsistency in file-based databases and the role of relational systems in reducing redundancy. Half the leaf concerns database languages and DBMS components."
+        },
+        {
+          "leaf": "Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Structured Query Language and Data Management Fundamentals.md",
+          "why": "The opening lines finish the normalization section, noting that more tables can increase processing time. Most of the leaf discusses SQL."
+        },
+        {
+          "leaf": "Software Engineering Fundamentals and System Architecture/Database Schema Structure and Design.md",
+          "why": "Lists primary, foreign, composite and other keys used to link the resulting tables. This helps with implementation."
+        }
+      ],
+      "expected_leaves": [
+        "Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms and Requirements.md",
+        "Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md",
+        "Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/RDBMS Types and Database Normalization Fundamentals.md"
+      ]
+    },
+    {
+      "id": "N12",
+      "area": "Mathematical Foundations",
+      "question": "A test accepts a computed result when its difference from the expected value is below 0.001, which is far too strict for values in the millions and far too loose for values around 0.0001. How should the discrepancy be measured instead, and how does that measure tell how many leading digits of the result can be trusted?",
+      "evidence": [
+        "[SWEBOK excerpt 297dadd84958fa3cc461]",
+        "[SWEBOK excerpt 5f996de4eb1378c04b87]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Fixed-Point Arithmetic and Numerical Precision.md",
+          "why": "Defines accuracy in terms of proximity to the true value, distinguishes precision and compares fixed-point and floating-point representation. It gives no procedure for measuring error."
+        },
+        {
+          "leaf": "Foundations of Mathematics and Computational Systems/Random Variables and Probability Distributions/Discrete Probability Properties and Numerical Representation.md",
+          "why": "Despite the title, most of the leaf concerns representing real numbers, including rounding, truncation and overflow. It explains why a computed value can differ from an exact one without quantifying the difference."
+        }
+      ],
+      "expected_leaves": [
+        "Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+        "Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md"
+      ]
+    },
+    {
+      "id": "N13",
+      "area": "Engineering Foundations",
+      "question": "The same kind of failure keeps coming back in production even though every occurrence was patched as soon as it was reported. What methods can the team use to trace the failure back to what is really producing it, so that the fix keeps it from happening again?",
+      "evidence": [
+        "[SWEBOK excerpt cd70ac4329f64da7d99b]",
+        "[SWEBOK excerpt 9f9229ba5d45ad614a3a]",
+        "[SWEBOK excerpt 1345849a6fbf97e2e1c1]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Root Cause Analysis Methods and Application/Engineering Standards and Root Cause Analysis Methods.md",
+          "why": "Contains the heading of §9 and defines RCA in terms of investigating why and how an unwanted outcome occurred to prevent recurrence. Half the leaf covers engineering standards, so it carries only the introduction."
+        },
+        {
+          "leaf": "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Root Cause Analysis Methods and Application/Root Cause Analysis in Process Improvement.md",
+          "why": "Section 9.2 gives the first two steps of systematic improvement with RCA: select a problem through Pareto analysis or frequency and severity, then gather evidence. The question asks for investigation methods."
+        },
+        {
+          "leaf": "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Industry 4.0 and Software Engineering Integration.md",
+          "why": "An Industry 4.0 leaf starts with steps 3–6 from §9.2: identify the cause, choose corrective actions to prevent recurrence, implement them and observe. The tree boundary leaves only part of the process here."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Rollback and Problem Resolution in DevOps.md",
+          "why": "Operations §3.4 discusses recurring production problems with possible infrastructure or component causes, using monitoring, logging and profiling. Its wording makes it a plausible partial answer, but it omits the RCA techniques."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Corrective and Preventive Actions in Quality Management.md",
+          "why": "SQA §2.4.1 connects eliminating the cause of a nonconformity and preventing recurrence to statistical quality control and defect classification. Counts alone are insufficient. The leaf omits RCA techniques."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md",
+          "why": "A brief reference outside this knowledge area identifies RCA as a quality management activity for eliminating defect causes and points to Engineering Foundations."
+        }
+      ],
+      "expected_leaves": [
+        "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Root Cause Analysis Methods and Application/Root Cause Analysis Methods and Techniques.md",
+        "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Root Cause Analysis Methods and Application/Root Cause Analysis Techniques.md",
+        "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Root Cause Analysis Methods and Application/Root Cause Analysis in Software Projects.md"
+      ]
+    }
+  ]
+}
