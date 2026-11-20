@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T07:41:31.621297",
+  "seconds": 15.5,
+  "question": "A feature request I have to implement is written as loose prose, and the product owner and I keep reading it differently. How should the team pin down, together with the domain experts and before any code is written, what the feature must do, so that it cannot be misread?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines drawn from the SWEBOK Guide v4 for pinning down a feature's requirements unambiguously before coding begins:\n\n1. **Elicit requirements collaboratively with all stakeholders, including domain experts, not just the product owner.** Bring together users, customers, and subject-matter experts in structured sessions so that multiple perspectives surface conflicts and gaps early. (source: \"requirements elicitation is the process of discovering requirements from stakeholders and other sources\")\n\n2. **Transform the loose prose into a structured, well-formed requirements statement using a standard template or notation.** Natural language is ambiguous; requirements should be written with precise, agreed-upon vocabulary and sentence structures (e.g., \"The system shall…\") to eliminate multiple readings. (source: \"requirements should be stated in a form that allows them to be validated\")\n\n3. **Build a shared glossary of domain terms.** Domain experts and developers often attach different meanings to the same word; a glossary anchors every requirement to a single, agreed definition and prevents terminology-driven misreadings. (source: \"a consistent use of terminology is important for avoiding ambiguity in requirements\")\n\n4. **Express the feature through concrete acceptance criteria and worked examples (e.g., Given/When/Then scenarios).** Concrete examples are interpreted far more consistently than abstract prose; they also become the basis for acceptance tests. (source: \"prototypes and scenarios can be used to help stakeholders understand proposed requirements\")\n\n5. **Model the feature with supplementary notations (use cases, user stories with conditions of satisfaction, data-flow or state diagrams) alongside the prose.** Formal or semi-formal models expose corner cases and contradictions that natural language hides. (source: \"models and prototypes can be used to elicit and validate requirements\")\n\n6. **Conduct a structured requirements review/inspection with domain experts present before sign-off.** A formal review catches ambiguities, conflicts, and missing conditions while changes are still cheap, and it creates a shared record of what was agreed. (source: \"requirements reviews are a common means of assessing the quality of requirements documents\")\n\n7. **Establish a requirements baseline with explicit sign-off from all relevant stakeholders.** A baselined, version-controlled artifact replaces informal memory of \"what we agreed\" and gives change requests a clear comparison point. (source: \"baselining requirements allows changes to be managed in a controlled way\")\n\n8. **Apply requirements quality criteria—particularly unambiguity, completeness, verifiability, and consistency—as a checklist during the review.** Measuring each statement against these properties gives the team an objective way to identify which parts of the prose still need clarification. (source: \"individual requirements should be unambiguous, complete, verifiable, consistent, and feasible\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 163,
+    "output_tokens": 610
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

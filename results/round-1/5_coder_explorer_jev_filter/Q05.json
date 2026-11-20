@@ -1,0 +1,144 @@
+[
+ {
+  "start": "2026-11-19T07:34:57.703841",
+  "seconds": 58.1,
+  "question": "How should test inputs be chosen for a function that accepts numeric values within a valid range?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 8 of 8 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Partition the input domain into equivalence classes (valid and invalid ranges) and select at least one representative test case from each class. [SWEBOK excerpt 29ab9da822777302a58c] based on a specified criterion — such as valid inputs accepted by the function and invalid inputs — so that [SWEBOK excerpt dd8fed384b4cad99a3f4] taken from each equivalence class. (source: root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md; root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md) [JEV 0.96]\n- Choose test cases on or near the boundaries of the numeric input range, because [SWEBOK excerpt 44266d1663bca03e93fd]. Specifically, test at the minimum valid value, just below minimum, the maximum valid value, and just above maximum. (source: root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md) [JEV 0.96]\n- Extend boundary value analysis into robustness testing by also selecting test cases outside the valid input range to verify the function handles unexpected or erroneous (out-of-range) inputs gracefully — for example, that it generates an appropriate error message or initiates error processing. (source: root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md) [JEV 0.97]\n- Include test cases specifically designed to force exceptions, such as overflow or underflow, to check whether the function can manage predefined error conditions. Forcing-exception testing focuses on negative test scenarios — test cases that force the generation of error messages — covering exceptions [SWEBOK excerpt cc9d3cbd0ba4c6e2cb6e], underflow exception, and protection exception. (source: root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Exception Testing and Error Handling in Software Testing.md) [JEV 0.97]\n- Use combinatorial test techniques to systematically cover combinations of parameter values, particularly when the function has multiple numeric inputs. Techniques such as pair-wise testing ([SWEBOK excerpt ff361f17ab6b6e5affae]) and all-combinations testing help derive [SWEBOK excerpt eb8703fcb14f3b11a971]. (source: root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md; root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md) [JEV 0.88]\n- Complement specification-based (black-box) test selection with structure-based (white-box) selection. Scenario-based and structure-based test techniques [SWEBOK excerpt 1cefccb0db6cdb137e92], and are considered complements; depending on [SWEBOK excerpt 2e4d5f94aa9ff6d85c93]. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md) [JEV 0.97]\n- Consider random testing as a supplementary technique, randomly drawing test inputs from the known input domain. [SWEBOK excerpt 43050a3ab9beb53b4d58] pick random points within it, random testing is classified as input domain testing. Enhanced variants such as adaptive random testing use additional input-selection criteria to direct the random sampling. (source: root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md; root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md) [JEV 0.94]\n- Apply deterministic selection strategies (such as equivalence partitioning and boundary value analysis) for most testing, and use randomly drawn inputs mainly in reliability testing contexts. Test cases can be selected deterministically [SWEBOK excerpt cff4f297acd0cba6f8b9], as is usually done in reliability testing; analytical and empirical comparisons exist to determine which approach is more effective for a given situation. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Deterministic vs. Random Test Case Selection.md) [JEV 0.79]",
+  "tool_calls": 10,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 8,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 10,
+    "input_tokens": 88220,
+    "output_tokens": 2899
+   }
+  },
+  "jev_calls": 8,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 18126,
+  "jev_input_tokens": 6046,
+  "jev_output_tokens": 160,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/README.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/README.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/README.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/README.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Deterministic vs. Random Test Case Selection.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Experience-Based Testing Techniques and Exploratory Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Exception Testing and Error Handling in Software Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Exception Testing and Error Handling in Software Testing.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Deterministic vs. Random Test Case Selection.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Partition the input domain into equivalence classes (valid and invalid ranges) and select at least one representative test case from each class. [SWEBOK excerpt 29ab9da822777302a58c] based on a specified criterion — such as valid inputs accepted by the function and invalid inputs — so that [SWEBOK excerpt dd8fed384b4cad99a3f4] taken from each equivalence class.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Choose test cases on or near the boundaries of the numeric input range, because [SWEBOK excerpt 44266d1663bca03e93fd]. Specifically, test at the minimum valid value, just below minimum, the maximum valid value, and just above maximum.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Extend boundary value analysis into robustness testing by also selecting test cases outside the valid input range to verify the function handles unexpected or erroneous (out-of-range) inputs gracefully — for example, that it generates an appropriate error message or initiates error processing.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Include test cases specifically designed to force exceptions, such as overflow or underflow, to check whether the function can manage predefined error conditions. Forcing-exception testing focuses on negative test scenarios — test cases that force the generation of error messages — covering exceptions [SWEBOK excerpt cc9d3cbd0ba4c6e2cb6e], underflow exception, and protection exception.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Exception Testing and Error Handling in Software Testing.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Use combinatorial test techniques to systematically cover combinations of parameter values, particularly when the function has multiple numeric inputs. Techniques such as pair-wise testing ([SWEBOK excerpt ff361f17ab6b6e5affae]) and all-combinations testing help derive [SWEBOK excerpt eb8703fcb14f3b11a971].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md"
+    ],
+    "score": 0.88,
+    "admitted": true
+   },
+   {
+    "guideline": "Complement specification-based (black-box) test selection with structure-based (white-box) selection. Scenario-based and structure-based test techniques [SWEBOK excerpt 1cefccb0db6cdb137e92], and are considered complements; depending on [SWEBOK excerpt 2e4d5f94aa9ff6d85c93].",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Consider random testing as a supplementary technique, randomly drawing test inputs from the known input domain. [SWEBOK excerpt 43050a3ab9beb53b4d58] pick random points within it, random testing is classified as input domain testing. Enhanced variants such as adaptive random testing use additional input-selection criteria to direct the random sampling.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md",
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md"
+    ],
+    "score": 0.94,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply deterministic selection strategies (such as equivalence partitioning and boundary value analysis) for most testing, and use randomly drawn inputs mainly in reliability testing contexts. Test cases can be selected deterministically [SWEBOK excerpt cff4f297acd0cba6f8b9], as is usually done in reliability testing; analytical and empirical comparisons exist to determine which approach is more effective for a given situation.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Deterministic vs. Random Test Case Selection.md"
+    ],
+    "score": 0.79,
+    "admitted": true
+   }
+  ]
+ }
+]

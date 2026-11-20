@@ -1,0 +1,132 @@
+[
+ {
+  "start": "2026-11-19T07:40:30.174782",
+  "seconds": 52.1,
+  "question": "What kinds of changes are made to software that is already in use, and what distinguishes each kind from the others?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 8 of 8 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Corrective maintenance addresses faults discovered after delivery: it involves modifying a software product to correct discovered problems. It is distinguished from other types in that it is reactive — triggered by a defect or failure already present in the operational software. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md; root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Role and Necessity.md) [JEV 0.59]\n- Adaptive maintenance keeps software usable when its environment changes: it modifies the software so that it continues to function correctly after changes to the operating environment (e.g., new hardware, OS, or interfaced systems). It is distinguished by being driven by external environmental change, not by user requests for new features or existing defects. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md) [JEV 0.78]\n- Perfective maintenance improves the software beyond its original specification after delivery: it provides [SWEBOK excerpt 4a9f0fb4e2fd0c62cbcc]. It is distinguished from corrective maintenance (no defect to fix) and from adaptive maintenance (no environmental change driving it); the motivation is improvement of the existing product. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md) [JEV 0.91]\n- [SWEBOK excerpt 26010f1369f68a43db5f] [SWEBOK excerpt 7ea6a6337e5f452fe9f3] [SWEBOK excerpt 185b7b8c60ad39797aee]. The key distinction is scale and scope: additive maintenance involves larger additions of new capability, whereas perfective maintenance focuses on improving or documenting what already exists. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md) [JEV 0.96]\n- Emergency maintenance is [SWEBOK excerpt 29afddbf422c4d134083]. It is distinguished from corrective maintenance by its urgency and temporary nature — it stabilises the system quickly rather than fully resolving the underlying fault. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md) [JEV 0.95]\n- A common misconception is that software maintenance is mainly about fixing faults; in reality, most [SWEBOK excerpt 84378c73d71099849c34] software. Understanding the distinct categories of maintenance helps clarify where maintenance effort and spending actually go. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md) [JEV 0.96]\n- [SWEBOK excerpt c23b5df8d8773463cffb] [SWEBOK excerpt 1b2e7eb2b95b988edf47], regardless of the life cycle model used to develop it. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Role and Necessity.md) [JEV 0.97]\n- Preventive maintenance reduces the risk of future failures by proactively addressing latent defects and security threats, as well as remediating technical obsolescence of system or software elements, before they cause operational problems. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md) [JEV 0.85]",
+  "tool_calls": 9,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 7,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 9,
+    "input_tokens": 73972,
+    "output_tokens": 2529
+   }
+  },
+  "jev_calls": 8,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 17089,
+  "jev_input_tokens": 5629,
+  "jev_output_tokens": 160,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Evolution Laws.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Costs and Management.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Key Issues in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Role and Necessity.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Costs and Management.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Role and Necessity.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Role and Necessity.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Corrective maintenance addresses faults discovered after delivery: it involves modifying a software product to correct discovered problems. It is distinguished from other types in that it is reactive — triggered by a defect or failure already present in the operational software.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Role and Necessity.md"
+    ],
+    "score": 0.59,
+    "admitted": true
+   },
+   {
+    "guideline": "Adaptive maintenance keeps software usable when its environment changes: it modifies the software so that it continues to function correctly after changes to the operating environment (e.g., new hardware, OS, or interfaced systems). It is distinguished by being driven by external environmental change, not by user requests for new features or existing defects.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md"
+    ],
+    "score": 0.78,
+    "admitted": true
+   },
+   {
+    "guideline": "Perfective maintenance improves the software beyond its original specification after delivery: it provides [SWEBOK excerpt 4a9f0fb4e2fd0c62cbcc]. It is distinguished from corrective maintenance (no defect to fix) and from adaptive maintenance (no environmental change driving it); the motivation is improvement of the existing product.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md"
+    ],
+    "score": 0.91,
+    "admitted": true
+   },
+   {
+    "guideline": "[SWEBOK excerpt 26010f1369f68a43db5f] [SWEBOK excerpt 7ea6a6337e5f452fe9f3] [SWEBOK excerpt 185b7b8c60ad39797aee]. The key distinction is scale and scope: additive maintenance involves larger additions of new capability, whereas perfective maintenance focuses on improving or documenting what already exists.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Emergency maintenance is [SWEBOK excerpt 29afddbf422c4d134083]. It is distinguished from corrective maintenance by its urgency and temporary nature — it stabilises the system quickly rather than fully resolving the underlying fault.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "A common misconception is that software maintenance is mainly about fixing faults; in reality, most [SWEBOK excerpt 84378c73d71099849c34] software. Understanding the distinct categories of maintenance helps clarify where maintenance effort and spending actually go.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "[SWEBOK excerpt c23b5df8d8773463cffb] [SWEBOK excerpt 1b2e7eb2b95b988edf47], regardless of the life cycle model used to develop it.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Role and Necessity.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Preventive maintenance reduces the risk of future failures by proactively addressing latent defects and security threats, as well as remediating technical obsolescence of system or software elements, before they cause operational problems.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md"
+    ],
+    "score": 0.85,
+    "admitted": true
+   }
+  ]
+ }
+]

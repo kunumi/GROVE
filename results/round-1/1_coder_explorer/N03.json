@@ -1,0 +1,68 @@
+[
+ {
+  "start": "2026-11-19T07:44:00.477244",
+  "seconds": 137.0,
+  "question": "A component handles messages from several concurrent producers and misbehaves only when the messages come in some rare order that our tests almost never hit. How can we show, before release, that it works whatever order they come in, and what do we need to build to do that?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nBecause concurrency bugs triggered by rare message orderings cannot be reliably exposed by ordinary tests—Dijkstra's aphorism applies: testing can show the presence of bugs but never their absence—the BoK directs teams toward a layered strategy: formal verification to reason over *all* orderings exhaustively; combinatorial testing (pairwise/t-wise/all-combinations) to cover ordering combinations systematically; and load/stress testing to amplify scheduler non-determinism. All of this requires building the right infrastructure: an automated test oracle, a controllable harness that can inject specific orderings, and correct use of concurrency primitives (semaphores, monitors, mutexes) in the component itself.\n\n# Guidelines\n\n- **Formal verification, not just testing.** The BoK explicitly treats \"Testing vs. Correctness Proofs and Formal Verification\" as a separate quality approach, referring [SWEBOK excerpt dde57e1998cb07988e7f] for exhaustive techniques that cover all interleavings. (source: `root/Software Testing Levels, Objectives, and Approaches/Testing Compared to Other Software Quality Approaches.md`)\n\n- **Accept testing's fundamental limit.** [SWEBOK excerpt 98ec3e6fe13874b143f2]; the most famous result [SWEBOK excerpt ceba91720c8e4413ee6a].\"* (source: `root/Testing Limitations and Path Feasibility Challenges/Oracle Limitations and Testing Theory Constraints.md`)\n\n- **Apply combinatorial testing to cover ordering combinations systematically.** [SWEBOK excerpt 8b84c3f50f5615a207f0]\"*; variants include All Combinations, t-wise, Pair-Wise (OAT), Each Choice, and Base Choice testing. (source: `root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md` and `root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md`)\n\n- **Run load testing to surface race conditions and deadlocks.** [SWEBOK excerpt 701e9e019fcc05e5b8f6]).\"* (source: `root/Software Testing Levels, Objectives, and Approaches/Non-Functional Testing and Test Case Prioritization/Non-Functional Software Testing Techniques Overview.md`)\n\n- **Run stress testing to amplify rare interleavings.** [SWEBOK excerpt b696a658de590cd5ea8b],\"* forcing the scheduler into orderings that normal-load tests miss. (source: same file as above)\n\n- **Use random testing to sample orderings not reached by systematic tests.** *\"[SWEBOK excerpt 622c75f8d6c666f98955]\"*; combined with reliability testing it draws from statistical distributions of inputs. (source: `root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md`)\n\n- **Build a model-based test generator from a behavioral specification.** Model-based testing [SWEBOK excerpt 910b43f0834ea1fac191],\"* enabling tool-driven generation of ordering sequences. (source: `root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md`)\n\n- **Build a sound automated test oracle.** Oracles such as *\"[SWEBOK excerpt b28749310e936ef89ddf]\"* decide pass/fail; without automation of the oracle, results for rare orderings are classified as inconclusive. (source: `root/Testing Limitations and Path Feasibility Challenges/Oracle Limitations and Testing Theory Constraints.md`)\n\n- **Invest in test automation infrastructure.** *\"[SWEBOK excerpt 09f0c4649898601bc7b4] … [SWEBOK excerpt 7d03b5a88fa34bd8c53a].\"* (source: `root/Testing Limitations and Path Feasibility Challenges/Infeasible Paths, Testability, and Test Execution Automation.md`)\n\n- **Design the component for testability (controllability and observability).** Software testability is defined as both *\"[SWEBOK excerpt 2a013294d4cc977ed5ab]\"* and *\"the likelihood … [SWEBOK excerpt 60650bf5019fd3af31e2] for a concurrent component. (source: same file as above)\n\n- **Use correct concurrency primitives in the implementation.** Well-known primitives—semaphores, monitors, mutexes—provide abstractions *\"[SWEBOK excerpt 59a6a1de71d463dfffba],\"* and correct use is a prerequisite for ordering-based tests to be meaningful. (source: `root/Software Construction Techniques and Practices/Concurrency Primitives for Resource Access Control.md`)\n\n- **Consider back-to-back testing to cross-check outputs.** [SWEBOK excerpt 3cb987588a58bc52eec1].\"* (source: `root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Software Testing Types and Methodologies.md`)\n\n# Gaps\n- Specific model-checking tools (TLA+, SPIN, JPF, etc.): not covered in the BoK content files read (the formal-verification KA was not in scope of branches accessed).\n- Dynamic Partial-Order Reduction (DPOR) and other systematic interleaving-coverage algorithms: not found.\n- Thread sanitizers and runtime race detectors: not found.\n- Property-based testing by that name (QuickCheck-style generators for orderings): not found in the files read.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 11,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 9,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 12,
+    "input_tokens": 131081,
+    "output_tokens": 6611
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Non-Functional Testing and Test Case Prioritization/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Software Testing Objectives and Non-Functional Properties.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Non-Functional Testing and Test Case Prioritization/Non-Functional Software Testing Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Grammar-Based Input Processing and Concurrency Primitives.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Concurrency Primitives for Resource Access Control.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/Advanced Software Testing Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Deterministic vs. Random Test Case Selection.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/Oracle Limitations and Testing Theory Constraints.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/Infeasible Paths, Testability, and Test Execution Automation.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Scalability, Test Effectiveness, and Testing Controllability.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Testing Compared to Other Software Quality Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Software Testing Types and Methodologies.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Experience-Based Testing Techniques and Exploratory Testing.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

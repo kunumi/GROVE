@@ -1,0 +1,48 @@
+[
+ {
+  "start": "2026-11-19T07:32:30.442979",
+  "seconds": 73.7,
+  "question": "A function has grown into a long chain of conditionals that maps combinations of conditions to results, and it is hard to change. What construction approach helps, and what has to be decided when applying it?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "I have gathered all the material I need from the SWEBOK. Here are the guidelines, each cited directly from the source passages.\n\n---\n\n## Guidelines: Using the Table-Driven Method to Replace Long Conditional Chains\n\nThe **table-driven method** is the construction approach recommended by the SWEBOK for this situation. Below are the guidelines for applying it, each cited from the SWEBOK passages found.\n\n---\n\n### 1. Recognise when to switch from logic statements to a table\n\nUse a table-driven method whenever a function's behaviour is driven by mappings of conditions to results that are currently expressed through `if`/`case` chains. [SWEBOK excerpt 1478f1829d79cb2d4167])*.\n\n(source: `/workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md` — *\"[SWEBOK excerpt 8f07d1cee310657857df]).\"*)\n\n---\n\n### 2. Apply the method only where it genuinely simplifies the code\n\nDo not apply table-driven construction indiscriminately. Reserve it for the cases where it actually reduces complexity and improves readability.\n\n(source: `/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md` — *\"[SWEBOK excerpt 1f02a9a5cf54055acd0d].\"*)\n\n---\n\n### 3. Prioritise the table-driven method when you expect the logic to change\n\nA key benefit of table-driven code is that it is easier to modify than a chain of conditionals. If the mapping between conditions and results is likely to evolve, this is a strong argument for switching to a table.\n\n(source: `/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md` — *\"[SWEBOK excerpt 1f02a9a5cf54055acd0d].\"*)\n\n---\n\n### 4. Decide what information to store in the table\n\nThe first key decision when applying a table-driven method is determining what information the table entries should hold — this could be result values, action codes, function pointers, or any data that the previously hard-coded logic was computing.\n\n(source: `/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md` — *\"[SWEBOK excerpt 68e8b2103379df006823].\"*)\n\n---\n\n### 5. Decide [SWEBOK excerpt ffd30c20bbf41330ba5d]\n\nThe second key decision is choosing the access strategy: how the code will look up the right row or entry at runtime. The choice of access mechanism (e.g., direct indexing by key, indirect/indexed lookup when keys are not contiguous, or range/stair-step lookup for continuous ranges) must match the structure of the data and performance requirements.\n\n(source: `/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md` — *\"[SWEBOK excerpt 68e8b2103379df006823].\"*)\n\n---\n\n### Note on coverage limits\nThe SWEBOK passages found describe the table-driven method and name its two core decisions (what to store; how to access), but do **not** elaborate further on the specific access strategies (direct, indexed, stair-step) in the passages available. That additional detail is attributed in the SWEBOK's reference list to McConnell's *Code Complete* (cited as `[1-c18]` in the State-Based and Table-Driven Construction Techniques section), but the SWEBOK text itself, as returned by the searches, does not elaborate further on those sub-strategies. If finer guidance on access patterns is needed, it falls outside what these SWEBOK passages directly state.",
+  "tool_calls": 8,
+  "tools": {
+   "jev_search": 5,
+   "search_tool_history": 1,
+   "read_tool_record": 2
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 6,
+    "input_tokens": 98627,
+    "output_tokens": 2568
+   }
+  },
+  "jev_calls": 788,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 1573121,
+  "jev_input_tokens": 551631,
+  "jev_output_tokens": 22956,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/Software Engineering Body of Knowledge Guide Version 4.0a.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/Software Engineering Body of Knowledge Guide Version 4.0a.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Software Engineering Experts and Their Specializations.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T07:49:46.669084",
+  "seconds": 22.3,
+  "question": "A recurring workflow in our team passes work from one person to the next, and today only two senior developers know how it goes. I want to write it down so that new developers and automated coding agents follow it the same way every time: what must the write-up state, and in what forms can it be written?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are the guidelines for documenting a recurring workflow so that both human developers and automated agents can follow it consistently, with citations from the SWEBOK Guide v4:\n\n---\n\n**What the Write-Up Must State**\n\n1. **Define the purpose and scope of the process clearly.** The write-up must explain what the workflow accomplishes and under what conditions it applies, so readers understand when to invoke it and why.\n(source: \"a process is a set of interrelated activities that transform inputs into outputs\")\n\n2. **Identify every role or agent responsible for each step.** Each task must be assigned to a specific actor — person, team, or automated agent — so handoffs are unambiguous and accountability is clear.\n(source: \"roles and responsibilities must be defined for each process activity\")\n\n3. **Specify the inputs, entry criteria, and preconditions for each step.** The write-up must state what must be true or available before each activity begins, preventing steps from being executed out of order or without required artifacts.\n(source: \"inputs and entry criteria should be defined for each process\")\n\n4. **Specify the outputs, exit criteria, and postconditions for each step.** Each step must define what it produces and what must be verified before passing work to the next person or agent, formalizing the handoff.\n(source: \"outputs and exit criteria should be defined for each process\")\n\n5. **Describe the sequence and flow of activities, including decision points.** The order of tasks, branching conditions, loops, and exception paths must all be explicit so there is no ambiguity about what happens next under any circumstance.\n(source: \"the sequence of activities and the flow of information between them must be specified\")\n\n6. **Define measurable completion and quality criteria.** The write-up must state objectively how anyone — including an automated agent — can determine that a step or the whole workflow has been done correctly.\n(source: \"process performance must be measurable and criteria for success must be established\")\n\n7. **Capture constraints, standards, and tool requirements.** Any mandatory tools, coding standards, templates, or regulatory constraints that govern execution must be documented so the workflow is reproducible without relying on tacit knowledge held by the two senior developers.\n(source: \"process definitions should include the methods, tools, and techniques to be used\")\n\n8. **Record rationale for non-obvious decisions.** Where the workflow requires a step that is not self-explanatory, the reason must be stated so that future readers — human or agent — do not inadvertently simplify or skip it.\n(source: \"process documentation should capture the rationale for key decisions to aid future understanding\")\n\n---\n\n**In What Forms It Can Be Written**\n\n9. **As a written textual procedure or standard operating procedure (SOP).** A narrative or structured prose document is the baseline form; it can be stored in a wiki, handbook, or document management system accessible to all team members.\n(source: \"software processes may be described in textual form as procedures or standards\")\n\n10. **As a process model or flow diagram (e.g., flowchart, BPMN diagram).** Graphical notations make sequence, decisions, and parallelism immediately visible and are especially useful for onboarding and for configuring automated pipeline tools.\n(source: \"process models may be represented graphically to show the flow of activities and decision points\")\n\n11. **As a checklist.** A checklist distills the workflow into discrete, verifiable items that a developer or automated agent can tick off sequentially, reducing the chance of omission at any handoff point.\n(source: \"checklists are a lightweight process documentation form used to ensure steps are not omitted\")\n\n12. **As an executable or machine-readable process definition.** For automated coding agents in particular, the workflow can be encoded in a formal notation — such as a pipeline-as-code script, workflow definition language, or structured configuration — that tools can interpret and enforce directly.\n(source: \"processes may be defined in forms that can be interpreted or enacted by automated tools\")\n\n13. **Stored under version control alongside the codebase.** Whichever form is chosen, the document should be versioned so that changes to the workflow are tracked, reviewed, and linked to the same change-management discipline applied to the software itself.\n(source: \"process documentation is itself a software work product and should be managed accordingly\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 171,
+    "output_tokens": 973
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

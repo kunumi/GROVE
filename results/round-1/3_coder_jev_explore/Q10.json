@@ -1,0 +1,49 @@
+[
+ {
+  "start": "2026-11-19T07:39:21.087469",
+  "seconds": 22.2,
+  "question": "How can a routine make its assumptions about inputs and outputs explicit and guard itself against callers passing it values it was not built to accept?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\n\nA routine can make its assumptions explicit and guard against invalid inputs by using Design by Contract (preconditions/postconditions), defensive programming, and assertions. These techniques clarify what a routine expects and produces, detect mismatched interface assumptions, and define how bad inputs are handled—improving correctness, robustness, and overall software quality.\n\n# Guidelines\n\n- Use Design by Contract to specify preconditions and postconditions for each routine, forming an explicit contract between the routine and the rest of the program. (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md)\n- Use assertions—executable predicates placed in a routine—to check input values and catch invalid assumptions at runtime, especially in high-reliability programs. (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Parameterization, Templates, Generics, and Assertions.md)\n- Apply defensive programming [SWEBOK excerpt 8199fe89133395729673] by checking the values of all [SWEBOK excerpt dda5a39412b3af36208d]. (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md)\n- Use [SWEBOK excerpt 80dc89c687f6f1e970f4] when invalid inputs are detected. (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md)\n- Use exceptions with throw and try-catch blocks to detect and process erroneous conditions, and design exception-handling policies carefully, including all information that led to the exception in the exception message. (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md)\n- Thoroughly test routines for valid, invalid, and boundary value data sets to surface runtime errors caused by unexpected inputs. (source: /workspace/swebok-v4/root/Software Engineering Fundamentals and System Architecture/Runtime and Logical Errors in Programs/Runtime Errors and Testing Strategies.md)\n- Handle [SWEBOK excerpt 44f029ac247a6e48bd7c])—and prevent code-level security breaches such as buffer overflows or array index bounds violations. (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Software Coding and Construction Testing Practices.md)\n- Compile assertions into the code at development time so they flush out mismatched interface assumptions and [SWEBOK excerpt e842886fd450a130cf66]. (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md)",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 15836,
+    "output_tokens": 671
+   }
+  },
+  "jev_calls": 253,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 492627,
+  "jev_input_tokens": 178026,
+  "jev_output_tokens": 7029,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/API Design Principles and Implementation Strategies/API Design and Use in Construction Technologies.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Parameterization, Templates, Generics, and Assertions.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Software Engineering Fundamentals and System Architecture/Runtime and Logical Errors in Programs/Runtime Errors and Testing Strategies.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Software Coding and Construction Testing Practices.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Software Standards and Component Completeness.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Design Methodologies and Approaches/Data-Centered, Object-Oriented, and User-Centered Design.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Modeling, Patterns, and Domain-Specific Design Approaches/Interaction and Behavioral Diagrams in Software Design.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Requirements Specification/Test Cases, Requirements, and Behavior-Driven Development.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

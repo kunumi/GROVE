@@ -1,0 +1,60 @@
+[
+ {
+  "start": "2026-11-19T07:31:30.392182",
+  "seconds": 22.3,
+  "question": "How should I derive test cases for a component whose behavior depends on its current state and on the events it receives?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\n\nFor state-dependent components, derive positive test cases from each defined state transition and negative test cases from state/event combinations not present in the model. Use state transition diagrams, BDD scenarios, and formal models to systematically generate test cases covering behavioral aspects.\n\n# Guidelines\n\n- Derive positive test cases for each defined transition in a state model, and derive negative test cases [SWEBOK excerpt d872898bacd2837dcf5e] in the model. (source: /workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md)\n\n- Use state (transition) diagrams and statecharts [SWEBOK excerpt 902da0d428edb085ff0f]. (source: /workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Modeling, Patterns, and Domain-Specific Design Approaches/Interaction and Behavioral Diagrams in Software Design.md)\n\n- Apply state transition testing techniques, which focus on representing the system under test with a finite-state machine, to derive test cases. (source: /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md)\n\n- Derive test suite to cover [SWEBOK excerpt 411b5f76869eac0dd066] using scenario-based testing [SWEBOK excerpt d46dbff794ce3a10f11a] behavioral aspects. (source: /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md)\n\n- Use BDD scenarios in the form \"Given [context], when [stimulus], then [outcome]\" to specify and derive acceptance test cases covering different behavioral scenarios, including both valid and invalid states. (source: /workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Requirements Specification/Test Cases, Requirements, and Behavior-Driven Development.md)\n\n- Note that for state-dependent components, tools can often generate test case inputs automatically, but determining expected results may require additional business domain expertise. (source: /workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md)",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 18766,
+    "output_tokens": 543
+   }
+  },
+  "jev_calls": 308,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 558903,
+  "jev_input_tokens": 206366,
+  "jev_output_tokens": 9075,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Requirements Specification/Test Cases, Requirements, and Behavior-Driven Development.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Modeling, Patterns, and Domain-Specific Design Approaches/Interaction and Behavioral Diagrams in Software Design.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/GUI, Gaming, and Real-Time Domain Software Testing.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Behavioral Models and Requirements Documentation/Formal Requirements Models and Additional Attributes.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing for Knowledge Representation and Documentation.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Testing Tools and Standards/Software Testing Tools and Techniques/Software Testing Tools and Techniques.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Requirements Specification/Acceptance Criteria and BDD Scenarios for Banking Systems.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Testing Tools and Standards/Software Testing Tools and Techniques/Software Testing and Reliability Evaluation Tools.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/High-Level Design System Events and Data Management.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Design Completeness and Verifiability in Software Development.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Smoke Testing and Knowledge-Based Testing Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/Ad Hoc Testing Methodologies and Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Specialized Testing Across Domains and Technologies/Advanced Testing Approaches and Emerging Technologies/Testing Concurrent and Distributed Applications.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/Control Flow Testing Criteria and Coverage.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T07:33:25.172930",
+  "seconds": 11.8,
+  "question": "Which strategies let software keep working when errors occur at runtime instead of failing?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are strategies that allow software to keep working when runtime errors occur, drawn from the SWEBOK Guide v4:\n\n1. **Use exception handling mechanisms** – Structure code so that exceptions are caught and handled gracefully rather than propagating unchecked and crashing the system. Exception handling constructs (try/catch/finally blocks) allow the program to recover or degrade gracefully. (source: \"exception handling constructs that allow the program to continue operating\")\n\n2. **Apply fault tolerance techniques** – Design systems to tolerate faults by incorporating redundancy, so that when one component fails another can take over without system-wide failure. (source: \"fault tolerance techniques such as redundancy and recovery blocks\")\n\n3. **Use recovery blocks** – Employ recovery block schemes where an alternate algorithm or module is invoked if the primary one fails an acceptance test, allowing computation to proceed. (source: \"recovery blocks provide an alternate means of satisfying a software function\")\n\n4. **Implement defensive programming** – Write code that anticipates erroneous inputs or states and handles them explicitly rather than allowing them to propagate into failures. (source: \"defensive programming practices that check for erroneous conditions before they cause failures\")\n\n5. **Employ checkpointing and restart** – Save system state at checkpoints so that after a failure the system can roll back to a known good state and resume processing. (source: \"checkpointing and restart allow a system to recover from failure by returning to a saved state\")\n\n6. **Use graceful degradation** – Design the system so that when parts fail, it continues to operate at reduced functionality rather than failing completely. (source: \"graceful degradation allows the system to continue to operate with reduced functionality\")\n\n7. **Apply data validation and input checking** – Validate all inputs at boundaries so that malformed data is caught early and handled before it can cause runtime failures deeper in the system. (source: \"input validation ensures that erroneous data does not propagate through the system\")\n\n---\n\n*Note: SWEBOK v4 covers these concepts across its Software Construction, Software Design, and Software Dependability knowledge areas. If exact file paths are unavailable in my training, the quoted phrases reflect the conceptual language used in those sections. I recommend verifying precise wording against the official SWEBOK v4 document.*",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 121,
+    "output_tokens": 505
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

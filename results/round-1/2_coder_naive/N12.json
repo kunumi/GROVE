@@ -1,0 +1,54 @@
+[
+ {
+  "start": "2026-11-19T07:54:12.161666",
+  "seconds": 24.1,
+  "question": "A test accepts a computed result when its difference from the expected value is below 0.001, which is far too strict for values in the millions and far too loose for values around 0.0001. How should the discrepancy be measured instead, and how does that measure tell how many leading digits of the result can be trusted?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "The SWEBOK passages are very clear and directly address this question. Here are the guidelines, each with its source:\n\n---\n\n### Guidelines for Measuring Numerical Test Discrepancy\n\n**1. Replace the fixed absolute threshold with relative error — [SWEBOK excerpt 7454b7d6506d5d7642c4] magnitude of the true value.**\n\nAbsolute error (|x\\* − x|) is scale-dependent and therefore misleading. The correct measure is relative error: |x\\* − x| / |x|. This scales with the value being tested, so a tolerance that is appropriate for a result of 0.0001 is also appropriate for a result of 1,000,000.\n\n(source: *\"[SWEBOK excerpt dbfe1e860c789f3877c3].\"*)\n\n---\n\n**2. Treat relative error as the preferred and more intuitive measure of error size.**\n\nA fixed absolute threshold of 0.001 is not intuitive across different magnitudes. Using relative error aligns the tolerance with the actual scale of the computation, making the acceptance criterion meaningful regardless of whether results are very large or very small.\n\n(source: *\"[SWEBOK excerpt 297dadd84958fa3cc461].\"*)\n\n---\n\n**3. Understand that absolute error alone is deceptive across different magnitudes (use the SWEBOK's own example as a guide).**\n\nAn absolute error of 1 means something very different depending on context: it represents a relative error of 10⁻⁶ when the true value is 1,000,001 (essentially exact), but a relative error of 0.1 (10%) when the true value is 11. A fixed absolute threshold like 0.001 fails to capture this distinction.\n\n(source: *\"[SWEBOK excerpt 3baaec5a616a729ec42c]⁻⁶, [SWEBOK excerpt 8f40bc3ffa6de1a9ad8f].\"*)\n\n---\n\n**4. Use the relative error to determine how many leading significant digits of the result can be trusted.**\n\n[SWEBOK excerpt 253e990a63222869868b] less than 5 × 10⁻ᵏ⁻¹. This directly tells you how many leading digits of the computed result match those of the true value, providing a principled, scale-independent measure of correctness.\n\n(source: *\"[SWEBOK excerpt b94e7b1e7ea33ee80851]⁻ᵏ⁻¹. [SWEBOK excerpt 2741fc0f4da1dd65f224].\"*)\n\n---\n\n**5. Distinguish accuracy from precision when evaluating test results.**\n\nThe test should be checking *accuracy* — how close the computed value is to the true value — not merely *precision* (consistency among repeated computations). Confusing the two can lead to a test that passes consistently incorrect results.\n\n(source: *\"[SWEBOK excerpt b586fdd39148fb34c49b].\"*)\n\n---\n\n**6. Note that relative error is undefined when the true value is zero; handle this case separately.**\n\nThe relative error formula breaks down when the expected value x = 0, because division by zero is undefined. In such cases, an alternative (such as a small absolute tolerance or a combined absolute/relative threshold) must be used.\n\n(source: *\"[SWEBOK excerpt dbfe1e860c789f3877c3].\"*)",
+  "tool_calls": 2,
+  "tools": {
+   "search_swebok": 2
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 2,
+    "input_tokens": 14969,
+    "output_tokens": 1025
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 2,
+  "embedding_texts": 2,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 125,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [
+   "aea215631684d2b8",
+   "fabaf3118d8206bc",
+   "d0adef6fa48fccde",
+   "d07f707358a639e7",
+   "3d8b0e73b5a5140b",
+   "abc08038f6731fd3",
+   "e3196d92fb9275c5",
+   "76102fd0fdc543dc",
+   "3d8e736f38b63cf9",
+   "40d75d623da5b895",
+   "aea215631684d2b8",
+   "d0adef6fa48fccde",
+   "d07f707358a639e7",
+   "fabaf3118d8206bc",
+   "40d75d623da5b895",
+   "abc08038f6731fd3",
+   "3d8e736f38b63cf9",
+   "9fb467a8f7959d0a",
+   "c6132689c2f58dc5",
+   "76102fd0fdc543dc"
+  ],
+  "admission": []
+ }
+]

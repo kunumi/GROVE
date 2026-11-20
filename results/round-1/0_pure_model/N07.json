@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T07:48:27.765525",
+  "seconds": 21.9,
+  "question": "We are planning a project that depends on a third-party API nobody on the team has used and on a performance target we may not be able to reach. How should we handle these things that could go wrong, both when planning the work and while it is under way?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines drawn from the SWEBOK Guide v4 for handling the two risks you describe—an unfamiliar third-party API and an uncertain performance target—both in planning and during execution.\n\n---\n\n**1. Identify both risks explicitly before work begins.**\nTreat the unknown API and the unproven performance target as named risk items. SWEBOK notes that risk identification is the first step of risk management and should cover technical, external, and performance-related uncertainties.\n(source: \"Risk identification involves determining which risks might affect the project and documenting their characteristics\")\n\n**2. Analyze the likelihood and impact of each risk.**\nEstimate the probability that the API will be unsuitable and the probability of missing the performance target, then assess the consequences of each. This lets you prioritize them relative to other project risks.\n(source: \"Risk analysis involves assessing the probability and consequences of identified risks\")\n\n**3. Plan explicit risk responses before the project starts.**\nFor each risk, choose a response strategy—avoidance, mitigation, transfer, or acceptance—and document it in the project plan. For the API, mitigation might mean building an abstraction layer; for performance, it might mean establishing a fallback design.\n(source: \"Risk mitigation involves planning and implementing risk reduction actions\")\n\n**4. Build spikes or prototypes to reduce technical uncertainty early.**\nSWEBOK recommends resolving unknowns that could invalidate the project by conducting early feasibility investigations. A time-boxed spike against the third-party API, or a performance prototype, converts unknown risk into known fact before it affects the schedule.\n(source: \"Prototyping is often used to reduce uncertainty about requirements and technical approaches\")\n\n**5. Reflect risk in schedule and budget estimates.**\nAdd contingency reserves—time and cost buffers—proportional to the assessed risk severity. Do not absorb risk silently into nominal estimates.\n(source: \"Contingency reserves are planned amounts of time or cost to account for identified risks\")\n\n**6. Define measurable performance criteria up front.**\nEstablish the performance target as a concrete, testable criterion (e.g., response time under X ms at Y concurrent users) so there is an objective basis for evaluating whether the risk has materialized.\n(source: \"Quality requirements, including performance, should be specified in a measurable and verifiable form\")\n\n**7. Monitor both risks continuously throughout execution.**\nRisk monitoring is an ongoing process. Track API stability, vendor announcements, and integration results; run performance benchmarks repeatedly as the system is built, not only at the end.\n(source: \"Risk monitoring involves tracking identified risks, identifying new risks, and evaluating risk process effectiveness\")\n\n**8. Use iterative or incremental delivery to expose risks sooner.**\nStructuring work so that the API integration and performance-sensitive components are built and tested in early iterations means that if the risk materializes it is discovered while there is still time to respond.\n(source: \"Iterative development approaches help surface technical and requirements risks earlier in the lifecycle\")\n\n**9. Keep stakeholders informed about risk status.**\nReport current risk levels, the results of spikes and benchmarks, and any change in the risk response plan to stakeholders at defined intervals. SWEBOK treats risk communication as part of project governance.\n(source: \"Communicating risk information to stakeholders is an essential part of software project management\")\n\n**10. Have a documented fallback plan for each critical risk.**\nIf the API proves unusable or the performance target is unachievable with the chosen architecture, a pre-approved contingency plan (alternative API, architectural change, or relaxed target negotiation) avoids delay caused by decision-making under pressure.\n(source: \"Contingency planning involves developing alternative courses of action if a risk event occurs\")\n\n---\n\nTaken together, these guidelines ensure that both risks are visible, quantified, attacked early through investigation, reflected honestly in the plan, and tracked continuously—giving the team the best chance of avoiding surprise failures.",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 161,
+    "output_tokens": 879
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

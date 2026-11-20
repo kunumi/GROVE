@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T07:46:16.227281",
+  "seconds": 21.3,
+  "question": "A customer reports a defect in the executable we shipped to them two years ago, and to investigate it we need that very same executable back, byte for byte, but the toolchain and third-party libraries on our machines have been upgraded since then. What should the team have been tracking and preserving so that this would be possible?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here is a list of guidelines the team should have been following, drawn from SWEBOK v4 knowledge areas—primarily Software Configuration Management (SCM):\n\n---\n\n1. **Identify and baseline every software configuration item (SCI) that contributes to a release, including the source code, build scripts, and all third-party components.**\nConfiguration management requires that all items that make up a software product be identified so they can be reproduced exactly. This includes not just source files but everything needed to build the deliverable.\n(source: \"Configuration identification is the basis for all other software configuration management activities … includes selecting software configuration items and establishing baselines\")\n\n2. **Place all identified SCIs—including compilers, linkers, build tools, and their exact versions—under version control or equivalent controlled storage.**\nThe toolchain itself is part of what determines the binary output; without preserving exact tool versions, reproducing the same binary is impossible.\n(source: \"SCM activities include identifying configuration items … placing them under configuration control … and tracking their status\")\n\n3. **Establish a formal baseline at the time of each release (a \"product baseline\" or \"delivery baseline\") that captures the precise set of versions of all items.**\nA baseline provides a fixed reference point from which the product can be reconstructed.\n(source: \"A baseline is a formally reviewed and agreed-upon specification or product that serves as a basis for further development and that can be changed only through formal change control procedures\")\n\n4. **Preserve the build environment, including operating system version, compiler version, library versions (with exact patch levels), and configuration flags used at build time.**\nThird-party libraries and runtime components affect the linked binary; even minor version differences can change the resulting executable.\n(source: \"The build process for a deliverable … requires that all tools, compilers, and other elements of the build environment be identified and controlled\")\n\n5. **Maintain records of all change requests, change decisions, and the mapping from each release to the specific baseline from which it was built (configuration status accounting).**\nConfiguration status accounting provides the audit trail needed to know exactly what went into a given release.\n(source: \"Configuration status accounting involves the recording and reporting of information needed to manage a configuration effectively … including a complete record of what happened to baseline items\")\n\n6. **Store and archive build outputs (the released executables, installers, checksums) alongside the baselines, so that the delivered artifact can be verified independently of a rebuild.**\nEven with full reproduction capability, retaining the actual shipped binary allows immediate byte-for-byte verification and defect investigation without requiring a full rebuild.\n(source: \"Release management includes packaging and delivery of software and ensuring that the released product can be identified and reproduced\")\n\n7. **Conduct configuration audits to verify that the recorded baseline actually matches what was built and shipped.**\nAudits catch discrepancies before they become problems years later.\n(source: \"Software configuration audits verify that a configuration item conforms to its specified characteristics and that the configuration management records are complete and correct\")\n\n8. **Define and enforce a retention policy that keeps baselines, archived build environments, and delivered artifacts for a period commensurate with the product's expected support lifetime.**\nIf items are deleted or overwritten after a short period, reconstruction becomes impossible regardless of how well they were initially identified.\n(source: \"Organizations should establish policies for the retention and disposition of configuration management records and configuration items consistent with contractual and regulatory requirements\")\n\n---\n\nTaken together, these practices—identification, baselining, version control of the full build environment, status accounting, auditing, archiving of deliverables, and retention policies—constitute the configuration management discipline that makes exact reproduction of a shipped binary possible years after the fact.",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 174,
+    "output_tokens": 813
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

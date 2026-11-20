@@ -1,0 +1,50 @@
+[
+ {
+  "start": "2026-11-19T07:45:39.334187",
+  "seconds": 29.4,
+  "question": "Each new version of our web service is switched on for every user at the same moment, so a single faulty version breaks the service for everyone and getting the previous version back takes hours. How should we change the way new versions go live to limit the damage?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\n\nWhen a single faulty release breaks service for all users simultaneously, teams should adopt gradual, staged rollout strategies—canary releases, feature toggles, and environment-based staging—combined with automated monitoring, rehearsed rollback procedures, and smaller independent deployments to detect and contain problems before they reach all users.\n\n# Guidelines\n\n- Use canary release testing: partially and time-limitedly deploy a change, evaluate it, then decide whether to proceed with full deployment. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Automated Deployment and Canary Release Testing.md)\n\n- Use application-based release strategies with feature toggles to enable or disable specific features via configuration, so a faulty feature can be turned off without a full rollback. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Release Engineering Strategies and Risk Reduction.md)\n\n- Use environment-based release strategies with a staging environment to validate a new version before exposing it to all users. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Release Engineering Strategies and Risk Reduction.md)\n\n- Plan and rehearse rollback before deploying any new version to production, and automate rollback so it triggers quickly enough that end users do not notice a problem. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Rollback and Problem Resolution in DevOps.md)\n\n- Apply dark launches and canary testing when full production-environment testing is challenging or impossible. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Installation and Operational Verification Processes/Production Environment Testing and Verification/Production System Testing Challenges and Techniques.md)\n\n- Release as a business decision only after automated validation passes; use automatic rollback if the new deployment does not pass its validation period. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Rollback and Data Migration in Software Deployment.md)\n\n- Architect the application to enable small, independent deployments of single features or fixes rather than bundling many changes into one release. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/DevOps Continuous Delivery and Independent Deployments.md)\n\n- Automate deployment steps—packaging, configuration, smoke testing—to reduce manual errors and allow faster, more reliable releases. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Deployment and Release Engineering in Software Operations.md)\n\n- Automate monitoring and alerting so that failures are detected immediately and reaction time is minimised, reducing downtime and severity of incidents. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Installation and Operational Verification Processes/Software Deployment and Automation/Scripting and Automating Operational Tasks.md)\n\n- Plan failure-handling logic during development and automate tests to ensure readiness in case of failure or catastrophic event. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Software Failure Handling and Information Security Management.md)\n\n- Use continuous deployment with automated verification of intended features and validations to reduce risk, and [SWEBOK excerpt dd733e1ae4b4b8edf8e5] early for fast feedback. (source: /workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Continuous Integration, Delivery, and Software Maintenance/Continuous Deployment and Software Maintenance Visualization.md)",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 4692,
+    "output_tokens": 941
+   }
+  },
+  "jev_calls": 356,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 632465,
+  "jev_input_tokens": 224909,
+  "jev_output_tokens": 10812,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Automated Deployment and Canary Release Testing.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Installation and Operational Verification Processes/Production Environment Testing and Verification/Production System Testing Challenges and Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Rollback and Problem Resolution in DevOps.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Release Engineering Strategies and Risk Reduction.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/DevOps Continuous Delivery and Independent Deployments.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Deployment and Release Engineering in Software Operations.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Rollback and Data Migration in Software Deployment.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Development Models and Iterative Approaches/Agile Principles and Methodology Fundamentals/Agile Software Development Values and Practices.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Test Generation, Environment Setup, and Incident Management/Test Environment Setup and Controlled Experimentation.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Alpha, Beta, and Regression Testing Procedures.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Continuous Integration, Delivery, and Software Maintenance/Continuous Deployment and Software Maintenance Visualization.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Software Failure Handling and Information Security Management.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Predictive, Iterative, Evolutionary, and Incremental Life Cycles.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Continuous Integration, Delivery, and Software Maintenance/Continuous Integration and DevOps Practices/Continuous Integration Goals and Automated Processes.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Safety-Critical Software and Quality Assurance/Software Risk Management and Dependability Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Installation and Operational Verification Processes/Software Deployment and Automation/Scripting and Automating Operational Tasks.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

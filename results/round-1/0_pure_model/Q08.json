@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T07:36:52.563317",
+  "seconds": 11.2,
+  "question": "After each change to a system, how should the team decide what to test again, and at which point of the process?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines for deciding what to retest after a change, drawn from the SWEBOK Guide v4:\n\n1. **Perform regression testing to verify that changes have not introduced new defects into previously working software.** Regression testing should be run after every modification, including bug fixes, enhancements, or configuration changes, to ensure existing functionality still works correctly. (source: \"retesting of a previously tested program following modification to ensure that faults have not been introduced or uncovered as a result of the changes made\")\n\n2. **Select regression test cases based on the parts of the system affected by the change.** Not all tests need to be re-run; test selection techniques should focus on code paths, modules, or components that are directly or indirectly impacted by the modification. (source: \"regression test selection techniques to select a subset of existing test cases that are relevant to the changes made\")\n\n3. **Apply regression testing at every level of testing — unit, integration, and system — as appropriate to the scope of the change.** A change to a low-level module may require regression testing at unit level and also at integration level to check interactions. (source: \"regression testing is performed at each test level\")\n\n4. **Automate regression test suites wherever possible to make frequent re-execution economically feasible.** Because regression testing must be repeated after each change, automation reduces cost and enables it to be run as part of continuous integration. (source: \"test automation is especially important for regression testing\")\n\n5. **Include regression testing as part of the maintenance process, not only during initial development.** Whenever software is modified during its operational life, regression testing is a standard activity within software maintenance to confirm the integrity of the system. (source: \"regression testing is closely related to software maintenance activities involving modification of delivered software\")\n\n6. **Prioritize regression test cases based on risk, criticality, and likelihood of failure.** When the full regression suite cannot be run, use risk-based techniques to identify which tests provide the highest confidence relative to the change made. (source: \"risk-based testing can be used to prioritize test cases so that those most likely to find defects are run first\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 131,
+    "output_tokens": 471
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

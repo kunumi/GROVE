@@ -1,0 +1,38 @@
+[
+ {
+  "start": "2026-11-19T07:54:35.709637",
+  "seconds": 16.5,
+  "question": "A test accepts a computed result when its difference from the expected value is below 0.001, which is far too strict for values in the millions and far too loose for values around 0.0001. How should the discrepancy be measured instead, and how does that measure tell how many leading digits of the result can be trusted?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\n\nReplace fixed absolute-error thresholds with relative error: divide the absolute difference between the computed and expected values by the magnitude of the expected value. The relative error's magnitude then directly indicates how many significant (leading correct) decimal digits the result carries.\n\n# Guidelines\n\n- Use **relative error** — defined as |x* − x| / |x| — instead of absolute error as the discrepancy measure, because it scales with the size of the value and [SWEBOK excerpt 447457aa7bc7d8232ebc].\" (source: \"[SWEBOK excerpt 297dadd84958fa3cc461].\")\n\n- Understand that absolute error alone is misleading across scales: an absolute error of 1 is negligible for a value near 1,000,001 (relative error 10⁻⁶) but catastrophic for a value near 11 (relative error 0.1). (source: /workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md)\n\n- Determine the number of trusted leading digits using the rule: [SWEBOK excerpt 51f23b9a0e482e6f1da7]⁻ᵏ⁻¹. (source: \"[SWEBOK excerpt 4be5142b8e28109e3db5].\")\n\n- Interpret significant digits as the leading digits of x* that are known to match those of the true value x: \"[SWEBOK excerpt 37b39ccd54dea54d7cda].\" (source: /workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md)\n\n- Recognize that significant digits include one uncertain digit: a result is reported with k significant digits when k−1 digits are certain and one additional digit is included with known bounded error. (source: \"[SWEBOK excerpt f7f3a65aa84a447e276f].\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 997,
+    "output_tokens": 516
+   }
+  },
+  "jev_calls": 276,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 503628,
+  "jev_input_tokens": 183663,
+  "jev_output_tokens": 8370,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Fixed-Point Arithmetic and Numerical Precision.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making Through Data and Standards/Measurement Scales, Reliability, and Practical Application/Measurement Reliability and Decision-Driven Metrics/Measurement Reliability and Variation Index.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

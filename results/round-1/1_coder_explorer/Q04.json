@@ -1,0 +1,67 @@
+[
+ {
+  "start": "2026-11-19T07:33:37.050361",
+  "seconds": 84.4,
+  "question": "Which strategies let software keep working when errors occur at runtime instead of failing?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nSWEBOK v4 describes two overlapping families of strategies for keeping software alive at runtime: **fault tolerance techniques** (detect errors then recover from or contain them) and **error/exception-handling techniques** (defensive programming, assertions, structured exception handling). Together they let a program log a problem, substitute safe values, retry, or hand the error off gracefully rather than crashing.\n\n# Guidelines\n\n- **Fault Tolerance — Back up and retry:** when an error is detected, roll back to a known good state and try again. (source: `root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md`)\n- **Fault Tolerance — Auxiliary code + voting algorithms:** run redundant code paths and use a voting algorithm to select the correct result. (source: `root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md`)\n- **Fault Tolerance — Substitute a phony (benign) value:** replace an erroneous value with a safe placeholder so processing can continue. (source: `root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md`)\n- **Return a neutral value or the next valid data item:** instead of stopping, supply a sensible default or skip the bad datum. (source: `root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md`)\n- **Log a warning message:** record the problem and continue executing, deferring diagnosis to later. (source: same file above)\n- **Return an error code:** signal the failure to the caller and let it decide what to do next. (source: same file above)\n- **Throw and catch exceptions (try-catch):** a routine throws when it detects a problem; the enclosing catch block either handles it or propagates it up the call stack. (source: same file above)\n- **Design exception-handling policies carefully:** include all context in exception messages, avoid empty catch blocks, know library exceptions, consider a centralized exception reporter, and standardize usage. (source: same file above)\n- **Defensive programming — validate all inputs:** check every input parameter's value and decide explicitly how to handle bad inputs before they can corrupt state. (source: `root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md`)\n- **Use assertions to catch invalid states:** assertions check conditions at runtime and surface mismatched assumptions before they propagate. (source: `root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md`)\n- **Design by Contract — preconditions and postconditions:** make every routine's obligations explicit so violations are detected at a defined boundary rather than silently corrupting program state. (source: same file above)\n\n# Gaps\n- Named architectural resilience patterns (circuit-breaker, bulkhead, failover, graceful degradation in distributed systems) are not covered in the BoK content examined.\n- Language-specific runtime mechanisms (e.g., `finally` blocks, `Result` types, context managers) are not discussed.\n- Retry strategies beyond the generic \"back up and retry\" label (e.g., exponential back-off, jitter) are not detailed.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 16,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 14,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 17,
+    "input_tokens": 177558,
+    "output_tokens": 4677
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/README.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/README.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/README.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/README.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/README.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Fundamentals and System Architecture/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Fundamentals and System Architecture/README.md",
+   "/workspace/swebok-v4/root/Software Engineering Fundamentals and System Architecture/Runtime and Logical Errors in Programs/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Fundamentals and System Architecture/Programming Paradigms and Error Types/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Fundamentals and System Architecture/Runtime and Logical Errors in Programs/Runtime Errors and Testing Strategies.md",
+   "/workspace/swebok-v4/root/Software Engineering Fundamentals and System Architecture/Programming Paradigms and Error Types/Debugging and Error Types in Software Development.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

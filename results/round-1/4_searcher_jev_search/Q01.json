@@ -1,0 +1,48 @@
+[
+ {
+  "start": "2026-11-19T07:31:30.400683",
+  "seconds": 99.7,
+  "question": "How should I derive test cases for a component whose behavior depends on its current state and on the events it receives?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "I have enough material from the searches to compile the guidelines. Here are the passages I collected:\n\n1. **`/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md`**: *\"[SWEBOK excerpt 36107f469ad2e6d2b6e2].\"*\n\n2. **`/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md`**: *\"the test [SWEBOK excerpt 1e051e7dde1a64e3a5e8].\"* and *\"[SWEBOK excerpt e41ffd571d00f5662528].\"*\n\n3. **`/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md`**: *\"[SWEBOK excerpt 211b6c2e06a12915d015].\"* and *\"[SWEBOK excerpt 187a6ec12533484420c5].\"*\n\n---\n\nHere are the guidelines for deriving test cases from a state- and event-dependent component, grounded exclusively in what the SWEBOK passages above state:\n\n---\n\n## Guidelines for Deriving Test Cases from a State- and Event-Based Component\n\n### 1. Represent the component as a finite-state machine (FSM)\nBegin by modelling the system under test (SUT) as a finite-state machine. This model captures each state the component can occupy and the events (inputs) that drive it from one state to another.\n\n> (source: \"[SWEBOK excerpt 36107f469ad2e6d2b6e2].\" — `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md`)\n\n---\n\n### 2. Derive positive test cases for every defined transition\nFor each transition that is explicitly defined in the FSM (a valid combination of current state + triggering event), create at least one test case that exercises that transition and verifies the resulting state and any associated action or output.\n\n> (source: \"[SWEBOK excerpt f2d8a55feb05b9720395].\" — `/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md`)\n\n---\n\n### 3. Derive negative test cases from undefined state/event combinations\nIdentify every (state, event) pair that does **not** appear as a defined transition in the model. These represent invalid or unexpected inputs in a given state. Create negative test cases for them to verify the component rejects or ignores those inputs correctly.\n\n> (source: \"[SWEBOK excerpt 24bcfcac1d9464c98f15].\" — `/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md`)\n\n---\n\n### 4. Build test sequences to cover states and transitions according to a chosen coverage level\nOrganize individual test cases into sequences (test paths through the FSM) that satisfy a deliberately chosen coverage criterion — for example, covering every state at least once, every transition at least once, or more demanding criteria. Choose the coverage level based on the criticality of the component.\n\n> (source: \"the test [SWEBOK excerpt 1e051e7dde1a64e3a5e8].\" — `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md`)\n\n---\n\n### 5. Focus test cases on the SUT's behavioral aspects using the model as an abstract representation\nTreat the FSM as an abstract, formal representation of the SUT's behavioral requirements. Use it not only to generate test inputs but also to validate requirements consistency and to ensure the tests reflect the actual intended behavior of the component.\n\n> (source: \"[SWEBOK excerpt cd8be13f9eeefef7fae2]. [SWEBOK excerpt e41ffd571d00f5662528].\" — `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md`)\n\n---\n\n### 6. Supplement automated test input generation with domain expertise to define expected results\nAutomated tools can generate test case *inputs* from the FSM model, but determining the *expected outputs* (the oracle) is not always automatically possible. Involve domain experts to specify the correct expected results for each transition tested.\n\n> (source: \"[SWEBOK excerpt 187a6ec12533484420c5].\" — `/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md`)\n\n---\n\n**Note on scope:** The SWEBOK passages retrieved cover the key principles — FSM representation, positive/negative test derivation, coverage-level selection, behavioral focus, and oracle construction. The SWEBOK does not, in the passages retrieved, elaborate on more advanced criteria such as all-transition-pairs (W-method, Wp-method) or distinguishing sequences; for those, you would need to consult the references cited in the SWEBOK itself (e.g., [4, part 4] and [9, c12]).",
+  "tool_calls": 8,
+  "tools": {
+   "jev_search": 6,
+   "search_tool_history": 1,
+   "read_tool_record": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 6,
+    "input_tokens": 53584,
+    "output_tokens": 3026
+   }
+  },
+  "jev_calls": 1186,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 2217559,
+  "jev_input_tokens": 791498,
+  "jev_output_tokens": 34396,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Software Quality Experts and Contributors.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/Software Construction and Testing Overview.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Author Affiliations from MITRE and UQAM.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

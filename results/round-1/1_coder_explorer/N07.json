@@ -1,0 +1,66 @@
+[
+ {
+  "start": "2026-11-19T07:48:49.782273",
+  "seconds": 105.0,
+  "question": "We are planning a project that depends on a third-party API nobody on the team has used and on a performance target we may not be able to reach. How should we handle these things that could go wrong, both when planning the work and while it is under way?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nSWEBOK v4 treats your two risks — an unfamiliar third-party API and an uncertain performance target — as textbook cases of uncertainty that must be converted into managed risks. During planning you should identify and prioritize them in a risk register, prototype the least-understood components first, express quality targets (including performance) in measurable terms, agree on abandonment conditions with stakeholders, and prefer an iterative or incremental life cycle so estimates can be revised as learning increases. During execution, risk reviews must continue at every iteration, the process must be actively monitored for whether objectives are on track, and automated testing should be used to surface integration and performance regressions as early as possible.\n\n# Guidelines\n\n- **Build a risk register covering both unknowns.** [SWEBOK excerpt de9de9a6cbadae176d4e], prioritizing them, and developing mitigation strategies. A risk register is a document that serves as a repository for all risks and additional information about each one. (source: `root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md`)\n\n- **Use structured assessment methods and define abandonment conditions early.** [SWEBOK excerpt a6da9e58929be44a1a6b] all be used; [SWEBOK excerpt d1d89161257979b9ba73] before work begins. (source: `root/Risk Management and Quality Assessment/Risk Assessment Methods and Software Project Risk Management.md`)\n\n- **Treat performance as a first-class risk.** \"[SWEBOK excerpt ae060a6a2299b13d6c25]\" — and performance is explicitly listed as a quality attribute alongside those. (source: `root/Risk Management and Quality Assessment/Risk Assessment Methods and Software Project Risk Management.md` + `root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Quality Management in Software Projects.md`)\n\n- **Express the performance target quantitatively, not vaguely.** Software quality requirements \"[SWEBOK excerpt df65f99bb705e7f3201c].\" A measurable threshold (e.g., max response time at a given load) is needed before you can tell whether the risk has materialized. (source: `root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Quality Management in Software Projects.md`)\n\n- **Prototype the unfamiliar API first, not last.** \"[SWEBOK excerpt dd9033f7b0e5f3b3418e].\" (source: `root/Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Verification and Prototyping Approaches/Prototyping Methods in Software Engineering.md`)\n\n- **Pick the right prototyping style for each risk.** \"[SWEBOK excerpt 9762239d7972f49eb9e3].\" A throwaway spike suits the API; an evolutionary, benchmarkable prototype suits the performance target. (source: `root/Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Prototyping Styles, Targets and Evaluation Techniques.md`)\n\n- **Adopt an iterative or incremental life cycle so estimates can be revised.** An iterative life cycle is one where \"[SWEBOK excerpt 9b239260fecb6e9f88df],\" allowing you to update assumptions about the API and the performance target as you learn. (source: `root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Predictive, Iterative, Evolutionary, and Incremental Life Cycles.md`)\n\n- **Continue risk management throughout execution, not just at the start.** \"[SWEBOK excerpt 9796a64f0b7b797d303d].\" (source: `root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Risk Management Throughout Project Life Cycle.md`)\n\n- **Monitor whether process objectives and risk indicators are on track.** \"[SWEBOK excerpt 4d5693e15274abec7e35].\" Embed explicit checkpoints for the API integration and the performance benchmarks at every milestone. (source: `root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Process Monitoring and Empirical Assessment in Software Engineering/Software Engineering Process Monitoring and Assessment.md`)\n\n- **Use agile's Plan-Do-Check-Act cycle to learn fast from each risky item.** Agile methods are \"[SWEBOK excerpt 0095f5423c78d7bdc322],\" allowing small experiments with the API and performance scenarios to be validated each iteration before risk scales up. (source: `root/Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Agile Methods and Lightweight Development Approaches.md`)\n\n- **Automate testing and configuration management to catch regressions early.** \"[SWEBOK excerpt cb9fe7a07f866abcdbfc],\" so API-breaking changes or performance degradations surface quickly. (source: `root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Process Monitoring and Empirical Assessment in Software Engineering/Software Engineering Process Monitoring and Assessment.md`)\n\n# Gaps\n- No BoK coverage of contractual/legal strategies for third-party API risk (SLAs, vendor escrow, etc.).\n- No specific performance benchmarking or load-testing techniques described in the content files read.\n- No formal definition of a \"spike\" as a planning artifact, though prototyping of least-understood components covers the same intent.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 11,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 9,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 12,
+    "input_tokens": 113279,
+    "output_tokens": 5184
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/README.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/README.md",
+   "/workspace/swebok-v4/root/Software Product Management and Engineering Frameworks/INDEX.md",
+   "/workspace/swebok-v4/root/Software Product Management and Engineering Frameworks/README.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/INDEX.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/README.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Development Methodologies and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Product Management and Engineering Frameworks/Products, Services, and Project Delivery Models/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Assessment Methods and Software Project Risk Management.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Risk Management Throughout Project Life Cycle.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Quality Management in Software Projects.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Verification and Prototyping Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Prototyping Styles, Targets and Evaluation Techniques.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Verification and Prototyping Approaches/Prototyping Methods in Software Engineering.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Agile Methods and Lightweight Development Approaches.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Predictive, Iterative, Evolutionary, and Incremental Life Cycles.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Agile Development Methodologies_ XP and Scrum.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Development Models and Iterative Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Process Monitoring and Empirical Assessment in Software Engineering/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Development Models and Iterative Approaches/Incremental Life Cycle and Software Crisis Solutions.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Process Monitoring and Empirical Assessment in Software Engineering/Software Engineering Process Monitoring and Assessment.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Development Models and Iterative Approaches/Agile Principles and Methodology Fundamentals/INDEX.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

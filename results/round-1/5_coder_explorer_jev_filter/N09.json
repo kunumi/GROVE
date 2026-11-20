@@ -1,0 +1,157 @@
+[
+ {
+  "start": "2026-11-19T07:51:43.816613",
+  "seconds": 62.1,
+  "question": "I must choose one of three candidate libraries for our product. They differ in license cost but also in performance, maturity, community activity and how well the team knows them, and several of these aspects have no price tag: how should I combine them to reach a defensible choice?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 10 of 10 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Recognize that most real decisions involve multiple attributes, not just cost. License cost is important, but criteria such as performance, maturity, community activity, and team familiarity are legitimate decision criteria that cannot always be cast in monetary terms. Explicitly include them in your evaluation rather than restricting yourself to a single financial criterion. (source: root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Multiple-Attribute Decision-Making Beyond Financial Criteria.md; root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md) [JEV 0.91]\n- Define your selection criteria carefully upfront. Too many criteria can make analysis unwieldy, while too few may not differentiate well between proposals and can lead to a suboptimal choice. Where possible, express each criterion objectively; if a criterion cannot be expressed objectively (e.g. community health, team familiarity), acknowledge it as an 'intangible' or 'unquantifiable' rather than ignoring it. (source: root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md) [JEV 0.94]\n- Balance the number of criteria against the effort needed to analyze them. The potential for a better decision from including more criteria must be weighed against the extra effort required; do not gold-plate the analysis. (source: root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Balancing Decision Criteria Against Analysis Effort.md) [JEV 0.92]\n- Evaluate each candidate library against every selection criterion on the same basis. When cost is one criterion, use the same planning horizon and cost types for all three libraries; do not evaluate one library over a longer timeframe than another, as this would artificially favor the shorter-frame option. (source: root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Evaluating Alternatives Against Selection Criteria.md) [JEV 0.97]\n- Use compensatory (single-figure-of-merit) techniques such as additive weighting or the Analytic Hierarchy Process (AHP) to combine monetary and non-monetary criteria into a single score, allowing a lower rating on one criterion to be traded off against a higher rating on another. This is well-suited when you need a single defensible ranking across price, performance, maturity, community activity, and team knowledge. (source: root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md; root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory Techniques for Multiple Criteria Assessment.md) [JEV 0.95]\n- Alternatively, use non-compensatory techniques (dominance, satisficing, or lexicography) if certain criteria are absolute thresholds. For example, if a library must pass a minimum performance bar or must have an open-source license, eliminate non-qualifying candidates first before scoring the rest on other criteria. (source: root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md) [JEV 0.84]\n- Explicitly account for intangible assets such as the team's existing knowledge of a library. Team familiarity (tacit knowledge) and institutional know-how are intangible assets that affect organizational performance and must be considered in the decision, especially when the consequences of a wrong choice are significant. (source: root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Identifying and Characterizing Intangible Assets.md; root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md) [JEV 0.95]\n- Consider the 'do-nothing' alternative. If none of the three candidate libraries is satisfactory across all criteria, the best course of action may be to look outside this set of choices rather than accepting the least-bad option. (source: root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md) [JEV 0.94]\n- Ensure all technically infeasible candidates are eliminated before applying financial or multi-criteria scoring. Only technically feasible solutions should be retained as proposals for the selection step. (source: root/Engineering Decision-Making and Financial Analysis/Evaluating Candidates and Managing Decision Costs/Candidate Selection and Engineering Decision Criteria.md; root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md) [JEV 0.67]\n- [SWEBOK excerpt 3413aeb27a048516d9b9] should be considered. For a library that will be deeply embedded in your product, invest in a thorough multi-criteria analysis rather than a quick cost comparison alone. (source: root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md) [JEV 0.95]",
+  "tool_calls": 10,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 7,
+   "search_tool_history": 1,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 10,
+    "input_tokens": 84904,
+    "output_tokens": 3075
+   }
+  },
+  "jev_calls": 10,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 24338,
+  "jev_input_tokens": 7976,
+  "jev_output_tokens": 200,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making Through Data and Standards/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making Through Data and Standards/README.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/README.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Candidates and Managing Decision Costs/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Multiple-Attribute Decision-Making Beyond Financial Criteria.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory Techniques for Multiple Criteria Assessment.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Candidates and Managing Decision Costs/Candidate Selection and Engineering Decision Criteria.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Identifying and Characterizing Intangible Assets.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Balancing Decision Criteria Against Analysis Effort.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Evaluating Alternatives Against Selection Criteria.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Multiple-Attribute Decision-Making Beyond Financial Criteria.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Balancing Decision Criteria Against Analysis Effort.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Evaluating Alternatives Against Selection Criteria.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory Techniques for Multiple Criteria Assessment.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Identifying and Characterizing Intangible Assets.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Candidates and Managing Decision Costs/Candidate Selection and Engineering Decision Criteria.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Recognize that most real decisions involve multiple attributes, not just cost. License cost is important, but criteria such as performance, maturity, community activity, and team familiarity are legitimate decision criteria that cannot always be cast in monetary terms. Explicitly include them in your evaluation rather than restricting yourself to a single financial criterion.",
+    "refs": [
+     "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Multiple-Attribute Decision-Making Beyond Financial Criteria.md",
+     "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md"
+    ],
+    "score": 0.91,
+    "admitted": true
+   },
+   {
+    "guideline": "Define your selection criteria carefully upfront. Too many criteria can make analysis unwieldy, while too few may not differentiate well between proposals and can lead to a suboptimal choice. Where possible, express each criterion objectively; if a criterion cannot be expressed objectively (e.g. community health, team familiarity), acknowledge it as an 'intangible' or 'unquantifiable' rather than ignoring it.",
+    "refs": [
+     "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md"
+    ],
+    "score": 0.94,
+    "admitted": true
+   },
+   {
+    "guideline": "Balance the number of criteria against the effort needed to analyze them. The potential for a better decision from including more criteria must be weighed against the extra effort required; do not gold-plate the analysis.",
+    "refs": [
+     "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Balancing Decision Criteria Against Analysis Effort.md"
+    ],
+    "score": 0.92,
+    "admitted": true
+   },
+   {
+    "guideline": "Evaluate each candidate library against every selection criterion on the same basis. When cost is one criterion, use the same planning horizon and cost types for all three libraries; do not evaluate one library over a longer timeframe than another, as this would artificially favor the shorter-frame option.",
+    "refs": [
+     "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Evaluating Alternatives Against Selection Criteria.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Use compensatory (single-figure-of-merit) techniques such as additive weighting or the Analytic Hierarchy Process (AHP) to combine monetary and non-monetary criteria into a single score, allowing a lower rating on one criterion to be traded off against a higher rating on another. This is well-suited when you need a single defensible ranking across price, performance, maturity, community activity, and team knowledge.",
+    "refs": [
+     "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md",
+     "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory Techniques for Multiple Criteria Assessment.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Alternatively, use non-compensatory techniques (dominance, satisficing, or lexicography) if certain criteria are absolute thresholds. For example, if a library must pass a minimum performance bar or must have an open-source license, eliminate non-qualifying candidates first before scoring the rest on other criteria.",
+    "refs": [
+     "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md"
+    ],
+    "score": 0.84,
+    "admitted": true
+   },
+   {
+    "guideline": "Explicitly account for intangible assets such as the team's existing knowledge of a library. Team familiarity (tacit knowledge) and institutional know-how are intangible assets that affect organizational performance and must be considered in the decision, especially when the consequences of a wrong choice are significant.",
+    "refs": [
+     "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Identifying and Characterizing Intangible Assets.md",
+     "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Consider the 'do-nothing' alternative. If none of the three candidate libraries is satisfactory across all criteria, the best course of action may be to look outside this set of choices rather than accepting the least-bad option.",
+    "refs": [
+     "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md"
+    ],
+    "score": 0.94,
+    "admitted": true
+   },
+   {
+    "guideline": "Ensure all technically infeasible candidates are eliminated before applying financial or multi-criteria scoring. Only technically feasible solutions should be retained as proposals for the selection step.",
+    "refs": [
+     "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Candidates and Managing Decision Costs/Candidate Selection and Engineering Decision Criteria.md",
+     "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md"
+    ],
+    "score": 0.67,
+    "admitted": true
+   },
+   {
+    "guideline": "[SWEBOK excerpt 3413aeb27a048516d9b9] should be considered. For a library that will be deeply embedded in your product, invest in a thorough multi-criteria analysis rather than a quick cost comparison alone.",
+    "refs": [
+     "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   }
+  ]
+ }
+]

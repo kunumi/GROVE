@@ -1,0 +1,69 @@
+[
+ {
+  "start": "2026-11-19T07:35:38.112173",
+  "seconds": 95.1,
+  "question": "A function takes six configuration parameters, each with several possible values, and testing every possible mix of their values is too expensive. How should the test cases be derived?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "I have gathered sufficient material from the SWEBOK passages returned by the searches. Here are the guidelines, each sourced from the SWEBOK passages retrieved:\n\n---\n\n## Guidelines for Deriving Test Cases When Exhaustive Combination Testing Is Too Expensive\n\n---\n\n### 1. Apply Equivalence Partitioning to Collapse Each Parameter's Value Space\n\nPartition the input domain of each configuration parameter into equivalence classes — subsets whose members are expected to behave the same way — and then pick one representative value from each class. This immediately reduces the number of distinct values that need to be exercised per parameter before any combination strategy is applied.\n\n> (source: \"[SWEBOK excerpt e279d64d08518504c456] criterion or relation … [SWEBOK excerpt 83b36aaa6987b9eb0caf].\" — `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md` and `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md`)\n\n---\n\n### 2. Add Boundary Value Tests for Each Parameter\n\nAfter partitioning, choose test values *on or near the boundaries* of each parameter's valid range, since faults tend to cluster at extreme input values. Consider also choosing values just outside the valid domain (robustness testing) to verify error-handling behavior.\n\n> (source: \"[SWEBOK excerpt 22b5a76f3ce0e0a3a3af].\" — `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md`)\n\n---\n\n### 3. Use Combinatorial Test Techniques to Systematically Cover Parameter Interactions\n\nRather than testing all combinations (which is combinatorially explosive), apply one of the following combinatorial strategies in increasing order of thoroughness:\n\n- **Each Choice Testing** — ensure every value of every parameter appears in at least one test case.\n- **Base Choice Testing** — select a \"base\" value for each parameter, then vary one parameter at a time away from the base.\n- **Pairwise (All-Pairs) Testing** — derive test cases so that every *pair* of parameter values is covered by at least one test case.\n- **t-wise Testing** — generalize pairwise to cover every combination of *t* parameter values (t > 2) for higher-confidence fault detection.\n- **All Combinations Testing** — the full Cartesian product; use only when feasibility permits.\n\nPairwise and t-wise testing [SWEBOK excerpt 9a95ff5799238799c95c])**.\n\n> (source: \"[SWEBOK excerpt 12bb367a5311e46b2a98] … [SWEBOK excerpt c19d45a6e6e13a3a71af].\" — `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md`)\n\n> (source: \"[SWEBOK excerpt 7b14e51185467d0e7f48] … [SWEBOK excerpt 88bf22434c6314e981bd]).\" — `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md`)\n\n---\n\n### 4. Use Decision Tables to Capture Logical Interactions Between Parameters\n\nWhen the parameters interact through logical conditions (e.g., certain combinations are only valid together, or trigger distinct behaviours), represent those conditions and their resulting actions in a decision table or decision tree. Each column in the table becomes a test case, ensuring all relevant condition combinations are exercised without redundancy.\n\n> (source: \"[SWEBOK excerpt a11245cd76e2da148e79]).\" — `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md`)\n\n---\n\n### 5. Combine Specification-Based and Structure-Based Techniques\n\nSpecification-based (black-box) techniques — such as equivalence partitioning and combinatorial testing — focus on the input/output behaviour; structure-based (white-box) techniques focus on what the code actually does. Using both together improves fault detection, since they expose different categories of defects. When budget is constrained, the choice and blend of techniques should be adapted to organisational constraints.\n\n> (source: \"[SWEBOK excerpt 14a15524a4aed4318039].\" — `/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md`)\n\n---\n\n### 6. Prioritize Test Cases to Maximize Early Fault Detection\n\nOnce the reduced test suite is derived, order the test cases so that those most likely to find faults are run first, taking into account code coverage, fault likelihood, and dissimilarity between test cases. This further mitigates the cost of incomplete execution by front-loading the highest-value tests.\n\n> (source: \"[SWEBOK excerpt 3e32889b1d11770ab3a7].\" — `/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Test Case Prioritization for Fault Detection.md`)\n\n---\n\n### 7. Measure Coverage to Assess Adequacy of the Reduced Suite\n\nAfter applying the above techniques, evaluate the achieved coverage (e.g., percentage of equivalence classes, pairs, or branches exercised). Coverage measures provide the evidence needed to judge whether the reduced test suite is adequate or whether additional cases are warranted.\n\n> (source: \"[SWEBOK excerpt e04a0e333755c39eb7c9].\" — `/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Measurement and Coverage Analysis/Coverage Measures in Software Testing Techniques.md`)",
+  "tool_calls": 6,
+  "tools": {
+   "jev_search": 5,
+   "search_tool_history": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 4,
+    "input_tokens": 90569,
+    "output_tokens": 3130
+   }
+  },
+  "jev_calls": 1085,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 2165921,
+  "jev_input_tokens": 756289,
+  "jev_output_tokens": 29365,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Software Quality Experts and Contributors.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Data Flow Testing Techniques and Coverage Criteria.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Non-Functional Testing and Test Case Prioritization/Non-functional Testing and Dissimilarity-Based Test Prioritization.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/Control Flow Testing Criteria and Coverage.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Methods and System Diversity/Testing Approaches Based on Operational Profiles and Usability.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Methods and System Diversity/Software Testing Techniques and Standards.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Test Case Prioritization for Fault Detection.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Experience-Based Testing Techniques and Exploratory Testing.md",
+   "/workspace/swebok-v4/root/Requirements Validation and Management/Requirements Management and Prioritization Strategy/Prioritizing Features Through Value and Cost Analysis/Prioritizing Features Based on User Satisfaction and Risk.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/Guide to the Software Engineering Body of Knowledge v4.0a.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Deterministic vs. Random Test Case Selection.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Measurement and Coverage Analysis/Coverage Measures in Software Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/Software Engineering Body of Knowledge Guide Version 4.0a.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/Advanced Software Testing Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Software Quality Experts and Contributors.md",
+   "/workspace/swebok-v4/root/Software Design Methodologies and Approaches/Constraint-Based Design and Design Space Limitation.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

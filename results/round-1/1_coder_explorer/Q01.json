@@ -1,0 +1,57 @@
+[
+ {
+  "start": "2026-11-19T07:31:30.375266",
+  "seconds": 73.2,
+  "question": "How should I derive test cases for a component whose behavior depends on its current state and on the events it receives?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nWhen a component's behavior depends on its current state and the events it receives, SWEBOK v4 recommends **State Transition Testing**, a technique that models the System Under Test (SUT) as a **Finite-State Machine (FSM)** and derives test cases from that model. This falls under the broader category of **specification-based (black-box)** and **model-based** testing. Test suites should cover both typical and alternate event sequences, and automation harnesses are advised given the complexity of the technique.\n\n# Guidelines\n\n- **Model the component as a Finite-State Machine.** State Transition Testing techniques \"[SWEBOK excerpt e100766fea5ee2a192d1].\" (source: `root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md`)\n\n- **Derive test cases from behavioral specification (black-box / specification-based approach).** In specification-based [SWEBOK excerpt 63ab786d1d12803e2a74].\" (source: `root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md`)\n\n- **Frame your approach as model-based testing.** \"Model-based testing [SWEBOK excerpt e5548b789c4c722e1c56].\" (source: `root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md`)\n\n- **Cover both typical and alternate event sequences.** \"[SWEBOK excerpt a3f162dd6a2aa8bdf27b].\" (source: `root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md`)\n\n- **Define a formal notation, a test-generation strategy, and evaluation criteria for the model.** \"[SWEBOK excerpt b61c92db2580eb6a233b] … [SWEBOK excerpt 86dead417bcf3c836f6f].\" (source: `root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md`)\n\n- **Combine state transition testing with other techniques where useful.** \"[SWEBOK excerpt dba88744479bf7f97cc1].\" (source: `root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md`)\n\n- **Use test automation harnesses to manage the complexity.** \"[SWEBOK excerpt 75520a11843ca2e24e8d].\" (source: `root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md`)\n\n# Gaps\n- The BoK files I could access do not detail specific FSM coverage criteria (all-states, all-transitions, all-transition-pairs), nor do they describe concrete algorithms (W-method, Wp-method, UIO sequences) for generating complete test suites from an FSM — those details are referenced externally in [4, part 4] but not reproduced in the content files read.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 12,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 9,
+   "search_tool_history": 1,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 13,
+    "input_tokens": 112383,
+    "output_tokens": 3759
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/README.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/README.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/Advanced Software Testing Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/README.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]
