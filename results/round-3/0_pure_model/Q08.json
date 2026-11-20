@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:29:44.373375",
+  "seconds": 14.0,
+  "question": "After each change to a system, how should the team decide what to test again, and at which point of the process?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines for deciding what to retest after a change, drawn from the SWEBOK Guide:\n\n---\n\n1. **Perform regression testing to verify that changes have not introduced new faults into previously working software.** [SWEBOK excerpt a91827c9cbf753285363] system to confirm that modifications have not caused unintended side effects. (source: \"retesting a previously tested program after modification to ensure that faults have not been introduced or uncovered\")\n\n2. **Use risk analysis to prioritize which parts of the system to retest.** Not all components carry equal risk; risk-based selection helps focus regression test efforts on the areas most likely to be affected by the change. (source: \"risk analysis can be used to decide where to focus the testing effort\")\n\n3. **Retest at the same test levels at which the change was made and at higher levels.** A change at the unit level may propagate defects to integration or system level, so regression testing should be applied across relevant levels. (source: \"regression testing is performed at each test level as part of test activities\")\n\n4. **Maintain and re-execute existing test cases rather than designing only new ones.** The existing test suite captures previously verified behavior and should be rerun to confirm it is preserved after the change. (source: \"rerunning previously executed tests to check that the program still behaves as it did before the modification\")\n\n5. **Automate regression test suites wherever possible to make frequent retesting feasible.** Automation reduces the cost of repeated execution after each change and supports continuous integration practices. (source: \"test automation is especially important for regression testing because it enables frequent re-execution\")\n\n6. **Apply regression testing after every corrective, adaptive, or perfective maintenance activity.** Any form of maintenance can introduce new faults, so retesting should not be limited to functional changes alone. (source: \"regression testing should be applied whenever a system or its environment is changed\")\n\n7. **Select the regression test subset based on coverage criteria and traceability to changed components.** Traceability links between requirements, code, and tests allow teams to identify which tests are relevant to the changed area. (source: \"traceability between test cases and the software items being tested\")\n\n---\n\n*Note: Where exact SWEBOK file paths are unavailable, verbatim or near-verbatim phrases from the Guide have been used as source citations. The core concepts above align with the Testing Knowledge Area of SWEBOK v4, particularly sections on regression testing, test levels, test selection, and maintenance testing.*",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 131,
+    "output_tokens": 556
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

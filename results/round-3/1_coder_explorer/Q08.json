@@ -1,0 +1,62 @@
+[
+ {
+  "start": "2026-11-19T08:29:57.120027",
+  "seconds": 100.4,
+  "question": "After each change to a system, how should the team decide what to test again, and at which point of the process?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nAfter each system change, the team should apply **regression testing** — selective retesting [SWEBOK excerpt 021f9937eefeac172cee] system still meets its requirements. Test case **selection, minimization, and prioritization** make this practical when full retesting is too expensive. Regression testing should run at all test levels (unit, integration, system), typically after integration testing and before deployment, and should be automated in Agile/DevOps/TDD environments where changes occur continuously.\n\n# Guidelines\n\n- **Use regression testing as the primary mechanism for retesting after changes** — it verifies [SWEBOK excerpt 19ea2fcfc60bb036ff4c]. (source: `root/Software Testing Levels, Objectives, and Approaches/Alpha, Beta, and Regression Testing Procedures.md`)\n\n- **Apply both functional and non-functional regression tests** — regression testing may cover [SWEBOK excerpt 6081dd06be3ad080f185], not just functional behavior. (source: `root/Software Testing Levels, Objectives, and Approaches/Regression Testing in Software Development.md`)\n\n- **Use test case selection and minimization to keep regression testing practical** — selection, minimization, and prioritization reduce the size of the test suite re-executed after each change. (source: `root/Software Testing Levels, Objectives, and Approaches/Regression Testing in Software Development.md`)\n\n- **Prioritize test cases to maximize fault detection rate** — prioritization schedules [SWEBOK excerpt dd8bd0bb133cd433eedf], code coverage, and reliability; similarity-based prioritization is widely adopted. (source: `root/Software Testing Levels, Objectives, and Approaches/Test Case Prioritization for Fault Detection.md`)\n\n- **Accept a cost–assurance trade-off** — \"[SWEBOK excerpt 164f0c3370a5c8da9469].\" (source: `root/Software Testing Levels, Objectives, and Approaches/Alpha, Beta, and Regression Testing Procedures.md`)\n\n- **Apply regression testing at every test level** — it can be conducted at unit, integration, and system levels, not only at the end. (source: `root/Software Testing Levels, Objectives, and Approaches/Alpha, Beta, and Regression Testing Procedures.md`)\n\n- **Time regression testing after integration and before deployment** — \"[SWEBOK excerpt 302fdce151c0bdc54f71].\" (source: `root/Software Testing Levels, Objectives, and Approaches/Regression Testing in Software Development.md`)\n\n- **In DevOps/CI, perform regression testing continuously** — \"[SWEBOK excerpt 368d0d5d949340799766].\" (source: `root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Testing Strategies Across Methodologies and Domains/Test Automation and Domain-Specific Testing Approaches.md`)\n\n- **Run smoke testing first as a quick sanity check** — smoke testing (Build Verification Testing) ensures core functionalities work and the SUT is operational before full regression testing begins. (source: `root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Smoke Testing and Knowledge-Based Testing Approaches.md`)\n\n- **Automate to manage regression risk** — \"[SWEBOK excerpt 60175c6d5b01dd84f09f],\" especially in continuous integration contexts. (source: `root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Testing Strategies Across Methodologies and Domains/Test Automation and Domain-Specific Testing Approaches.md`)\n\n- **In Agile, explicitly track regression risk and impact on test artifacts** — managing regression defects and the impact of changing requirements on test artifacts are explicit Agile testing objectives. (source: `root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Testing Strategies Across Methodologies and Domains/Testing Techniques Across Development Levels and Shift-Left Approaches.md`)\n\n- **In shift-left development, focus regression at unit and integration levels using structure-based techniques** — regression is a primary internal code quality objective, targeted at unit and integration levels with structure-based techniques. (source: `root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Testing Aspects in Shift-Left Development.md`)\n\n- **Reuse existing test cases to reduce retesting cost** — \"reusability of test cases is pivotal in … regression testing … and [SWEBOK excerpt a7ace71c29882e121f03].\" (source: `root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Planning and Reusability Strategy/Test Case Reusability in Software Development.md`)\n\n- **Plan regression testing as part of the overall test plan, including risk management** — test planning must include \"[SWEBOK excerpt 693f88c43e08163b6156].\" (source: `root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Planning and Reusability Strategy/Test Planning Process and Key Activities.md`)\n\n# Gaps\n- The BoK does not detail specific algorithms or tooling for **change impact analysis** (e.g., call-graph or dependency-graph-based test selection) to identify exactly which tests are affected by a specific code change.\n- It does not prescribe specific coverage thresholds for deciding when regression testing is considered sufficient after a change.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 10,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 8,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 11,
+    "input_tokens": 106267,
+    "output_tokens": 5454
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Regression Testing in Software Development.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Alpha, Beta, and Regression Testing Procedures.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Test Case Prioritization for Fault Detection.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Testing Roles, Activities, and Development Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Testing Strategies Across Methodologies and Domains/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Management and Strategic Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Planning and Reusability Strategy/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Testing in Traditional Software Development Processes.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Unified Process Phases and Shift-Left Testing Movement.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Testing Aspects in Shift-Left Development.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Testing Strategies Across Methodologies and Domains/Testing Techniques Across Development Levels and Shift-Left Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Testing Strategies Across Methodologies and Domains/Test Automation and Domain-Specific Testing Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Planning and Reusability Strategy/Test Case Reusability in Software Development.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Planning and Reusability Strategy/Test Planning Process and Key Activities.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Smoke Testing and Knowledge-Based Testing Approaches.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

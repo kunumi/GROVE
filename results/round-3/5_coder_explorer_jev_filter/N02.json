@@ -1,0 +1,150 @@
+[
+ {
+  "start": "2026-11-19T08:36:44.559798",
+  "seconds": 68.5,
+  "question": "A coding agent proposes splitting a large module into several networked services. Before anyone implements it, how can the team check whether this high-level structure will meet goals that pull against each other, such as response time, hosting cost and ease of future change?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 9 of 9 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Use Architecture Evaluation to validate the proposed decomposition before implementation. [SWEBOK excerpt 11afef51ca6c763a09cc] Architecturally Significant Requirements (ASRs) and identifies where rework is needed. Methods such as the Architecture Tradeoff Analysis Method (ATAM), the [SWEBOK excerpt 029452f6772913787db2]) provide systematic approaches for evaluating architectures against competing quality requirements. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md; root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Architecture Evaluation and Practices Methods.md) [JEV 0.94]\n- Build a utility tree of quality attributes and use scenarios to reason about trade-offs. ATAM organises quality attributes (such as performance, cost-effectiveness, and modifiability) into a utility tree; scenarios then illustrate those qualities in practice. Because '[SWEBOK excerpt a154017271e676a0163e]' and 'an easy-to-[SWEBOK excerpt 38d1ec47799c52b25ffe]', analysis of trade-offs [SWEBOK excerpt ddc96e1014aca67e2951] is the key to evaluation. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md) [JEV 0.96]\n- Ask the four 'goodness' questions about the networked-service structure before committing to it: (1) [SWEBOK excerpt dee50618f9ecae64870b]? (2) Is it fit for its intended use? (3) [SWEBOK excerpt 2cdc4e866aeccce0834f]? (4) Is it [SWEBOK excerpt ad45cbd0c62aefc7ab25] it? Each question becomes a basis for evaluation. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md) [JEV 0.96]\n- Conduct architecture reviews—formal or informal—to assess the structure's status and identify risks. [SWEBOK excerpt 2c4b3a63bfe3df0388ac]. Reviews range from informal or expertise-based to structured reviews organised around a checklist, or 'active reviews' where [SWEBOK excerpt aae560b5c3b6a225db0d]. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Reviews and Metrics for Quality Assessment.md) [JEV 0.97]\n- Create explicit architecture views for each major concern (performance, cost, modifiability) so that evaluation can be grounded in a concrete description rather than oral knowledge. [SWEBOK excerpt 79b769f0ec43aa5e6cad] that can be queried, examined and analysed. For example, evaluation of functionality or behaviour [SWEBOK excerpt 0a630d944ac7b4c507aa]; specialised concerns such as reliability often rely on specialised representations from their respective discipline. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Evaluating Software Architectures Through Specialized Representations.md) [JEV 0.93]\n- Verify completeness and consistency of the proposed architecture using use cases. [SWEBOK excerpt 47250df3263dc7898ea9] [SWEBOK excerpt 5ee3de222c48ddecd1aa]. This surfaces gaps where a service boundary would break an end-to-end flow or introduce latency not visible in the static diagram. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Documentation and Use Case Evaluation.md) [JEV 0.95]\n- Apply architecture metrics to quantify coupling, cohesion, and complexity of the proposed service structure. [SWEBOK excerpt 974d16866ffe35ee750e] contexts, additional metrics such as [SWEBOK excerpt 57f83d6123d85a62a890] are also indicative of the state of the architecture. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Metrics and Evaluation.md) [JEV 0.97]\n- Explicitly enumerate all relevant architectural concerns from multiple stakeholder perspectives before the evaluation session. Concerns span functional, non-functional, and constraint categories, and include performance, cost, maintainability, modifiability, scalability, deployability, and many others. The team should recognise that [SWEBOK excerpt 6557ae4d25d84453783c].' (source: root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/Architectural Concerns, Views, and Viewpoints/Stakeholder Concerns in Software Architecture.md) [JEV 0.90]\n- Involve an independent third party in design reviews and audits to increase objectivity. [SWEBOK excerpt b1cd9932856804f73655]). Quality attributes such as modularity, maintainability, portability, and testability are a major subset of concerns that the review should address. (source: root/Software Design Quality Evaluation and Assessment/Design Review and Quality Assessment/Design Reviews, Audits, and Quality Attributes.md) [JEV 0.76]",
+  "tool_calls": 10,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 8,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 10,
+    "input_tokens": 91463,
+    "output_tokens": 3528
+   }
+  },
+  "jev_calls": 9,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 21410,
+  "jev_input_tokens": 6744,
+  "jev_output_tokens": 180,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/README.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/README.md",
+   "/workspace/swebok-v4/root/Software Design Methodologies and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Methodologies and Approaches/README.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/README.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/Design Review and Quality Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/Design Analysis and Quality Metrics/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Architecture Evaluation and Practices Methods.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Architecting in the Large and Architecture Evaluation.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/Design Review and Quality Assessment/Design Reviews, Audits, and Quality Attributes.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Reviews and Metrics for Quality Assessment.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Documentation and Use Case Evaluation.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Evaluating Software Architectures Through Specialized Representations.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Metrics and Evaluation.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/Architectural Concerns, Views, and Viewpoints/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture_ Contexts, Methods, and Design Processes/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture_ Contexts, Methods, and Design Processes/Architecture Analysis and Synthesis/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/Architectural Concerns, Views, and Viewpoints/Stakeholder Concerns in Software Architecture.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/Architecture Patterns, Styles and Reference Architectures.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Architecture Evaluation and Practices Methods.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Reviews and Metrics for Quality Assessment.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Evaluating Software Architectures Through Specialized Representations.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Documentation and Use Case Evaluation.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Metrics and Evaluation.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/Architectural Concerns, Views, and Viewpoints/Stakeholder Concerns in Software Architecture.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/Design Review and Quality Assessment/Design Reviews, Audits, and Quality Attributes.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Use Architecture Evaluation to validate the proposed decomposition before implementation. [SWEBOK excerpt 11afef51ca6c763a09cc] Architecturally Significant Requirements (ASRs) and identifies where rework is needed. Methods such as the Architecture Tradeoff Analysis Method (ATAM), the [SWEBOK excerpt 029452f6772913787db2]) provide systematic approaches for evaluating architectures against competing quality requirements.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md",
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Architecture Evaluation and Practices Methods.md"
+    ],
+    "score": 0.94,
+    "admitted": true
+   },
+   {
+    "guideline": "Build a utility tree of quality attributes and use scenarios to reason about trade-offs. ATAM organises quality attributes (such as performance, cost-effectiveness, and modifiability) into a utility tree; scenarios then illustrate those qualities in practice. Because '[SWEBOK excerpt a154017271e676a0163e]' and 'an easy-to-[SWEBOK excerpt 38d1ec47799c52b25ffe]', analysis of trade-offs [SWEBOK excerpt ddc96e1014aca67e2951] is the key to evaluation.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Ask the four 'goodness' questions about the networked-service structure before committing to it: (1) [SWEBOK excerpt dee50618f9ecae64870b]? (2) Is it fit for its intended use? (3) [SWEBOK excerpt 2cdc4e866aeccce0834f]? (4) Is it [SWEBOK excerpt ad45cbd0c62aefc7ab25] it? Each question becomes a basis for evaluation.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Conduct architecture reviews—formal or informal—to assess the structure's status and identify risks. [SWEBOK excerpt 2c4b3a63bfe3df0388ac]. Reviews range from informal or expertise-based to structured reviews organised around a checklist, or 'active reviews' where [SWEBOK excerpt aae560b5c3b6a225db0d].",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Reviews and Metrics for Quality Assessment.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Create explicit architecture views for each major concern (performance, cost, modifiability) so that evaluation can be grounded in a concrete description rather than oral knowledge. [SWEBOK excerpt 79b769f0ec43aa5e6cad] that can be queried, examined and analysed. For example, evaluation of functionality or behaviour [SWEBOK excerpt 0a630d944ac7b4c507aa]; specialised concerns such as reliability often rely on specialised representations from their respective discipline.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Evaluating Software Architectures Through Specialized Representations.md"
+    ],
+    "score": 0.93,
+    "admitted": true
+   },
+   {
+    "guideline": "Verify completeness and consistency of the proposed architecture using use cases. [SWEBOK excerpt 47250df3263dc7898ea9] [SWEBOK excerpt 5ee3de222c48ddecd1aa]. This surfaces gaps where a service boundary would break an end-to-end flow or introduce latency not visible in the static diagram.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Documentation and Use Case Evaluation.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply architecture metrics to quantify coupling, cohesion, and complexity of the proposed service structure. [SWEBOK excerpt 974d16866ffe35ee750e] contexts, additional metrics such as [SWEBOK excerpt 57f83d6123d85a62a890] are also indicative of the state of the architecture.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Metrics and Evaluation.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Explicitly enumerate all relevant architectural concerns from multiple stakeholder perspectives before the evaluation session. Concerns span functional, non-functional, and constraint categories, and include performance, cost, maintainability, modifiability, scalability, deployability, and many others. The team should recognise that [SWEBOK excerpt 6557ae4d25d84453783c].'",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/Architectural Concerns, Views, and Viewpoints/Stakeholder Concerns in Software Architecture.md"
+    ],
+    "score": 0.9,
+    "admitted": true
+   },
+   {
+    "guideline": "Involve an independent third party in design reviews and audits to increase objectivity. [SWEBOK excerpt b1cd9932856804f73655]). Quality attributes such as modularity, maintainability, portability, and testability are a major subset of concerns that the review should address.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/Design Review and Quality Assessment/Design Reviews, Audits, and Quality Attributes.md"
+    ],
+    "score": 0.76,
+    "admitted": true
+   }
+  ]
+ }
+]

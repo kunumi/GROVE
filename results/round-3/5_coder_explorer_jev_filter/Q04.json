@@ -1,0 +1,129 @@
+[
+ {
+  "start": "2026-11-19T08:27:12.558233",
+  "seconds": 41.9,
+  "question": "Which strategies let software keep working when errors occur at runtime instead of failing?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 7 of 7 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Use fault tolerance techniques to detect errors and recover from them or contain their effects: common [SWEBOK excerpt 5d2639acdc83c4d675a4]. (source: root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md) [JEV 0.96]\n- Use exception handling (try-catch blocks with throw) to detect and process runtime errors or exceptional events, and carefully design exception-handling policies: include [SWEBOK excerpt e56492e15b911c91a518], avoid empty catch blocks, know the exceptions library code throws, build a centralized exception reporter, and standardize the program's use of exceptions. (source: root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md) [JEV 0.97]\n- Apply a range of error-handling techniques to keep software running: [SWEBOK excerpt f6dd3c5103b2c1c403d6], or returning an error code — rather than immediately shutting down. (source: root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md) [JEV 0.93]\n- Use defensive programming to protect routines from invalid inputs: check the values of all input parameters and decide how to handle bad inputs before they propagate and cause failures. (source: root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md) [JEV 0.97]\n- Place assertions (executable predicates) at critical points in the program to perform runtime checks; they are especially useful in high-reliability programs for catching mismatched interface assumptions and [SWEBOK excerpt e842886fd450a130cf66]. (source: root/Software Construction Techniques and Practices/Parameterization, Templates, Generics, and Assertions.md; root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md) [JEV 0.95]\n- Apply Design by Contract: specify preconditions and postconditions for each routine so that contracts between caller and callee are explicit, reducing the chance that invalid states propagate silently at runtime. (source: root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md; root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md) [JEV 0.93]\n- Address errors and exception handling as a first-class architectural concern by designing [SWEBOK excerpt 9125b3302ad167c501cc] at the system level. (source: root/Software Design Concerns, Documentation, and Modeling/Software Design Concerns and Architectural Patterns.md) [JEV 0.96]",
+  "tool_calls": 11,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 9,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 11,
+    "input_tokens": 92583,
+    "output_tokens": 2344
+   }
+  },
+  "jev_calls": 7,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 12923,
+  "jev_input_tokens": 4517,
+  "jev_output_tokens": 140,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/README.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/README.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/README.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Parameterization, Templates, Generics, and Assertions.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Fundamentals and System Architecture/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Fundamentals and System Architecture/Runtime and Logical Errors in Programs/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Fundamentals and System Architecture/Programming Paradigms and Error Types/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Concerns and Architectural Patterns.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Parameterization, Templates, Generics, and Assertions.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Concerns and Architectural Patterns.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Use fault tolerance techniques to detect errors and recover from them or contain their effects: common [SWEBOK excerpt 5d2639acdc83c4d675a4].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Use exception handling (try-catch blocks with throw) to detect and process runtime errors or exceptional events, and carefully design exception-handling policies: include [SWEBOK excerpt e56492e15b911c91a518], avoid empty catch blocks, know the exceptions library code throws, build a centralized exception reporter, and standardize the program's use of exceptions.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply a range of error-handling techniques to keep software running: [SWEBOK excerpt f6dd3c5103b2c1c403d6], or returning an error code — rather than immediately shutting down.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md"
+    ],
+    "score": 0.93,
+    "admitted": true
+   },
+   {
+    "guideline": "Use defensive programming to protect routines from invalid inputs: check the values of all input parameters and decide how to handle bad inputs before they propagate and cause failures.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Place assertions (executable predicates) at critical points in the program to perform runtime checks; they are especially useful in high-reliability programs for catching mismatched interface assumptions and [SWEBOK excerpt e842886fd450a130cf66].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Parameterization, Templates, Generics, and Assertions.md",
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply Design by Contract: specify preconditions and postconditions for each routine so that contracts between caller and callee are explicit, reducing the chance that invalid states propagate silently at runtime.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md"
+    ],
+    "score": 0.93,
+    "admitted": true
+   },
+   {
+    "guideline": "Address errors and exception handling as a first-class architectural concern by designing [SWEBOK excerpt 9125b3302ad167c501cc] at the system level.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Concerns and Architectural Patterns.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   }
+  ]
+ }
+]

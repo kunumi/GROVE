@@ -1,0 +1,57 @@
+[
+ {
+  "start": "2026-11-19T08:32:52.442792",
+  "seconds": 65.8,
+  "question": "What kinds of changes are made to software that is already in use, and what distinguishes each kind from the others?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nSWEBOK v4 identifies several distinct categories of changes made to software already in use, each distinguished by the **intent or reason** behind the change: corrective (fixing faults), adaptive (responding to environmental changes), perfective (improving quality or adding enhancements), additive (larger-scale new functionality), emergency (temporary unscheduled fixes pending proper correction), preventive (proactively guarding against threats or obsolescence), and retirement (managed end-of-life). A common misconception is that most maintenance is corrective; studies cited in the BoK show that over 80% is actually used for enhancing and adapting software.\n\n# Guidelines\n\n- **Corrective maintenance** is performed to correct faults and latent defects in software already in use. \"[SWEBOK excerpt f5658b7fbb60796ba696].\" (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Role and Necessity.md`)\n\n- **Adaptive maintenance** keeps software running when its environment changes — the BoK lists as a purpose of maintenance: \"[SWEBOK excerpt 3f7d732c5eab30727b57].\" (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md`)\n\n- **Perfective maintenance** is \"[SWEBOK excerpt 6e3893bacf78f98660e5].\" (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md`)\n\n- **Additive maintenance** is distinguished from perfective by scale: it \"provides additional new functions [SWEBOK excerpt 64b0d170ad041960f80f].\" (source: same file)\n\n- **Emergency maintenance** is an \"[SWEBOK excerpt 29afddbf422c4d134083]\" — distinguishing it as a stopgap measure rather than a permanent fix. (source: same file)\n\n- **Preventive/security maintenance** proactively changes software to \"prevent security threats\" or \"[SWEBOK excerpt 75e12e5f36a78364dbb3].\" (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md`)\n\n- **Retirement** — managed end-of-life — is itself included in the BoK's list of maintenance purposes: \"retire the software.\" (source: same file)\n\n- Understanding these categories matters for cost management: \"[SWEBOK excerpt 8a66c806126d13b9de97].\" (source: same file)\n\n# Gaps\n- The BoK does not provide a single consolidated comparison table of all maintenance types in the passages read; definitions are distributed across multiple content files.\n- Formal standard citation numbers referenced in the text (e.g., \"[2*]\", \"[7]\") are not expanded in the passages read.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 12,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 10,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 13,
+    "input_tokens": 115649,
+    "output_tokens": 3871
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/README.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/README.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/README.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Key Issues in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Evolution Laws.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Role and Necessity.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Effort Categories.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Costs and Management.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/INDEX.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

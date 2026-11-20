@@ -1,0 +1,62 @@
+[
+ {
+  "start": "2026-11-19T08:39:59.319398",
+  "seconds": 28.5,
+  "question": "A customer reports a defect in the executable we shipped to them two years ago, and to investigate it we need that very same executable back, byte for byte, but the toolchain and third-party libraries on our machines have been upgraded since then. What should the team have been tracking and preserving so that this would be possible?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\n\nTo reproduce a shipped executable byte-for-byte after toolchain upgrades, teams must place all build inputs—source code, build tools (compilers, linkers), third-party libraries, build instructions, and configuration data—under SCM control, maintain baselines, and preserve the ability to reproduce previous releases.\n\n# Guidelines\n\n- Place supporting tools (e.g., compilers) under SCM control so that correct tool versions are available to rebuild any previously built software configuration item. (source: \"[SWEBOK excerpt e082f1c815b2042b56a6].\")\n\n- Maintain build instructions under SCM control and ensure they are followed in the correct sequence when reproducing a build. (source: \"[SWEBOK excerpt 1e8d66262f1680402200].\")\n\n- SCM must [SWEBOK excerpt 413ba3a4edd1bb80a345]. (source: \"[SWEBOK excerpt ed245abb0f39c360af98].\")\n\n- Use version control tools to track, document, and store all configuration items including source code and external documentation. (source: /workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Configuration Management and Change Control/Software Configuration Management Tools and Verification Activities.md)\n\n- Identify and control all software items with potential to become SCIs, including source and executable code, software tools, plans, specifications, testing materials, and libraries. (source: \"[SWEBOK excerpt d4b749f5ec14b5d06a14].\")\n\n- Use a repository to store binaries created during the build process so that build artifacts can be retrieved and redeployed as required during the release verification process. (source: \"[SWEBOK excerpt 93cb0cdc79d239bdea25].\")\n\n- Plan for vendor/subcontractor control by tracking purchased software products such as compilers and other tools, and manage how their changes or updates are evaluated. (source: \"[SWEBOK excerpt 1801fc66e493feebf0ab].\")\n\n- Produce and preserve a version description document (VDD) recording the physical contents of each release, including which variants of items were selected. (source: \"[SWEBOK excerpt 1bc7457ba6b688fca089]).\")\n\n- Produce and preserve a Software Bill of Materials (SBOM) listing the artifacts included in each build as an important CM output. (source: \"[SWEBOK excerpt 450578f233490c4cd9fa].\")\n\n- Preserve build outputs as records of quality, security, or compliance, since they may be needed for future reference. (source: \"[SWEBOK excerpt a35fff3110753b6e55b1].\")\n\n- Track which approved software change requests [SWEBOK excerpt 61550993d22c360bca4b], so the exact content of any release can be reconstructed. (source: \"[SWEBOK excerpt 3d4584821b2c458b42e8].\")\n\n- Include [SWEBOK excerpt c4e1be1200adcea889ba]—in the SCM plan to ensure they remain available throughout the software lifecycle. (source: /workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Plan Development.md)",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 17646,
+    "output_tokens": 834
+   }
+  },
+  "jev_calls": 295,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 602886,
+  "jev_input_tokens": 211212,
+  "jev_output_tokens": 7758,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Software Build Tools and Version Control Management.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/In-Process Audits and Software Release Management.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Configuration Management System Tools and Components.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Software Release Management and Deployment Processes.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Configuration Status Accounting and Reporting/Configuration Status Accounting and Management Reporting/Deviations, Waivers, and Configuration Status Accounting.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/Configuration Management in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Configuration Management and Change Control/Baselines and Change Management in Configuration Control.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/SCM Audits and Configuration Identification/Software Configuration Identification and Item Control.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Change Management and Version Control/Implementing Software Changes and Tracking.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Configuration Management and Quality Control.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Configuration Management and Change Control/Software Configuration Management Tools and Verification Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Build Quality Assurance and Configuration Management/Build Process Quality Verification and Documentation.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Release Management Tools and Documentation Requirements.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management and Change Control/Software Configuration Items Selection and Change Recording.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Build Quality Assurance and Configuration Management/Software Build Artifacts and Continuous Integration Processes.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Plan Development.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Configuration Status Accounting and Reporting/Software Configuration Status Reporting and Auditing.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Planning and Implementation/Planning for Software Configuration Management.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Change Management and Version Control/Source Code Version Control and Management.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/Software Measurement and Dependency Management.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Configuration Status Accounting and Reporting/Configuration Status Accounting and Management Reporting/Software Configuration Status Accounting and Reporting.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Interface Control/SCM Workbenches and Vendor Control Planning.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Configuration Management and Requirements Specification Techniques.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Item Definition and Management.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Software Configuration Auditing and Verification/Software Configuration Auditing and Formal Audits.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Engineering Management and Organizational Practices/Configuration Management and Software Engineering References.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Continuous Integration, Delivery, and Software Maintenance/Software Maintenance Tools and Technologies.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

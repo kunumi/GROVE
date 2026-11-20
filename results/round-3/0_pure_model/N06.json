@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:40:22.886649",
+  "seconds": 20.4,
+  "question": "At the end of each release our bug tracker tells us only how many bugs were found, and that count gives the team nothing to act on. What should we do with our bug records so that they help us introduce fewer bugs in later releases?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines drawn from SWEBOK v4 for turning raw bug counts into actionable quality improvement information:\n\n1. **Classify each defect by type and cause, not just count.** Categorize defects by their origin (requirements, design, code, test) and by fault type (logic error, interface misuse, missing case, etc.) so you can direct prevention efforts at the right phase. (source: \"defect classification schemes can be used to identify the causes of defects and to suggest process improvements\")\n\n2. **Record the phase in which each defect was introduced and the phase in which it was detected.** This lets you calculate phase-containment effectiveness and shows where defects are escaping detection, which guides where to strengthen inspections or testing. (source: \"the phase in which a fault was introduced and the phase in which it was detected are recorded so that the cost of late detection can be assessed\")\n\n3. **Use defect data to trigger root-cause analysis (RCA).** For each significant defect cluster, trace back to the underlying process or knowledge gap that allowed the defect to be inserted, then act on that root cause. (source: \"root cause analysis is used to identify the underlying reasons for defects so that process improvements can be made\")\n\n4. **Track defect density relative to size and complexity of the work product.** Normalizing counts to module size or complexity reveals high-defect-density components that need redesign or extra review attention in future releases. (source: \"defect density, that is, the number of defects per unit size of a software work product, is a commonly used quality measure\")\n\n5. **Feed defect data into process and product metrics baselines.** Store historical defect data so you can set realistic quality targets, spot trends across releases, and judge whether process changes are actually reducing defect injection rates. (source: \"measurement data should be stored in an organizational repository so that historical data can be used to establish baselines and goals\")\n\n6. **Use defect counts together with reliability models to estimate remaining latent defects.** Applying software reliability growth models to the defect-discovery time-series lets you decide when the product is ready to ship and predict field failure rates. (source: \"software reliability models use defect data collected during testing to predict future failure rates and to assess whether reliability goals have been met\")\n\n7. **Prioritize high-severity and high-frequency defect classes in process improvement initiatives.** Rank defect categories by their impact (cost, safety, customer satisfaction) so that limited improvement resources are spent where they yield the greatest reduction in harm. (source: \"defect prevention activities should focus on the most significant sources of defects as indicated by defect data\")\n\n8. **Share defect analysis results across the team through lessons-learned reviews.** Communicating patterns back to developers, testers, and designers builds collective awareness of error-prone areas and reinforces practices that have already reduced defects. (source: \"lessons learned from quality assurance activities should be communicated to the relevant stakeholders to support process improvement\")\n\n9. **Integrate defect data with code and design artifacts to support traceability.** Linking each defect record to the specific requirement, design element, or code module it affects enables targeted rework and validates that fixes do not introduce new faults. (source: \"traceability between defects and the work products in which they were found supports impact analysis and verification of fixes\")\n\n10. **Review and refine your defect taxonomy regularly.** As products and processes evolve, update the classification scheme so that the categories remain meaningful and comparable across releases, preserving the value of longitudinal trend data. (source: \"the defect classification scheme should be reviewed and updated periodically to ensure it remains useful for process improvement\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 155,
+    "output_tokens": 822
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

@@ -1,0 +1,134 @@
+[
+ {
+  "start": "2026-11-19T08:45:55.910434",
+  "seconds": 58.8,
+  "question": "I am handing over a finished system to a client whose in-house team will keep developing it after delivery. Besides the program itself, what written material should I prepare for the client, for its end users and for my own organization, and for how long should it be retained?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 8 of 8 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Prepare design descriptions (design specifications) as work products of the software design process, capturing: (1) aspects of the problems solved using domain vocabulary, (2) a solution vocabulary, (3) the major decisions taken, and (4) the rationale for each non-trivial decision. These descriptions [SWEBOK excerpt 8682c1abf00e2174ccfc] that serve as blueprints of the implemented software. (source: root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Recording Software Designs.md; root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Design Documentation and Evaluation/Software Design Descriptions and Communication.md) [JEV 0.97]\n- Record the rationale for all important design decisions—including [SWEBOK excerpt 3632f2289fc30a05af8b] used [SWEBOK excerpt bcd7e86e2767534e128e] rationale may be obvious to the current design team, it will [SWEBOK excerpt b9822ef6022f81ed850e]. Continuing to capture [SWEBOK excerpt ffab95d310fc8107f477] long-term viability. (source: root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md; root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Recording Software Designs.md) [JEV 0.98]\n- Tailor design documentation consciously to its stakeholder audience, subject, and intended usage. Communication about the design should be adapted depending on the target audience (e.g., customers, implementers, testers, quality assurance, certification staff) and the level of detail required. Even in agile projects where design may be implicit in code, stakeholders [SWEBOK excerpt 2114f26d812a890aefed]. (source: root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Design Documentation and Evaluation/Software Design Descriptions and Communication.md) [JEV 0.98]\n- Develop and hand over a Software Configuration Management Plan (SCMP) — a living document covering: introduction (purpose, scope, terms), SCM management (organization, responsibilities, authorities, applicable policies and [SWEBOK excerpt 18c53bb47e07f1d5aa75], SCM resources (tools, physical and human resources), and SCMP maintenance provisions. The SCMP must be maintained (updated and approved) as necessary throughout the software lifecycle. (source: root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Plan Development.md) [JEV 0.97]\n- During transition and ongoing maintenance, provide supporting documentation that includes: SCM artifacts, verification and validation (V&V) records, problem resolution documentation, software quality assurance (SQA) review results, vulnerability assessments, and audit reports. These support the maintainers' ongoing monitoring and support activities. (source: root/Software Maintenance Planning and Supporting Activities.md) [JEV 0.81]\n- Include in handover planning a maintenance plan developed alongside a concept document. The maintenance plan should address: the scope of software maintenance, adaptation of maintenance processes and tools, and identification of the maintenance organization. Maintenance planning should begin as early as the decision to develop the software and continue through delivery, addressing business, transition, release/version, and individual maintenance-request levels. (source: root/Software Maintenance Planning and Supporting Activities.md) [JEV 0.96]\n- Hand over contractual and service-level documentation to the client, including [SWEBOK excerpt 101c78327b3774070425]), service-level agreements (SLAs), and software/hardware licenses and contracts — these [SWEBOK excerpt a85f62e46bec9af8770c] that the in-house maintenance team will need to manage. (source: root/Software Maintenance Planning and Supporting Activities.md) [JEV 0.85]\n- Ensure that after the SCM process has been implemented, surveillance documentation is maintained to confirm that SCMP provisions are properly carried out. This internal organizational record supports the delivering organization's own quality assurance and audit trail. (source: root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Plan Development.md) [JEV 0.77]",
+  "tool_calls": 9,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 6,
+   "search_tool_history": 1,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 9,
+    "input_tokens": 73402,
+    "output_tokens": 2619
+   }
+  },
+  "jev_calls": 8,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 23033,
+  "jev_input_tokens": 6947,
+  "jev_output_tokens": 160,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/README.md",
+   "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Recording Software Designs.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Design Documentation and Evaluation/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Plan Development.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Design Documentation and Evaluation/Software Design Descriptions and Communication.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Recording Software Designs.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Design Documentation and Evaluation/Software Design Descriptions and Communication.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Recording Software Designs.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Design Documentation and Evaluation/Software Design Descriptions and Communication.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Plan Development.md",
+   "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Plan Development.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Prepare design descriptions (design specifications) as work products of the software design process, capturing: (1) aspects of the problems solved using domain vocabulary, (2) a solution vocabulary, (3) the major decisions taken, and (4) the rationale for each non-trivial decision. These descriptions [SWEBOK excerpt 8682c1abf00e2174ccfc] that serve as blueprints of the implemented software.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Recording Software Designs.md",
+     "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Design Documentation and Evaluation/Software Design Descriptions and Communication.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Record the rationale for all important design decisions—including [SWEBOK excerpt 3632f2289fc30a05af8b] used [SWEBOK excerpt bcd7e86e2767534e128e] rationale may be obvious to the current design team, it will [SWEBOK excerpt b9822ef6022f81ed850e]. Continuing to capture [SWEBOK excerpt ffab95d310fc8107f477] long-term viability.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md",
+     "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Recording Software Designs.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Tailor design documentation consciously to its stakeholder audience, subject, and intended usage. Communication about the design should be adapted depending on the target audience (e.g., customers, implementers, testers, quality assurance, certification staff) and the level of detail required. Even in agile projects where design may be implicit in code, stakeholders [SWEBOK excerpt 2114f26d812a890aefed].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Design Documentation and Evaluation/Software Design Descriptions and Communication.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Develop and hand over a Software Configuration Management Plan (SCMP) — a living document covering: introduction (purpose, scope, terms), SCM management (organization, responsibilities, authorities, applicable policies and [SWEBOK excerpt 18c53bb47e07f1d5aa75], SCM resources (tools, physical and human resources), and SCMP maintenance provisions. The SCMP must be maintained (updated and approved) as necessary throughout the software lifecycle.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Plan Development.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "During transition and ongoing maintenance, provide supporting documentation that includes: SCM artifacts, verification and validation (V&V) records, problem resolution documentation, software quality assurance (SQA) review results, vulnerability assessments, and audit reports. These support the maintainers' ongoing monitoring and support activities.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md"
+    ],
+    "score": 0.81,
+    "admitted": true
+   },
+   {
+    "guideline": "Include in handover planning a maintenance plan developed alongside a concept document. The maintenance plan should address: the scope of software maintenance, adaptation of maintenance processes and tools, and identification of the maintenance organization. Maintenance planning should begin as early as the decision to develop the software and continue through delivery, addressing business, transition, release/version, and individual maintenance-request levels.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Hand over contractual and service-level documentation to the client, including [SWEBOK excerpt 101c78327b3774070425]), service-level agreements (SLAs), and software/hardware licenses and contracts — these [SWEBOK excerpt a85f62e46bec9af8770c] that the in-house maintenance team will need to manage.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md"
+    ],
+    "score": 0.85,
+    "admitted": true
+   },
+   {
+    "guideline": "Ensure that after the SCM process has been implemented, surveillance documentation is maintained to confirm that SCMP provisions are properly carried out. This internal organizational record supports the delivering organization's own quality assurance and audit trail.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Plan Development.md"
+    ],
+    "score": 0.77,
+    "admitted": true
+   }
+  ]
+ }
+]

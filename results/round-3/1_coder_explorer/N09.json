@@ -1,0 +1,66 @@
+[
+ {
+  "start": "2026-11-19T08:44:01.094454",
+  "seconds": 103.8,
+  "question": "I must choose one of three candidate libraries for our product. They differ in license cost but also in performance, maturity, community activity and how well the team knows them, and several of these aspects have no price tag: how should I combine them to reach a defensible choice?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nChoosing among candidate libraries that differ in both cost and unquantifiable attributes (performance, maturity, community, team familiarity) is classified by SWEBOK v4 as a **multiple-attribute decision**. The BoK prescribes (1) naming all criteria explicitly and expressing each as objectively as possible, (2) treating non-monetary factors as \"intangible assets\" to be characterised by quality and impact, (3) normalising those indicators, and then (4) collapsing them into a defensible choice through either compensatory techniques (additive weighting, AHP) or non-compensatory techniques (dominance, satisficing). Risk management of each candidate's uncertainty dimensions and consideration of a \"do-nothing\" fallback complete the framework.\n\n# Guidelines\n\n- **Recognise it is a multiple-attribute decision.** Money is usually the most important criterion but \"certainly not always the only one … [SWEBOK excerpt a825f07be0399624ab5e].\" (source: `root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Multiple-Attribute Decision-Making Beyond Financial Criteria.md`)\n\n- **Name and objectify every criterion.** \"[SWEBOK excerpt 0c4e8a712bf8c5efd197].\" Criteria that cannot be monetised are called *unquantifiables*, *irreducibles*, or *intangibles*. (source: `root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md`)\n\n- **Keep the number of criteria manageable.** \"[SWEBOK excerpt da8af6e5424eb0cd6e01].\" (source: `root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md`)\n\n- **Balance criteria count against analysis effort.** \"[SWEBOK excerpt 6e92682341c43c595e4b].\" (source: `root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Balancing Decision Criteria Against Analysis Effort.md`)\n\n- **Treat qualitative factors as intangible assets; assess each by [SWEBOK excerpt 39cf4dec9c2968bb4e56],\" with organisation-specific thresholds separating acceptable from unacceptable levels. (source: `root/Engineering Decision-Making and Financial Analysis/Characterizing Intangible Assets by Impact and Quality.md`)\n\n- **Define indicators for intangibles and normalise them.** \"[SWEBOK excerpt 13c2fd333247d3bad4a5].\" (source: `root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Defining and Measuring Intangible Asset Indicators.md`)\n\n- **Use compensatory techniques (additive weighting, AHP) to allow trade-offs.** These techniques \"[SWEBOK excerpt 6ed292052877d4475a99]\" and allow \"a lower score in one criterion [to [SWEBOK excerpt 61562087de9d9c9a1852].\" Named methods include nondimensional scaling, additive weighting, and AHP. (source: `root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md`)\n\n- **Use non-compensatory techniques when certain thresholds must not be traded away.** Non-compensatory techniques (dominance, satisficing, lexicography) \"[SWEBOK excerpt 4f73df1d2d0f7fd90eb7].\" Use these to eliminate any library that fails a hard requirement regardless of cost. (source: `root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md`)\n\n- **Evaluate all candidates on the same basis.** \"[SWEBOK excerpt 5093aa64927a81e0c9f0] … Use the same basis for comparison, [SWEBOK excerpt 8c6be2eafa754bc08485].\" (source: `root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Evaluating Alternatives Against Selection Criteria.md`)\n\n- **Expose hidden risks through intangible-asset analysis.** Knowing the organisation'[SWEBOK excerpt 673dbbc3561cb8697418].\" (source: `root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md`)\n\n- **Apply risk management to each candidate's uncertainty.** \"[SWEBOK excerpt be0ca43d92420174a745].\" Low community activity or low maturity are uncertainty factors that must be quantified and weighed. (source: `root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md`)\n\n- **Consider the \"do-nothing\" (or \"none of the three\") [SWEBOK excerpt 6e0474bf24b8611949c6] … [SWEBOK excerpt 53d1f6ef4e8342200520].'\" (source: `root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md`)\n\n# Gaps\n- The BoK does not provide specific scoring rubrics for library maturity, community activity, or team familiarity — only the general framework for defining and normalising such indicators is described.\n- It does not address open-source licence compatibility analysis specifically.\n- No worked numerical examples of AHP or additive weighting applied to software library selection appear in the passages read.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 10,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 8,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 11,
+    "input_tokens": 108701,
+    "output_tokens": 5423
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/README.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making Through Data and Standards/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making Through Data and Standards/README.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/README.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/README.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Characterizing Intangible Assets by Impact and Quality.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Candidates and Managing Decision Costs/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Multiple-Attribute Decision-Making Beyond Financial Criteria.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory Techniques for Multiple Criteria Assessment.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Candidates and Managing Decision Costs/Candidate Selection and Engineering Decision Criteria.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Benefit-Cost and Cost-Effectiveness Analysis/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Intangible Asset Valuation and Software Estimation Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Balancing Decision Criteria Against Analysis Effort.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Evaluating Alternatives Against Selection Criteria.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Intangible Asset Valuation and Software Estimation Methods/Decision-Making for Software Product Selection.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Identifying and Characterizing Intangible Assets.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Defining and Measuring Intangible Asset Indicators.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Assessment Methods and Software Project Risk Management.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

@@ -1,0 +1,71 @@
+[
+ {
+  "start": "2026-11-19T08:24:31.328412",
+  "seconds": 88.6,
+  "question": "How should I derive test cases for a component whose behavior depends on its current state and on the events it receives?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Based on the SWEBOK passages I retrieved, here are the guidelines for deriving test cases for a component whose behavior depends on its current state and the events it receives:\n\n---\n\n## Guidelines for State-Based Test Case Derivation\n\n### 1. Model the component as a Finite-State Machine (FSM)\nRepresent the System Under Test (SUT) using a finite-state machine that captures all relevant states, the events that trigger transitions, and the resulting output or actions. This model serves as the basis from which all test cases will be derived.\n\n> (source: \"[SWEBOK excerpt 36107f469ad2e6d2b6e2].\" — /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md)\n\n---\n\n### 2. Derive positive test cases from defined transitions\nFor each valid (defined) transition in the state model — i.e., each combination of a current state and an event that leads to a specified next state — derive at least one positive test case that exercises that transition.\n\n> (source: \"[SWEBOK excerpt f2d8a55feb05b9720395].\" — /workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md)\n\n---\n\n### 3. Derive negative test cases from undefined state/event combinations\nIdentify combinations of states and events that are **not** defined in the model (i.e., transitions that should not exist or should be rejected). Create negative test cases for each such combination to verify that the component handles invalid inputs or unexpected events correctly.\n\n> (source: \"[SWEBOK excerpt 24bcfcac1d9464c98f15].\" — /workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md)\n\n---\n\n### 4. Build the test suite to satisfy a specified coverage level\nOrganize the test cases so that the resulting test suite covers states and transitions according to a chosen coverage criterion (e.g., all-states coverage, all-transitions coverage, or all-paths coverage). Select the appropriate level based on risk and testing resources.\n\n> (source: \"the test [SWEBOK excerpt 1e051e7dde1a64e3a5e8].\" — /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md)\n\n---\n\n### 5. Use UML state diagrams or statecharts as the specification artifact\nWhere the requirements are expressed in a modeling language such as UML, use the state (transition) diagrams or statecharts directly as the source for test case generation. These diagrams precisely capture [SWEBOK excerpt 0560e4a38c8a372b9d29].\n\n> (source: \"[SWEBOK excerpt 92fdaa1f7412be44eba6].\" — /workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Modeling, Patterns, and Domain-Specific Design Approaches/Interaction and Behavioral Diagrams in Software Design.md)\n\n---\n\n### 6. Apply scenario-based testing to cover behavioral sequences\nComplement individual transition tests with scenario-based tests that exercise meaningful sequences of states and events (workflows). This validates the SUT's behavior across multi-step interactions, not only isolated transitions.\n\n> (source: \"[SWEBOK excerpt e41ffd571d00f5662528].\" — /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md)\n\n---\n\n### 7. Determine expected results separately — and involve domain experts when necessary\nTest case generation tools can produce inputs automatically from the state model, but computing expected outputs is not always possible. Plan to supplement automated input generation with business-domain knowledge to establish correct expected results.\n\n> (source: \"[SWEBOK excerpt 187a6ec12533484420c5].\" — /workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md)\n\n---\n\n### 8. Consider using formal specification-based tools for automatic test case derivation\nWhen the state model is expressed in a formal language, automatic derivation of functional test cases becomes possible, and the formal specification can serve as a test oracle for checking results.\n\n> (source: \"[SWEBOK excerpt b0a6b4d5d758fd155753].\" — /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md)\n\n---\n\n**Note:** The SWEBOK passages retrieved provide the core principles above, but do not detail specific coverage metrics (e.g., exact algorithms for all-paths enumeration or n-switch coverage). For deeper procedural guidance on those topics, the SWEBOK directs readers to external references such as [4, part 4] and [9, c12].",
+  "tool_calls": 6,
+  "tools": {
+   "jev_search": 6
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 4,
+    "input_tokens": 65548,
+    "output_tokens": 2783
+   }
+  },
+  "jev_calls": 1174,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 2243406,
+  "jev_input_tokens": 793497,
+  "jev_output_tokens": 33312,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Software Quality Experts and Contributors.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Author Affiliations from MITRE and UQAM.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Software Quality Experts and Contributors.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Author Affiliations from MITRE and UQAM.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/Software Construction and Testing Overview.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/GUI, Gaming, and Real-Time Domain Software Testing.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Requirements Specification/Acceptance Criteria and BDD Scenarios for Banking Systems.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Software Quality Experts and Contributors.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Requirements Specification/Test Cases, Requirements, and Behavior-Driven Development.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Author Affiliations from MITRE and UQAM.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing for Knowledge Representation and Documentation.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/Software Construction and Testing Overview.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Software Engineering Experts and Their Specializations.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Modeling, Patterns, and Domain-Specific Design Approaches/Interaction and Behavioral Diagrams in Software Design.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Requirement Specification Formats and Structures/User Story Format and Specification Guidelines.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Operational Profile Testing for Software Reliability.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Natural Language Requirements Specifications/Unstructured Natural Language Requirements Specification.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/Guide to the Software Engineering Body of Knowledge v4.0a.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

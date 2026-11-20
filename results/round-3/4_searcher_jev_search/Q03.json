@@ -1,0 +1,58 @@
+[
+ {
+  "start": "2026-11-19T08:26:11.690293",
+  "seconds": 75.1,
+  "question": "What principles should guide the design of how a program signals and deals with abnormal conditions, and what alternatives exist for handling errors?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here is a consolidated list of guidelines drawn exclusively from the SWEBOK passages retrieved, with citations after each one.\n\n---\n\n## Guidelines for Designing Error and Abnormal-Condition Handling\n\n### 1. Recognise that error handling affects correctness, robustness, and other nonfunctional attributes\nHow errors are handled has a direct impact on a program's ability to satisfy its requirements beyond mere functionality. This should be an explicit concern during design, not an afterthought.\n> (source: \"[SWEBOK excerpt 5cbc324f523e1430b28c].\" — `/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md`)\n\n---\n\n### 2. Use defensive programming to protect routines from invalid inputs\nEvery routine should be designed to protect itself from being broken by bad data. This means checking the values of all input parameters and deciding in advance how bad inputs will be handled.\n> (source: \"[SWEBOK excerpt edaaca9c62404676ff9e].\" — `/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md`)\n\n---\n\n### 3. Use assertions to detect errors and flush out interface mismatches early\nAssertions are a standard defensive tool for checking input values and catching mismatched interface assumptions before they propagate. They are typically compiled in during development and compiled out for production to avoid performance degradation.\n> (source: \"[SWEBOK excerpt ebcb119299ef60c6bdcc].\" — `/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md`)\n\n---\n\n### 4. Apply Design by Contract to specify routine semantics and clarify error boundaries\nUsing preconditions and postconditions for each routine makes [SWEBOK excerpt 13c5545a4a774df8cb56] explicit. This clarifies when and why a condition is abnormal, and which party (caller or callee) is responsible for handling it.\n> (source: \"[SWEBOK excerpt 24a838ff86d1790c3ee8].\" — `/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md`)\n\n---\n\n### 5. Choose among multiple error-handling alternatives appropriate to the context\nNo single mechanism fits all situations. The SWEBOK enumerates these distinct alternatives:\n- **Returning a neutral value** (a safe default)\n- **[SWEBOK excerpt 0f5e72832e25fc95d88f]**\n- **Shutting down the software**\n- **Throwing/catching an exception**\n\n> (source: \"[SWEBOK excerpt 25fb1a8cce8efbace92b].\" — `/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md`)\n\n---\n\n### 6. When using exceptions, follow a carefully designed exception-handling policy\nExceptions should not be used in an ad hoc way. The SWEBOK identifies several common principles for well-designed exception handling:\n\n- **Include all information that led to the exception** in the exception message, so the recipient has full diagnostic context.\n- **Avoid empty catch blocks**, which silently swallow errors and obscure failures.\n- **Know the exceptions that library code throws**, so that third-party failures are not accidentally suppressed or mishandled.\n- **Consider building a centralized exception reporter** to enforce consistent reporting across the codebase.\n- **Standardize the program's use of exceptions** so that exception types, granularity, and handling strategies are consistent throughout.\n\n> (source: \"[SWEBOK excerpt 8a98e7d1cb740854b979].\" — `/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md`)\n\n---\n\n### 7. Structure exception-throwing and catching consistently\nA routine should use `throw` to signal a detected exception; a corresponding `try-catch` block should catch it and either [SWEBOK excerpt c1de2b80a401caa76c67]. This structure should be applied uniformly across the program.\n> (source: \"[SWEBOK excerpt aa95fcd1c82d33a12fdb] try-catch [SWEBOK excerpt 980c1713bcc05a3281c2].\" — `/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md`)\n\n---\n\n### 8. Apply fault tolerance techniques when recovery from errors is required\nFor higher-reliability systems, fault tolerance should be designed in. The most common strategies are:\n- **Backing up and retrying** the failed operation\n- **Using auxiliary code and voting algorithms** (redundancy-based approaches)\n- **[SWEBOK excerpt b4e83b7d74b0f631a03e], when full recovery is impossible\n\n> (source: \"[SWEBOK excerpt 9e8110bd2e56bcc968ab].\" — `/workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md`)",
+  "tool_calls": 4,
+  "tools": {
+   "jev_search": 4
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 3,
+    "input_tokens": 60846,
+    "output_tokens": 2380
+   }
+  },
+  "jev_calls": 1014,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 1901504,
+  "jev_input_tokens": 679391,
+  "jev_output_tokens": 28175,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Software Quality Experts and Contributors.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Author Affiliations from MITRE and UQAM.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Software Engineering Experts and Their Specializations.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/Software Construction and Testing Overview.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Software Quality Experts and Contributors.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Software Quality Experts and Contributors.md",
+   "/workspace/swebok-v4/root/Software Engineering Fundamentals and System Architecture/Runtime and Logical Errors in Programs/Runtime Errors and Testing Strategies.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Software Quality Experts and Contributors.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Author Affiliations from MITRE and UQAM.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/Software Construction and Testing Overview.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/Contributors and Reviewers to SWEBOK Guide V4/Software Engineering Experts and Their Specializations.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

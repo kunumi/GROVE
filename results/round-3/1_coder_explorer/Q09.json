@@ -1,0 +1,56 @@
+[
+ {
+  "start": "2026-11-19T08:30:57.246916",
+  "seconds": 92.0,
+  "question": "What general practices should developers follow when writing code so that attackers cannot exploit it?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nAccording to SWEBOK v4, developers should follow the CERT/CC Top 10 Software Security Practices alongside a set of concrete implementation rules at the code level. These range from always validating and sanitizing input, to structuring privileged code into small isolated modules, to checking every function's error status and failing securely. No single measure is sufficient; defense in depth, least privilege, default-deny, and adoption of a recognized security standard must all work together.\n\n# Guidelines\n\n- **Validate input.** All data entering the system must be validated before use. (source: `root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Top 10 Software Security Practices.md`)\n- **Heed compiler warnings.** Address every warning the compiler raises, as they often flag potential vulnerabilities. (source: `root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Security Best Practices and Design Principles.md`)\n- **Architect and design for security policies.** Security must be a first-class concern at the design level, not an afterthought. (source: `root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Security Best Practices and Design Principles.md`)\n- **Keep it simple.** Complex code is harder to audit; simplicity reduces the attack surface. (source: `root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Security Best Practices and Design Principles.md`)\n- **Default deny.** Access and permissions must be explicitly granted, not explicitly revoked. (source: `root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Security Best Practices and Design Principles.md`)\n- **Adhere to the principle of least privilege.** Structure code so that privileged sections are isolated into modules that \"are [SWEBOK excerpt 33d407bec89124a53d1d].\" (source: `root/.../Secure Software Design and Implementation Practices/Secure Module Design and Error Handling Principles.md`)\n- **Sanitize data sent to other software.** Data passed to external programs, libraries, or databases must be sanitized to prevent injection and related attacks. (source: `root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Security Best Practices for Software Development.md`)\n- **Practice defense in depth.** No single control is sufficient; independent layers of defense must be stacked. (source: `root/Software Security Engineering and Professional Practice/Security Development and Testing Practices/Software Security Best Practices.md`)\n- **Use effective quality assurance techniques.** Security must be verified through rigorous QA, including security-focused testing and code review. (source: `root/Software Security Engineering and Professional Practice/Security Development and Testing Practices/Software Security Best Practices.md`)\n- **Adopt a software construction security standard.** Developers should follow a recognized standard governing how code is written. (source: `root/Software Security Engineering and Professional Practice/Security Development and Testing Practices/Software Security Best Practices.md`)\n- **Validate all program assumptions.** \"[SWEBOK excerpt 0bcf94be1b9045b82f4d].\" (source: `root/.../Secure Software Design and Implementation Practices/Secure Module Design and Error Handling Principles.md`)\n- **Do not share in-memory objects with other programs.** Prevents data leakage or corruption exploitable by an attacker. (source: `root/.../Secure Software Design and Implementation Practices/Secure Module Design and Error Handling Principles.md`)\n- **Check every function's error status and fail securely.** \"[SWEBOK excerpt 9eb01479dc5885ab572e].\" (source: `root/.../Secure Module Design and Error Handling Principles.md`)\n- **Conduct threat modeling.** Before writing security-sensitive code, model how the system will be attacked to identify the right mitigations: \"[SWEBOK excerpt a7a8d4fb460cb808b710].\" (source: `root/.../Cryptographic Controls and Secure Software Construction.md`)\n- **Select cryptographic controls carefully.** Algorithms and key material must be chosen and managed with rigor: \"[SWEBOK excerpt 6bd033fd9ca421f43953].\" (source: `root/.../Cryptographic Controls and Secure Software Construction.md`)\n\n# Gaps\n- No language-specific or framework-specific rules (e.g., preventing buffer overflows in C, SQL injection in a specific language) beyond the general principles above.\n- No guidance on secure authentication patterns (OAuth, JWT, etc.).\n- No explicit treatment of supply-chain/dependency security in the sections reviewed.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 12,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 10,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 13,
+    "input_tokens": 98651,
+    "output_tokens": 5050
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/INDEX.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/README.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/Security Development and Testing Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/Security Engineering for Modern Software Systems/INDEX.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Top 10 Software Security Practices.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Security Best Practices and Design Principles.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Security Best Practices for Software Development.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/Security Development and Testing Practices/Software Security Best Practices.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Cryptographic Controls and Secure Software Construction.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Secure Software Design and Implementation Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Secure Software Design and Implementation Practices/Software Construction Security and Privilege Management.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Secure Software Design and Implementation Practices/Secure Module Design and Error Handling Principles.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Security Requirements and Design Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Security Requirements and Design Fundamentals/Security Design and Access Control Fundamentals.md",
+   "/workspace/swebok-v4/root/Software Security Engineering and Professional Practice/Security Engineering for Modern Software Systems/Engineering Safe and Secure Software Systems.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/README.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

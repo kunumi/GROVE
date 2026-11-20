@@ -1,0 +1,56 @@
+[
+ {
+  "start": "2026-11-19T08:24:54.719052",
+  "seconds": 62.4,
+  "question": "A function has grown into a long chain of conditionals that maps combinations of conditions to results, and it is hard to change. What construction approach helps, and what has to be decided when applying it?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nWhen a function has grown into a long, hard-to-change chain of conditionals, SWEBOK v4 recommends replacing it with a **table-driven method** — a schema that stores the condition-to-result mappings in a table instead of expressing them through `if`/`case` logic statements. When applied [SWEBOK excerpt c9017683dbc0a3bfa2a4]. Applying the technique requires resolving two explicit design decisions: what information to store in the table, and how to efficiently access that information.\n\n# Guidelines\n\n- **Replace long conditional chains with a table-driven method.** \"[SWEBOK excerpt 8f07d1cee310657857df]).\" (source: `root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md`)\n\n- **Apply it only where it truly simplifies the code.** \"[SWEBOK excerpt 1f02a9a5cf54055acd0d].\" (source: `root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md`)\n\n- **Decide what information to store in the table(s).** \"[SWEBOK excerpt 68e8b2103379df006823].\" (source: `root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md`)\n\n- **Decide [SWEBOK excerpt ffd30c20bbf41330ba5d].** This is the second of the two mandatory decisions the method requires. (source: `root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md` — same passage as above)\n\n- **Consider it alongside state-based techniques.** Table-driven methods appear in SWEBOK under \"State-Based and Table-Driven Construction Techniques,\" together with automata/finite-state-machine approaches — signalling that this pattern suits programs whose behavior is best described as a mapping of conditions and states to actions. (source: `root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md`)\n\n- **Ground the choice in the broader goal of minimising complexity and anticipating change.** SWEBOK lists \"minimising complexity\" and \"anticipating and embracing change\" as fundamental construction principles; table-driven code separates the data (what maps to what) from control logic, making both goals easier to achieve. (source: `root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md`; `root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md`)\n\n# Gaps\n- The BoK names the two decisions but does not elaborate on specific access strategies (direct, indexed, stair-step) or how to choose among them.\n- Performance trade-offs between table lookup and conditional branching are not covered.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 11,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 8,
+   "search_tool_history": 1,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 12,
+    "input_tokens": 102247,
+    "output_tokens": 3737
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/README.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/README.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/README.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/INDEX.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/README.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

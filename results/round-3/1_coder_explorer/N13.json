@@ -1,0 +1,71 @@
+[
+ {
+  "start": "2026-11-19T08:48:05.516652",
+  "seconds": 117.9,
+  "question": "The same kind of failure keeps coming back in production even though every occurrence was patched as soon as it was reported. What methods can the team use to trace the failure back to what is really producing it, so that the fix keeps it from happening again?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nWhen a production failure keeps recurring despite repeated patching, SWEBOK v4 points to a cluster of interrelated causes: the team is likely applying only *emergency* (temporary) fixes without completing *corrective* maintenance, and without first performing impact analysis, program comprehension, and proper root-cause investigation. The remedy requires systematic diagnosis through telemetry, service-report trend analysis, impact analysis, and regression testing, backed by a continuous quality improvement program.\n\n# Guidelines\n\n- **Distinguish emergency fixes from corrective maintenance.** Emergency patches are explicitly defined as temporary measures \"*pending corrective maintenance*\"; stop treating them as final. (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md`)\n\n- **Perform impact analysis on every fix.** It \"*[SWEBOK excerpt e9a5274131c1cf454b38]*\" so the same defect cannot re-emerge in an unexamined component. (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Impact Analysis in Software Maintenance.md`)\n\n- **Develop several candidate solutions before choosing one.** \"*[SWEBOK excerpt b42dd95765838cddbb8c].*\" (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Request and Problem Report Procedures.md`)\n\n- **Invest in program comprehension before changing code.** \"*[SWEBOK excerpt 6cd7bd11035e420c8033]*\"; without understanding how the parts work together, only symptoms are fixed. (source: `root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Quality and Program Comprehension Techniques.md`)\n\n- **Deploy multi-layer product telemetry and analyze it.** \"*[SWEBOK excerpt 3e74aa895065f31a8364]… [SWEBOK excerpt 8e21f5937cd2ea2704b5].*\" (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Product Telemetry for Early Problem Detection.md`)\n\n- **Use service reporting with trend analysis to detect recurrence patterns.** \"*Typical service reports address… incidents and failures, trend information*\"—reviewing these systematically reveals systemic root causes. (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Service Reporting and Incident Prevention in Operations.md`)\n\n- **Monitor KPIs with evidence, not hope.** \"*[SWEBOK excerpt d7d3d7f28d0e70216a43].*\" (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Monitor, Measure, Track, and Review.md`)\n\n- **Automate diagnostics and testing throughout operations.** \"*[SWEBOK excerpt 822ac00520b38d2def53].*\" (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Service Reporting and Incident Prevention in Operations.md`)\n\n- **Apply regression testing after every fix.** \"*[SWEBOK excerpt cd3bc3050c68817b6640].*\" (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Regression Testing Challenges in Software Maintenance.md`)\n\n- **Track workarounds until they are fully removed.** The BoK explicitly mandates: \"*[SWEBOK excerpt 0977af247f1a90832f70].*\" (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Request and Problem Report Procedures.md`)\n\n- **Run a continuous quality-improvement program (SQA, V&V, reviews, audits).** \"*Maintainers [SWEBOK excerpt 2bfd8345c6f4eea420a1].*\" (source: `root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Quality and Program Comprehension Techniques.md`)\n\n# Gaps\n- Formal named root-cause analysis techniques (Five Whys, Fishbone/Ishikawa, fault trees) are not explicitly covered in the content files reachable within this run.\n- Defect classification schemes (e.g., Orthogonal Defect Classification) that help categorize recurring defects by origin are referenced in index entries but not in content files read.\n- Blameless post-mortem / incident retrospective practices are not discussed in the content files read.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 15,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 13,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 16,
+    "input_tokens": 198255,
+    "output_tokens": 5785
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Test Generation, Environment Setup, and Incident Management/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Software Measurement and Organizational Learning/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Key Issues in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Impact Analysis in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Request and Problem Report Procedures.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Service Reporting and Incident Prevention in Operations.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Engineering Operations Fundamentals and Processes.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Monitor, Measure, Track, and Review.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Product Telemetry for Early Problem Detection.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Software Failure Handling and Information Security Management.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Quality and Program Comprehension Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Regression Testing Challenges in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Software Quality Planning and Management Challenges.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Development Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Management and Process Improvement/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Management and Process Improvement/Software Quality Improvement Methodologies and Practices/INDEX.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

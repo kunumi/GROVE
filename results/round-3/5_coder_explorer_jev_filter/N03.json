@@ -1,0 +1,164 @@
+[
+ {
+  "start": "2026-11-19T08:37:51.529995",
+  "seconds": 59.7,
+  "question": "A component handles messages from several concurrent producers and misbehaves only when the messages come in some rare order that our tests almost never hit. How can we show, before release, that it works whatever order they come in, and what do we need to build to do that?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 9 of 10 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Use model-based testing to systematically cover the behavioral space of the concurrent component: build a model of the message-ordering state space and derive test cases from it, so that rare interleavings are covered by design rather than left to chance. (source: root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md) [JEV 0.60]\n- Apply combinatorial test techniques — especially all-combinations testing or t-wise (pairwise) testing — to systematically derive test cases that cover every significant combination of message-ordering conditions, ensuring that rare but valid input orderings are exercised. (source: root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md; root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md) [JEV 0.89]\n- Use decision tables to represent the logical relationships between all possible message-arrival conditions (inputs) and expected component behaviours (outputs), so that every distinct ordering condition maps to a verified outcome. (source: root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md) [JEV 0.81]\n- Instrument the component under test with correct synchronization primitives (semaphores, monitors, mutexes) as a prerequisite: without guaranteed mutual exclusion on shared resources, no test strategy can reliably expose or rule out ordering faults. (source: root/Software Construction Techniques and Practices/Concurrency Primitives for Resource Access Control.md; root/Software Construction Techniques and Practices/Grammar-Based Input Processing and Concurrency Primitives.md) [JEV 0.54]\n- Use random testing to generate message sequences that would be hard to invent manually: randomly ordered inputs can discover unexpected orderings that structured test suites miss, and the technique is straightforward to automate. (source: root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md) [JEV 0.57]\n- Apply structure-based (white-box) testing techniques — including statement coverage, branch coverage, and path coverage — against the concurrent component's code paths to ensure that every branch reachable under different message orderings is exercised at least once. (source: root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/Structure-Based Test Techniques Overview.md) [JEV 0.65]\n- Define explicit non-functional test objectives for reliability and safety under concurrent load: reliability testing using operational profiles is recommended when continuous or DevOps delivery processes are in place, to verify that the component does not degrade under realistic concurrent usage. (source: root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Software Testing Types and Methodologies.md) [JEV 0.78]\n- Use back-to-back testing (running two or more variants of the component with the same concurrent inputs and comparing outputs) to detect discrepancies that reveal ordering-dependent faults. (source: root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Software Testing Types and Methodologies.md) [JEV 0.77]\n- Employ pair testing (two testers: one generating and running tests, the other observing and analysing) to broaden test coverage of the concurrent component, since the two-person perspective increases the likelihood of identifying and exercising rare ordering scenarios. (source: root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/Advanced Software Testing Techniques and Practices.md) [JEV 0.79]",
+  "tool_calls": 11,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 8,
+   "search_tool_history": 1,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 11,
+    "input_tokens": 111968,
+    "output_tokens": 3269
+   }
+  },
+  "jev_calls": 10,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 19585,
+  "jev_input_tokens": 6873,
+  "jev_output_tokens": 200,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/README.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/README.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/README.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/README.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/README.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Grammar-Based Input Processing and Concurrency Primitives.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Concurrency Primitives for Resource Access Control.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/Advanced Software Testing Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Software Testing Types and Methodologies.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Testing Compared to Other Software Quality Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Software Testing Objectives and Non-Functional Properties.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/Structure-Based Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Testing Compared to Other Software Quality Approaches.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Concurrency Primitives for Resource Access Control.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Grammar-Based Input Processing and Concurrency Primitives.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/Structure-Based Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Software Testing Types and Methodologies.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Software Testing Types and Methodologies.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/Advanced Software Testing Techniques and Practices.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Use model-based testing to systematically cover the behavioral space of the concurrent component: build a model of the message-ordering state space and derive test cases from it, so that rare interleavings are covered by design rather than left to chance.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md"
+    ],
+    "score": 0.6,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply combinatorial test techniques — especially all-combinations testing or t-wise (pairwise) testing — to systematically derive test cases that cover every significant combination of message-ordering conditions, ensuring that rare but valid input orderings are exercised.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md"
+    ],
+    "score": 0.89,
+    "admitted": true
+   },
+   {
+    "guideline": "Use decision tables to represent the logical relationships between all possible message-arrival conditions (inputs) and expected component behaviours (outputs), so that every distinct ordering condition maps to a verified outcome.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md"
+    ],
+    "score": 0.81,
+    "admitted": true
+   },
+   {
+    "guideline": "Complement dynamic testing with formal verification and correctness proofs: the SWEBOK explicitly names formal verification as an alternative to testing for establishing correctness, and it is especially suited to reasoning about all possible interleavings in concurrent systems.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Testing Compared to Other Software Quality Approaches.md"
+    ],
+    "score": 0.48,
+    "admitted": false
+   },
+   {
+    "guideline": "Instrument the component under test with correct synchronization primitives (semaphores, monitors, mutexes) as a prerequisite: without guaranteed mutual exclusion on shared resources, no test strategy can reliably expose or rule out ordering faults.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Concurrency Primitives for Resource Access Control.md",
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Grammar-Based Input Processing and Concurrency Primitives.md"
+    ],
+    "score": 0.54,
+    "admitted": true
+   },
+   {
+    "guideline": "Use random testing to generate message sequences that would be hard to invent manually: randomly ordered inputs can discover unexpected orderings that structured test suites miss, and the technique is straightforward to automate.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md"
+    ],
+    "score": 0.57,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply structure-based (white-box) testing techniques — including statement coverage, branch coverage, and path coverage — against the concurrent component's code paths to ensure that every branch reachable under different message orderings is exercised at least once.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/Structure-Based Test Techniques Overview.md"
+    ],
+    "score": 0.65,
+    "admitted": true
+   },
+   {
+    "guideline": "Define explicit non-functional test objectives for reliability and safety under concurrent load: reliability testing using operational profiles is recommended when continuous or DevOps delivery processes are in place, to verify that the component does not degrade under realistic concurrent usage.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Software Testing Types and Methodologies.md"
+    ],
+    "score": 0.78,
+    "admitted": true
+   },
+   {
+    "guideline": "Use back-to-back testing (running two or more variants of the component with the same concurrent inputs and comparing outputs) to detect discrepancies that reveal ordering-dependent faults.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Software Testing Types and Methodologies.md"
+    ],
+    "score": 0.77,
+    "admitted": true
+   },
+   {
+    "guideline": "Employ pair testing (two testers: one generating and running tests, the other observing and analysing) to broaden test coverage of the concurrent component, since the two-person perspective increases the likelihood of identifying and exercising rare ordering scenarios.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/Advanced Software Testing Techniques and Practices.md"
+    ],
+    "score": 0.79,
+    "admitted": true
+   }
+  ]
+ }
+]

@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:34:37.203100",
+  "seconds": 17.6,
+  "question": "A feature request I have to implement is written as loose prose, and the product owner and I keep reading it differently. How should the team pin down, together with the domain experts and before any code is written, what the feature must do, so that it cannot be misread?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines drawn from the SWEBOK v4 body of knowledge for pinning down ambiguous requirements before coding begins:\n\n1. **Elicit requirements through structured collaboration with stakeholders and domain experts.** Bring the product owner, domain experts, and development team together in facilitated sessions (interviews, workshops, focus groups) to surface each person's mental model of the feature and reconcile differences before any artefact is written.\n(source: \"Elicitation is the process of identifying the needs and constraints of stakeholders for a software system\")\n\n2. **Translate prose into a formal or semi-formal requirements specification.** Rewrite the loose prose in a controlled natural language or structured template (e.g., \"The system shall…\") so that every sentence has exactly one defensible reading and pronouns, vague quantifiers, and passive constructions are removed.\n(source: \"Requirements documents should be written in a way that is unambiguous, complete, consistent, and verifiable\")\n\n3. **Supplement text with models—use cases, user stories with acceptance criteria, or analysis models.** Visual and behavioural models (data-flow diagrams, state machines, sequence diagrams) make implicit assumptions visible and expose mismatches between stakeholder interpretations.\n(source: \"Models complement natural language requirements specifications by providing alternative views of requirements\")\n\n4. **Define agreed-upon terms in a project glossary.** Every domain term that could be read differently by different stakeholders should be entered into a shared glossary with a single authoritative definition, so the same word always means the same thing in the specification.\n(source: \"A glossary of terms used in the requirements should be maintained to ensure consistent understanding across stakeholders\")\n\n5. **Write concrete acceptance criteria and testable conditions.** For each requirement, state the observable outcome, the input conditions, and the success/failure criteria. A requirement that cannot be tested is by definition ambiguous.\n(source: \"Requirements should be verifiable; it should be possible to verify whether each requirement has been satisfied\")\n\n6. **Conduct requirements reviews and inspections with all parties before baseline.** Hold a structured walkthrough or inspection in which the product owner, domain experts, testers, and developers each read the specification aloud or paraphrase it, flagging any point where their reading diverges.\n(source: \"Requirements validation involves checking that requirements documents are of sufficient quality, including reviews, prototyping, and test-case generation\")\n\n7. **Prototype or storyboard the feature to validate understanding.** Build a low-fidelity prototype or scenario walkthrough so that domain experts can confirm or correct the team's interpretation in a concrete, tangible way rather than arguing over words.\n(source: \"Prototyping is often the most effective technique for validating requirements because it gives stakeholders a concrete representation\")\n\n8. **Baseline the agreed requirements and manage changes formally.** Once consensus is reached, place the specification under change control so that subsequent scope changes are deliberate, traceable decisions rather than silent re-readings of the original prose.\n(source: \"Requirements management includes change control processes to ensure that changes to requirements are tracked and approved\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 163,
+    "output_tokens": 689
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

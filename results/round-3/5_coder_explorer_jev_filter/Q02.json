@@ -1,0 +1,127 @@
+[
+ {
+  "start": "2026-11-19T08:25:38.828438",
+  "seconds": 59.7,
+  "question": "A function has grown into a long chain of conditionals that maps combinations of conditions to results, and it is hard to change. What construction approach helps, and what has to be decided when applying it?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 7 of 7 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Replace long chains of conditionals with a table-driven method: [SWEBOK excerpt 769c30d6f7d52ad99d00]). This directly addresses the problem of a function that maps combinations of conditions to results using hard-to-change conditional chains. (source: root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md) [JEV 0.82]\n- Apply table-driven methods only [SWEBOK excerpt f326e64a0e76c630b3fd] used in the right situations, but it is not universally superior to conditional logic. (source: root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md) [JEV 0.83]\n- When adopting a table-driven approach, decide [SWEBOK excerpt f44c8238fd83ec0b0658] — this is the first of two key design decisions the programmer must address. (source: root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md) [JEV 0.96]\n- When adopting a table-driven approach, decide [SWEBOK excerpt ffd30c20bbf41330ba5d] — this is the second key design decision the programmer must address. (source: root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md) [JEV 0.96]\n- Recognize table-driven construction as a named software construction technique (covered under 'State-Based and Table-Driven Construction Techniques') — it is a recognized, documented approach in the software construction body of knowledge, not just an ad-hoc refactoring. (source: root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md) [JEV 0.74]\n- Pursue minimizing complexity as a core construction goal: reducing [SWEBOK excerpt 2962bb48e8ad3a1eb484] replacing a tangled conditional chain with a table is one expression of that goal. (source: root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md) [JEV 0.87]\n- Consider anticipating and embracing change when restructuring conditional logic: [SWEBOK excerpt 97c56824279ff9fa583b] — a table-driven design supports this by isolating the mapping data from code logic. (source: root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md) [JEV 0.74]",
+  "tool_calls": 14,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 12,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 14,
+    "input_tokens": 130329,
+    "output_tokens": 2674
+   }
+  },
+  "jev_calls": 7,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 16647,
+  "jev_input_tokens": 6010,
+  "jev_output_tokens": 140,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/README.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/README.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/INDEX.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/README.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/Construction Activities and Planning Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/README.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/README.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Replace long chains of conditionals with a table-driven method: [SWEBOK excerpt 769c30d6f7d52ad99d00]). This directly addresses the problem of a function that maps combinations of conditions to results using hard-to-change conditional chains.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md"
+    ],
+    "score": 0.82,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply table-driven methods only [SWEBOK excerpt f326e64a0e76c630b3fd] used in the right situations, but it is not universally superior to conditional logic.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md"
+    ],
+    "score": 0.83,
+    "admitted": true
+   },
+   {
+    "guideline": "When adopting a table-driven approach, decide [SWEBOK excerpt f44c8238fd83ec0b0658] — this is the first of two key design decisions the programmer must address.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "When adopting a table-driven approach, decide [SWEBOK excerpt ffd30c20bbf41330ba5d] — this is the second key design decision the programmer must address.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Recognize table-driven construction as a named software construction technique (covered under 'State-Based and Table-Driven Construction Techniques') — it is a recognized, documented approach in the software construction body of knowledge, not just an ad-hoc refactoring.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md"
+    ],
+    "score": 0.74,
+    "admitted": true
+   },
+   {
+    "guideline": "Pursue minimizing complexity as a core construction goal: reducing [SWEBOK excerpt 2962bb48e8ad3a1eb484] replacing a tangled conditional chain with a table is one expression of that goal.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md"
+    ],
+    "score": 0.87,
+    "admitted": true
+   },
+   {
+    "guideline": "Consider anticipating and embracing change when restructuring conditional logic: [SWEBOK excerpt 97c56824279ff9fa583b] — a table-driven design supports this by isolating the mapping data from code logic.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md"
+    ],
+    "score": 0.74,
+    "admitted": true
+   }
+  ]
+ }
+]

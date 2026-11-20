@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:33:39.093768",
+  "seconds": 18.4,
+  "question": "How should modules be organized so that the software stays easy to maintain, and how can an existing badly structured program be improved without its users noticing any difference?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here is a list of guidelines drawn from SWEBOK v4 knowledge:\n\n1. **Decompose the system into cohesive, loosely coupled modules.** Each module should have a single, well-defined responsibility so that changes in one area do not ripple unpredictably through the rest of the system. (source: \"coupling and cohesion are two key concepts in software design that affect the maintainability of software\")\n\n2. **Maximize cohesion within each module.** Elements within a module should relate strongly to one another and to the module's purpose, reducing the need to scatter related logic across multiple places. (source: \"cohesion is a measure of how strongly related and focused the responsibilities of a software element are\")\n\n3. **Minimize coupling between modules.** Limit the dependencies and interactions among modules so that modifying one module requires few or no changes to others. (source: \"coupling is a measure of the interdependence among software modules\")\n\n4. **Hide implementation details behind well-defined interfaces (information hiding).** Callers should depend only on a module's public interface, not on its internal data structures or algorithms, so that internals can change freely. (source: \"information hiding is the principle of hiding the design decisions that are most likely to change\")\n\n5. **Refactor internal structure continuously without changing observable behavior (refactoring).** When a module's internal structure degrades, restructure it in small, safe steps while keeping its external interface unchanged, so users observe no difference. (source: \"refactoring is the process of changing a software system in such a way that it does not alter the external behavior of the code yet improves its internal structure\")\n\n6. **Apply established design patterns where appropriate.** Patterns provide proven solutions to recurring structural problems and promote designs that are easier to understand, extend, and maintain. (source: \"design patterns are general reusable solutions to commonly occurring problems in software design\")\n\n7. **Use abstraction to manage complexity.** Express modules at the right level of abstraction so that details irrelevant to a caller are suppressed and the conceptual load on maintainers is reduced. (source: \"abstraction is a view of a problem that extracts [SWEBOK excerpt 25b7edc213064e184e88]\")\n\n8. **Encapsulate data and behavior together.** Group the data a module operates on with the operations that manipulate it, preventing unauthorized or unintended access and simplifying maintenance. (source: \"encapsulation is a mechanism for restricting access to some of the object's components\")\n\n9. **Establish and enforce architectural layers or tiers.** Organize modules into layers with one-directional dependencies, so that higher layers depend on lower ones but not vice versa, making each layer independently maintainable and testable. (source: \"layered architecture organizes software into layers, each of which provides services to the layer above it\")\n\n10. **Keep interfaces narrow and stable.** The public contract of a module should expose only what is necessary; a small, stable interface reduces the impact of internal changes on the rest of the system. (source: \"a module's interface should be kept as simple as possible, exposing only what is necessary\")\n\n11. **Identify and isolate the parts most likely to change (anticipation of change).** Place volatile design decisions behind stable interfaces so that when requirements evolve, only the isolated module needs updating. (source: \"design for change by identifying the aspects of the application that vary and separating them from what stays the same\")\n\n12. **Measure and track software quality attributes such as complexity metrics during maintenance.** Metrics such as cyclomatic complexity or coupling measures can flag modules that need restructuring before they become unmanageable. (source: \"software quality measurement involves quantifying to what degree a software product possesses desirable characteristics\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 138,
+    "output_tokens": 835
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

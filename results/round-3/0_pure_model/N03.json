@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:36:46.429485",
+  "seconds": 22.8,
+  "question": "A component handles messages from several concurrent producers and misbehaves only when the messages come in some rare order that our tests almost never hit. How can we show, before release, that it works whatever order they come in, and what do we need to build to do that?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines for demonstrating correctness under all message orderings, with SWEBOK v4 sources:\n\n---\n\n**1. Apply model checking / formal verification to exhaustively explore all interleavings.**\nModel checking tools enumerate reachable states of a concurrent system, including rare orderings, far more completely than testing alone. You need a formal model of your component and its message protocol.\n(source: \"Model checking is a technique for verifying finite-state concurrent systems\")\n\n---\n\n**2. Use property-based / specification-based testing to generate diverse orderings automatically.**\nRather than writing individual test cases, specify invariants (e.g., \"the component always produces a consistent result regardless of message order\") and let a generator exercise thousands of orderings, including corner cases human testers would miss.\n(source: \"test cases are derived from a specification of the behavior of the component or system\")\n\n---\n\n**3. Apply concurrency-specific structural coverage criteria, not just ordinary branch coverage.**\nFor concurrent code you need criteria such as \"all synchronization pairs covered\" or \"all interleavings of critical sections covered\" to know whether your test suite has actually exercised the dangerous orderings.\n(source: \"criteria for concurrent software include coverage of synchronization mechanisms and interleavings\")\n\n---\n\n**4. Instrument the component with runtime assertion checking and monitors.**\nEmbed assertions that capture expected invariants (message counters, state consistency) and add a runtime monitor that detects violations at any ordering. This turns a silent misbehavior into an observable failure.\n(source: \"assertions and design by contract are used to specify and check pre- and postconditions\")\n\n---\n\n**5. Build a controllable test harness that can impose specific or randomized message orderings.**\nYou need a harness that can inject delays, reorder messages, and replay recorded sequences so that testers and tools can target the rare orderings deliberately.\n(source: \"a test harness is a collection of software and test data configured to test a program unit\")\n\n---\n\n**6. Apply fault injection and stress testing to amplify timing-dependent failures.**\nDeliberately introduce artificial delays and load spikes to increase the probability that rare orderings occur during test runs; this converts probabilistic failures into reproducible ones.\n(source: \"stress testing is testing that evaluates how a system behaves when it is beyond its specified limits\")\n\n---\n\n**7. Use reviews and inspections of the concurrency design before coding.**\nStatic peer inspection of the message-handling protocol can catch incorrect assumptions about ordering (e.g., implicit ordering guarantees that do not hold) before any tests are run.\n(source: \"reviews and inspections can be applied to any software work product including specifications designs and code\")\n\n---\n\n**8. Document and formally specify the required ordering invariants in an interface specification.**\nWithout a precise specification of which orderings are permitted and what the component must do in each case, no test or proof can be declared complete. Write this as a formal or semiformal interface contract.\n(source: \"interface specifications describe the services provided by a software component including inputs outputs and pre and postconditions\")\n\n---\n\n**9. Combine dynamic analysis tools (race detectors, lock validators) in continuous integration.**\nTools such as thread sanitizers detect data races and locking violations automatically on every build, catching ordering-sensitive bugs as soon as code is committed.\n(source: \"dynamic analysis involves executing the program and observing its behavior to detect faults\")\n\n---\n\n**10. Treat verification as a multi-technique activity; no single method is sufficient for concurrency.**\nSWEBOK emphasizes that V&V must use complementary techniques—testing, static analysis, formal methods, and reviews—because each has blind spots, and concurrent ordering bugs are precisely the class most likely to escape any single technique.\n(source: \"it is generally accepted that no single verification and validation technique is sufficient to verify software quality\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 163,
+    "output_tokens": 860
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

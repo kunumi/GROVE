@@ -1,0 +1,164 @@
+[
+ {
+  "start": "2026-11-19T08:24:31.321634",
+  "seconds": 77.0,
+  "question": "How should I derive test cases for a component whose behavior depends on its current state and on the events it receives?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 11 of 11 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Represent the component under test as a Finite-State Machine (FSM): model its states, the events (inputs) that trigger transitions between states, and the resulting outputs. State Transition Testing techniques focus on this FSM representation of the system under test (SUT). (source: root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md) [JEV 0.94]\n- Derive test cases to cover all states and transitions of the FSM according to a specific coverage level (e.g., covering every state, every transition, or sequences of transitions). The test suite should be [SWEBOK excerpt f466e76d8ebc7f510124]. (source: root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md) [JEV 0.85]\n- Classify test techniques by their use of specification vs. structure: for state-based components, specification-based (black-box) techniques generate test cases solely from the SUT's input/output behavior, while structure-based (white-box) techniques generate test cases using [SWEBOK excerpt bd8ff0725cd4851e55f1]. (source: root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md) [JEV 0.92]\n- Consider model-based testing, in which a model [SWEBOK excerpt 43ccd6aac71ee444183b], to test behavioral aspects of the stateful component systematically. Model-based testing [SWEBOK excerpt e5548b789c4c722e1c56]. (source: root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md) [JEV 0.84]\n- Use scenario-based testing to validate requirements [SWEBOK excerpt f12330a6d19b4152a0be]. [SWEBOK excerpt e41ffd571d00f5662528]. (source: root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md) [JEV 0.96]\n- When using scenario-based testing for a stateful component, use workflow models to graphically represent sequences of activities. [SWEBOK excerpt d9601a5f7314ad2d0cfd]), and both typical and alternate workflows should be tested. (source: root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md; root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md) [JEV 0.89]\n- Ensure test automation harnesses support scenario-based and state-transition test execution: [SWEBOK excerpt 707184cb645e8678c52f]. (source: root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md) [JEV 0.83]\n- Apply cause-effect graphing as a complementary technique: systematically explore combinations of input conditions (causes) and map them to output conditions (effects) through logical network graphs. This helps identify how specific event combinations in a given state lead to specific outputs. (source: root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md) [JEV 0.91]\n- Complement state transition testing with equivalence partitioning: partition the input domain (including events and state variables) into equivalence classes based on a specified criterion, selecting representative test cases from each class to detect domain errors efficiently. (source: root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md) [JEV 0.81]\n- Complement state transition testing with boundary value analysis: choose test cases on or near the boundaries of input domains, since [SWEBOK excerpt 44266d1663bca03e93fd]. Consider robustness testing by also choosing test cases outside the input domain to test behavior when unexpected or erroneous events are received. (source: root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md) [JEV 0.95]\n- Use decision tables to represent the logical relationships between input conditions (events and states) and resulting actions (outputs/transitions), and then derive test cases from each rule (combination of conditions) in the table. (source: root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md) [JEV 0.81]",
+  "tool_calls": 14,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 12,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 14,
+    "input_tokens": 127039,
+    "output_tokens": 3391
+   }
+  },
+  "jev_calls": 11,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 21234,
+  "jev_input_tokens": 7534,
+  "jev_output_tokens": 220,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/README.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/README.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/README.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/INDEX.md",
+   "/workspace/swebok-v4/root/Requirements Validation and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Represent the component under test as a Finite-State Machine (FSM): model its states, the events (inputs) that trigger transitions between states, and the resulting outputs. State Transition Testing techniques focus on this FSM representation of the system under test (SUT).",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md"
+    ],
+    "score": 0.94,
+    "admitted": true
+   },
+   {
+    "guideline": "Derive test cases to cover all states and transitions of the FSM according to a specific coverage level (e.g., covering every state, every transition, or sequences of transitions). The test suite should be [SWEBOK excerpt f466e76d8ebc7f510124].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md"
+    ],
+    "score": 0.85,
+    "admitted": true
+   },
+   {
+    "guideline": "Classify test techniques by their use of specification vs. structure: for state-based components, specification-based (black-box) techniques generate test cases solely from the SUT's input/output behavior, while structure-based (white-box) techniques generate test cases using [SWEBOK excerpt bd8ff0725cd4851e55f1].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md"
+    ],
+    "score": 0.92,
+    "admitted": true
+   },
+   {
+    "guideline": "Consider model-based testing, in which a model [SWEBOK excerpt 43ccd6aac71ee444183b], to test behavioral aspects of the stateful component systematically. Model-based testing [SWEBOK excerpt e5548b789c4c722e1c56].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md"
+    ],
+    "score": 0.84,
+    "admitted": true
+   },
+   {
+    "guideline": "Use scenario-based testing to validate requirements [SWEBOK excerpt f12330a6d19b4152a0be]. [SWEBOK excerpt e41ffd571d00f5662528].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "When using scenario-based testing for a stateful component, use workflow models to graphically represent sequences of activities. [SWEBOK excerpt d9601a5f7314ad2d0cfd]), and both typical and alternate workflows should be tested.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md",
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md"
+    ],
+    "score": 0.89,
+    "admitted": true
+   },
+   {
+    "guideline": "Ensure test automation harnesses support scenario-based and state-transition test execution: [SWEBOK excerpt 707184cb645e8678c52f].",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md"
+    ],
+    "score": 0.83,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply cause-effect graphing as a complementary technique: systematically explore combinations of input conditions (causes) and map them to output conditions (effects) through logical network graphs. This helps identify how specific event combinations in a given state lead to specific outputs.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md"
+    ],
+    "score": 0.91,
+    "admitted": true
+   },
+   {
+    "guideline": "Complement state transition testing with equivalence partitioning: partition the input domain (including events and state variables) into equivalence classes based on a specified criterion, selecting representative test cases from each class to detect domain errors efficiently.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md"
+    ],
+    "score": 0.81,
+    "admitted": true
+   },
+   {
+    "guideline": "Complement state transition testing with boundary value analysis: choose test cases on or near the boundaries of input domains, since [SWEBOK excerpt 44266d1663bca03e93fd]. Consider robustness testing by also choosing test cases outside the input domain to test behavior when unexpected or erroneous events are received.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Use decision tables to represent the logical relationships between input conditions (events and states) and resulting actions (outputs/transitions), and then derive test cases from each rule (combination of conditions) in the table.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md"
+    ],
+    "score": 0.81,
+    "admitted": true
+   }
+  ]
+ }
+]

@@ -1,0 +1,171 @@
+[
+ {
+  "start": "2026-11-19T08:29:37.950236",
+  "seconds": 76.7,
+  "question": "Beyond code coverage, how can I evaluate whether my test suite is good at detecting faults?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 10 of 10 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Use mutation testing to evaluate test suite effectiveness: introduce small syntactic changes (mutants) into the system under test, then measure how many are 'killed' by the test suite. The mutation score — the ratio of killed mutants to total generated mutants — directly indicates how well the suite detects faults. The underlying 'coupling effect' assumption is that a suite good at catching simple syntactic faults will also catch more complex real faults. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md; root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation Testing and Fault Injection Evaluation.md; root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Mutation Testing as a Testing Criterion.md) [JEV 0.96]\n- Apply fault injection (error seeding): artificially insert known faults into the system before testing, then run the test suite to see how many injected faults are exposed. The proportion of injected faults discovered gives a measure of testing effectiveness, and the result can be used to estimate the number of genuine faults remaining. Use this technique with care, since there is a risk of leaving injected faults in the product. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation Testing and Fault Injection Evaluation.md; root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Reliability Growth Models and Test Evaluation.md) [JEV 0.94]\n- Compare the relative effectiveness of different testing techniques by measuring concrete properties [SWEBOK excerpt 7e598455b7fd6fa15448] faults found through testing to all [SWEBOK excerpt 89f26d2f4c5a1747fa0b]. Use these cross-technique comparisons to judge which approach delivers the best fault-detection value. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Effectiveness and Process Levels/Test Suite Effectiveness and Testing Process Integration.md) [JEV 0.93]\n- Apply reliability growth models to evaluate whether testing is actually improving the product. These models predict reliability based on observed failures and assume that fixing the faults behind those failures causes reliability to grow over time. Both failure-count and time-between-failure model variants are available; track the trend to decide whether the test suite is making a measurable difference. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Reliability Growth Models and Test Evaluation.md) [JEV 0.91]\n- Measure fault density — [SWEBOK excerpt 73c24fb949f35b73f280] to the size of the system under test — to gauge how thoroughly the test suite is exposing defects across the codebase. Additional semantics-based measurements such as fault depth (minimum fault removals needed to make the SUT correct) and fault multiplicity ([SWEBOK excerpt 8311a4cd522b3cd0437e]) can further characterise test effectiveness. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Density Measurement in Software Testing.md) [JEV 0.98]\n- Leverage fault-type classification and historical fault statistics to focus and evaluate the test suite. Knowing which types of faults are most likely in the system under test (using taxonomies such as the Orthogonal Defect Classification or security/privacy vulnerability taxonomies) and how frequently those fault types have occurred in the past helps prioritise testing effort and assess whether the suite is targeting the right fault classes. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/SUT Measurements and Fault Classification for Test Planning.md; root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md) [JEV 0.94]\n- Use usage-based (operational profile) testing to assess whether the test suite reflects real-world usage. By generating test cases according to the operational profile — the statistical distribution of how the software will actually be used — and applying statistical sampling, testers can evaluate the suite's effectiveness in terms of the future reliability the software will exhibit in production. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Operational Profile Testing for Software Reliability.md; root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Usage-Based Testing Techniques and Statistical Sampling.md) [JEV 0.92]\n- Define and monitor key performance indicators (KPIs) for the system under test — measurable indicators that show whether the SUT is performing as expected — to complement pure fault-detection metrics. Align the chosen evaluation measures, data analysis, and reporting with the specific test objectives. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Evaluation of the System Under Test.md; root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test-Related Measures and Quality Evaluation.md) [JEV 0.92]\n- Apply test-case prioritization techniques to assess and improve the fault-detection rate of the existing suite. By re-ordering or selecting tests based on heuristics (e.g., similarity-based prioritization), you can measure whether the prioritized suite finds faults earlier and faster, which is a direct signal of suite quality beyond coverage. (source: root/Software Testing Levels, Objectives, and Approaches/Test Case Prioritization for Fault Detection.md) [JEV 0.91]\n- Acknowledge the theoretical limits of any test-suite evaluation: testing can demonstrate the presence of bugs but, as Dijkstra noted, never their absence. Avoid ascribing unjustified confidence to a successful run; instead combine multiple evaluation methods (mutation score, fault injection, reliability growth, etc.) to build a balanced picture of suite quality. (source: root/Testing Limitations and Path Feasibility Challenges/Oracle Limitations and Testing Theory Constraints.md) [JEV 0.76]",
+  "tool_calls": 11,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 9,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 11,
+    "input_tokens": 104146,
+    "output_tokens": 3913
+   }
+  },
+  "jev_calls": 10,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 23612,
+  "jev_input_tokens": 7802,
+  "jev_output_tokens": 200,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation Testing and Fault Injection Evaluation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test-Related Measures and Quality Evaluation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Evaluation of the System Under Test.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Measurement and Coverage Analysis/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Effectiveness and Process Levels/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Methods and System Diversity/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Mutation Testing as a Testing Criterion.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Effectiveness and Process Levels/Test Suite Effectiveness and Testing Process Integration.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Measurement and Coverage Analysis/Coverage Measures in Software Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/SUT Measurements and Fault Classification for Test Planning.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Density Measurement in Software Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Reliability Growth Models and Test Evaluation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Operational Profile Testing for Software Reliability.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/Oracle Limitations and Testing Theory Constraints.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Usage-Based Testing Techniques and Statistical Sampling.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Scalability, Test Effectiveness, and Testing Controllability.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Test Case Prioritization for Fault Detection.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Effectiveness and Process Levels/Software Testing Process Levels and Practical Considerations.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation Testing and Fault Injection Evaluation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Mutation Testing as a Testing Criterion.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation Testing and Fault Injection Evaluation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Reliability Growth Models and Test Evaluation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Effectiveness and Process Levels/Test Suite Effectiveness and Testing Process Integration.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Reliability Growth Models and Test Evaluation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Density Measurement in Software Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/SUT Measurements and Fault Classification for Test Planning.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Operational Profile Testing for Software Reliability.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Usage-Based Testing Techniques and Statistical Sampling.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Evaluation of the System Under Test.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test-Related Measures and Quality Evaluation.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Test Case Prioritization for Fault Detection.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/Oracle Limitations and Testing Theory Constraints.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Use mutation testing to evaluate test suite effectiveness: introduce small syntactic changes (mutants) into the system under test, then measure how many are 'killed' by the test suite. The mutation score — the ratio of killed mutants to total generated mutants — directly indicates how well the suite detects faults. The underlying 'coupling effect' assumption is that a suite good at catching simple syntactic faults will also catch more complex real faults.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md",
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation Testing and Fault Injection Evaluation.md",
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Mutation Testing as a Testing Criterion.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply fault injection (error seeding): artificially insert known faults into the system before testing, then run the test suite to see how many injected faults are exposed. The proportion of injected faults discovered gives a measure of testing effectiveness, and the result can be used to estimate the number of genuine faults remaining. Use this technique with care, since there is a risk of leaving injected faults in the product.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation Testing and Fault Injection Evaluation.md",
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Reliability Growth Models and Test Evaluation.md"
+    ],
+    "score": 0.94,
+    "admitted": true
+   },
+   {
+    "guideline": "Compare the relative effectiveness of different testing techniques by measuring concrete properties [SWEBOK excerpt 7e598455b7fd6fa15448] faults found through testing to all [SWEBOK excerpt 89f26d2f4c5a1747fa0b]. Use these cross-technique comparisons to judge which approach delivers the best fault-detection value.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Effectiveness and Process Levels/Test Suite Effectiveness and Testing Process Integration.md"
+    ],
+    "score": 0.93,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply reliability growth models to evaluate whether testing is actually improving the product. These models predict reliability based on observed failures and assume that fixing the faults behind those failures causes reliability to grow over time. Both failure-count and time-between-failure model variants are available; track the trend to decide whether the test suite is making a measurable difference.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Reliability Growth Models and Test Evaluation.md"
+    ],
+    "score": 0.91,
+    "admitted": true
+   },
+   {
+    "guideline": "Measure fault density — [SWEBOK excerpt 73c24fb949f35b73f280] to the size of the system under test — to gauge how thoroughly the test suite is exposing defects across the codebase. Additional semantics-based measurements such as fault depth (minimum fault removals needed to make the SUT correct) and fault multiplicity ([SWEBOK excerpt 8311a4cd522b3cd0437e]) can further characterise test effectiveness.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Density Measurement in Software Testing.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Leverage fault-type classification and historical fault statistics to focus and evaluate the test suite. Knowing which types of faults are most likely in the system under test (using taxonomies such as the Orthogonal Defect Classification or security/privacy vulnerability taxonomies) and how frequently those fault types have occurred in the past helps prioritise testing effort and assess whether the suite is targeting the right fault classes.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/SUT Measurements and Fault Classification for Test Planning.md",
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md"
+    ],
+    "score": 0.94,
+    "admitted": true
+   },
+   {
+    "guideline": "Use usage-based (operational profile) testing to assess whether the test suite reflects real-world usage. By generating test cases according to the operational profile — the statistical distribution of how the software will actually be used — and applying statistical sampling, testers can evaluate the suite's effectiveness in terms of the future reliability the software will exhibit in production.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Operational Profile Testing for Software Reliability.md",
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Usage-Based Testing Techniques and Statistical Sampling.md"
+    ],
+    "score": 0.92,
+    "admitted": true
+   },
+   {
+    "guideline": "Define and monitor key performance indicators (KPIs) for the system under test — measurable indicators that show whether the SUT is performing as expected — to complement pure fault-detection metrics. Align the chosen evaluation measures, data analysis, and reporting with the specific test objectives.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Evaluation of the System Under Test.md",
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test-Related Measures and Quality Evaluation.md"
+    ],
+    "score": 0.92,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply test-case prioritization techniques to assess and improve the fault-detection rate of the existing suite. By re-ordering or selecting tests based on heuristics (e.g., similarity-based prioritization), you can measure whether the prioritized suite finds faults earlier and faster, which is a direct signal of suite quality beyond coverage.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Test Case Prioritization for Fault Detection.md"
+    ],
+    "score": 0.91,
+    "admitted": true
+   },
+   {
+    "guideline": "Acknowledge the theoretical limits of any test-suite evaluation: testing can demonstrate the presence of bugs but, as Dijkstra noted, never their absence. Avoid ascribing unjustified confidence to a successful run; instead combine multiple evaluation methods (mutation score, fault injection, reliability growth, etc.) to build a balanced picture of suite quality.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/Oracle Limitations and Testing Theory Constraints.md"
+    ],
+    "score": 0.76,
+    "admitted": true
+   }
+  ]
+ }
+]
