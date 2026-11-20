@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:05:56.864077",
+  "seconds": 8.8,
+  "question": "What kinds of changes are made to software that is already in use, and what distinguishes each kind from the others?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are the kinds of changes made to software already in use, as described in the SWEBOK Guide:\n\n1. **Corrective Maintenance** – Involves modifying the software to fix defects and faults discovered after delivery. It is distinguished by the fact that changes are reactive, driven by failures or errors found during operation, not by new user needs or environmental changes. (source: \"reactive modification of a software product performed after delivery to correct discovered problems\")\n\n2. **Adaptive Maintenance** – Involves modifying the software to keep it usable in a changed or changing environment. It is distinguished by the fact that the software itself may not be broken, but external factors (such as a new operating system, hardware, or regulatory requirements) have changed, requiring the software to be updated to remain functional. (source: \"modification of a software product performed after delivery to keep a software product usable in a changed or changing environment\")\n\n3. **Perfective Maintenance** – Involves modifying the software to improve performance, maintainability, or other attributes, or to implement new or changed user requirements. It is distinguished by being proactive and aimed at enhancing the software beyond its current capability or quality, not merely correcting or adapting it. (source: \"[SWEBOK excerpt c137e304c4117aa9bd25] improve performance or maintainability\")\n\n4. **Preventive Maintenance** – Involves modifying the software to detect and correct latent faults before they become actual failures. It is distinguished from corrective maintenance in that the faults have not yet manifested as failures; the goal is to reduce the likelihood of future problems. (source: \"[SWEBOK excerpt c137e304c4117aa9bd25] detect and correct latent faults in the software product before they become effective faults\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 130,
+    "output_tokens": 378
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

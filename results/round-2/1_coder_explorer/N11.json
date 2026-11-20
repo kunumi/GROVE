@@ -1,0 +1,53 @@
+[
+ {
+  "start": "2026-11-19T08:20:13.931949",
+  "seconds": 94.2,
+  "question": "Our orders table repeats the customer's name and address on every order row, and after a customer moves some rows show the old address while others show the new one. How should the tables be restructured, and what does that cost when querying the data?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nYour orders table suffers from data redundancy and data inconsistency — the core problems that database normalization is designed to eliminate. The fix is to split customer data (name, address) into a separate **Customers** table linked by a foreign key, applying at least **Second Normal Form (2NF)** to remove partial dependencies and **Third Normal Form (3NF)** to remove transitive ones. The trade-off is real: normalization increases the number of tables and increases query time because queries must now JOIN the two tables — and the BoK explicitly endorses **de-normalization** as a remedy only when application-specific performance demands justify adding redundancy back.\n\n# Guidelines\n\n- **Eliminate redundancy and enforce unique keys (1NF).** Repeating customer data on every row violates First Normal Form. Each row must be uniquely identified and duplication must be removed.\n  (source: `root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md` — *\"[SWEBOK excerpt 6b6113fbfcd1c8eed425]… [SWEBOK excerpt b1bfbec03a11d3ebe0cd].\"*)\n\n- **Move customer attributes to their own table (2NF).** Because name and address depend only on the customer — not on the full order key — 2NF requires a separate Customers table referenced by Orders.\n  (source: same file — *\"[SWEBOK excerpt 6d0499536d85be18506b]).\"*)\n\n- **Remove any remaining transitive dependencies (3NF).** If any order column depends on another non-key column, that too must be extracted.\n  (source: `root/.../Database Normalization Forms and Requirements.md` — *\"[SWEBOK excerpt e6b8f2d0590bc4f09048].\"*)\n\n- **Use an RDBMS so tables can relate to each other.** An RDBMS lets the Orders table store only a customer ID while name/address live once in Customers, significantly reducing redundancy.\n  (source: `root/.../Database Languages and Relational Database Management Systems.md` — *\"its data tables relate to one another… data redundancy is significantly reduced.\"*)\n\n- **Target at least 3NF or BCNF as the standard endpoint.** This eliminates the update anomalies (old vs. new address) you are experiencing.\n  (source: `root/.../Database Normalization Forms Fourth Through Sixth.md` — *\"[SWEBOK excerpt 4e8dc7c159181b00ce14]… [SWEBOK excerpt dfeb4dd69b6d25b596d1].\"*)\n\n- **Accept that normalization raises query time — it [SWEBOK excerpt 1dae62524ca4cc3cad5f].**\n  (source: `root/.../RDBMS Types and Database Normalization Fundamentals.md` and `Structured Query Language and Data Management Fundamentals.md` — *\"[SWEBOK excerpt 4d3560f3fe4c756660d6].\"*)\n\n- **Apply de-normalization only when the application specifically requires faster data access.** Adding back controlled redundancy is the recognized trade-off when join overhead is unacceptable.\n  (source: `root/.../Database Normalization Forms and De-normalization.md` — *\"[SWEBOK excerpt 664a0df7f258db3e33f0].\"*)\n\n- **Use SQL to implement all restructuring operations.** Creating the new table, migrating data, defining relationships, and writing the join queries are all SQL operations.\n  (source: `root/.../Structured Query Language and Data Management Fundamentals.md` — *\"[SWEBOK excerpt da8c2999a78b239dc4ab]… can be performed using SQL.\"*)\n\n# Gaps\n- Specific JOIN algorithms (hash join, nested-loop, etc.) and their individual performance costs: Not found in the BoK.\n- Indexing strategies to offset join overhead after normalization: Not found in the BoK.\n- Referential integrity / foreign key constraint syntax: Not found in the BoK.\n- Concrete before/after schema examples: Not found in the BoK.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 12,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 10,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 13,
+    "input_tokens": 98256,
+    "output_tokens": 4445
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/INDEX.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/README.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/INDEX.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/README.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Management Systems and Core Components/INDEX.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms and Requirements.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/RDBMS Types and Database Normalization Fundamentals.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms Fourth Through Sixth.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Languages and Relational Database Management Systems.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Structured Query Language and Data Management Fundamentals.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Management Systems and Core Components/Database Management Systems Overview and Components.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Management Systems and Core Components/Database Engine Components and Management Functions.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

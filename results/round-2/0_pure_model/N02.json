@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:09:06.564679",
+  "seconds": 20.3,
+  "question": "A coding agent proposes splitting a large module into several networked services. Before anyone implements it, how can the team check whether this high-level structure will meet goals that pull against each other, such as response time, hosting cost and ease of future change?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines for evaluating a proposed multi-service architecture against conflicting quality goals before implementation:\n\n1. **Define and prioritize quality attributes explicitly before evaluating the structure.** Identify which quality requirements (performance, cost, maintainability) matter most and in what order, so trade-off decisions have an agreed basis. (source: \"Quality requirements are often in conflict with each other, and these conflicts need to be resolved\")\n\n2. **Use architectural views to reason about each quality concern separately.** Represent the structure from multiple viewpoints (e.g., deployment view for cost, runtime view for latency, module view for changeability) so each stakeholder can inspect the aspect relevant to their goal. (source: \"An architectural view is a representation of a whole system from the perspective of a related set of concerns\")\n\n3. **Apply scenario-based architecture evaluation methods such as ATAM.** The Architecture Tradeoff Analysis Method explicitly maps architectural decisions to quality attribute scenarios, surfaces trade-offs, and identifies sensitivity points and risks before any code is written. (source: \"The Architecture Tradeoff Analysis Method (ATAM) is a method for evaluating software architectures relative to quality attribute goals\")\n\n4. **Model performance with analytic or simulation techniques early.** Use queuing models, latency budgets, or lightweight prototypes to predict whether inter-service communication overhead will satisfy response-time requirements, rather than discovering problems after deployment. (source: \"Analytical evaluation and simulation can be used to evaluate architecture designs with respect to performance\")\n\n5. **Assess modifiability by examining coupling and cohesion between proposed services.** Check whether the proposed boundaries isolate likely change points; high coupling across service boundaries raises the cost of future change and signals a poor decomposition. (source: \"Modifiability is the ease with which a software system or component can be modified to correct faults, improve performance, or adapt to a changed environment\")\n\n6. **Enumerate architectural tactics for each conflicting quality goal and check for interference.** Tactics that improve one attribute (e.g., caching for performance) may hurt another (e.g., consistency, which affects correctness). Mapping tactics to goals reveals where conflicts are irreconcilable by design. (source: \"Architectural tactics are design decisions that influence the control of a quality attribute response\")\n\n7. **Conduct a cost-benefit analysis of architectural alternatives.** Compare the proposed networked-service structure against at least one alternative (e.g., a modular monolith) on hosting cost, operational complexity, and development effort, using the Cost Benefit Analysis Method (CBAM) or equivalent. (source: \"The Cost Benefit Analysis Method (CBAM) is used to make architectural decisions based on the economic impact of quality attributes\")\n\n8. **Document and review architectural decisions and their rationale explicitly.** Record why the split was proposed, what alternatives were rejected, and what trade-offs were accepted, so future teams understand the constraints and can revisit decisions when goals change. (source: \"Architectural decisions and their rationale should be documented so that they can be understood and evaluated by stakeholders\")\n\n9. **Involve all relevant stakeholders in the evaluation.** Performance engineers, operations staff, and business owners have different priority orderings for the conflicting goals; a structured walkthrough with all parties prevents one concern from silently dominating the design. (source: \"Stakeholders often have different and conflicting interests that need to be identified and resolved\")\n\n10. **Treat the evaluation as iterative, not a single gate.** As prototypes or spikes produce real measurements, revisit the architecture model and update trade-off assessments, since early analytic results may not hold at production scale. (source: \"Software architecture is not a one-time activity; it needs to be revisited and updated as the system evolves\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 159,
+    "output_tokens": 837
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

@@ -1,0 +1,55 @@
+[
+ {
+  "start": "2026-11-19T07:59:37.488399",
+  "seconds": 76.0,
+  "question": "Which strategies let software keep working when errors occur at runtime instead of failing?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nSWEBOK v4 describes runtime error resilience through three overlapping areas: **fault tolerance techniques** (detect errors then recover or contain them), **error-handling techniques** (return neutral values, substitute valid data, log warnings, return error codes), and **exception handling** (try-catch blocks with carefully designed policies). Defensive programming—validating inputs and using assertions—provides a preventive foundation that reduces the chance of unhandled failures reaching production.\n\n# Guidelines\n- **Fault tolerance = detect + recover or contain.** Software reliability is increased [SWEBOK excerpt c50d13221cc1a3d4061e] when full recovery is not possible. (source: `root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md` — *\"[SWEBOK excerpt 909de8a0fa8186bde761].\"*)\n\n- **Back up and retry.** On error, roll back to a safe state and attempt the operation again. (source: `root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md` — *\"[SWEBOK excerpt 781020248b1325e999a5]…\"*)\n\n- **Use auxiliary code and voting algorithms.** Run redundant code paths and vote on results to mask errors in one path. (source: `root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md` — *\"…using auxiliary code and voting algorithms…\"*)\n\n- **Replace an erroneous value with a benign phony value.** When a value is bad but processing can safely continue with a placeholder, use one. (source: `root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md` — *\"…[SWEBOK excerpt 8b0b1372e25e459ce254].\"*)\n\n- **Substitute the next piece of valid data.** Skip bad data and continue with the next valid item rather than halting. (source: `root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md` — *\"…substituting the next piece of valid data…\"*)\n\n- **Log a warning and keep running.** Record the problem and continue execution instead of terminating. (source: `root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md` — *\"…logging a warning message…\"*)\n\n- **Return an error code.** Signal the error to the caller without crashing, letting the caller decide how to respond. (source: `root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md` — *\"…returning an error code…\"*)\n\n- **Use try-catch exception blocks.** Throw detected exceptions and catch them in a try-catch block that either corrects the erroneous condition or returns control gracefully to the caller. (source: `root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md` — *\"The try-catch [SWEBOK excerpt 980c1713bcc05a3281c2].\"*)\n\n- **Follow sound exception-design policies.** Include full context in exception messages, avoid empty catch blocks, know what library exceptions may be thrown, build a centralized exception reporter, and standardize exception use. (source: `root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md`)\n\n- **Defensive programming: validate all inputs.** Check all input parameter values and decide explicitly how to handle bad inputs before they cause downstream failures. (source: `root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md` — *\"[SWEBOK excerpt fe09ccfb26565a8b97e8].\"*)\n\n- **Use assertions to catch error conditions early.** Assertions detect invalid states before they escalate. (source: `root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md` and `Design by Contract and Defensive Programming.md`)\n\n# Gaps\n- Graceful degradation (intentionally reducing functionality to stay available) is not explicitly named as a distinct strategy in the BoK passages read.\n- Specific retry/backoff algorithms and circuit-breaker patterns are not described by name.\n- Checkpoint-restart mechanisms are not elaborated beyond the general \"backing up and retrying\" phrase.\n- Concurrency-specific fault tolerance (e.g., transactional rollback) is not covered in the content files read.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 11,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 9,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 12,
+    "input_tokens": 102494,
+    "output_tokens": 4418
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/README.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/README.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/README.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

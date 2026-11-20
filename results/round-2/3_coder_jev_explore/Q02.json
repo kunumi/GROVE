@@ -1,0 +1,43 @@
+[
+ {
+  "start": "2026-11-19T07:58:25.150521",
+  "seconds": 16.6,
+  "question": "A function has grown into a long chain of conditionals that maps combinations of conditions to results, and it is hard to change. What construction approach helps, and what has to be decided when applying it?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\n\nWhen a function becomes a long chain of conditionals mapping condition combinations to results, the table-driven construction method helps by replacing logic statements with table lookups. The key decision is how to store and access the table data, and how to represent the logical relationships between conditions and actions.\n\n# Guidelines\n\n- Use a table-driven method, which [SWEBOK excerpt 424ed30b4db856825534]). (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md)\n\n- Recognize that [SWEBOK excerpt 61d54fdcc28cd924e84e]), making them suitable for replacing complex conditional chains. (source: /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md)\n\n- When applying a table-driven approach, decide how information will be stored in the table and how the logic will access it, since the method's purpose is to display information through table structure rather than through logic statements. (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md)\n\n- Consider using decision tables and diagrams specifically when the goal is [SWEBOK excerpt f38c05a844a49e91b418], as these are designed for exactly that purpose. (source: /workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Modeling, Patterns, and Domain-Specific Design Approaches/Interaction and Behavioral Diagrams in Software Design.md)",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 14097,
+    "output_tokens": 386
+   }
+  },
+  "jev_calls": 195,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 397772,
+  "jev_input_tokens": 141750,
+  "jev_output_tokens": 5648,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Modeling, Patterns, and Domain-Specific Design Approaches/Interaction and Behavioral Diagrams in Software Design.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Modeling, Patterns, and Domain-Specific Design Approaches/Design Patterns, Languages, and Domain-Specific Approaches.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Software Reuse and Cloud-Based Development/Software Construction for and with Reuse.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

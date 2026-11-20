@@ -1,0 +1,54 @@
+[
+ {
+  "start": "2026-11-19T08:21:16.230564",
+  "seconds": 29.2,
+  "question": "A test accepts a computed result when its difference from the expected value is below 0.001, which is far too strict for values in the millions and far too loose for values around 0.0001. How should the discrepancy be measured instead, and how does that measure tell how many leading digits of the result can be trusted?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "All the relevant content is from SWEBOK's Mathematical Foundations knowledge area. Here are the guidelines, each with its source:\n\n---\n\n### Guidelines for Measuring Numerical Discrepancy in Tests\n\n**1. Distinguish between accuracy and precision before choosing a comparison method.**\nAccuracy is the closeness of a computed value to the true value, while [SWEBOK excerpt becdd22b8760d88fed4e]. The two are distinct concepts, and conflating them leads to poorly designed acceptance checks.\n(source: *\"[SWEBOK excerpt b586fdd39148fb34c49b].\"*)\n\n**2. Replace the fixed absolute threshold with a *relative* error check.**\nThe absolute error |x\\* − x| is insensitive to the magnitude of the values being compared — it is too strict for large values and too loose for small ones. The relative error |x\\* − x| / |x| normalises the discrepancy by the size of the true value and is therefore scale-independent.\n(source: *\"[SWEBOK excerpt c7ee85f3eab02e26f163].\"*)\n\n**3. Treat relative error as the preferred measure of error size.**\nSWEBOK explicitly ranks relative error above absolute error for general use because it captures how significant the deviation is in proportion to the quantity being measured.\n(source: *\"[SWEBOK excerpt 297dadd84958fa3cc461].\"*)\n\n**4. Handle the zero case explicitly, because relative error is undefined there.**\nWhen the expected value is exactly zero, dividing by it is undefined, so a relative threshold cannot be applied. A fallback strategy (e.g., a small absolute tolerance near zero, or a combined threshold) must be specified separately for that case.\n(source: *\"[SWEBOK excerpt c7ee85f3eab02e26f163].\"*)\n\n**5. Use the relative error threshold to determine how many significant digits are correct.**\nOnce a relative error bound *ε* has been chosen, it directly tells how many leading (significant) decimal digits of the computed result can be trusted: [SWEBOK excerpt cdafe08bad9eba82918c] when its relative error is less than 5 × 10^(−k−1).\n(source: *\"[SWEBOK excerpt 4d674c3f3cbb2cfca7c0].\"*)\n\n**6. Anchor the notion of \"trusted digits\" to significant figures, not to decimal places.**\nSignificant digits are counted from the first non-zero digit, not from the decimal point. A test tolerance expressed as a fixed decimal-place threshold (like 0.001) measures decimal-place agreement, not significant-digit agreement, and therefore behaves inconsistently across different value magnitudes.\n(source: *\"[SWEBOK excerpt f7f3a65aa84a447e276f].\"*)\n\n---\n\n**Summary of the core fix:** Replace `|computed − expected| < 0.001` with `|computed − expected| / |expected| < ε` (for some chosen ε, e.g. 10⁻⁶ for six significant digits), handling the `expected = 0` case separately. The chosen ε then directly communicates — via the formula k significant digits ↔ relative error < 5 × 10^(−k−1) — exactly how many leading digits of the result are guaranteed to be correct.",
+  "tool_calls": 2,
+  "tools": {
+   "search_swebok": 2
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 2,
+    "input_tokens": 15050,
+    "output_tokens": 1006
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 2,
+  "embedding_texts": 2,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 117,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [
+   "aea215631684d2b8",
+   "d07f707358a639e7",
+   "d0adef6fa48fccde",
+   "fabaf3118d8206bc",
+   "c272ee08a78a043a",
+   "3d8b0e73b5a5140b",
+   "3d8e736f38b63cf9",
+   "fb594e24a24326b7",
+   "dbe898a32561aa20",
+   "c29001cdde9f3544",
+   "aea215631684d2b8",
+   "abc08038f6731fd3",
+   "c6132689c2f58dc5",
+   "d07f707358a639e7",
+   "fabaf3118d8206bc",
+   "3d8b0e73b5a5140b",
+   "d0adef6fa48fccde",
+   "40d75d623da5b895",
+   "e3196d92fb9275c5",
+   "76102fd0fdc543dc"
+  ],
+  "admission": []
+ }
+]

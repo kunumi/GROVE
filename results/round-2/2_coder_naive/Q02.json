@@ -1,0 +1,64 @@
+[
+ {
+  "start": "2026-11-19T07:58:01.737573",
+  "seconds": 38.7,
+  "question": "A function has grown into a long chain of conditionals that maps combinations of conditions to results, and it is hard to change. What construction approach helps, and what has to be decided when applying it?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "I now have all the information I need from SWEBOK. The key passage is from **Section [SWEBOK excerpt 4b54ad3fdefa7ac2b184]** of the Software Construction KA. Here is the answer:\n\n---\n\n## The Approach: Table-Driven Methods\n\nWhen a function has grown into a long, hard-to-change chain of conditionals that maps combinations of conditions to results, SWEBOK's Software Construction Knowledge Area identifies **table-driven methods** as the appropriate construction approach. Here are the guidelines, each cited from the relevant SWEBOK passage:\n\n---\n\n### 1. Replace complex logic with a table structure.\n[SWEBOK excerpt a807ffa237bb50414e4a]`). Instead of encoding every condition-to-result mapping as a branch, the mapping lives in data.\n\n(source: *\"[SWEBOK excerpt 8f07d1cee310657857df]).\"*)\n\n---\n\n### 2. Only apply this approach where it is appropriate.\nTable-driven code is not universally superior; it must be matched to the right situation. The SWEBOK explicitly qualifies the benefit with a condition of fit.\n\n(source: *\"[SWEBOK excerpt 1f02a9a5cf54055acd0d].\"*)\n\n---\n\n### 3. Prefer table-driven code for its simplicity and ease of modification.\nOnce the approach is correctly applied, the resulting code is both easier to understand and easier to change than the equivalent chain of conditionals, directly addressing the original maintainability problem.\n\n(source: *\"[SWEBOK excerpt 1f02a9a5cf54055acd0d].\"*)\n\n---\n\n### 4. Decide [SWEBOK excerpt bc8a57df1f83a2f677b5]).\nThis is the first of the two key design decisions a programmer must make when applying the method. It involves determining which data — conditions, results, or both — belongs in the table, and how to represent the mapping.\n\n(source: *\"[SWEBOK excerpt 68e8b2103379df006823].\"*)\n\n---\n\n### 5. Decide [SWEBOK excerpt ffd30c20bbf41330ba5d].\nThis is the second key design decision. Even well-structured table data is useless without an efficient lookup scheme; the programmer must choose an appropriate access strategy (e.g., direct indexing, stair-step lookup, or hashing) to retrieve the right result for a given combination of conditions.\n\n(source: *\"[SWEBOK excerpt 68e8b2103379df006823].\"*)\n\n---\n\n**Summary:** SWEBOK points to **table-driven methods** (covered in §[SWEBOK excerpt 707bd269126e8346b9e5]*, Software Construction KA) as the solution to an unwieldy conditional chain. The approach uses a data table in place of branching logic, and its application requires two explicit design decisions: **what data goes into the table** and **how that data is efficiently retrieved**.",
+  "tool_calls": 3,
+  "tools": {
+   "search_swebok": 3
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 3,
+    "input_tokens": 34259,
+    "output_tokens": 923
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 3,
+  "embedding_texts": 3,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 237,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [
+   "e08e4f60dd65b97e",
+   "07e53d3dad4b5c57",
+   "389e360acc92d3c2",
+   "f2557bbd591e30ff",
+   "c76e4b04341282e4",
+   "681bc6f722f8177f",
+   "27f9f9ea36186d3c",
+   "078a22c812a45509",
+   "52eefedc7175b019",
+   "8fe718ad28a959df",
+   "bee0f7a25887a9af",
+   "33ca99876900ea05",
+   "bf7e91612b140c7f",
+   "7c5db767b76581cb",
+   "3a593f9918478059",
+   "07e53d3dad4b5c57",
+   "bcbf25bdc36d6b05",
+   "a0fb26e1fb9e08fc",
+   "f2557bbd591e30ff",
+   "5a5332e31c2f7194",
+   "e08e4f60dd65b97e",
+   "d0822778393fa73e",
+   "c76e4b04341282e4",
+   "876e6f419782963a",
+   "52eefedc7175b019",
+   "389e360acc92d3c2",
+   "f2557bbd591e30ff",
+   "8fe718ad28a959df",
+   "5488a43eb0986952",
+   "f1ff60c3c2b7bd33"
+  ],
+  "admission": []
+ }
+]

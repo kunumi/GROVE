@@ -1,0 +1,1033 @@
+{
+  "description": "Retrieval benchmark: questions that describe a problem without naming the SWEBOK technique. Each question lists evidence phrases copied from the SWEBOK v4 text; build_qrels.py turns them into the expected leaves (every leaf under swebok-v4/root that contains an evidence phrase). Review the questions and the evidence, not the computed leaves. v2 (19/11/2026): the 12 original questions with a reviewed gold standard, plus one question per SWEBOK knowledge area the original set did not cover (N01-N13).",
+  "answer_format": "Answer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "questions": [
+    {
+      "id": "Q01",
+      "area": "testing + construction",
+      "question": "How should I derive test cases for a component whose behavior depends on its current state and on the events it receives?",
+      "evidence": [
+        "[SWEBOK excerpt 6e21c823216463e51c70]",
+        "[SWEBOK excerpt f2d8a55feb05b9720395]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+          "why": "Começa com a frase final do §3.1.7 State Transition Testing, que ficou cortada ali ('[SWEBOK excerpt 1e051e7dde1a64e3a5e8]'; a frase completa não casa pelo build_qrels por causa do cabeçalho de página '###### 5-12' entre 'test' e 'suite'). O título e o resto do texto são do §3.1.8 Scenario-Based Testing, por isso a folha fica como secundária."
+        },
+        {
+          "leaf": "Requirements Management, Quality, and Testing Practices/Requirements Measurement, Quality, and Process Improvement/Software Requirements Tools Categories and Functions.md",
+          "why": "Traz o cabeçalho e a primeira frase do §8.3 Functional Test Case Generation Tools: quanto mais formal a especificação, mais os casos de teste funcionais podem ser derivados mecanicamente. O exemplo dos modelos de estado ficou na folha seguinte, que está no gabarito."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+          "why": "É de construção: define state-based programming, que usa máquinas de estado finitas para descrever o comportamento do programa. Não trata de derivar casos de teste. Estava no gabarito por causa da frase '[SWEBOK excerpt a71d862323a113735b4e]'."
+        },
+        {
+          "leaf": "Software Design Concerns, Documentation, and Modeling/Modeling, Patterns, and Domain-Specific Design Approaches/Interaction and Behavioral Diagrams in Software Design.md",
+          "why": "É de design: diagramas de estado e statecharts mostram como o comportamento de um componente muda conforme o estado atual e os eventos de entrada, e a pergunta quase repete essa frase. É notação de modelagem, não técnica de teste, e funciona como isca."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Semantic Assumptions and Modeling Techniques/Semantic Models and Behavioral Modeling in Software.md",
+          "why": "Modelagem comportamental (§2.2 do KA de Modelos e Métodos): máquinas de estado como conjunto de estados, eventos e transições. Descreve o modelo, não como derivar testes dele."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/GUI, Gaming, and Real-Time Domain Software Testing.md",
+          "why": "Cita de passagem, no contexto de teste de GUI, abordagens de teste baseadas em máquinas de estado finitas."
+        },
+        {
+          "leaf": "Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+          "why": "Define model-based testing (técnicas que usam um modelo da especificação de comportamento), a categoria geral onde a técnica baseada em estados se encaixa."
+        },
+        {
+          "leaf": "Data Systems, Networks, and Computational Foundations/Predicate Logic, Proof Methods, and Formal Systems/Tree Traversal and Finite-State Machines/Finite-State Machines and Transition Functions.md",
+          "why": "Fundamentos: define formalmente a máquina de estado finita (função de transição T: S × I → S × O) e não fala de teste."
+        }
+      ],
+      "expected_leaves": [
+        "Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md",
+        "Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md"
+      ]
+    },
+    {
+      "id": "Q02",
+      "area": "construction",
+      "question": "A function has grown into a long chain of conditionals that maps combinations of conditions to results, and it is hard to change. What construction approach helps, and what has to be decided when applying it?",
+      "evidence": [
+        "[SWEBOK excerpt d7bae75bfae3ad1891a9]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md",
+          "why": "Contém o fim do §4.7, que ficou cortado ali: table-driven code é mais simples que lógica complicada e mais fácil de modificar, e o programador decide o que guardar na tabela e como acessá-la com eficiência. É a única folha que responde à segunda metade da pergunta, mas o título e a maior parte do texto são do §4.8 (runtime configuration e internacionalização)."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+          "why": "Traz só o cabeçalho do §[SWEBOK excerpt 11c538398bfaf0b056d7]' e a parte de state-based programming, sem nada sobre tabelas. Uma citação pelo título do §4.7 é resolvida para esta folha pelo parse_citations do common.py."
+        },
+        {
+          "leaf": "Software Design Concerns, Documentation, and Modeling/Modeling, Patterns, and Domain-Specific Design Approaches/Interaction and Behavioral Diagrams in Software Design.md",
+          "why": "É de design: tabelas de decisão representam combinações complexas de condições e ações. É notação de modelagem, não técnica de construção, e funciona como distrator."
+        }
+      ],
+      "expected_leaves": [
+        "Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md"
+      ]
+    },
+    {
+      "id": "Q03",
+      "area": "construction",
+      "question": "What principles should guide the design of how a program signals and deals with abnormal conditions, and what alternatives exist for handling errors?",
+      "evidence": [
+        "[SWEBOK excerpt b7e4a8cfc0f4d3ed2590]",
+        "[SWEBOK excerpt 2f0e5c6459c8fe54e931]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md",
+          "why": "Contém o resto do §4.5, as estratégias de fault tolerance (backing up and retrying, código auxiliar e votação, valor fictício benigno), que também são alternativas quando ocorre erro. É o gabarito da Q04, por isso fica como secundária aqui."
+        },
+        {
+          "leaf": "Construction Practices, Standards, and Development Models/Applying Standards in Construction.md",
+          "why": "Lista as políticas de tratamento de exceções como padrão de construção (que informação incluir na exceção e como tratá-la depois de capturada)."
+        },
+        {
+          "leaf": "Software Design Concerns, Documentation, and Modeling/Software Design Concerns and Architectural Patterns.md",
+          "why": "§3.5 do Design: erros, exceções e tolerância a falhas aparecem como preocupação de design (prevenir, evitar, mitigar, tolerar e processar erros), numa frase só."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Software Coding and Construction Testing Practices.md",
+          "why": "§3.3 Coding: o tratamento de condições de erro, previstas e excepcionais, aparece como um item da lista de considerações de codificação, sem detalhe."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+          "why": "Programação defensiva: verificar os parâmetros de entrada e decidir como tratar entradas inválidas. Trata de entradas inválidas, não da política geral de erros."
+        }
+      ],
+      "expected_leaves": [
+        "Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md"
+      ]
+    },
+    {
+      "id": "Q04",
+      "area": "construction",
+      "question": "Which strategies let software keep working when errors occur at runtime instead of failing?",
+      "evidence": [
+        "[SWEBOK excerpt 26086293dde14fb59343]",
+        "[SWEBOK excerpt f6dd3c5103b2c1c403d6]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Design Concerns, Documentation, and Modeling/Software Design Concerns and Architectural Patterns.md",
+          "why": "Traz o §3.5 do KA de Design (Errors and Exception Handling, Fault Tolerance) como preocupação de projeto, numa única linha ('prevent, avoid, mitigate, tolerate and process errors'), sem listar estratégias; o resto da folha trata de outras preocupações."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+          "why": "§4.4, vizinha do §4.5 na mesma pasta: programação defensiva protege a rotina de ser quebrada por entradas inválidas (verificar os parâmetros e decidir como tratar entradas ruins). Ajuda o programa a não falhar, mas só diante de entradas inválidas, não de erros em geral. A Q03 também a lista como secundária."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Software Failure Handling and Information Security Management.md",
+          "why": "Começa com a frase final cortada do §2.5 de Operações: as aplicações devem incluir lógica de tratamento de falhas, planejada durante o desenvolvimento ('failure-handling logic'), sem dizer quais estratégias; o resto da folha é o §2.6, de segurança da informação."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Disaster Recovery Testing and Automated Failover.md",
+          "why": "§2.5 de Operações: checkpoint e failover automatizado reduzem o tempo de recuperação, mas no nível da operação do serviço, não como técnica de construção do programa."
+        },
+        {
+          "leaf": "Software Maintenance Costs, Metrics, and Quality/Software Maintenance Quality Metrics and Process Tailoring.md",
+          "why": "Define fault tolerance e recoverability como características de confiabilidade usadas como medida de manutenção; diz o que medir, não como fazer o software continuar funcionando."
+        }
+      ],
+      "expected_leaves": [
+        "Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+        "Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md"
+      ]
+    },
+    {
+      "id": "Q05",
+      "area": "testing",
+      "question": "How should test inputs be chosen for a function that accepts numeric values within a valid range?",
+      "evidence": [
+        "[SWEBOK excerpt bb061752587bc7b35163]",
+        "[SWEBOK excerpt 6e9e902430d9ceb2eaca]",
+        "[SWEBOK excerpt a8dae984f064c697edc2]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Engineering Fundamentals and System Architecture/Runtime and Logical Errors in Programs/Runtime Errors and Testing Strategies.md",
+          "why": "KA de Fundamentos de Computação: uma frase recomenda testar com dados válidos, inválidos e de valor-limite ('boundary value data sets'), sem explicar a técnica."
+        },
+        {
+          "leaf": "Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md",
+          "why": "Random testing (§3.1.9) também escolhe entradas dentro do domínio de entrada, e fuzz testing usa entradas inválidas; é alternativa secundária, não a resposta principal para uma faixa válida."
+        },
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+          "why": "Só cita Domain Testing e Boundary Value Analysis como critérios de cobertura funcional para ATDD/BDD, com remissão ao KA de Testes."
+        }
+      ],
+      "expected_leaves": [
+        "Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+        "Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md"
+      ]
+    },
+    {
+      "id": "Q06",
+      "area": "testing",
+      "question": "A function takes six configuration parameters, each with several possible values, and testing every possible mix of their values is too expensive. How should the test cases be derived?",
+      "evidence": [
+        "[SWEBOK excerpt 92b2dcf0d60b06ac1f8f]",
+        "[SWEBOK excerpt 84129f160b87efa4ccba]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+          "why": "Só cita Pairwise Testing como critério de cobertura funcional para ATDD/BDD, com remissão ao KA de Testes; não explica como derivar os casos."
+        }
+      ],
+      "expected_leaves": [
+        "Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+        "Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md"
+      ]
+    },
+    {
+      "id": "Q07",
+      "area": "testing",
+      "question": "Beyond code coverage, how can I evaluate whether my test suite is good at detecting faults?",
+      "evidence": [
+        "[SWEBOK excerpt 1fc3f454055bbf4b6c8b]",
+        "[SWEBOK excerpt 17e168658143b248b3e8]",
+        "[SWEBOK excerpt 70492ae4501ab17c5e03]",
+        "[SWEBOK excerpt 9b986249a678d5dcb38c]",
+        "[SWEBOK excerpt 7557e0fdc78d4b8bf17d]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Mutation Testing as a Testing Criterion.md",
+          "why": "Continuação do §3.4: a mutação usada como critério para gerar casos de teste (matar mutantes sobreviventes), e não como medida da suíte; complementa, mas não responde à pergunta."
+        },
+        {
+          "leaf": "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Measurement and Coverage Analysis/Coverage Measures in Software Testing Techniques.md",
+          "why": "Medidas de cobertura, que a pergunta põe de lado; só a última frase menciona medidas que avaliam '[SWEBOK excerpt e9b320107a45e3bdbec7]'."
+        },
+        {
+          "leaf": "Software Development Systems and Quality Assurance/Software Construction Testing and Quality Assurance/Test Case Creation, Selection, and Prioritization.md",
+          "why": "§1.2.2 define critério de seleção e de adequação ('determining that a test suite is sufficient', 'fault detection rate'), mas de forma genérica, sem dizer como medir a capacidade da suíte de achar defeitos."
+        },
+        {
+          "leaf": "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Management and Process Monitoring/Test Team Organization and Process Measures.md",
+          "why": "§5.1.6 (medidas do processo de teste): cita a efetividade relativa das fases de teste em achar defeitos e o 'defect detection percentage', mas como medida de controle do processo, não da suíte; a primeira metade da folha é o §5.1.5 (equipe de teste)."
+        }
+      ],
+      "expected_leaves": [
+        "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md",
+        "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation Testing and Fault Injection Evaluation.md",
+        "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Reliability Growth Models and Test Evaluation.md",
+        "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Effectiveness and Process Levels/Test Suite Effectiveness and Testing Process Integration.md"
+      ]
+    },
+    {
+      "id": "Q08",
+      "area": "testing",
+      "question": "After each change to a system, how should the team decide what to test again, and at which point of the process?",
+      "evidence": [
+        "[SWEBOK excerpt 01730d4eb6618630ff54]",
+        "[SWEBOK excerpt 15beb482f7972eaa992e]",
+        "[SWEBOK excerpt 521ff7c748ac2d014657]",
+        "[SWEBOK excerpt cd3bc3050c68817b6640]",
+        "[SWEBOK excerpt 6d5016e3ba6feecf5609]",
+        "[SWEBOK excerpt 66c396f8183925c565f8]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Development Systems and Quality Assurance/Software Construction Testing and Quality Assurance/Test Case Creation, Selection, and Prioritization.md",
+          "why": "§1.2.2 (critério de seleção) e §1.2.3 (priorização), que a seção de regressão cita como meio de escolher o que retestar; mas o texto é genérico e não fala de mudança nem de reteste."
+        },
+        {
+          "leaf": "Software Testing Levels, Objectives, and Approaches/Test Case Prioritization for Fault Detection.md",
+          "why": "§2.2.6 (priorização de casos de teste), citado pela seção de regressão; não menciona mudanças no sistema."
+        },
+        {
+          "leaf": "Software Development Systems and Quality Assurance/Software Construction Testing and Quality Assurance/Test Case Minimization and Testing Purposes.md",
+          "why": "Só a primeira frase (minimização da suíte, fim do §1.2.3) toca o assunto; o resto é §1.2.4 e §1.2.5 (propósito do teste, avaliação e certificação)."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Testing Strategies Across Methodologies and Domains/Test Automation and Domain-Specific Testing Approaches.md",
+          "why": "Diz que em integração contínua/DevOps a regressão é feita continuamente e que a automação gerencia o risco de regressão; ajuda no 'quando', mas é um item numa folha sobre estratégias por metodologia e domínio."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Management and Organization/Impact Analysis in Software Maintenance.md",
+          "why": "A análise de impacto de uma mudança considera, entre outros fatores, 'the testing needed to make the modification'; delimita o reteste, mas não diz como escolher os testes."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Impact Analysis in Software Maintenance.md",
+          "why": "§2.1.3 de Manutenção: a análise de impacto identifica o que uma mudança afeta, o que ajuda a delimitar o reteste; o Guia não liga essa folha à escolha dos testes."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Testing Tools and Standards/Software Testing Tools and Techniques/Software Testing Tools and Techniques.md",
+          "why": "Cita ferramentas de teste de regressão, que reexecutam a suíte depois que uma parte do software é modificada; é só um item de uma lista de ferramentas."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Testing Tools and Standards/Software Testing Tools and Techniques/Software Testing and Reliability Evaluation Tools.md",
+          "why": "Abre com o fim do item sobre ferramentas de regressão ('[SWEBOK excerpt 2385d456b65f4063aae4]'), que fala justamente de escolher o subconjunto a retestar conforme a mudança; o resto da folha são ferramentas de confiabilidade e de injeção."
+        }
+      ],
+      "expected_leaves": [
+        "Software Testing Levels, Objectives, and Approaches/Alpha, Beta, and Regression Testing Procedures.md",
+        "Software Testing Levels, Objectives, and Approaches/Regression Testing in Software Development.md",
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Regression Testing Challenges in Software Maintenance.md",
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Installation and Operational Verification Processes/Effective Testing and Troubleshooting.md",
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance_ Technical, Management, and Comprehension Challenges/Software Comprehension and Testing in Maintenance.md"
+      ]
+    },
+    {
+      "id": "Q09",
+      "area": "security",
+      "question": "What general practices should developers follow when writing code so that attackers cannot exploit it?",
+      "evidence": [
+        "[SWEBOK excerpt cbd06b110f58c76ede3b].",
+        "[SWEBOK excerpt 3407c8e87c1a39fbebd9]",
+        "[SWEBOK excerpt c0a81ea6787b8d5799de]",
+        "[SWEBOK excerpt 8f40b96c3eae4c81b59a]",
+        "[SWEBOK excerpt f2e1c9cd563b0e6a0a20]",
+        "[SWEBOK excerpt 81a070864d9803e8ed76]",
+        "[SWEBOK excerpt f87e4e54fe032ae150bd]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Cryptographic Controls and Secure Software Construction.md",
+          "why": "Traz a abertura do §4.4 (o que é segurança na construção e a ambiguidade do termo), mas nenhuma prática; o resto da folha é o fim do §4.2 (projeto de segurança) e o §4.3 (padrões de segurança)."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+          "why": "§3.6 da KA de Construção: defeitos introduzidos na construção causam vulnerabilidades, e '[SWEBOK excerpt 9536bea715ff8d35654a]'; cita análise estática de segurança, mas trata de qualidade da construção em geral."
+        },
+        {
+          "leaf": "Software Security Engineering and Professional Practice/Security Development and Testing Practices/Security Testing and Vulnerability Detection/Vulnerability Detection and Analysis Tools/Vulnerability Management and Security Tools.md",
+          "why": "§4.6: boas práticas de codificação reduzem defeitos e o programador pode consultar CVE/CWE/CAPEC; depois vêm ferramentas (analisadores de código que detectam injeção e buffer overflow). É gestão de vulnerabilidades, não a lista de práticas."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Software Coding and Construction Testing Practices.md",
+          "why": "Na lista de cuidados de codificação da KA de Construção, um item é prevenir brechas de segurança no código (buffer overflow, limites de array); só um item."
+        },
+        {
+          "leaf": "Software Construction Methods and Languages/Programming Language Notation and Security Implications/Programming Language Notations and Security Considerations.md",
+          "why": "Diz que a escolha da linguagem afeta a chance de introduzir vulnerabilidades (uso inseguro de funções de biblioteca de C/C++); não lista práticas."
+        },
+        {
+          "leaf": "Software Security Engineering and Professional Practice/Security Development and Testing Practices/Security Testing and Vulnerability Detection/Security Testing and Vulnerability Detection Methods/Security Testing Approaches and Vulnerability Detection.md",
+          "why": "§4.5: análise estática do código-fonte para achar vulnerabilidades; é teste de segurança, ligado à prática 9 da lista do CERT, não prática de escrita de código."
+        }
+      ],
+      "expected_leaves": [
+        "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Secure Software Design and Implementation Practices/Secure Module Design and Error Handling Principles.md",
+        "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Secure Software Design and Implementation Practices/Software Construction Security and Privilege Management.md",
+        "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Security Best Practices and Design Principles.md",
+        "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Security Best Practices for Software Development.md",
+        "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Top 10 Software Security Practices.md",
+        "Software Security Engineering and Professional Practice/Security Development and Testing Practices/Software Security Best Practices.md"
+      ]
+    },
+    {
+      "id": "Q10",
+      "area": "construction",
+      "question": "How can a routine make its assumptions about inputs and outputs explicit and guard itself against callers passing it values it was not built to accept?",
+      "evidence": [
+        "[SWEBOK excerpt af145750616f7b99e184]",
+        "[SWEBOK excerpt 8befb527c08de3af0183]",
+        "[SWEBOK excerpt 135a69b5e6bb50e291a0]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Construction Techniques and Practices/Parameterization, Templates, Generics, and Assertions.md",
+          "why": "Traz o título do §4.4 e a definição de asserção ('an executable predicate placed in a program'), mas é um pedaço cortado: o resto da folha trata de tipos parametrizados e genéricos (§4.3)."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Semantic Assumptions and Modeling Techniques/Semantic Assumptions in Models and Software/Semantic Discord and Function Modeling in Software.md",
+          "why": "Traz só o título e a primeira frase do §1.4 de Modelos (as suposições sobre o estado antes, durante e depois da execução); o resto trata de discordância semântica em modelos."
+        },
+        {
+          "leaf": "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Secure Software Design and Implementation Practices/Secure Module Design and Error Handling Principles.md",
+          "why": "Regra de codificação segura: '[SWEBOK excerpt 9451c10e38fc41e33d45]'. Cobre validar e documentar suposições, mas no nível do programa e pelo lado da segurança, não da rotina."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+          "why": "Trata do que fazer depois que o erro foi detectado (valor neutro, código de erro, exceções); complementa a defesa contra entradas ruins, mas não trata de explicitar suposições nem de checar entradas."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Software Coding and Construction Testing Practices.md",
+          "why": "Um item da lista de considerações de codificação (§3.3): '[SWEBOK excerpt bed528a62e7b385062e9])'; menção de uma linha, sem explicar."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+          "why": "Só lista 'Use of assertions and defensive programming' entre as técnicas de qualidade da construção, sem explicar."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Verification and Prototyping Approaches/Formal Verification Methods and Approaches.md",
+          "why": "A inferência lógica especifica pré e pós-condições em volta de cada bloco de projeto e prova que elas valem; é verificação formal, não uma prática de escrita da rotina."
+        },
+        {
+          "leaf": "Software Security Engineering and Professional Practice/Secure Software Development Standards and Practices/Top 10 Software Security Practices.md",
+          "why": "'Validate input.' aparece como a primeira prática de segurança do CERT; cobre a checagem de entradas pelo lado da segurança, sem falar de rotina nem de suposições."
+        }
+      ],
+      "expected_leaves": [
+        "Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+        "Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+        "Software Engineering Processes and Quality Assurance/Semantic Assumptions and Modeling Techniques/Preconditions, Postconditions, and Invariants in Functions.md"
+      ]
+    },
+    {
+      "id": "Q11",
+      "area": "maintenance",
+      "question": "What kinds of changes are made to software that is already in use, and what distinguishes each kind from the others?",
+      "evidence": [
+        "[SWEBOK excerpt 8dd31baf8d9fe24796f8]",
+        "[SWEBOK excerpt 785b1023ebf6381e0213]",
+        "[SWEBOK excerpt ec01b0a9b6142526e762]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Management and Organization/Software Maintainability and Technical Debt Management/Software Maintainability Definition and Importance.md",
+          "why": "Folha sobre manutenibilidade (§2.1.4), mas a definição da ISO/IEC/IEEE 14764 enumera os tipos de modificação: '[SWEBOK excerpt 024b5c699e78b8bf06d5]'. Por causa da lacuna da extração, é um dos poucos lugares que nomeia correção e adaptação; não diferencia as categorias."
+        },
+        {
+          "leaf": "Software Maintenance Costs, Metrics, and Quality/Software Quality and Maintainability Metrics/Software Quality Measurement and Maintenance Metrics.md",
+          "why": "Nomeia as cinco categorias (corretiva, preventiva, adaptativa, aditiva e perfectiva) como medida de esforço, mas não define nem diferencia nenhuma."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Role and Necessity.md",
+          "why": "Abertura do §1.3: '[SWEBOK excerpt f5658b7fbb60796ba696]'; a lista de finalidades ficou na folha seguinte."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Effort Categories.md",
+          "why": "Remete às categorias do §1.6 para apresentar custos por categoria; não as descreve."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Management and Organization/Software Maintainability and Technical Debt Management/Software Maintainability and Technical Debt in Development.md",
+          "why": "Cita tarefas corretivas, emergenciais e aditivas como fonte de dívida técnica; menção de passagem."
+        }
+      ],
+      "expected_leaves": [
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md",
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md"
+      ]
+    },
+    {
+      "id": "Q12",
+      "area": "design + maintenance",
+      "question": "How should modules be organized so that the software stays easy to maintain, and how can an existing badly structured program be improved without its users noticing any difference?",
+      "evidence": [
+        "[SWEBOK excerpt 747a57aa9e93586dca62]",
+        "[SWEBOK excerpt 39742602fae3ff95f6c7]",
+        "[SWEBOK excerpt 94a71ae6de3f6d77ae41]",
+        "[SWEBOK excerpt 7d0735930d47d881cda0]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Separation of Concerns and Modularization in Software Design.md",
+          "why": "Pedaço cortado: traz o fim do item Separação de interesses (que começa em 'Software Design Principles and Decision-Making Methods.md') e só a primeira frase do item Modularização (o resto está em 'Component Modularization...')."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/Architectural Design Languages, Decisions, and Technical Debt/Technical Debt and Software Architecture Process.md",
+          "why": "Exemplo de dívida técnica de arquitetura: um projeto inicial com pouca modularidade compromete a manutenibilidade, e funções novas só entram depois de 'extensive refactoring'. Liga as duas metades da pergunta, mas como exemplo de dívida, sem dizer como organizar os módulos nem definir a refatoração."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Technical Debt Cost Estimation and Maintenance.md",
+          "why": "Lista as sugestões da ISO/IEC/IEEE 14764 para melhorar a manutenibilidade ('pursuing structured code, reducing code complexity', comentários, indentação, inspeções); trata de escrever código manutenível em geral, não de reorganizar um programa existente sem mudar o comportamento."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Metrics and Evaluation.md",
+          "why": "Lista acoplamento e coesão de módulos entre as métricas de arquitetura, sem explicar."
+        },
+        {
+          "leaf": "Foundations of Mathematics and Computational Systems/Abstraction Levels and Encapsulation in Software Engineering.md",
+          "why": "Encapsulamento como ocultação de detalhes, nos Fundamentos de Computação; complementa o princípio de projeto, sem falar de manutenção."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Reengineering and Legacy System Modernization.md",
+          "why": "Define reengenharia, a técnica da qual a refatoração faz parte, e diz que ela costuma visar a troca de software legado, não a manutenibilidade."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Agile Development Methodologies_ XP and Scrum.md",
+          "why": "XP faz refatoração contínua do código; menção de passagem."
+        }
+      ],
+      "expected_leaves": [
+        "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Component Modularization and Single Responsibility Principle.md",
+        "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md",
+        "Software Maintenance Costs, Metrics, and Quality/Software Quality and Maintainability Metrics/Measurable Characteristics of Software Maintainability.md",
+        "Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md"
+      ]
+    },
+    {
+      "id": "N01",
+      "area": "Software Requirements",
+      "question": "A feature request I have to implement is written as loose prose, and the product owner and I keep reading it differently. How should the team pin down, together with the domain experts and before any code is written, what the feature must do, so that it cannot be misread?",
+      "evidence": [
+        "[SWEBOK excerpt f149680c20f12105777f]",
+        "[SWEBOK excerpt f8cf3730af2e7079bb00]",
+        "[SWEBOK excerpt 8ab172adb0860b3cbf7d]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Acceptance Testing/Failing Test Cases Drive Production Code Changes.md",
+          "why": "Passo 3 do ATDD (pelo menos um teste de aceitação tem de falhar antes de mudar o código). Trata do ciclo de trabalho, não de como escrever o requisito."
+        },
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Requirements Specification/Acceptance Test-Driven Development Process Cycle.md",
+          "why": "Fecho do ciclo ATDD: a funcionalidade está pronta quando todos os testes de aceitação passam. Complementa, mas é processo."
+        },
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+          "why": "Folha mista: abre com o fim da 4.3 (ATDD/BDD não resolve a incompletude, combinar com critérios de cobertura) e passa para a 4.4, modelos como outra forma de evitar a ambiguidade da linguagem natural."
+        },
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Natural Language Requirements Specifications/Structured Natural Language Requirements Specification.md",
+          "why": "Linguagem natural estruturada (formato ator-ação, casos de uso) é outra forma de dar precisão ao requisito; alternativa mais fraca."
+        },
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Analysis and Refinement/Software Requirements Properties and Quality Criteria.md",
+          "why": "Lista as propriedades desejadas do requisito (não ambíguo, testável), mas não diz como escrevê-lo."
+        },
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Requirement Specification Formats and Structures/User Story Format and Specification Guidelines.md",
+          "why": "Formato de user story usado pelo BDD; folha pequena, sem a técnica em si."
+        },
+        {
+          "leaf": "Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md",
+          "why": "Diz que converter cenários BDD em casos de teste é fácil (ferramentas de geração de testes)."
+        },
+        {
+          "leaf": "Software Testing Levels, Objectives, and Approaches/System and Acceptance Testing/Acceptance Testing and User Verification.md",
+          "why": "KA de Teste: definir testes de aceitação antes de implementar é atividade do ATDD, com remissão à 4.3 de Requisitos."
+        },
+        {
+          "leaf": "Software Development Systems and Quality Assurance/Software Construction Techniques and Tools/Performance Optimization and Development Practices/Test-First Programming and Test-Driven Development.md",
+          "why": "KA de Construção: TDD/test-first, a base de que o ATDD faz parte; foca no nível de unidade."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Agile Development Methodologies_ XP and Scrum.md",
+          "why": "KA de Modelos e Métodos: no XP o cliente participa da equipe e costuma definir os testes de aceitação; menção curta."
+        }
+      ],
+      "expected_leaves": [
+        "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Acceptance Testing/Acceptance Criteria-Based Requirements Specification.md",
+        "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Requirements Specification/Acceptance Criteria and BDD Scenarios for Banking Systems.md",
+        "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Requirements Specification/Test Cases, Requirements, and Behavior-Driven Development.md"
+      ]
+    },
+    {
+      "id": "N02",
+      "area": "Software Architecture",
+      "question": "A coding agent proposes splitting a large module into several networked services. Before anyone implements it, how can the team check whether this high-level structure will meet goals that pull against each other, such as response time, hosting cost and ease of future change?",
+      "evidence": [
+        "[SWEBOK excerpt 4c9aee4911a12d4273b8]",
+        "[SWEBOK excerpt 877d12fda202aa627241]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Documentation and Use Case Evaluation.md",
+          "why": "Fim da 4.2: sem documentação, a avaliação depende do conhecimento dos participantes, e casos de uso checam completude e consistência da arquitetura. É um método de avaliação, mas funcional, não das metas de qualidade conflitantes que a pergunta pede."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Evaluating Software Architectures Through Specialized Representations.md",
+          "why": "Início da 4.2: cada preocupação tem sua base de avaliação, a avaliação rende mais sobre descrições de arquitetura existentes, e segurança e confiabilidade usam representações próprias. Complementa, sem método concreto."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Architecting in the Large and Architecture Evaluation.md",
+          "why": "Folha mista: quase toda é a 3.4 (architecting in the large) e só no fim abre a 4.1 (avaliação feita por terceiros em marcos definidos)."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Architecture Evaluation and Practices Methods.md",
+          "why": "3.2.3: a avaliação verifica se as soluções escolhidas atendem aos ASRs e remete ao tópico 4. Curta."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/Architectural Design Languages, Decisions, and Technical Debt/Architecture as Significant Decisions.md",
+          "why": "Diz que os tradeoffs entre atributos de qualidade concorrentes costumam embasar as decisões de arquitetura; trata da decisão, não da verificação."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture_ Contexts, Methods, and Design Processes/Architecture Analysis and Synthesis/Architecture Synthesis and Design Problem Resolution.md",
+          "why": "3.2.2: a síntese faz tradeoffs para acomodar as interações entre soluções candidatas; é a etapa anterior à avaliação."
+        },
+        {
+          "leaf": "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Metrics and Evaluation.md",
+          "why": "4.4: métricas de arquitetura (dependência, ciclos, acoplamento) e métricas de DevOps; secundária e próxima do tema da Q12."
+        },
+        {
+          "leaf": "Software Design Quality Evaluation and Assessment/Software Quality Analysis and Evaluation Techniques.md",
+          "why": "KA de Design 6.3: cita revisões de arquitetura e técnicas baseadas em cenários entre as técnicas de avaliação do design."
+        },
+        {
+          "leaf": "Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Design Documentation and Evaluation/Software Design Analysis and Work Product Evaluation.md",
+          "why": "KA de Design: os produtos do design são analisados para ver se atendem requisitos e restrições, e o design examina soluções alternativas e tradeoffs; genérico."
+        },
+        {
+          "leaf": "Professional Practice and Collaboration in Software Engineering/Professional Responsibility and Intellectual Property in Software Engineering/Documentation and Requirements Trade-off Management/Trade-Off Analysis in Software Engineering.md",
+          "why": "KA de Prática Profissional: a análise de trade-off identifica requisitos concorrentes e estabelece metas de design com pesos relativos; trata de requisitos, não da arquitetura."
+        },
+        {
+          "leaf": "Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md",
+          "why": "KA de Economia: classifica o ATAM como técnica compensatória de decisão multiatributo; menção."
+        }
+      ],
+      "expected_leaves": [
+        "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Reviews and Metrics for Quality Assessment.md",
+        "Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md"
+      ]
+    },
+    {
+      "id": "N03",
+      "area": "Software Engineering Models and Methods",
+      "question": "A component handles messages from several concurrent producers and misbehaves only when the messages come in some rare order that our tests almost never hit. How can we show, before release, that it works whatever order they come in, and what do we need to build to do that?",
+      "evidence": [
+        "[SWEBOK excerpt e0ded7e26660f8e788a9].",
+        "[SWEBOK excerpt 0688b91b3eb311b0f5eb]."
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Development Methodologies and Approaches/Formal Methods in Software Engineering.md",
+          "why": "Abertura da 4.2 de Modelos e Métodos: métodos formais checam consistência, completude e correção do modelo; ainda sem model checking."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Formal Methods and Specification Languages.md",
+          "why": "Continuação curta da abertura da 4.2: lista os itens (linguagens de especificação, refinamento, verificação formal, inferência lógica, métodos leves) e começa as linguagens de especificação."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Specification Languages and Program Refinement.md",
+          "why": "Linguagens de especificação são a notação formal (sintaxe, semântica, relações) em que se escreve o modelo rigoroso exigido pela verificação; responde em parte a 'o que construir', sem falar de verificar ordens."
+        },
+        {
+          "leaf": "Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Engineering_ Viability, Verification, and Stakeholder Management/Formal Analysis in Requirements Engineering.md",
+          "why": "Requisitos 3.3: requisitos formais permitem provar propriedades como ausência de deadlock; mesma ideia, aplicada a requisitos."
+        },
+        {
+          "leaf": "Requirements Management, Quality, and Testing Practices/Requirements Measurement, Quality, and Process Improvement/Software Requirements Tools Categories and Functions.md",
+          "why": "Ferramentas de análise formal: provadores de teoremas ou model checkers; a prova não é totalmente automatizável."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Development Methods/Analyzing Software Requirements for Completeness.md",
+          "why": "Modelos e Métodos 3.1: ferramentas de modelagem usam análise de alcançabilidade do espaço de estados para checar completude."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Verification, Validation, and Quality Assurance Practices/Software Analysis Techniques and Verification Methods/Dynamic and Formal Analysis Techniques in Software Engineering.md",
+          "why": "KA de Qualidade 3.4.2-3.4.3: classifica model checking como análise dinâmica e define análise formal; menção."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Verification, Validation, and Quality Assurance Practices/Verification and Validation Analysis Techniques/Boundaries Between Static, Dynamic, and Formal Analysis.md",
+          "why": "KA de Qualidade: diz que a fronteira entre as análises é difusa e cita model checking; menção."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Verification, Validation, and Quality Assurance Practices/Formal Methods and Testing in Software Development.md",
+          "why": "KA de Qualidade: métodos formais servem sobretudo para partes críticas (segurança, safety); menção."
+        }
+      ],
+      "expected_leaves": [
+        "Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Formal Verification and Specification Refinement in Software Engineering.md",
+        "Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/Verification and Prototyping Approaches/Formal Verification Methods and Approaches.md"
+      ]
+    },
+    {
+      "id": "N04",
+      "area": "Software Engineering Operations",
+      "question": "Each new version of our web service is switched on for every user at the same moment, so a single faulty version breaks the service for everyone and getting the previous version back takes hours. How should we change the way new versions go live to limit the damage?",
+      "evidence": [
+        "[SWEBOK excerpt c7b067e621bd55e8baec]",
+        "[SWEBOK excerpt 1ec382bc07b0da2816e2]",
+        "[SWEBOK excerpt 5a9fb7b5d027756af2b1]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Rollback and Data Migration in Software Deployment.md",
+          "why": "Folha partida: traz o fim da seção 3.2 (mudanças que não passam no período de validação podem ser revertidas automaticamente) e só a definição de uma linha da 3.3. Complementa, mas o corpo do rollback está na folha de evidência."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Deployment and Release Engineering in Software Operations.md",
+          "why": "Distingue deployment de release (liberar uma funcionalidade para um segmento, ex.: 5% dos clientes) e lista a automação dos passos de deployment com smoke testing. Base conceitual, não a estratégia em si."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Installation and Operational Verification Processes/Production Environment Testing and Verification/Production System Testing Challenges and Techniques.md",
+          "why": "Cita canary testing e dark launches só de passagem, como técnicas para testar em produção."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Engineering Operations Control Techniques.md",
+          "why": "Gestão de mudanças: avalia o risco de cada mudança e a necessidade de uma estratégia de rollback em caso de falha."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Operations Planning and Supplier Management/Operations Planning and Request Management Strategy.md",
+          "why": "No planejamento de cada versão, pede avaliar o risco e preparar um plano de rollback e migração de dados."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Operational Risk Management in Software Operations.md",
+          "why": "Recomenda escolher o processo de deployment adequado ao perfil de risco do serviço e automatizar alertas."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/DevOps Continuous Delivery and Independent Deployments.md",
+          "why": "Entregar unidades pequenas de mudança, independentes, em vez de versões grandes reduz o impacto de cada mudança; complemento indireto."
+        }
+      ],
+      "expected_leaves": [
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Automated Deployment and Canary Release Testing.md",
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Release Engineering Strategies and Risk Reduction.md",
+        "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Rollback and Problem Resolution in DevOps.md"
+      ]
+    },
+    {
+      "id": "N05",
+      "area": "Software Configuration Management",
+      "question": "A customer reports a defect in the executable we shipped to them two years ago, and to investigate it we need that very same executable back, byte for byte, but the toolchain and third-party libraries on our machines have been upgraded since then. What should the team have been tracking and preserving so that this would be possible?",
+      "evidence": [
+        "[SWEBOK excerpt 794372d26323c59924f7]",
+        "[SWEBOK excerpt fc32d136512cdcba6f40]",
+        "[SWEBOK excerpt 0fdd814e97c1328ca64d]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Release Management Tools and Documentation Requirements.md",
+          "why": "Fim da seção 6.2: a gestão de releases pode precisar rastrear a distribuição do produto para cada cliente ou sistema-alvo e manter informação sobre plataformas e ambientes dos clientes. Ajuda a saber que versão o cliente tem, mas não diz o que preservar para reconstruí-la."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Item Definition and Management.md",
+          "why": "Abertura da 2.1.2: define CI e SCI e diz que o SCM controla vários itens além do código. É o começo do mesmo parágrafo cuja lista de itens (ferramentas, executáveis, bibliotecas) está na folha esperada; sozinha é só a definição."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Software Release Management and Deployment Processes.md",
+          "why": "Define o version description document (VDD), que documenta o conteúdo físico de uma release. Ajuda a saber o que foi entregue, mas a folha começa com o fim da 6.1 (integração contínua)."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Build Quality Assurance and Configuration Management/Software Build Artifacts and Continuous Integration Processes.md",
+          "why": "Abre com o SBOM, que lista os artefatos incluídos no build, inclusive as bibliotecas. O resto da folha é sobre integração contínua."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Build Quality Assurance and Configuration Management/Build Process Quality Verification and Documentation.md",
+          "why": "Diz que as saídas do build podem ser necessárias para referência futura. Folha curta e genérica."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Configuration Management System Tools and Components.md",
+          "why": "Menciona um repositório que guarda os binários gerados no build para reimplantá-los. Complemento sobre ferramentas."
+        }
+      ],
+      "expected_leaves": [
+        "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/In-Process Audits and Software Release Management.md",
+        "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Software Build Tools and Version Control Management.md",
+        "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management and Change Control/Software Configuration Items Selection and Change Recording.md"
+      ]
+    },
+    {
+      "id": "N06",
+      "area": "Software Quality",
+      "question": "At the end of each release our bug tracker tells us only how many bugs were found, and that count gives the team nothing to act on. What should we do with our bug records so that they help us introduce fewer bugs in later releases?",
+      "evidence": [
+        "[SWEBOK excerpt 3488522c10f5d5562e37]",
+        "[SWEBOK excerpt bcc82cdbad3e6dcf9632]",
+        "[SWEBOK excerpt a9b4f9e7e26c2c8283ce]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Software Quality Measurements and Reliability Models.md",
+          "why": "Mesma KA (2.3): densidade de defeitos usada em SPI para evitar a recorrência e perfis de defeitos por domínio para focar o esforço no próximo projeto. Metade da folha é sobre modelos de confiabilidade e quando parar de testar."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Assurance Process and Activities.md",
+          "why": "Folha partida: começa com o fim da 2.4.1 (quem registra os dados nas revisões, relatórios de tendência de defeitos gerados pelas ferramentas) e segue com a seção 3 (SQA)."
+        },
+        {
+          "leaf": "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Root Cause Analysis Methods and Application/Root Cause Analysis Techniques.md",
+          "why": "KA Engineering Foundations: lista '[SWEBOK excerpt ac92d9b4434a6b594a2f])' como papel da RCA e descreve técnicas (5 porquês, Ishikawa). É folha central da N13, que trata dos métodos de RCA. Aqui é secundária, porque a pergunta é sobre o que fazer com os registros de defeitos."
+        },
+        {
+          "leaf": "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Root Cause Analysis Methods and Application/Root Cause Analysis in Process Improvement.md",
+          "why": "KA Engineering Foundations: escolher o problema a atacar com análise de Pareto e priorização por frequência e severidade. Útil, mas genérico."
+        },
+        {
+          "leaf": "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/SUT Measurements and Fault Classification for Test Planning.md",
+          "why": "KA de Testing (4.1.2): as taxonomias de falhas e a frequência passada de cada tipo ajudam na melhoria de processo. Remete à seção de caracterização da KA de Quality."
+        },
+        {
+          "leaf": "Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md",
+          "why": "KA de Testing: cita a orthogonal defect classification (ODC) para coletar informação semântica sobre defeitos e reduzir o esforço de RCA. A folha é esperada na Q07, mas por causa do teste de mutação, não da ODC. Não há repetição de tema."
+        }
+      ],
+      "expected_leaves": [
+        "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Corrective and Preventive Actions in Quality Management.md",
+        "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md",
+        "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md"
+      ]
+    },
+    {
+      "id": "N07",
+      "area": "Software Engineering Management",
+      "question": "We are planning a project that depends on a third-party API nobody on the team has used and on a performance target we may not be able to reach. How should we handle these things that could go wrong, both when planning the work and while it is under way?",
+      "evidence": [
+        "[SWEBOK excerpt 7ab06a8ab9bf144b1ccb]",
+        "[SWEBOK excerpt 20fa4dff62c3aa291a87])",
+        "[SWEBOK excerpt 9796a64f0b7b797d303d]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Project Planning and Lifecycle Management/Adaptive Software Development and Stakeholder Engagement.md",
+          "why": "KA de Gestão, seção 2.1 (planejamento): a avaliação de risco deve fazer parte do planejamento inicial em qualquer SDLC, e o risk profile deve ser discutido e aceito pelos stakeholders. Responde ao 'when planning the work', mas é só a última frase de uma folha sobre ciclos preditivos e adaptativos."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Project Planning and Lifecycle Management/Software Project Planning and SDLC Model Selection.md",
+          "why": "KA de Gestão, seção 2.1: escolher e adaptar o SDLC com base no escopo, nos requisitos e numa avaliação de risco; planos detalhados reduzem risco e custo. Menção fraca."
+        },
+        {
+          "leaf": "Software Quality Management and Project Oversight/Software Acquisition and Project Oversight/Risk Monitoring and Control Management/Risk Exposure Recalculation and Threshold Monitoring.md",
+          "why": "Seção 3.4 (Monitor Process): recalcular a exposição aos riscos e reportar quando limites forem ultrapassados. Complementa o 'while it is under way', mas é um trecho do monitoramento geral, não da seção 2.5."
+        },
+        {
+          "leaf": "Software Quality Management and Project Oversight/Software Acquisition and Project Oversight/Risk Monitoring and Control Management/Project Monitoring and Risk-Based Decision Making.md",
+          "why": "Seção 3.5 (Control Process): quando probabilidade e impacto são conhecidos, o projeto pode ser alterado com ação corretiva. Secundária."
+        },
+        {
+          "leaf": "Software Quality Management and Project Oversight/Software Acquisition and Project Oversight/Data Acquisition and Project Measurement/Implementation and Monitoring of Software Project Measurement.md",
+          "why": "Seção 3.4: o risk profile do projeto deve ser revisitado durante o monitoramento. Só uma frase sobre o tema."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Data Collection, Quality Assurance, and Project Monitoring/Project Tracking and Risk Management Tools.md",
+          "why": "Ferramentas da KA de Gestão para acompanhar riscos (árvores de decisão, simulação de Monte Carlo). Apoio, não a prática em si."
+        },
+        {
+          "leaf": "Professional Practice and Collaboration in Software Engineering/Collaboration, Communication, and Cognition in Software Engineering/Managing Uncertainty and Team Dynamics in Software Projects/Managing Uncertainty and Risk in Software Projects.md",
+          "why": "KA de Prática Profissional: a incerteza que não se resolve investigando vira risco do projeto e ajusta as estimativas. Remete à seção de Risk Management da KA de Gestão."
+        },
+        {
+          "leaf": "Engineering Decision-Making and Financial Analysis/Estimation, Decision Analysis, and Investment Evaluation/Engineering Decision-Making Under Uncertainty and Risk.md",
+          "why": "KA de Economia: técnicas de decisão sob risco e incerteza (faixas de estimativa, análise de sensibilidade, valor esperado). Outra KA e outro foco (escolher entre alternativas)."
+        }
+      ],
+      "expected_leaves": [
+        "Risk Management and Quality Assessment/Continuous Risk and Quality Management/Risk Management Throughout Project Life Cycle.md",
+        "Risk Management and Quality Assessment/Risk Assessment Methods and Software Project Risk Management.md",
+        "Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md"
+      ]
+    },
+    {
+      "id": "N08",
+      "area": "Software Engineering Process",
+      "question": "A recurring workflow in our team passes work from one person to the next, and today only two senior developers know how it goes. I want to write it down so that new developers and automated coding agents follow it the same way every time: what must the write-up state, and in what forms can it be written?",
+      "evidence": [
+        "[SWEBOK excerpt 47bd2c965711c92d2c7a]",
+        "[SWEBOK excerpt 3d38e79e462547e07bb3]",
+        "[SWEBOK excerpt 7a55250453a07381894a]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Engineering Processes and System Lifecycles/Software Engineering Process Definition and Structure/Software Engineering Process Definition.md",
+          "why": "Primeira metade da seção 1.2: as definições formais de processo, atividade e tarefa (atividades que transformam entradas em saídas; tarefas que contribuem para resultados). A folha esperada da mesma seção já resume isso, por isso ficou fora das três evidências. Para promovê-la, a frase '[SWEBOK excerpt 2a1dcb8796de5195e2dd]' casa só com ela."
+        },
+        {
+          "leaf": "Engineering Decision-Making Through Data and Standards/ISO_IEC_IEEE Software Engineering Standards Overview/Software Engineering Standards and Development Organizations/ISO Standard for Process Description in Software Engineering.md",
+          "why": "Apêndice B (normas), fora da KA: a ISO/IEC/IEEE 24774 descreve propósito, resultados, atividades, tarefas e, possivelmente, entradas e saídas de um processo. Responde diretamente ao 'what must the write-up state'."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Integrated Tools and Software Engineering Environments.md",
+          "why": "Continuação da seção 2.10: as ferramentas devem apoiar os métodos e estar integradas a eles. Secundária."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Engineering Lifecycle Management and Evolution/Life Cycle Process Definition for Very Small Entities.md",
+          "why": "Seções 2.8 e 2.9: adaptar o ciclo de vida documentando decisões e justificativa; definir um processo de ciclo de vida inclui especificar as quatro categorias de processos. Nível de ciclo de vida inteiro, não de um fluxo."
+        }
+      ],
+      "expected_leaves": [
+        "Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Engineering Processes and System Lifecycles/Software Engineering Process Definition and Structure/Software Process Definition and Components.md",
+        "Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Process Foundations and Measurement/Software Process Infrastructure Tools and Notations.md",
+        "Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Processes and Life Cycle Management/Software Process Definition and Life Cycle Specification.md"
+      ]
+    },
+    {
+      "id": "N09",
+      "area": "Software Engineering Economics",
+      "question": "I must choose one of three candidate libraries for our product. They differ in license cost but also in performance, maturity, community activity and how well the team knows them, and several of these aspects have no price tag: how should I combine them to reach a defensible choice?",
+      "evidence": [
+        "[SWEBOK excerpt a825f07be0399624ab5e]",
+        "[SWEBOK excerpt 7191cefe3345494b26db]",
+        "[SWEBOK excerpt 5bbe2ab76399af5890eb]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md",
+          "why": "Seção 2.4 (Define the Selection Criteria): quando há critérios além do dinheiro, a decisão é multiatributo; cada critério deve ser expresso de forma objetiva; critérios que não se expressam assim são 'intangibles'; critérios demais ou de menos atrapalham. Ajuda a montar os critérios, mas não diz como combiná-los. Para promovê-la, a frase '[SWEBOK excerpt ee68d297e70de515ebc1]' casa só com ela."
+        },
+        {
+          "leaf": "Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Evaluating Alternatives Against Selection Criteria.md",
+          "why": "Seções 2.5 e 2.6: avaliar cada alternativa contra cada critério, na mesma base e no mesmo horizonte; com vários critérios, usar técnicas que os avaliem juntos. Etapa anterior à combinação."
+        },
+        {
+          "leaf": "Professional Practice and Collaboration in Software Engineering/Professional Responsibility and Intellectual Property in Software Engineering/Documentation and Requirements Trade-off Management/Trade-Off Analysis in Software Engineering.md",
+          "why": "KA de Prática Profissional, seção 1.9: o primeiro passo da análise de trade-off é definir as metas e a importância relativa de cada uma. Responde ao 'how to combine' por outra KA."
+        },
+        {
+          "leaf": "Professional Practice and Collaboration in Software Engineering/Professional Responsibility and Intellectual Property in Software Engineering/Ethical Trade-off Analysis in Software Engineering Design.md",
+          "why": "Continuação da seção 1.9 (Prática Profissional): metas como custo mínimo e desempenho máximo; escolher critérios e pesos com objetividade e imparcialidade, o que torna a escolha defensável. Outra KA."
+        },
+        {
+          "leaf": "Engineering Decision-Making and Financial Analysis/Intangible Asset Valuation and Software Estimation Methods/Decision-Making for Software Product Selection.md",
+          "why": "Seção 7.7 (Economia): a escolha de produtos de software como exemplo de decisão multiatributo. Aplicação, não a técnica."
+        },
+        {
+          "leaf": "Software Product Management and Engineering Frameworks/Software and Systems Life Cycle Management/Pricing Strategy and Project Prioritization/Pricing Strategy and Prioritization in Project Management.md",
+          "why": "Seção 10.14 (Prioritization, Economia): ranquear alternativas por critérios comuns; a ordem fica explícita quando se usa técnica compensatória. A folha começa com Pricing (corte da árvore)."
+        },
+        {
+          "leaf": "Software Construction Methods and Languages/Dependency Management and Construction Practices/Managing Software Dependencies and Supply Chain Risks.md",
+          "why": "KA de Construção: evitar dependências desnecessárias ou não confiáveis e conflitos de licença. Um buscador provavelmente cai aqui pelo cenário, mas a folha não diz como combinar critérios."
+        },
+        {
+          "leaf": "Software Construction Techniques and Practices/Software Reuse and Cloud-Based Development/Software Construction for and with Reuse.md",
+          "why": "KA de Construção (construção com reúso): cita selecionar e avaliar unidades reutilizáveis e bibliotecas de código aberto de terceiros, só como itens de lista. É outro lugar provável para um buscador cair."
+        }
+      ],
+      "expected_leaves": [
+        "Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory Techniques for Multiple Criteria Assessment.md",
+        "Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md",
+        "Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Multiple-Attribute Decision-Making Beyond Financial Criteria.md"
+      ]
+    },
+    {
+      "id": "N10",
+      "area": "Software Engineering Professional Practice",
+      "question": "I am handing over a finished system to a client whose in-house team will keep developing it after delivery. Besides the program itself, what written material should I prepare for the client, for its end users and for my own organization, and for how long should it be retained?",
+      "evidence": [
+        "[SWEBOK excerpt e91afdd4c63d2fb83150]",
+        "[SWEBOK excerpt 03093f1055a52d120f04]",
+        "[SWEBOK excerpt 25b9ffd7c214c0b41f8e]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Professional Practice and Collaboration in Software Engineering/Collaboration, Communication, and Cognition in Software Engineering/Writing and Communication in Software Engineering.md",
+          "why": "Seção 3.2 (Writing): lista os produtos escritos (planos, requisitos, design, planos de teste, manuais do usuário) e diz que devem ser acessíveis e relevantes para o público. Genérica, sem o caso da entrega."
+        },
+        {
+          "leaf": "Professional Practice and Collaboration in Software Engineering/Collaboration, Communication, and Cognition in Software Engineering/Communication and Technical Literacy Skills/Communication Skills in Software Engineering.md",
+          "why": "Seção 3: a aceitação do produto e o uso seguro dependem de treinamento e documentação adequados. Uma frase só."
+        },
+        {
+          "leaf": "Software Security Engineering and Professional Practice/Professional Standards, Certification, and Legal Frameworks/Professional Ethics, Standards, and Business Practices in Software Engineering/Professional Ethics and Conduct Standards/Professional Ethics Codes and Enforcement in Computing.md",
+          "why": "Seção 1.2: deixar de revelar riscos ou de fornecer informação importante é violação por omissão do código de ética. Apoio ético, não diz o que documentar."
+        },
+        {
+          "leaf": "Software Quality Management and Project Oversight/Software Measurement and Organizational Learning/Project Closure and Archival Procedures.md",
+          "why": "KA de Gestão, seção 5.2 (Closure Activities): os materiais do projeto são arquivados conforme regras combinadas com os stakeholders sobre método, local e duração. É o outro lugar do Guia que responde ao 'for how long should it be retained'."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Release Management Tools and Documentation Requirements.md",
+          "why": "KA de Configuração (Release Management): as notas de release descrevem novas funções, problemas conhecidos e requisitos de plataforma; o pacote inclui instruções de instalação ou atualização. É material escrito que acompanha uma entrega, mas de outra KA e no nível do release."
+        },
+        {
+          "leaf": "Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Software Release Management and Deployment Processes.md",
+          "why": "KA de Configuração, seção 6.2: o release reúne executável, documentação, notas de release e dados de configuração; o conteúdo físico é documentado no version description document (VDD). Secundária."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Management and Organization/Organizing Software Maintenance Responsibilities/Developer vs. Separate Maintenance Team Trade-offs.md",
+          "why": "KA de Manutenção: a passagem do software para outra equipe exige um processo de handoff, e a organização deve manter documentação de qualidade sobre as tarefas e mudanças. Menção curta."
+        },
+        {
+          "leaf": "Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+          "why": "KA de Manutenção: define 'transition' como a transferência controlada do software do desenvolvedor para quem vai operá-lo e mantê-lo. Só a definição, sem dizer o que documentar."
+        }
+      ],
+      "expected_leaves": [
+        "Professional Practice and Collaboration in Software Engineering/Professional Responsibility and Intellectual Property in Software Engineering/Documentation and Requirements Trade-off Management/Documentation Standards and Requirements for Software Engineers.md"
+      ]
+    },
+    {
+      "id": "N11",
+      "area": "Computing Foundations",
+      "question": "Our orders table repeats the customer's name and address on every order row, and after a customer moves some rows show the old address while others show the new one. How should the tables be restructured, and what does that cost when querying the data?",
+      "evidence": [
+        "[SWEBOK excerpt d604dd5d2cc31beb2cbe]",
+        "[SWEBOK excerpt 1804ac2ec9ad86e3d10f]",
+        "[SWEBOK excerpt 573f71b61ba3b023911d]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms Fourth Through Sixth.md",
+          "why": "Define 4NF a 6NF/DKNF (além do necessário para o caso), mas traz a orientação prática de que a maioria dos bancos é normalizada até 3NF ou BCNF. Útil, porém secundária."
+        },
+        {
+          "leaf": "Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Languages and Relational Database Management Systems.md",
+          "why": "Abre a seção 6.4: bancos baseados em arquivos sofriam de redundância e inconsistência de dados, e o RDBMS reduz a redundância. Motiva o problema, mas metade da folha é sobre linguagens de banco e componentes do SGBD."
+        },
+        {
+          "leaf": "Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Structured Query Language and Data Management Fundamentals.md",
+          "why": "Começa com o fim da seção de normalização (a normalização aumenta o número de tabelas e o tempo de processamento), mas o resto da folha é sobre SQL. É o caso de folha que só carrega um pedaço do assunto."
+        },
+        {
+          "leaf": "Software Engineering Fundamentals and System Architecture/Database Schema Structure and Design.md",
+          "why": "Lista os tipos de chave (primária, estrangeira, composta etc.) usados para ligar as tabelas resultantes. Apoia a implementação, não é a resposta em si."
+        }
+      ],
+      "expected_leaves": [
+        "Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms and Requirements.md",
+        "Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md",
+        "Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/RDBMS Types and Database Normalization Fundamentals.md"
+      ]
+    },
+    {
+      "id": "N12",
+      "area": "Mathematical Foundations",
+      "question": "A test accepts a computed result when its difference from the expected value is below 0.001, which is far too strict for values in the millions and far too loose for values around 0.0001. How should the discrepancy be measured instead, and how does that measure tell how many leading digits of the result can be trusted?",
+      "evidence": [
+        "[SWEBOK excerpt 297dadd84958fa3cc461]",
+        "[SWEBOK excerpt 5f996de4eb1378c04b87]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Fixed-Point Arithmetic and Numerical Precision.md",
+          "why": "Define acurácia (proximidade do valor verdadeiro) e precisão, e compara ponto fixo com ponto flutuante. Dá contexto, mas não diz como medir o erro."
+        },
+        {
+          "leaf": "Foundations of Mathematics and Computational Systems/Random Variables and Probability Distributions/Discrete Probability Properties and Numerical Representation.md",
+          "why": "Apesar do título, quase toda a folha é sobre a representação de reais (arredondamento, truncamento, overflow). Explica por que o valor calculado difere do exato, mas não como medir a diferença."
+        }
+      ],
+      "expected_leaves": [
+        "Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+        "Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md"
+      ]
+    },
+    {
+      "id": "N13",
+      "area": "Engineering Foundations",
+      "question": "The same kind of failure keeps coming back in production even though every occurrence was patched as soon as it was reported. What methods can the team use to trace the failure back to what is really producing it, so that the fix keeps it from happening again?",
+      "evidence": [
+        "[SWEBOK excerpt cd70ac4329f64da7d99b]",
+        "[SWEBOK excerpt 9f9229ba5d45ad614a3a]",
+        "[SWEBOK excerpt 1345849a6fbf97e2e1c1]"
+      ],
+      "also_relevant": [
+        {
+          "leaf": "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Root Cause Analysis Methods and Application/Engineering Standards and Root Cause Analysis Methods.md",
+          "why": "Traz o título da seção 9 e a definição de RCA: identificar por que e como o resultado indesejado ocorreu, para evitar a recorrência. Mas metade da folha é sobre normas de engenharia, então ela carrega só a abertura do assunto."
+        },
+        {
+          "leaf": "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Root Cause Analysis Methods and Application/Root Cause Analysis in Process Improvement.md",
+          "why": "Seção 9.2: um processo sistemático de melhoria com RCA, com os passos 1 e 2 (escolher o problema por Pareto ou por frequência e severidade; reunir evidências). Complementa a resposta, mas a pergunta pede os métodos de investigação."
+        },
+        {
+          "leaf": "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Industry 4.0 and Software Engineering Integration.md",
+          "why": "Folha sobre Indústria 4.0 que começa com os passos 3 a 6 do processo da seção 9.2: identificar a causa, escolher ações corretivas que evitem a recorrência, implementar e observar. É um corte da árvore e só carrega um pedaço do assunto."
+        },
+        {
+          "leaf": "Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Rollback and Problem Resolution in DevOps.md",
+          "why": "Fora da KA (Operations, 3.4 Problem Resolution): fala de investigar problemas recorrentes em produção que podem ter causa subjacente na infraestrutura ou nos componentes, usando monitoramento, logging e profiling. Tem forte sobreposição lexical com a pergunta e é uma resposta parcial concorrente, mas não traz as técnicas de RCA."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Corrective and Preventive Actions in Quality Management.md",
+          "why": "Fora da KA (SQA 2.4.1 Defect Characterization): para eliminar a causa de uma não conformidade e evitar a recorrência, usa técnicas de SQC e a classificação de defeitos, pois números sem classificação não bastam para achar as causas subjacentes. É secundária e não traz as técnicas de RCA."
+        },
+        {
+          "leaf": "Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md",
+          "why": "Fora da KA: cita a RCA como atividade de SQM para eliminar as causas de defeitos e remete a Engineering Foundations. É uma menção breve."
+        }
+      ],
+      "expected_leaves": [
+        "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Root Cause Analysis Methods and Application/Root Cause Analysis Methods and Techniques.md",
+        "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Root Cause Analysis Methods and Application/Root Cause Analysis Techniques.md",
+        "Engineering Decision-Making Through Data and Standards/Standards, Quality Assurance, and Modern Manufacturing Systems/Root Cause Analysis Methods and Application/Root Cause Analysis in Software Projects.md"
+      ]
+    }
+  ]
+}

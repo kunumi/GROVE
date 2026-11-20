@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:06:45.438837",
+  "seconds": 18.3,
+  "question": "How should modules be organized so that the software stays easy to maintain, and how can an existing badly structured program be improved without its users noticing any difference?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here is a list of guidelines drawn from SWEBOK v4 knowledge for organizing modules to maintain ease of maintenance, and for restructuring existing poorly structured programs without visible impact on users:\n\n---\n\n**1. Aim for high cohesion within modules.**\nEach module should have a single, well-defined responsibility so that changes to one concern do not ripple through unrelated code.\n(source: \"cohesion is the degree to which the elements of a module belong together\")\n\n**2. Aim for low coupling between modules.**\nMinimize dependencies between modules so that modifying one module requires little or no change to others.\n(source: \"coupling is the degree to which each program module relies on each of the other modules\")\n\n**3. Use information hiding and encapsulation.**\nHide internal implementation details behind stable interfaces so that internals can change without affecting callers.\n(source: \"information hiding is the principle that the internal representation of an object is generally hidden from the outside\")\n\n**4. Define clear, stable interfaces.**\nModules should communicate only through well-defined interfaces, reducing the impact of internal changes on the rest of the system.\n(source: \"a well-defined interface specifies all that the caller needs to know to use the module correctly\")\n\n**5. Apply separation of concerns.**\nDistinct concerns (e.g., data access, business logic, presentation) should be assigned to distinct modules so each can evolve independently.\n(source: \"separation of concerns is a design principle for separating a computer program into distinct sections\")\n\n**6. Keep modules small and focused.**\nSmaller modules are easier to understand, test, and modify independently.\n(source: \"decomposing a system into small, manageable components that can be developed and maintained independently\")\n\n**7. Use layered or hierarchical decomposition.**\nOrganize modules into layers where higher layers depend on lower layers but not vice versa, limiting the propagation of changes.\n(source: \"a layered architecture organizes software into layers, each providing services to the layer above\")\n\n**8. Refactor to improve internal structure without changing external behavior.**\nRestructuring (refactoring) transforms poorly structured code into well-structured code while preserving its observable behavior, so users notice no difference.\n(source: \"refactoring is the process of changing a software system in such a way that it does not alter the external behavior of the code yet improves its internal structure\")\n\n**9. Apply restructuring and re-engineering as software maintenance activities.**\nWhen a system has degraded in structure over time, planned restructuring—part of perfective or preventive maintenance—can restore maintainability without delivering new visible functionality.\n(source: \"preventive maintenance is performed to prevent problems from occurring, including restructuring or rewriting code\")\n\n**10. Manage and reduce technical debt deliberately.**\nAccumulated shortcuts and poor design decisions (technical debt) should be identified and paid down incrementally through refactoring, keeping the system maintainable over its lifetime.\n(source: \"technical debt refers to the accumulated consequences of compromises made during software development that make future changes more difficult\")\n\n**11. Ensure modules are testable in isolation.**\nDesigning for testability—so individual modules can be tested without requiring the whole system—supports both quality and safe restructuring.\n(source: \"testability is the degree to which a system or component facilitates the establishment of test criteria and the performance of tests\")\n\n**12. Document module interfaces and responsibilities.**\nClear documentation of what each module does and how it is used helps maintainers understand dependencies and avoid inadvertent breakage during changes.\n(source: \"software documentation includes all documents associated with the software system, including requirements, design, and user documentation\")\n\n---\n\nThese guidelines together support a system architecture that remains comprehensible and modifiable over time, while enabling internal improvements to be made transparently to end users.",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 138,
+    "output_tokens": 847
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

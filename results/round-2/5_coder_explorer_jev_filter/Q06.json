@@ -1,0 +1,141 @@
+[
+ {
+  "start": "2026-11-19T08:02:00.627842",
+  "seconds": 49.0,
+  "question": "A function takes six configuration parameters, each with several possible values, and testing every possible mix of their values is too expensive. How should the test cases be derived?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 8 of 8 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Use combinatorial test techniques to systematically derive test cases covering specific parameters and their values, rather than testing every possible combination. The standard combinatorial [SWEBOK excerpt d29e0634857acb6fd217]. (source: root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md) [JEV 0.92]\n- Apply Pair-Wise (t-wise) Testing: derive test cases by combining the values of every pair (or every t-tuple) of input parameters. This is also known as Orthogonal Array Testing (OAT). It dramatically reduces the number of test cases compared to all-combinations testing while still covering all two-way (or t-way) interactions. (source: root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md) [JEV 0.95]\n- Apply Equivalence Partitioning first: partition the input domain of each parameter into equivalence classes (valid and invalid inputs) and select a representative test case from each class, rather than testing every individual value. (source: root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md; root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md) [JEV 0.96]\n- Apply Boundary Value Analysis: choose test cases on or near the boundaries of each parameter's input domain, since [SWEBOK excerpt 44266d1663bca03e93fd]. For robustness, also include test cases outside the input domain to test handling of erroneous inputs. (source: root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md) [JEV 0.97]\n- Use Decision Tables to represent logical relationships between parameter conditions (inputs) and resulting actions (outputs), then systematically derive test cases covering every combination of conditions and their actions. This technique is especially useful for documenting [SWEBOK excerpt 53592579e03cd896984d]. (source: root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md; root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing for Knowledge Representation and Documentation.md) [JEV 0.92]\n- Use Cause-Effect Graphing: build logical networks that map each input condition (cause) to its output (effect) [SWEBOK excerpt dcd2e342d000b7c78bad], identifying relevant causes and consequent output conditions. (source: root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md; root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md) [JEV 0.95]\n- Consider combining specification-based (black-box) techniques — such as equivalence partitioning and combinatorial methods — with structure-based (white-box) techniques, as these two approaches are complements that use different information sources and highlight different problems. They can be combined based on organizational and budgetary constraints. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md) [JEV 0.95]\n- Consider supplementing systematic combinatorial test cases with randomly selected test cases drawn from some distribution of inputs, since random selection can complement deterministic techniques and may be more effective under certain conditions. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Deterministic vs. Random Test Case Selection.md) [JEV 0.77]",
+  "tool_calls": 10,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 8,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 10,
+    "input_tokens": 82122,
+    "output_tokens": 2731
+   }
+  },
+  "jev_calls": 8,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 16046,
+  "jev_input_tokens": 5648,
+  "jev_output_tokens": 160,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/README.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/README.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing for Knowledge Representation and Documentation.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/API Interface Testing and Configuration Verification.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Deterministic vs. Random Test Case Selection.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Experience-Based Testing Techniques and Exploratory Testing.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing for Knowledge Representation and Documentation.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Deterministic vs. Random Test Case Selection.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Use combinatorial test techniques to systematically derive test cases covering specific parameters and their values, rather than testing every possible combination. The standard combinatorial [SWEBOK excerpt d29e0634857acb6fd217].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md"
+    ],
+    "score": 0.92,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply Pair-Wise (t-wise) Testing: derive test cases by combining the values of every pair (or every t-tuple) of input parameters. This is also known as Orthogonal Array Testing (OAT). It dramatically reduces the number of test cases compared to all-combinations testing while still covering all two-way (or t-way) interactions.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply Equivalence Partitioning first: partition the input domain of each parameter into equivalence classes (valid and invalid inputs) and select a representative test case from each class, rather than testing every individual value.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply Boundary Value Analysis: choose test cases on or near the boundaries of each parameter's input domain, since [SWEBOK excerpt 44266d1663bca03e93fd]. For robustness, also include test cases outside the input domain to test handling of erroneous inputs.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Use Decision Tables to represent logical relationships between parameter conditions (inputs) and resulting actions (outputs), then systematically derive test cases covering every combination of conditions and their actions. This technique is especially useful for documenting [SWEBOK excerpt 53592579e03cd896984d].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing for Knowledge Representation and Documentation.md"
+    ],
+    "score": 0.92,
+    "admitted": true
+   },
+   {
+    "guideline": "Use Cause-Effect Graphing: build logical networks that map each input condition (cause) to its output (effect) [SWEBOK excerpt dcd2e342d000b7c78bad], identifying relevant causes and consequent output conditions.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md",
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Consider combining specification-based (black-box) techniques — such as equivalence partitioning and combinatorial methods — with structure-based (white-box) techniques, as these two approaches are complements that use different information sources and highlight different problems. They can be combined based on organizational and budgetary constraints.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Consider supplementing systematic combinatorial test cases with randomly selected test cases drawn from some distribution of inputs, since random selection can complement deterministic techniques and may be more effective under certain conditions.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Deterministic vs. Random Test Case Selection.md"
+    ],
+    "score": 0.77,
+    "admitted": true
+   }
+  ]
+ }
+]

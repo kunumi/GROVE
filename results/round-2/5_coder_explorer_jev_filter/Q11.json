@@ -1,0 +1,137 @@
+[
+ {
+  "start": "2026-11-19T08:06:38.710690",
+  "seconds": 62.5,
+  "question": "What kinds of changes are made to software that is already in use, and what distinguishes each kind from the others?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 9 of 9 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Perfective maintenance is the [SWEBOK excerpt 6e3893bacf78f98660e5]. It differs from other types in that its purpose is to improve or enhance the software beyond its original design, not to fix faults or respond to external changes. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md) [JEV 0.92]\n- [SWEBOK excerpt 26010f1369f68a43db5f] [SWEBOK excerpt 455ee24297b812a858ee] quality attributes, and it involves relatively large additions or changes to the software after delivery. It is distinct in scale and scope: while perfective maintenance may recode or refine existing capabilities, additive maintenance adds wholly new functionality. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md) [JEV 0.96]\n- Emergency maintenance is an [SWEBOK excerpt 29afddbf422c4d134083]. It is distinguished from other types by its urgency and temporary nature — it does not fully fix a problem but keeps the system running until a proper corrective solution can be applied. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md) [JEV 0.96]\n- Presenting maintenance costs by category (corrective, adaptive, perfective, additive, emergency, etc.) allows organizations to show customers where maintenance effort is spent and also supports accurate cost estimation for software maintenance planning. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Effort Categories.md) [JEV 0.95]\n- Software must be continually adapted to its changing environment or it becomes progressively less satisfactory — a principle known as 'Continuing Change', one of Lehman's laws of software evolution. This underpins the ongoing need for all categories of maintenance activity. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Evolution Laws.md) [JEV 0.95]\n- As software evolves through maintenance, its complexity increases unless specific [SWEBOK excerpt 1ea803db46a3f4daecd1] — the law of 'Increasing Complexity'. This distinguishes maintenance work aimed at improving internal structure (such as perfective or refactoring activities) from change types that only add function without addressing structural growth. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Evolution Laws.md) [JEV 0.90]\n- Maintainers also perform ongoing supporting activities — including documentation, software configuration management ([SWEBOK excerpt 685e20859c3e7ac1e1a4] — which are distinct from the named maintenance categories but are integral to the maintenance phase. (source: root/Software Maintenance Planning and Supporting Activities.md) [JEV 0.94]\n- Impact analysis is a specialized maintenance activity that identifies areas of the software impacted by a potential change; it is a critical step before carrying out any type of maintenance modification to understand the scope and risk of the proposed change. (source: root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md) [JEV 0.80]\n- Software maintenance presents unique technical and management challenges — for example, understanding and fixing faults in large, complex software originally developed by someone else. In Agile environments, maintenance activities must compete with new feature development for client approval, and teams must balance ongoing maintenance (including emergency patches) with planning for future releases. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Key Issues in Software Maintenance.md) [JEV 0.96]",
+  "tool_calls": 11,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 6,
+   "search_tool_history": 1,
+   "read_tool_record": 2,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 11,
+    "input_tokens": 98847,
+    "output_tokens": 2889
+   }
+  },
+  "jev_calls": 9,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 16672,
+  "jev_input_tokens": 5737,
+  "jev_output_tokens": 180,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Evolution Laws.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Costs and Management.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Key Issues in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Effort Categories.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Effort Categories.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Evolution Laws.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Evolution Laws.md",
+   "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Key Issues in Software Maintenance.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Perfective maintenance is the [SWEBOK excerpt 6e3893bacf78f98660e5]. It differs from other types in that its purpose is to improve or enhance the software beyond its original design, not to fix faults or respond to external changes.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md"
+    ],
+    "score": 0.92,
+    "admitted": true
+   },
+   {
+    "guideline": "[SWEBOK excerpt 26010f1369f68a43db5f] [SWEBOK excerpt 455ee24297b812a858ee] quality attributes, and it involves relatively large additions or changes to the software after delivery. It is distinct in scale and scope: while perfective maintenance may recode or refine existing capabilities, additive maintenance adds wholly new functionality.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Emergency maintenance is an [SWEBOK excerpt 29afddbf422c4d134083]. It is distinguished from other types by its urgency and temporary nature — it does not fully fix a problem but keeps the system running until a proper corrective solution can be applied.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Presenting maintenance costs by category (corrective, adaptive, perfective, additive, emergency, etc.) allows organizations to show customers where maintenance effort is spent and also supports accurate cost estimation for software maintenance planning.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Effort Categories.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Software must be continually adapted to its changing environment or it becomes progressively less satisfactory — a principle known as 'Continuing Change', one of Lehman's laws of software evolution. This underpins the ongoing need for all categories of maintenance activity.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Evolution Laws.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "As software evolves through maintenance, its complexity increases unless specific [SWEBOK excerpt 1ea803db46a3f4daecd1] — the law of 'Increasing Complexity'. This distinguishes maintenance work aimed at improving internal structure (such as perfective or refactoring activities) from change types that only add function without addressing structural growth.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Evolution Laws.md"
+    ],
+    "score": 0.9,
+    "admitted": true
+   },
+   {
+    "guideline": "Maintainers also perform ongoing supporting activities — including documentation, software configuration management ([SWEBOK excerpt 685e20859c3e7ac1e1a4] — which are distinct from the named maintenance categories but are integral to the maintenance phase.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md"
+    ],
+    "score": 0.94,
+    "admitted": true
+   },
+   {
+    "guideline": "Impact analysis is a specialized maintenance activity that identifies areas of the software impacted by a potential change; it is a critical step before carrying out any type of maintenance modification to understand the scope and risk of the proposed change.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md"
+    ],
+    "score": 0.8,
+    "admitted": true
+   },
+   {
+    "guideline": "Software maintenance presents unique technical and management challenges — for example, understanding and fixing faults in large, complex software originally developed by someone else. In Agile environments, maintenance activities must compete with new feature development for client approval, and teams must balance ongoing maintenance (including emergency patches) with planning for future releases.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Key Issues in Software Maintenance.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   }
+  ]
+ }
+]

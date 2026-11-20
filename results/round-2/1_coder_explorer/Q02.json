@@ -1,0 +1,59 @@
+[
+ {
+  "start": "2026-11-19T07:57:55.618447",
+  "seconds": 61.3,
+  "question": "A function has grown into a long chain of conditionals that maps combinations of conditions to results, and it is hard to change. What construction approach helps, and what has to be decided when applying it?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nThe SWEBOK v4 identifies the **table-driven method** as the construction approach for replacing long chains of conditionals that map combinations of conditions to results. It is defined as \"[SWEBOK excerpt 7a48575fd881ff1b0373] applying it, the programmer must resolve two specific design decisions: what information to store in the table, and how to efficiently access that information.\n\n# Guidelines\n\n- **Replace conditionals with a table.** A table-driven method [SWEBOK excerpt 9734a4de2aeda3b0b6cb]`). (source: `root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md`)\n\n- **Apply it only in appropriate circumstances.** \"[SWEBOK excerpt 1f02a9a5cf54055acd0d].\" (source: `root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md`)\n\n- **Decide what information to store in the table.** This is the first of two issues the programmer must address when using table-driven methods. (source: `root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md`)\n\n- **Decide [SWEBOK excerpt ffd30c20bbf41330ba5d].** This is the second mandatory design decision — the access strategy must suit the nature of the conditions and the performance needs. (source: `root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md`)\n\n- **Choose table-driven code partly for changeability.** The BoK links this technique to the construction fundamental of \"anticipating and embracing change\": \"[SWEBOK excerpt 4ade4049c614110de336].\" (source: `root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md`)\n\n- **Recognise the sibling technique: state-based programming.** The BoK groups table-driven methods with state-based (finite-state-machine) programming as complementary techniques for handling complex condition-to-result mappings under \"State-Based and Table-Driven Construction Techniques.\" (source: `root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md`)\n\n# Gaps\n- The BoK names the two decisions (what to store; how to access) but does **not** elaborate the specific sub-techniques for each (e.g., direct-index vs. stair-step vs. indexed lookup). Those details are cited to an external primary source (\"[1-c18]\") but are not reproduced in the BoK text.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 12,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 10,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 13,
+    "input_tokens": 119432,
+    "output_tokens": 3495
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/README.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/README.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/README.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/Construction Activities and Planning Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/INDEX.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/README.md",
+   "/workspace/swebok-v4/root/Software Design Methodologies and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Methodologies and Approaches/README.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:05:06.928458",
+  "seconds": 13.0,
+  "question": "How can a routine make its assumptions about inputs and outputs explicit and guard itself against callers passing it values it was not built to accept?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines for making a routine's assumptions explicit and guarding against invalid inputs/outputs:\n\n1. **Use assertions (preconditions and postconditions) to document and enforce assumptions.** Assertions are executable checks placed at the beginning of a routine (preconditions) to validate inputs and at the end (postconditions) to validate outputs or state after execution. They make implicit assumptions explicit in the code itself.\n(source: \"Assertions are executable checks for conditions that should always be true if the program is running correctly\")\n\n2. **Define preconditions that specify what must be true before the routine executes.** A precondition is a constraint the caller must satisfy; if violated, the routine's behavior is undefined or the assertion fires. This clearly communicates the routine's contract to callers.\n(source: \"A precondition is a property that a client must meet before calling a routine\")\n\n3. **Define postconditions that specify what the routine guarantees upon return.** Postconditions document what the routine promises to deliver, allowing callers to rely on the result.\n(source: \"A postcondition is a property that the routine guarantees to be true when it finishes\")\n\n4. **Apply Design by Contract (DbC) to formalize the routine's interface as a contract between caller and implementer.** DbC makes rights and obligations of both parties explicit and verifiable.\n(source: \"[SWEBOK excerpt 353f263316382a0e9512] stated explicitly for each routine\")\n\n5. **Decide on and document an error-handling strategy for when preconditions are violated** (e.g., return a neutral value, substitute valid data, throw an exception, or terminate), so behavior under invalid input is predictable rather than undefined.\n(source: \"The general question of how to handle bad inputs is a question of error handling, error processing, or exception handling\")\n\n6. **Validate parameters at the boundary between trusted and untrusted code**, especially for public routines where callers cannot be assumed to satisfy preconditions. Internal private routines may rely on assertions; public routines may need active validation.\n(source: \"Routines should validate their inputs by checking the values of all input parameters\")\n\n7. **Use invariants to express broader assumptions** about the state of an object or data structure that must hold before and after any routine call, complementing per-routine pre/postconditions.\n(source: \"An invariant is a condition that is true throughout the execution of a program or a portion thereof, such as a loop or a class\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 134,
+    "output_tokens": 563
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

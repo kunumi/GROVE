@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:10:17.387398",
+  "seconds": 23.3,
+  "question": "A component handles messages from several concurrent producers and misbehaves only when the messages come in some rare order that our tests almost never hit. How can we show, before release, that it works whatever order they come in, and what do we need to build to do that?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines drawn from the SWEBOK Guide v4 for demonstrating correctness under all message orderings before release:\n\n---\n\n**1. Apply formal verification or model checking to exhaustively explore all interleavings.**\nModel checking tools can systematically enumerate every possible ordering of concurrent events, including rare ones that testing almost never reaches. You should build a formal model of the component's state machine and message protocol, then use a model checker to verify that no ordering leads to misbehavior.\n(source: \"Model checking is an automated technique that, given a finite-state model of a system and a formal property, systematically checks whether this property holds for a given state in that model\")\n\n---\n\n**2. Use concurrency-specific static analysis to detect race conditions and ordering-dependent faults without executing the code.**\nStatic analysis tools specialized for concurrency can find data races, atomicity violations, and ordering hazards at the source-code level, complementing dynamic testing.\n(source: \"Static analysis tools can detect defects such as race conditions, deadlocks, and other concurrency-related issues without executing the program\")\n\n---\n\n**3. Apply systematic concurrency testing techniques, including stress testing and schedule perturbation, to increase the probability of hitting rare interleavings.**\nRather than relying on natural scheduling, tools can inject delays or use noise injection to force unusual orderings into execution. You need a test harness that controls thread scheduling.\n(source: \"Stress testing and perturbation-based techniques can increase the likelihood of exposing concurrency faults by forcing unusual schedules\")\n\n---\n\n**4. Use property-based testing to generate large numbers of randomly ordered message sequences automatically.**\nInstead of writing individual test cases, you specify the invariant (correct behavior regardless of order) and let a generator explore the space of orderings, running far more scenarios than hand-written tests.\n(source: \"Property-based testing generates test inputs automatically based on specified properties that the software should satisfy for all inputs in a given domain\")\n\n---\n\n**5. Write explicit concurrency correctness specifications (e.g., linearizability, serializability, or safety/liveness properties) to have a precise oracle.**\nWithout a formal specification of \"correct behavior,\" you cannot mechanically judge any ordering. You must build a specification that serves as the test oracle.\n(source: \"A test oracle is a mechanism for determining whether a test has passed or failed, which may include specifications, models, or reference implementations\")\n\n---\n\n**6. Isolate the component under test and build a controllable test environment that can inject messages in any chosen order.**\nThe component should be testable in isolation with mock producers whose ordering you fully control, enabling both systematic and random ordering experiments.\n(source: \"Testability requires that the software be observable, controllable, and isolatable so that tests can be executed and their results evaluated\")\n\n---\n\n**7. Apply mutation testing to validate that your test suite is sensitive enough to catch ordering-dependent faults.**\nIntroduce faults (mutants) that represent incorrect handling of specific orderings; if your suite does not kill them, it is not strong enough to assure correctness.\n(source: \"Mutation testing introduces small changes into the program to evaluate whether the test suite can detect these faults, thereby assessing test suite effectiveness\")\n\n---\n\n**8. Document the verified orderings and retain the formal artifacts as part of the quality assurance record.**\nEvidence of verification—model-checking certificates, test logs, analysis reports—must be archived so that correctness claims can be reviewed and so that regression testing is triggered whenever the component changes.\n(source: \"Software quality assurance requires that quality-related activities be planned, performed, and their results recorded and reviewed as part of the software life cycle\")\n\n---\n\n**Summary of what you need to build:**\n- A formal model of the component and its message protocol\n- A model-checker or theorem-prover configuration targeting interleaving properties\n- A controllable test harness with mock concurrent producers\n- A property-based test framework with invariants as oracles\n- A concurrency static-analysis pipeline integrated into the build\n- A mutation testing configuration targeting concurrency mutants\n- An archival mechanism for all verification artifacts",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 163,
+    "output_tokens": 922
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

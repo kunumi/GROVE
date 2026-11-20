@@ -1,0 +1,142 @@
+[
+ {
+  "start": "2026-11-19T08:20:50.852422",
+  "seconds": 53.0,
+  "question": "Our orders table repeats the customer's name and address on every order row, and after a customer moves some rows show the old address while others show the new one. How should the tables be restructured, and what does that cost when querying the data?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 9 of 9 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Use a Relational Database Management System (RDBMS) to split data into separate, related tables. An RDBMS stores data in tables whose data tables relate to one another, significantly reduces data redundancy, and allows multiple data items to be accessed simultaneously — directly solving the problem of repeating customer name and address on every order row. (source: root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Languages and Relational Database Management Systems.md) [JEV 0.92]\n- Apply database normalization — [SWEBOK excerpt 1b6f26dfa263490d5595] by [SWEBOK excerpt aac36197eb4a0ca5f5a4]. Storing the customer's name and address only once in a dedicated Customers table and referencing it from the Orders table is the normalization approach that eliminates the inconsistency where some rows show an old address after a customer moves. (source: root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/RDBMS Types and Database Normalization Fundamentals.md) [JEV 0.81]\n- Restructure the orders table to satisfy at least First Normal Form (1NF): remove duplication and redundancy, ensure each table cell holds a single value, and identify each row with a unique key. This prevents the same customer address from being stored repeatedly across many order rows. (source: root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md) [JEV 0.93]\n- Advance to Second Normal Form (2NF): the table must already be in 1NF, and there must be no partial dependency. Create separate tables for records (such as customers) that are referenced by multiple records or tables (such as orders). This is the structural step that separates the customer entity from the order entity. (source: root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md) [JEV 0.93]\n- Advance to Third Normal Form (3NF) by also removing transitive dependencies — ensuring that non-key attributes (like a customer's city derived from their postal code) depend only on the primary key, not on other non-key columns. Most databases are typically normalized until 3NF or BCNF. (source: root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms and Requirements.md; root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms Fourth Through Sixth.md) [JEV 0.88]\n- Consider normalizing to Boyce-Codd Normal Form (BCNF / 3.5NF), which requires the table to be in 3NF and that X be a super-key for any functional dependency X→Y. This eliminates remaining anomalies that 3NF alone does not address. As a target, DKNF (6NF) is defined specifically so that insertion and deletion anomalies are avoided. (source: root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms and Requirements.md; root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms Fourth Through Sixth.md) [JEV 0.88]\n- Understand and accept the query-time cost of normalization: [SWEBOK excerpt c9d9a77c15a30424d7be], because retrieving complete order information now requires joining the Orders and Customers tables. Engineers must [SWEBOK excerpt c359b4c77c4bf9a365ca], and also that normalization [SWEBOK excerpt 1dae62524ca4cc3cad5f]. (source: root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/RDBMS Types and Database Normalization Fundamentals.md; root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Structured Query Language and Data Management Fundamentals.md) [JEV 0.91]\n- When the query-time penalty of normalization is unacceptable for a particular application, consider selective de-normalization: intentionally reintroducing data redundancy for quicker data access. This is a conscious trade-off decision made after weighing the pros and cons for the specific application. (source: root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md) [JEV 0.88]\n- Use SQL to implement the restructured schema and to perform normalization operations. All operations on a database — including creating and updating tables and performing different normalizations — can be performed using SQL, making it the standard tool for carrying out the restructuring recommended above. (source: root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Structured Query Language and Data Management Fundamentals.md) [JEV 0.94]",
+  "tool_calls": 10,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 8,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 10,
+    "input_tokens": 69436,
+    "output_tokens": 2947
+   }
+  },
+  "jev_calls": 9,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 19098,
+  "jev_input_tokens": 6519,
+  "jev_output_tokens": 180,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/INDEX.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/README.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/INDEX.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/README.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Management Systems and Core Components/INDEX.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms and Requirements.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/RDBMS Types and Database Normalization Fundamentals.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms Fourth Through Sixth.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Languages and Relational Database Management Systems.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Structured Query Language and Data Management Fundamentals.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Management Systems and Core Components/Database Management Systems Overview and Components.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Languages and Relational Database Management Systems.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/RDBMS Types and Database Normalization Fundamentals.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms and Requirements.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms Fourth Through Sixth.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms and Requirements.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms Fourth Through Sixth.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/RDBMS Types and Database Normalization Fundamentals.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Structured Query Language and Data Management Fundamentals.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Structured Query Language and Data Management Fundamentals.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Use a Relational Database Management System (RDBMS) to split data into separate, related tables. An RDBMS stores data in tables whose data tables relate to one another, significantly reduces data redundancy, and allows multiple data items to be accessed simultaneously — directly solving the problem of repeating customer name and address on every order row.",
+    "refs": [
+     "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Languages and Relational Database Management Systems.md"
+    ],
+    "score": 0.92,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply database normalization — [SWEBOK excerpt 1b6f26dfa263490d5595] by [SWEBOK excerpt aac36197eb4a0ca5f5a4]. Storing the customer's name and address only once in a dedicated Customers table and referencing it from the Orders table is the normalization approach that eliminates the inconsistency where some rows show an old address after a customer moves.",
+    "refs": [
+     "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/RDBMS Types and Database Normalization Fundamentals.md"
+    ],
+    "score": 0.81,
+    "admitted": true
+   },
+   {
+    "guideline": "Restructure the orders table to satisfy at least First Normal Form (1NF): remove duplication and redundancy, ensure each table cell holds a single value, and identify each row with a unique key. This prevents the same customer address from being stored repeatedly across many order rows.",
+    "refs": [
+     "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md"
+    ],
+    "score": 0.93,
+    "admitted": true
+   },
+   {
+    "guideline": "Advance to Second Normal Form (2NF): the table must already be in 1NF, and there must be no partial dependency. Create separate tables for records (such as customers) that are referenced by multiple records or tables (such as orders). This is the structural step that separates the customer entity from the order entity.",
+    "refs": [
+     "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md"
+    ],
+    "score": 0.93,
+    "admitted": true
+   },
+   {
+    "guideline": "Advance to Third Normal Form (3NF) by also removing transitive dependencies — ensuring that non-key attributes (like a customer's city derived from their postal code) depend only on the primary key, not on other non-key columns. Most databases are typically normalized until 3NF or BCNF.",
+    "refs": [
+     "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms and Requirements.md",
+     "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms Fourth Through Sixth.md"
+    ],
+    "score": 0.88,
+    "admitted": true
+   },
+   {
+    "guideline": "Consider normalizing to Boyce-Codd Normal Form (BCNF / 3.5NF), which requires the table to be in 3NF and that X be a super-key for any functional dependency X→Y. This eliminates remaining anomalies that 3NF alone does not address. As a target, DKNF (6NF) is defined specifically so that insertion and deletion anomalies are avoided.",
+    "refs": [
+     "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms and Requirements.md",
+     "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms Fourth Through Sixth.md"
+    ],
+    "score": 0.88,
+    "admitted": true
+   },
+   {
+    "guideline": "Understand and accept the query-time cost of normalization: [SWEBOK excerpt c9d9a77c15a30424d7be], because retrieving complete order information now requires joining the Orders and Customers tables. Engineers must [SWEBOK excerpt c359b4c77c4bf9a365ca], and also that normalization [SWEBOK excerpt 1dae62524ca4cc3cad5f].",
+    "refs": [
+     "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/RDBMS Types and Database Normalization Fundamentals.md",
+     "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Structured Query Language and Data Management Fundamentals.md"
+    ],
+    "score": 0.91,
+    "admitted": true
+   },
+   {
+    "guideline": "When the query-time penalty of normalization is unacceptable for a particular application, consider selective de-normalization: intentionally reintroducing data redundancy for quicker data access. This is a conscious trade-off decision made after weighing the pros and cons for the specific application.",
+    "refs": [
+     "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md"
+    ],
+    "score": 0.88,
+    "admitted": true
+   },
+   {
+    "guideline": "Use SQL to implement the restructured schema and to perform normalization operations. All operations on a database — including creating and updating tables and performing different normalizations — can be performed using SQL, making it the standard tool for carrying out the restructuring recommended above.",
+    "refs": [
+     "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Structured Query Language and Data Management Fundamentals.md"
+    ],
+    "score": 0.94,
+    "admitted": true
+   }
+  ]
+ }
+]

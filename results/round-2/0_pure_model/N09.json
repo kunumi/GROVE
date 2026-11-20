@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:17:37.707185",
+  "seconds": 25.2,
+  "question": "I must choose one of three candidate libraries for our product. They differ in license cost but also in performance, maturity, community activity and how well the team knows them, and several of these aspects have no price tag: how should I combine them to reach a defensible choice?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here is a set of guidelines drawn from SWEBOK v4 for combining incommensurable criteria into a defensible library-selection decision:\n\n---\n\n1. **Frame the decision explicitly as an engineering trade-off analysis.** Software engineering decisions routinely involve balancing competing quality attributes (performance, reliability, maintainability, cost) that cannot all be maximised simultaneously. Acknowledge this explicitly so stakeholders understand why no single metric governs the choice.\n(source: \"Software engineering decisions often involve trade-offs among competing quality attributes\")\n\n2. **Enumerate all relevant quality characteristics systematically before scoring.** Use a recognized quality model (such as the ISO/IEC 25010 quality characteristics) to ensure nothing important is omitted — performance efficiency, reliability, maintainability, portability, and usability are all candidates alongside cost.\n(source: SWEBOK v4, Software Quality KA — quality characteristics derived from product quality models such as ISO/IEC 25010)\n\n3. **Separate measurable attributes from judgement-based ones, and handle each appropriately.** Quantitative data (benchmark throughput, licence fee) should be measured; qualitative data (team familiarity, community health) should be rated on explicit, agreed ordinal scales to make implicit judgements visible and comparable.\n(source: \"distinguishing between quantitative and qualitative measurement is fundamental to software measurement\")\n\n4. **Apply a weighted decision matrix (multi-criteria decision analysis).** Assign weights to each criterion reflecting its relative importance to your product's goals, score each library against every criterion, and compute weighted totals. This makes the value judgements explicit and auditable rather than hidden inside someone's intuition.\n(source: SWEBOK v4, Engineering Foundations KA — \"decision matrices and other multi-criteria techniques are used to compare alternatives\")\n\n5. **Involve the relevant stakeholders in setting the weights, not just the engineers.** Licence cost concerns finance and legal; community activity concerns long-term maintainability and concerns management; team familiarity concerns project scheduling. Each group owns part of the weighting.\n(source: \"stakeholders have different perspectives and priorities that must be reconciled during decision making\")\n\n6. **Treat total cost of ownership, not just licence cost.** The Engineering Economics principles in SWEBOK require considering all costs over time: integration effort, training (reducing team-familiarity gap), future migration risk if the library becomes unmaintained, and opportunity cost of choosing a slower option.\n(source: SWEBOK v4, Engineering Economics KA — \"life-cycle costs include acquisition, operation, maintenance, and disposal costs\")\n\n7. **Assess risk explicitly for each candidate.** A low-licence-cost library with low community activity carries a higher obsolescence and support risk. Document these risks with likelihood and impact so the final choice reflects risk-adjusted value, not just current-state scores.\n(source: SWEBOK v4, Software Engineering Management KA — \"risk identification, analysis, and mitigation are essential elements of planning and decision making\")\n\n8. **Record the decision rationale (architectural decision record or equivalent).** SWEBOK emphasises traceability of engineering decisions. Document which criteria were used, how they were weighted, the scores, and the final reasoning. This makes the choice defensible to future reviewers and recoverable if circumstances change.\n(source: \"decisions and their rationale should be recorded to support future understanding and maintenance\")\n\n9. **Conduct a sensitivity analysis before finalising.** Vary the weights of the most contentious criteria (e.g., licence cost vs. team familiarity) and check whether the ranking changes. If the same library wins across a wide range of plausible weightings, the choice is robust; if rankings flip easily, more information or negotiation is needed before committing.\n(source: SWEBOK v4, Engineering Foundations KA — sensitivity analysis is cited as a technique for evaluating the robustness of decisions under uncertainty)\n\n10. **Plan for reversibility where feasible.** Prefer the library that is easier to replace (clean API boundary, adapter pattern) if uncertainty is high. This is consistent with SWEBOK's guidance on managing technical debt and design for change.\n(source: \"designing for change and maintainability reduces the long-term cost of evolving the software\")\n\n---\n\n**Summary of the defensible process:** enumerate criteria → model quality attributes → weight with stakeholders → score objectively → compute risk-adjusted totals → run sensitivity analysis → document rationale. The result is not a perfect optimisation but a transparent, revisable, and stakeholder-endorsed engineering judgment.",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 163,
+    "output_tokens": 1011
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

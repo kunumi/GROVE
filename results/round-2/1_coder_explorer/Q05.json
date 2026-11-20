@@ -1,0 +1,61 @@
+[
+ {
+  "start": "2026-11-19T08:00:22.073109",
+  "seconds": 106.2,
+  "question": "How should test inputs be chosen for a function that accepts numeric values within a valid range?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nWhen testing a function that accepts numeric values within a valid range, SWEBOK v4 recommends a layered approach: partition the input space into equivalence classes (valid and invalid), select at least one representative from each class, place specific test cases at and near the boundary values of the range (since faults cluster there), and also test values *outside* the range for robustness. Exception-forcing, random, and combinatorial techniques serve as useful complements.\n\n# Guidelines\n\n- **Use Equivalence Partitioning** – Divide the input domain into classes of valid and invalid values and pick at least one representative test case from each class. (source: `root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md`, Section 3.1.1 — *\"[SWEBOK excerpt 29ab9da822777302a58c]… on [SWEBOK excerpt 59388fdf8b5ff22a4425].\"*)\n\n- **Test Out-of-Range Values as a Distinct Class** – Values outside the valid range form their own equivalence class and should trigger error messages or error processing; include at least one representative. (source: `root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md` — *\"[SWEBOK excerpt c3d87fbc75fe24a6c7d5].\"*)\n\n- **Apply Boundary Value Analysis** – Select test cases on or near the extreme values of the valid range, because many faults concentrate there. (source: `root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md` — *\"[SWEBOK excerpt bedee61fb08d8b967278].\"*)\n\n- **Extend to Robustness Testing** – Also choose inputs outside the valid domain to verify the function handles erroneous numeric inputs gracefully. (source: same file — *\"[SWEBOK excerpt ac52d3263555a546a515].\"*)\n\n- **Force Exception Cases (Overflow, Underflow, etc.)** – Design negative test cases that deliberately trigger numeric exceptions such as overflow and underflow. (source: `root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Exception Testing and Error Handling in Software Testing.md`, Section 3.1.11 — *\"[SWEBOK excerpt 9fd7577d0e793eb2d33d].\"*)\n\n- **Use Random Testing Within the Known Domain** – Draw random inputs from the defined valid range as a supplementary automation-friendly technique; the input domain must be defined first. (source: `root/Testing Methodologies and Quality Assurance Practices/…/Random Testing and Evidence-Based Software Engineering Approaches.md` — *\"[SWEBOK excerpt c56431c507c9cda26dd8].\"*)\n\n- **Combine Specification-Based and Structure-Based Selection** – Black-box (equivalence/boundary) and white-box techniques are complements that highlight different problems; combine them subject to budget constraints. (source: `root/Testing Methodologies and Quality Assurance Practices/…/Combining Functional and Structural Testing Techniques.md` — *\"[SWEBOK excerpt acb96392a12a260360f2].\"*)\n\n- **Apply Combinatorial Techniques for Multi-Parameter Functions** – When the function has several numeric parameters or conditions, use All-Combinations, Pair-Wise, Each-Choice, or Base-Choice testing to systematically cover parameter value combinations. (source: `root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md`, Section 3.1.[SWEBOK excerpt dbc7460be072180dacda].\"*)\n\n# Gaps\n- The BoK does not specify a precise count of test cases to draw per class beyond \"at least one.\"\n- Specific canonical boundary offsets (e.g., min−1, min, min+1 …) are implied but not enumerated in the passages read.\n- Property-based testing for numeric ranges is not covered beyond a brief mention of security-focused fuzz testing.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 12,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 10,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 13,
+    "input_tokens": 122827,
+    "output_tokens": 4709
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/README.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/README.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/README.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Deterministic vs. Random Test Case Selection.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Exception Testing and Error Handling in Software Testing.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/INDEX.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

@@ -1,0 +1,38 @@
+[
+ {
+  "start": "2026-11-19T08:21:21.999672",
+  "seconds": 15.1,
+  "question": "A test accepts a computed result when its difference from the expected value is below 0.001, which is far too strict for values in the millions and far too loose for values around 0.0001. How should the discrepancy be measured instead, and how does that measure tell how many leading digits of the result can be trusted?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\n\nA fixed absolute tolerance fails for both very large and very small values. The fix is to switch to **relative error** — the ratio of absolute error to the true value's magnitude — which scales with the size of the number. The number of significant decimal digits in the result is then directly readable from that relative error, telling you exactly how many leading digits can be trusted.\n\n# Guidelines\n\n- Use **relative error** instead of absolute error as the primary measure of discrepancy: compute |x* − x| / |x|, which scales with the magnitude of the value and [SWEBOK excerpt 447457aa7bc7d8232ebc].\" (source: \"[SWEBOK excerpt 297dadd84958fa3cc461].\")\n\n- Recognize that absolute error alone is misleading across scales: an absolute error of 1 is negligible for 1,000,001 (relative error 10⁻⁶) but large for 11 (relative error 0.1). (source: \"[SWEBOK excerpt 3baaec5a616a729ec42c]⁻⁶, [SWEBOK excerpt 8f40bc3ffa6de1a9ad8f]\")\n\n- Read the number of trusted leading digits directly from the relative error: [SWEBOK excerpt 51f23b9a0e482e6f1da7]⁻ᵏ⁻¹. (source: \"[SWEBOK excerpt 4be5142b8e28109e3db5].\")\n\n- Understand that significant digits are those \"known to be correct,\" with one uncertain digit included, so the significant-digit count concretely describes how many leading digits of the result match the true value. (source: \"[SWEBOK excerpt f7f3a65aa84a447e276f].\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 997,
+    "output_tokens": 456
+   }
+  },
+  "jev_calls": 259,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 456395,
+  "jev_input_tokens": 167789,
+  "jev_output_tokens": 7792,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making Through Data and Standards/Measurement Scales, Reliability, and Practical Application/Measurement Reliability and Decision-Driven Metrics/Measurement Reliability and Variation Index.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Fixed-Point Arithmetic and Numerical Precision.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

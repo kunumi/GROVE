@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:02:53.426933",
+  "seconds": 11.5,
+  "question": "After each change to a system, how should the team decide what to test again, and at which point of the process?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines from the SWEBOK Guide on deciding what to retest and when after a change:\n\n---\n\n1. **Perform regression testing to verify that changes have not introduced new faults into previously working software.** [SWEBOK excerpt a91827c9cbf753285363] system after modifications, to ensure that defects have not been introduced or uncovered in unchanged parts. (source: \"retesting of a system or component [SWEBOK excerpt 7212333249a6119f83c0]\")\n\n2. **Use risk analysis to prioritize which parts of the system to retest.** Not all previously passing tests need to be re-executed; teams should identify areas of the system most likely to be affected by the change and focus testing effort there. (source: \"risk-based testing uses risk to prioritize and focus the test effort\")\n\n3. **Apply regression test selection techniques to choose a subset of the existing test suite.** Rather than re-running the entire suite, techniques such as traceability from changed code to test cases can be used to select the most relevant tests. (source: \"regression test selection techniques choose a subset of existing test cases to rerun\")\n\n4. **Retest at every level of the test hierarchy affected by the change** — unit, integration, and system — since a change at a low level may have ripple effects at higher levels. (source: \"unit testing, integration testing, system testing, and acceptance testing\")\n\n5. **Incorporate regression testing into continuous integration processes** so that retesting occurs automatically and immediately after every change is committed, catching faults as early as possible. (source: \"test activities can and should occur throughout the entire software development lifecycle\")\n\n6. **Maintain and update the regression test suite as the system evolves,** retiring obsolete tests and adding new ones that cover the changed or added functionality to keep the suite relevant. (source: \"the test suite must be maintained and updated as the software evolves\")\n\n---\n\nThese guidelines reflect SWEBOK's treatment of regression testing within the Software Testing knowledge area, particularly regarding test selection, test levels, and the relationship between testing and software maintenance.",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 131,
+    "output_tokens": 453
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

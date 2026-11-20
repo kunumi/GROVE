@@ -1,0 +1,60 @@
+[
+ {
+  "start": "2026-11-19T08:19:05.265814",
+  "seconds": 111.7,
+  "question": "I am handing over a finished system to a client whose in-house team will keep developing it after delivery. Besides the program itself, what written material should I prepare for the client, for its end users and for my own organization, and for how long should it be retained?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nWhen handing over a finished system whose client will continue developing it, SWEBOK v4 requires preparing several categories of written material: (1) a **software maintenance plan** (developed during delivery) covering scope, process adaptation, and modification/problem-reporting procedures; (2) a **Software Configuration Management Plan (SCMP)** — a living document maintained across the entire lifecycle; (3) **design work products and rationale** for every non-trivial decision to aid future maintainability; and (4) transition and program-understanding records for the delivering organization. All maintenance-phase documentation must be retained until the software is retired, because the maintenance phase itself \"[SWEBOK excerpt ff4f53d58be640e9a31c].\"\n\n---\n\n# Guidelines\n\n- **Prepare a software maintenance plan during development** that specifies [SWEBOK excerpt 2a01d0619f3b482a5266], and addresses scope, process adaptation, and identification of the maintenance organization.\n  (source: `root/Software Maintenance and Configuration Management/…/Software Maintenance Planning and Cost Estimation.md` — *\"[SWEBOK excerpt dcd77385d2336dc761c2].\"*)\n\n- **Develop a concept document first**, to be followed by the full maintenance plan.\n  (source: `root/Software Maintenance Planning and Supporting Activities.md` — *\"[SWEBOK excerpt 8451647d6ef5b3aa46ed]…\"*)\n\n- **Hand over SLIs, SLOs, SLAs, and hardware/software licence contracts** to the client.\n  (source: `root/Software Maintenance Planning and Supporting Activities.md` — *\"[SWEBOK excerpt 7413dc50725b83b67e5b].\"*)\n\n- **Produce and hand over an SCMP** covering introduction, SCM management, SCM activities, SCM schedules, SCM resources, and SCMP maintenance provisions; it is a *living document* maintained throughout the lifecycle.\n  (source: `root/Software Maintenance and Configuration Management/…/Software Configuration Management Plan Development.md` — *\"[SWEBOK excerpt 40e912d8a54f87efe8db].\"*)\n\n- **Hand over SCM procedures** that provide verification, validation, and audit of every step needed [SWEBOK excerpt ec4060142fd25283be79].\n  (source: `root/…/Configuration Management in Software Maintenance.md` — *\"[SWEBOK excerpt b38776826c48004dbdde].\"*)\n\n- **Document and hand over design work products** capturing the domain-problem aspects, solution vocabulary, major decisions taken, and rationale for every non-trivial decision.\n  (source: `root/Software Design Concerns, Documentation, and Modeling/…/Recording Software Designs.md` — *\"[SWEBOK excerpt bb1be5a019d0345473f3] … ([SWEBOK excerpt 59eaedf69004d1128ce1].\"*)\n\n- **Record rationale for all significant design decisions** to enhance the product's long-term maintainability when the client team makes modifications or enhancements.\n  (source: `root/Software Design Concerns, Documentation, and Modeling/…/Recording Software Designs.md` — *\"[SWEBOK excerpt f6d616ee75a3fe549317].\"*)\n\n- **Give end users written procedures** for requesting modifications and reporting problems (derived from the maintenance plan).\n  (source: `root/…/Software Maintenance Planning and Cost Estimation.md` — same quote as above)\n\n- **Document the maintenance help-desk function** so users and staff can coordinate assessment, prioritization, and costing of modification requests and incidents.\n  (source: `root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md` — *\"[SWEBOK excerpt 734a6d92c2b832ad3bbd].\"*)\n\n- **Keep transition records** documenting the controlled, coordinated sequence of activities by which the software was transferred from developer to operations/maintenance team.\n  (source: `root/…/Software Maintenance Processes and Activities.md` — *\"[SWEBOK excerpt 2b4dcb17509c796017d9].\"*)\n\n- **Retain program-understanding documentation** — what the software does and how its parts work together — to support future impact analysis and change management.\n  (source: `root/…/Software Maintenance Processes and Activities.md` — *\"[SWEBOK excerpt ac40b77ff932cfd98fb8].\"*)\n\n- **Retain records of all ongoing support activities**: SCM, V&V, problem resolution, SQA, reviews, vulnerability assessments, and audits.\n  (source: `root/Software Maintenance Planning and Supporting Activities.md` — *\"[SWEBOK excerpt addeaef604bd87ceebf9].\"*)\n\n- **Retain release/version planning records** (dates, agreed content, conflicts, alternatives, risk assessments, back-out plans) for every release throughout maintenance.\n  (source: `root/Software Maintenance Planning and Supporting Activities.md` — *\"[SWEBOK excerpt abb7660974adba649885].\"*)\n\n- **Retain all maintenance documentation until the software is retired**: [SWEBOK excerpt 4c4dd3ab42182deade1f].\"\n  (source: `root/Software Maintenance Planning and Supporting Activities.md`)\n\n---\n\n# Gaps\n- **Specific numeric retention periods** (e.g., \"retain for 7 years after delivery\") — the BoK gives no figures; it only ties retention to the software lifecycle.\n- **Explicit end-user manuals or training manuals** — no dedicated section on user manual content was found in the branches read.\n- **Legal or regulatory archiving requirements** for delivered system documents — not covered in the passages read.\n- **Detailed content of the concept document** — its existence is mandated but its internal structure is not elaborated.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 11,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 9,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 12,
+    "input_tokens": 118208,
+    "output_tokens": 6231
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/README.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/README.md",
+   "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/INDEX.md",
+   "/workspace/swebok-v4/root/Professional Practice and Collaboration in Software Engineering/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Planning and Implementation/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Recording Software Designs.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/Software Maintenance Planning and Cost Estimation.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/Configuration Management in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Configuration Management and Quality Control.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Plan Development.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/SCM Audits and Configuration Identification/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/INDEX.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

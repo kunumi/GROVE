@@ -1,0 +1,54 @@
+[
+ {
+  "start": "2026-11-19T08:04:11.949294",
+  "seconds": 37.1,
+  "question": "What general practices should developers follow when writing code so that attackers cannot exploit it?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here is a comprehensive list of guidelines developers should follow when writing code so that attackers cannot exploit it, drawn entirely from SWEBOK v4:\n\n---\n\n## Secure Coding Guidelines for Developers\n\nThe following guidelines come from two overlapping sources in SWEBOK: specific coding rules for security, and CERT/CC's top 10 software security practices.\n\n---\n\n### Structural / Privilege Rules\n\n1. **Isolate privileged code into small, focused modules.**\nStructure the code [SWEBOK excerpt 7f396a1a57fd8a00b8a4]. Those [SWEBOK excerpt 915f9e49517a362ec847].\n(source: \"[SWEBOK excerpt 4efb029cedb4ed80ee2d].\")\n\n2. **Validate all program assumptions — or document them.**\n[SWEBOK excerpt eb7985bc720224ba3bd9] [SWEBOK excerpt fba983d6cc8d401b3cfe].\n(source: \"[SWEBOK excerpt 0bcf94be1b9045b82f4d].\")\n\n3. **Do not share objects in memory with other programs.**\n[SWEBOK excerpt 0bf95a5064c99a220208], to prevent one program from reading or corrupting another's data.\n(source: \"[SWEBOK excerpt 0bf95a5064c99a220208].\")\n\n4. **Check every function's error status and handle failures securely.**\nDo not recover from an error [SWEBOK excerpt 3b1e6e11d7e49775b6a4].\n(source: \"[SWEBOK excerpt f8acf867765e953f75d7].\")\n\n---\n\n### CERT/CC Top 10 Software Security Practices\n\n5. **Validate input.**\nAll input — from users, files, networks, or other software — must be validated before use to prevent injection attacks and other exploits.\n(source: \"[SWEBOK excerpt 069352d3c831bede393c].\")\n\n6. **Heed compiler warnings.**\nCompiler warnings often point to latent bugs or unsafe code patterns that could be exploited; ignoring them increases risk.\n(source: \"[SWEBOK excerpt f52e1dc67381cb39c5fa]: … 2. Heed compiler warnings.\")\n\n7. **Architect and design for security policies.**\nSecurity must be built into the architecture and design of the software — not bolted on afterward.\n(source: \"[SWEBOK excerpt f52e1dc67381cb39c5fa]: … 3. Architect and design for security policies.\")\n\n8. **Keep it simple.**\nUnnecessary complexity increases the attack surface and makes vulnerabilities harder to find and fix.\n(source: \"[SWEBOK excerpt f52e1dc67381cb39c5fa]: … 4. Keep it simple.\")\n\n9. **Default deny.**\nAccess and capabilities should be denied by default, and only explicitly granted when needed.\n(source: \"[SWEBOK excerpt f52e1dc67381cb39c5fa]: … 5. Default deny.\")\n\n10. **Adhere to the principle of least privilege.**\nCode (and the users/processes running it) should operate with the minimum privileges necessary to perform its function.\n(source: \"[SWEBOK excerpt f52e1dc67381cb39c5fa]: … [SWEBOK excerpt 95e3f394f6c21a8e46bd].\")\n\n11. **Sanitize data sent to other software.**\nData passed to other components, systems, databases, or external services must be sanitized to prevent injection flaws and cross-component exploits.\n(source: \"[SWEBOK excerpt f52e1dc67381cb39c5fa]: … 7. Sanitize data sent to other software.\")\n\n12. **Practice defense in depth.**\nNo single security measure is sufficient. Layered, overlapping security controls should be used so that a failure in one layer does not expose the system.\n(source: \"[SWEBOK excerpt f52e1dc67381cb39c5fa]: … 8. Practice defense in depth.\")\n\n13. **Use effective quality assurance techniques.**\nQuality assurance methods — including testing, code review, and static analysis — help discover vulnerabilities before attackers can.\n(source: \"[SWEBOK excerpt f52e1dc67381cb39c5fa]: … 9. Use effective quality assurance techniques.\")\n\n14. **Adopt a software construction security standard.**\nFollowing a recognized secure coding standard (such as those published by CERT) provides a systematic baseline for avoiding known vulnerability classes.\n(source: \"[SWEBOK excerpt f52e1dc67381cb39c5fa]: … 10. Adopt a software construction security standard.\")\n\n---\n\n### Additional Construction-Level Practices\n\n15. **Know common vulnerabilities and check your code against them.**\nDevelopers [SWEBOK excerpt 87391851de5ca26fcf71]), and use automated static code analysis tools where available.\n(source: \"[SWEBOK excerpt 463aa9a1f385c7337a77].\")\n\n16. **Be careful with your choice of programming language.**\n[SWEBOK excerpt 60903a6d9f8370b2ab92]).\n(source: \"[SWEBOK excerpt 60903a6d9f8370b2ab92]).\")\n\n17. **Avoid introducing untrusted external dependencies.**\n[SWEBOK excerpt 49ef50d7735120334288]. Regulations and monitoring [SWEBOK excerpt fd3c4dabfaf88745b444].\n(source: \"[SWEBOK excerpt be6079716b54b44cc995] [SWEBOK excerpt fd3c4dabfaf88745b444].\")\n\n---\n\nThese guidelines together form a layered, defense-in-depth approach to writing code that is resistant to exploitation.",
+  "tool_calls": 2,
+  "tools": {
+   "search_swebok": 2
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 2,
+    "input_tokens": 15527,
+    "output_tokens": 1522
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 2,
+  "embedding_texts": 2,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 110,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [
+   "dbded4193ff12ef9",
+   "d2b496bed08a9df7",
+   "f3e88a8e118bd664",
+   "187cd14bcef4c1a6",
+   "49de7a0874e48d0c",
+   "be0da12e8ff26852",
+   "c59498a2f97b92b1",
+   "5673db5439f7374a",
+   "360470d3db9f088c",
+   "7c5db767b76581cb",
+   "dbded4193ff12ef9",
+   "f3e88a8e118bd664",
+   "d2b496bed08a9df7",
+   "c59498a2f97b92b1",
+   "be0da12e8ff26852",
+   "77540a7a106e365d",
+   "4cd8f25cd245145f",
+   "a385f2929f1dbe48",
+   "5673db5439f7374a",
+   "187cd14bcef4c1a6"
+  ],
+  "admission": []
+ }
+]

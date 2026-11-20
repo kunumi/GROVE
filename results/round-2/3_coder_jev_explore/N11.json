@@ -1,0 +1,40 @@
+[
+ {
+  "start": "2026-11-19T08:20:26.563926",
+  "seconds": 24.2,
+  "question": "Our orders table repeats the customer's name and address on every order row, and after a customer moves some rows show the old address while others show the new one. How should the tables be restructured, and what does that cost when querying the data?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\n\nThe orders table suffers from data redundancy and inconsistency because customer name and address are repeated per row. Normalization—splitting data into related tables—eliminates this redundancy and inconsistency. However, this restructuring increases the number of tables and query processing time, a trade-off that may require de-normalization if performance demands it.\n\n# Guidelines\n\n- Remove duplication and redundancy by applying First Normal Form (1NF), ensuring each table cell has a single value and each row has a unique key; move customer name and address into a separate customers table referenced by order rows. (source: \"[SWEBOK excerpt 0288706213333bf1031a].\")\n\n- Apply Second Normal Form (2NF) by eliminating partial dependencies—customer address depends on the customer, not on the order, so it must live in its own table. (source: \"[SWEBOK excerpt 6d0499536d85be18506b]).\")\n\n- Apply Third Normal Form (3NF) to remove any remaining transitive dependencies between non-key columns in the orders table. (source: /workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms and Requirements.md)\n\n- Understand that normalization is the process of organizing data and removing data redundancy and inconsistency, which is the core fix for the stale-address problem. (source: \"[SWEBOK excerpt 7e1d2d7ec900739f27d1].\")\n\n- Accept the query-time cost: normalization increases the number of tables and increases query time, because retrieving a full order record now requires joining the orders and customers tables. (source: \"[SWEBOK excerpt fa1592a02930fd5a7afd] the join overhead becomes unacceptable for a specific application, consider de-normalization—deliberately adding back redundancy for quicker data access—as a deliberate trade-off. (source: \"[SWEBOK excerpt 664a0df7f258db3e33f0].\")\n\n- Use SQL (joins, views, and queries) to reunite the split tables at query time, since all operations including normalization and searching across tables can be performed using SQL. (source: \"[SWEBOK excerpt 3741815788282f1eb1ef].\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 1722,
+    "output_tokens": 623
+   }
+  },
+  "jev_calls": 290,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 555402,
+  "jev_input_tokens": 201765,
+  "jev_output_tokens": 8299,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/Database Normalization Forms and De-normalization.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization and RDBMS Fundamentals/RDBMS Types and Database Normalization Fundamentals.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms and Requirements.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Structured Query Language and Data Management Fundamentals.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Normalization Forms Fourth Through Sixth.md",
+   "/workspace/swebok-v4/root/Data Systems, Networks, and Computational Foundations/Database Management and Network Communication Systems/Database Design and Normalization Fundamentals/Database Languages and Relational Database Management Systems.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

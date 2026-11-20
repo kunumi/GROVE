@@ -1,0 +1,48 @@
+[
+ {
+  "start": "2026-11-19T07:59:48.149004",
+  "seconds": 22.4,
+  "question": "Which strategies let software keep working when errors occur at runtime instead of failing?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\n\nFault tolerance and error handling strategies allow software to continue operating at runtime by detecting errors and responding with recovery actions, substitutions, or containment measures rather than simply failing.\n\n# Guidelines\n\n- Detect runtime errors and recover from them or contain their effects if recovery is not possible (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md)\n- Back up and retry operations as a fault tolerance strategy when errors are encountered (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md)\n- Use auxiliary code and voting algorithms to tolerate faults at runtime (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md)\n- Replace [SWEBOK excerpt f660d205c9fd6b796539] (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md)\n- Return a neutral value or substitute the next piece of valid data as an error-handling technique (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md)\n- Log a warning message or return an error code instead of shutting down when errors occur (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md)\n- Use try-catch exception-handling blocks to catch and process erroneous conditions or return control to the calling routine (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md)\n- Design exception-handling policies carefully, including all information that led to the exception in the exception message and avoiding empty catch blocks (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md)\n- Include failure-handling logic in software applications, planned during development, to achieve continued operation (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Software Failure Handling and Information Security Management.md)\n- Use automated failover daemons to reduce recovery time when failures occur (source: \"[SWEBOK excerpt 518b293833d3ef9c79d6].\")\n- Use defensive programming to protect routines from invalid inputs by checking values of all [SWEBOK excerpt dda5a39412b3af36208d] (source: /workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md)",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 14308,
+    "output_tokens": 714
+   }
+  },
+  "jev_calls": 291,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 534035,
+  "jev_input_tokens": 196670,
+  "jev_output_tokens": 8594,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Software Failure Handling and Information Security Management.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Disaster Recovery Testing and Automated Failover.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Capacity Planning and Disaster Recovery in Software Operations.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Software Coding and Construction Testing Practices.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Concerns and Architectural Patterns.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Software Development Stages and Design Architecture/Software Architecture Design and Computational Models.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Engineering Challenges and Variability Management/Integration, Interoperability, Assurance, Security, Safety, and Variability.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Engineering Fundamentals and System Architecture/Runtime and Logical Errors in Programs/Runtime Errors and Testing Strategies.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Continuous Integration and Incremental Development Benefits.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

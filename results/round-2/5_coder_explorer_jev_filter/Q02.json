@@ -1,0 +1,113 @@
+[
+ {
+  "start": "2026-11-19T07:58:40.501583",
+  "seconds": 44.6,
+  "question": "A function has grown into a long chain of conditionals that maps combinations of conditions to results, and it is hard to change. What construction approach helps, and what has to be decided when applying it?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 6 of 6 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Use a table-driven method: replace long chains of conditionals (if/case statements) with tables that display the information instead of conveying it through logic. [SWEBOK excerpt 8f07d1cee310657857df]). (source: root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md) [JEV 0.92]\n- Apply table-driven code in appropriate circumstances, where it simplifies the code and makes it easier to modify compared to complicated logic. (source: root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md) [JEV 0.97]\n- When using table-driven methods, the programmer must decide [SWEBOK excerpt f44c8238fd83ec0b0658]. (source: root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md) [JEV 0.96]\n- When using table-driven methods, the programmer must also decide [SWEBOK excerpt ffd30c20bbf41330ba5d]. (source: root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md) [JEV 0.97]\n- Consider combining table-driven approaches with state-based (automata-based) programming, which [SWEBOK excerpt a71d862323a113735b4e]; [SWEBOK excerpt ab49f7afb5c8a47e6a3d] [SWEBOK excerpt d310fd6096d3b474e457]. (source: root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md; root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md) [JEV 0.83]\n- Anticipate and embrace change by applying specific coding techniques—such as table-driven methods—that make software more extensible without disrupting the underlying structure. (source: root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md) [JEV 0.87]",
+  "tool_calls": 10,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 8,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 10,
+    "input_tokens": 80647,
+    "output_tokens": 2095
+   }
+  },
+  "jev_calls": 6,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 15038,
+  "jev_input_tokens": 5378,
+  "jev_output_tokens": 120,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/Construction Activities and Planning Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Software Coding and Construction Testing Practices.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Cyclomatic Complexity and Software Testing Tools.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Use a table-driven method: replace long chains of conditionals (if/case statements) with tables that display the information instead of conveying it through logic. [SWEBOK excerpt 8f07d1cee310657857df]).",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md"
+    ],
+    "score": 0.92,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply table-driven code in appropriate circumstances, where it simplifies the code and makes it easier to modify compared to complicated logic.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "When using table-driven methods, the programmer must decide [SWEBOK excerpt f44c8238fd83ec0b0658].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "When using table-driven methods, the programmer must also decide [SWEBOK excerpt ffd30c20bbf41330ba5d].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Runtime Configuration and Internationalization in Software Design.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Consider combining table-driven approaches with state-based (automata-based) programming, which [SWEBOK excerpt a71d862323a113735b4e]; [SWEBOK excerpt ab49f7afb5c8a47e6a3d] [SWEBOK excerpt d310fd6096d3b474e457].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Executable Models and State-Based Programming Techniques.md",
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/State-Based and Object-Oriented Programming Approaches.md"
+    ],
+    "score": 0.83,
+    "admitted": true
+   },
+   {
+    "guideline": "Anticipate and embrace change by applying specific coding techniques—such as table-driven methods—that make software more extensible without disrupting the underlying structure.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md"
+    ],
+    "score": 0.87,
+    "admitted": true
+   }
+  ]
+ }
+]

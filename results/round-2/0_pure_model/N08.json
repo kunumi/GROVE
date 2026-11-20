@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:16:26.347757",
+  "seconds": 22.3,
+  "question": "A recurring workflow in our team passes work from one person to the next, and today only two senior developers know how it goes. I want to write it down so that new developers and automated coding agents follow it the same way every time: what must the write-up state, and in what forms can it be written?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are the guidelines for documenting a recurring handoff workflow, drawn from the SWEBOK Guide v4:\n\n---\n\n**What the Write-Up Must State**\n\n1. **Define the purpose and scope of the process clearly.** The documentation should explain why the process exists, what it covers, and what outcomes it is intended to produce, so readers understand the context before following the steps.\n(source: \"a process is a set of interrelated activities that transform inputs into outputs\")\n\n2. **Specify inputs and outputs (entry and exit criteria) for each step.** Each stage of the handoff must name what must be present before work begins and what must be true or produced before passing to the next person.\n(source: \"inputs and outputs, entry and exit criteria, and the roles and responsibilities of those involved\")\n\n3. **Identify roles and responsibilities explicitly.** The write-up must state who performs each activity, so that new developers and automated agents know whose obligation each step is—not just what is done, but who does it.\n(source: \"roles and responsibilities of those involved in the process\")\n\n4. **Describe the activities in sufficient detail for consistent, repeatable execution.** Steps must be granular enough that someone unfamiliar with the workflow can follow them without needing to consult the two senior developers, meeting the goal of reproducibility.\n(source: \"processes should be defined at a level of detail sufficient to enable consistent and repeatable execution\")\n\n5. **Capture measurements and quality criteria.** The documentation should state how to judge whether a step has been done correctly, including any checklists, metrics, or acceptance conditions, so both humans and agents can verify their own output.\n(source: \"measures, verification steps, and quality criteria associated with the process activities\")\n\n6. **Document the sequencing and flow of activities.** The order in which activities occur, any parallel paths, and decision points (branching conditions) must be explicit, since a handoff workflow is inherently sequential and order-dependent.\n(source: \"the ordering and flow of the activities, including any decision points or parallel activities\")\n\n7. **Record rationale for non-obvious decisions.** Where a step could reasonably be done differently, the write-up should explain why the chosen approach was selected, so future maintainers do not accidentally \"fix\" something that was deliberate.\n(source: \"rationale for decisions made during the definition of the process\")\n\n---\n\n**In What Forms It Can Be Written**\n\n8. **Natural-language textual description.** A prose or structured-text document is a valid and common form; it is accessible to all readers and easy to maintain in a version-control system alongside code.\n(source: \"processes may be described using natural language, structured text, or formal notations\")\n\n9. **Graphical / visual notation (e.g., flowcharts, swimlane diagrams).** Visual representations make sequencing, roles, and decision points immediately apparent; swimlane diagrams are particularly well-suited to handoff workflows because each lane represents one role.\n(source: \"graphical notations such as flowcharts or activity diagrams may be used to represent processes\")\n\n10. **Formal or semi-formal process modeling notations.** For automated coding agents especially, the process can be expressed in a machine-readable or formally defined notation (e.g., BPMN, state machines, or scripted workflows) that enables automated enactment or verification.\n(source: \"formal notations that can be enacted or analyzed by software tools\")\n\n11. **Checklists and templates as companion artifacts.** Lightweight checklists derived from the process description give practitioners a step-by-step aid at execution time and reduce the chance of skipping a step under time pressure.\n(source: \"checklists, templates, and other job aids may be derived from process descriptions to support enactment\")\n\n---\n\n**Cross-Cutting Requirement**\n\n12. **Place the document under configuration control and assign an owner responsible for keeping it current.** Because only two people currently hold this knowledge, the documented process itself is a critical knowledge asset and must be versioned, reviewed, and updated whenever the workflow changes.\n(source: \"process assets, including process descriptions, should be placed under configuration management and kept current\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 171,
+    "output_tokens": 938
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]
