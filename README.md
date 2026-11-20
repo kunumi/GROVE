@@ -4,7 +4,7 @@ Research artifact for *GROVE: Enabling Grounded Knowledge in LLMs with Guided Re
 
 GROVE separates evidence selection from writing. Given a task, **Jev** (the decision model) chooses branches in a tree of the SWEBOK Guide and judges which passages are useful. A single call to the language model turns the approved passages into guidelines with source citations.
 
-The evaluation compares **GROVE** with four baselines (Agentic RAG, Explorer, Explorer + Check and GROVE-Free) and a **closed-book control** that has no tools or Guide access. Each configuration answered the same 25 questions in three rounds, giving **450 answers** across the Guide’s 18 knowledge areas. The [spreadsheet](results/retrieval_evaluation.csv) contains one row per answer. The [run records](results/) show what each configuration retrieved, called and answered.
+The evaluation compares **GROVE** with five baselines (Full context, Agentic RAG, Explorer, Explorer + Check and GROVE-Free) and a **closed-book control** that has no tools or Guide access. Each configuration answered the same 25 questions in three rounds, giving **525 answers** across the Guide’s 18 knowledge areas. The [spreadsheet](results/retrieval_evaluation.csv) contains one row per answer. The [run records](results/) show what each configuration retrieved, called and answered.
 
 [Configurations and archived names](#configurations-and-archived-names) · [Table II results](#retrieval-results) · [Artifact contents](#explore-the-experiment) · [Notebooks](#use-the-notebooks) · [Reproduce the scoring](#reproduce-the-scoring)
 
@@ -15,13 +15,14 @@ The first column uses the names in Table I of the paper. The next two columns id
 | Paper configuration | Archived report label | CSV `demo` / run directory | Evidence selection and budget |
 |---|---|---|---|
 | **GROVE** (reference architecture) | JEV | `3_coder_jev_explore` | One tree walk per question. Jev follows all children at small indexes and selects the top ten at larger ones. It ranks leaves scoring at least 0.3, with a 60,000-character passage budget. One LLM call writes the guidelines. |
+| **Full context** (baseline) | Full context | `6_full_context` | The same LLM receives all 1,143 reachable leaves in Guide order, with tables inlined (about 281,000 input tokens). One call produces the answer, with no search tools. |
 | **Agentic RAG** (baseline) | Agentic RAG | `2_coder_naive` | The LLM queries a DuckDB vector index. Each search returns ten passages, with no search limit. |
 | **Explorer** | Explorer | `1_coder_explorer` | The LLM navigates the tree. It has four batches of content reads. Reads of indexes and summaries are free. |
 | **Explorer + Check** | JEV filter | `5_coder_explorer_jev_filter` | Explorer proposes the guidelines under the same read budget. Jev checks each guideline against its cited leaves and keeps it when its score exceeds 0.5. |
 | **GROVE-Free** | JEV-free | `4_searcher_jev_search` | The agent writes the branch-selection question and the criteria for judging leaves. It can make up to four searches and receives approved passages directly. |
 | **Closed-book** (control) | Pure model (no BoK) | `0_pure_model` | The LLM answers from its own knowledge, with no tools or Guide access. |
 
-All six configurations received the same question and citation format. The request asked for each guideline’s source as a file path or a verbatim quotation of at least eight words. The retrieval architectures ground their answers in the material they access. The control’s role explicitly asks it to answer from memory. Claude Sonnet 4.6 generated the answers, Jev calls reported `typesafe/jev-1.14-20261014`, and the vector index used Qwen3-Embedding-8B.
+All seven configurations received the same question and citation format. The request asked for each guideline’s source as a file path or a verbatim quotation of at least eight words. The retrieval architectures ground their answers in the material they access. The control’s role explicitly asks it to answer from memory. Claude Sonnet 4.6 generated the answers, Jev calls reported `typesafe/jev-1.14-20261014`, and the vector index used Qwen3-Embedding-8B.
 
 ## Retrieval results
 
@@ -30,6 +31,7 @@ Table II reports passage recall, citation validity, elapsed time, calls and cost
 | Configuration | Passage recall | Valid citations | Seconds | LLM calls | Jev calls | US$/question |
 |---|---:|---:|---:|---:|---:|---:|
 | Closed-book (no BoK) | 4% ± 2% | n/a | 17.1 | 1.0 | 0 | 0.011 |
+| Full context | 80% ± 1% | 96% ± 1% | 32.0 | 1.0 | 0 | 0.863 |
 | Explorer | 74% ± 5% | 100% ± 0% | 96.8 | 12.4 | 0 | 0.432 |
 | Agentic RAG | 89% ± 0% | 98% ± 1% | 60.1 | 3.7 | 0 | 0.233 |
 | GROVE | 90% ± 1% | 99% ± 1% | 30.9 | 1.0 | 306 | 0.062 |
@@ -40,7 +42,7 @@ Table II reports passage recall, citation validity, elapsed time, calls and cost
 
 Across its 75 answers, GROVE made 195 to 419 Jev calls per question. At the evaluation rate, those calls averaged US$0.0087 per question, included in the US$0.062 total.
 
-The evaluator averages the 25 questions within each round and then the three round means. The ± values are sample standard deviations across rounds. For Explorer and Explorer + Check, citation validity was 100% for every answer in all three rounds. Time is wall-clock time with the six configurations running concurrently. Costs use US$3/15 per million Sonnet input/output tokens, US$0.042 per million Jev input tokens, and US$0.01 per million estimated embedding tokens. Charging all LLM input at the uncached rate gives an upper bound.
+The evaluator averages the 25 questions within each round and then the three round means. The ± values are sample standard deviations across rounds. For Explorer and Explorer + Check, citation validity was 100% for every answer in all three rounds. The original six configurations ran concurrently. Full context ran later in a separate session with the same questions and evaluator, so its wall-clock time is not directly comparable. All reachable leaves were supplied to Full context: for this baseline a citation is valid if it resolves to an existing leaf. Costs use US$3/15 per million Sonnet input/output tokens, US$0.042 per million Jev input tokens, and US$0.01 per million estimated embedding tokens. The table prices all LLM input at the uncached rate. For Full context, applying the cache read and write rates to recorded usage gives US$0.104 per answer, compared with US$0.863 at the uncached rate.
 
 **Scope of the comparison.** The evaluation covers one Guide and 25 questions. Budgets differ across configurations, only the authors reviewed the key, and relevant leaves outside the key do not contribute to passage recall. Explorer + Check admitted 740 of 742 guidelines. RAG chunks are mapped to leaves by text overlap, and the vector passages contain links to the Guide’s tables. Tree-based configurations can access table contents. The PDF extraction omitted some passages, and the Guide may have been in the language model’s training data.
 
@@ -67,6 +69,7 @@ To follow one answer from the spreadsheet, take the values in its `run`, `demo`,
 | `run`, `demo`, `question` | Join a score to its run directory, configuration and question ID. There are 75 rows per configuration. |
 | `expected_cited`, `citations_valid`, `citations_exist` | Fractions from 0 to 1 for that answer. A blank validity value for the control means the measure is undefined. |
 | `seconds`, `llm_calls`, `jev_calls`, `embedding_calls`, `cost_usd` | Elapsed time, service calls and estimated cost for the turn. |
+| `cost_cached_usd`, `cache_read_tokens` | Estimated cost using recorded cache reads and writes, and the number of input tokens read from the cache. |
 | `input_tokens`, `output_tokens`, `jev_tokens_est` | LLM token counts and Jev input tokens. Despite its historical column name, the last field uses reported Jev usage in these runs. |
 
 ## Use the notebooks
@@ -82,7 +85,7 @@ docker compose up jupyter
 
 The [architecture notebook](experiments/retrieval_architecture_prototype.ipynb) contains the Explorer read policy, vector search, Jev traversal, the guideline filter and interactive agent demos. It expects a local `swebok-v4/root/` tree and a matching `swebok.duckdb` at the working-copy root. The vector database is opened during setup. Live calls use locally supplied Anthropic and OpenRouter credentials. The last cells launch demos or submit a question.
 
-For the **five architectures as evaluated**, see `retrieval_agents()` in the [experiment runner](experiments/run_retrieval.py). The historical notebook uses the moving `jev-latest` alias and assigns the same fixed traversal to the demo variables for GROVE and GROVE-Free. The measured runner requests Jev 1.14 and explicitly wires GROVE-Free to the `jev_search` tool with a four-search budget. The CSV and archived records come from that runner.
+For the five retrieval architectures, the closed-book control and the later Full context baseline, see `retrieval_agents()` in the [experiment runner](experiments/run_retrieval.py). The historical notebook uses the moving `jev-latest` alias and assigns the same fixed traversal to the demo variables for GROVE and GROVE-Free. The measured runner requests Jev 1.14 and explicitly wires GROVE-Free to the `jev_search` tool with a four-search budget. The runner generated the archived records, including the Full context runs. The prototype notebook predates that baseline.
 
 ### build_vector_index.ipynb — build a searchable index
 
@@ -153,16 +156,20 @@ diff -u <(sed -n '/^|/,$p' results/retrieval_evaluation.md) <(sed -n '/^|/,$p' r
 
 ## Run the retrieval experiment on new answers
 
-New answers require the original experiment environment and live model services. From the restored scoring directory, set `EXPERIMENT_IMAGE` to the name of your existing experiment image, keep `GUIDE` set as above, and supply the matching vector database. Place your own `ANTHROPIC_API_KEY` and `OPENROUTER_API_KEY` in a private `.env` file there. Use a fresh run ID for each repetition.
+New answers require the original experiment environment and live model services. From the restored scoring directory, set `EXPERIMENT_IMAGE` to the name of your existing experiment image, keep `GUIDE` set as above, and supply the matching vector database. Place your own `ANTHROPIC_API_KEY` and `OPENROUTER_API_KEY` in a private `.env` file there. Use a fresh run ID for each repetition. The example runs the original six configurations together and then adds Full context separately to the same round, using its recorded three-worker setting.
 
 ```sh
 INDEX=/absolute/path/to/swebok.duckdb
-docker run --rm --env-file .env -v "$PWD:/workspace" -v "$GUIDE:/workspace/swebok-v4:ro" -v "$INDEX:/workspace/swebok.duckdb:ro" -w /workspace "${EXPERIMENT_IMAGE:?Set EXPERIMENT_IMAGE to the original experiment image}" python experiments/run_retrieval.py --run replication1 --questions-file questions.json
+run_round() {
+  docker run --rm --env-file .env -v "$PWD:/workspace" -v "$GUIDE:/workspace/swebok-v4:ro" -v "$INDEX:/workspace/swebok.duckdb:ro" -w /workspace "${EXPERIMENT_IMAGE:?Set EXPERIMENT_IMAGE to the original experiment image}" python experiments/run_retrieval.py --run replication1 --questions-file questions.json "$@"
+}
+run_round --demos 0_pure_model 1_coder_explorer 2_coder_naive 3_coder_jev_explore 4_searcher_jev_search 5_coder_explorer_jev_filter
+run_round --demos 6_full_context --workers 3
 ```
 
 ## Code and data checks
 
-The notebooks include selected outputs from their original executions. The vectorization notebook shows chunk statistics, embedding dimensions, search distances and the index-plan check. The architecture notebook shows a saved prototype response. Markers identify omitted Guide text. The evaluated answers from the three rounds are in the [run records](results/). Notebook names, cross-references and interactive demo labels have been edited for the release. All Python files and notebook code cells were syntax-checked with Python 3.11. With the matching private extraction, the restored inputs reproduce the CSV byte for byte and all tables in the evaluation report. The original runner and evaluator are included with their recorded results.
+The notebooks include selected outputs from their original executions. The vectorization notebook shows chunk statistics, embedding dimensions, search distances and the index-plan check. The architecture notebook shows a saved prototype response. Markers identify omitted Guide text. The evaluated answers from the three rounds are in the [run records](results/). Notebook names, cross-references and interactive demo labels have been edited for the release. All Python files and notebook code cells were syntax-checked with Python 3.11. With the matching private extraction, the restored inputs reproduce the CSV byte for byte and all tables in the evaluation report. The runner and evaluator include the Full context additions used for the 525-answer report.
 
 The [e-commerce demonstration](results/ecommerce_demo/README.md) includes each implementation and its generated pytest file. Run each suite in its own process so its `order_lifecycle` import resolves to the paired implementation. For example, with Python 3.12 and pytest installed, use the following commands.
 

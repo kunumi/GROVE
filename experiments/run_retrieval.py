@@ -59,9 +59,12 @@ class TurnRecorder:
         self.jev_approved = []
         self.chunks = []
         self.admission = []
+        self.cache_read_tokens = 0      # full context: prompt-cache hits (already inside llm input_tokens)
+        self.cache_creation_tokens = 0  # full context: prompt-cache writes (already inside llm input_tokens)
 
     def to_dict(self):
         return {"llm": dict(self.llm), "jev_calls": self.jev_calls, "embedding_calls": self.embedding_calls,
+                "cache_read_tokens": self.cache_read_tokens, "cache_creation_tokens": self.cache_creation_tokens,
                 "embedding_texts": self.embedding_texts, "jev_chars": self.jev_chars,
                 "jev_input_tokens": self.jev_input_tokens, "jev_output_tokens": self.jev_output_tokens,
                 "jev_models": sorted(self.jev_models),
@@ -880,6 +883,8 @@ class SavingDemo(AgentDemo):
 
 # ── retrieval experiment (cell 29) ───────────────────────────────────────────────────────────────────────────
 RETRIEVAL_DIR = REPO_ROOT / "experiments" / "benchmark" / "retrieval"
+QUESTIONS_DIR = RETRIEVAL_DIR                    # --questions-dir
+OUT_DIR = DEMO_DIR / "retrieval_v2"              # --out-dir: one folder per run
 NAIVE_RETRIEVAL_ROLE = ("You answer software engineering questions based on SWEBOK. "
                         "To check swebok, use the appropriate tool to give you the guidelines." + CLOSED_SOURCE)
 # v2: control without any BoK access — what the model alone knows of the SWEBOK.
@@ -894,6 +899,94 @@ class JevExploreAgent:
         return await jev_explore(task)
 
 
+# ── full context (v2 addendum): the whole BoK in the prompt, no tools ─────────────────────────────────────────
+# The same model as the other architectures, called through the anthropic SDK instead of create_agent: the agents'
+# dynamic memory (token_limit=100000) would cut the BoK, and aisuite does not pass cache_control on.
+FULL_CONTEXT_MODEL = LLM_MODEL.split(":", 1)[1]  # "claude-sonnet-4-6"
+FULL_CONTEXT_MAX_TOKENS = 16000
+FILE_HEADER = "=== FILE: {} ==="
+FULL_CONTEXT_ROLE = ("You answer software engineering questions based on SWEBOK. The whole SWEBOK Guide is given "
+                     "below, one file per section, each file introduced by a line '" + FILE_HEADER.format("<path>")
+                     + "'. To cite a file, use that path." + CLOSED_SOURCE)
+
+
+def bok_leaves_in_order():
+    """Every content leaf of the tree, in the Guide's order (INDEX links followed depth-first)."""
+    searcher, leaves = JevSearcher(BOK_PATH), []
+
+    def walk(children):
+        for path in children.values():
+            if path.name == "INDEX.md":
+                walk(searcher._list_children(path))
+            else:
+                leaves.append(path)
+    walk(searcher._start())
+    return searcher, leaves
+
+
+_FULL_CONTEXT = None
+_FULL_CONTEXT_LOCK = threading.Lock()
+
+
+def build_bok_context():
+    """(text, layout): the leaves in order, each with its tables inlined exactly as JevSearcher loads them, under a
+    FILE_HEADER line; layout = [{path, start, end}] in characters, for the position analysis of the evaluator."""
+    global _FULL_CONTEXT
+    with _FULL_CONTEXT_LOCK:
+        if _FULL_CONTEXT is None:
+            searcher, leaves = bok_leaves_in_order()
+            parts, layout, pos = [], [], 0
+            for path in leaves:
+                rel = str(path.relative_to(BOK_ROOT))
+                block = FILE_HEADER.format(rel) + "\n" + searcher._load_leaf(path) + "\n\n"
+                layout.append({"path": rel, "start": pos, "end": pos + len(block)})
+                parts.append(block)
+                pos += len(block)
+            paths = [d["path"] for d in layout]
+            assert len(set(paths)) == len(paths), "a leaf is linked twice in the tree"
+            _FULL_CONTEXT = ("".join(parts), layout)
+    return _FULL_CONTEXT
+
+
+def full_context_info() -> dict:
+    text, layout = build_bok_context()
+    on_disk = sum(1 for p in BOK_ROOT.rglob("*.md") if p.name not in ("INDEX.md", "README.md"))
+    return {"model": FULL_CONTEXT_MODEL, "max_tokens": FULL_CONTEXT_MAX_TOKENS, "prompt_caching": "ephemeral (5 min)",
+            "leaves": len(layout), "leaves_on_disk": on_disk, "chars": len(text),
+            "sha256": hashlib.sha256(text.encode("utf-8")).hexdigest()}
+
+
+class FullContextAgent:
+    """One call: role + the whole BoK (cached) as system, the question as the user message."""
+
+    def __init__(self):
+        import anthropic
+        self.client = anthropic.Anthropic()
+
+    async def answer(self, task, tracer=None, is_async=True):
+        text, layout = build_bok_context()
+        response = self.client.messages.create(
+            model=FULL_CONTEXT_MODEL, max_tokens=FULL_CONTEXT_MAX_TOKENS,
+            system=[{"type": "text", "text": FULL_CONTEXT_ROLE},
+                    {"type": "text", "text": text, "cache_control": {"type": "ephemeral"}}],
+            messages=[{"role": "user", "content": task}])
+        u = response.usage
+        hit, write = u.cache_read_input_tokens or 0, u.cache_creation_input_tokens or 0
+
+        def update(rec):
+            d = rec.llm[LLM_MODEL]  # the same key as the other architectures; input = uncached-equivalent total
+            d["calls"] += 1
+            d["input_tokens"] += u.input_tokens + hit + write
+            d["output_tokens"] += u.output_tokens
+            rec.cache_read_tokens += hit
+            rec.cache_creation_tokens += write
+            rec.read.extend(str(BOK_ROOT / x["path"]) for x in layout)  # everything was in context
+        record(update)
+        if response.stop_reason != "end_turn":
+            raise RuntimeError(f"full context: stop_reason {response.stop_reason}")
+        return "".join(b.text for b in response.content if b.type == "text").strip()
+
+
 def retrieval_agents():
     """Fresh retrieval components, one per architecture (the notebook's demo names are kept)."""
     return {
@@ -903,11 +996,12 @@ def retrieval_agents():
         "3_coder_jev_explore": JevExploreAgent(),
         "4_searcher_jev_search": get_jev_explorer_free(),
         "5_coder_explorer_jev_filter": get_jev_filter_explorer(),
+        "6_full_context": FullContextAgent(),
     }
 
 
 DEMOS = ["0_pure_model", "1_coder_explorer", "2_coder_naive", "3_coder_jev_explore", "4_searcher_jev_search",
-         "5_coder_explorer_jev_filter"]
+         "5_coder_explorer_jev_filter", "6_full_context"]
 
 
 NO_ANSWER = "_(no answer"
@@ -924,7 +1018,7 @@ def run_info(run_id, questions_file, spec, workers, names):
     import platform
     import subprocess
     from importlib import metadata
-    raw = (RETRIEVAL_DIR / questions_file).read_bytes()
+    raw = (QUESTIONS_DIR / questions_file).read_bytes()
     try:
         commit = subprocess.run(["git", "rev-parse", "HEAD"], cwd=REPO_ROOT, capture_output=True, text=True).stdout.strip()
     except Exception:
@@ -935,18 +1029,26 @@ def run_info(run_id, questions_file, spec, workers, names):
             "admission": {"criterion": ADMISSION_CRITERION, "rule": f"score > {ADMISSION_THRESHOLD}"},
             "jev_free_limit": JEV_FREE_LIMIT, "explorer_read_limit": READ_LIMIT, "jev_explore": "no call limit in "
             "retrieval mode (called once per question)", "git_commit": commit, "python": platform.python_version(),
-            "packages": {p: metadata.version(p) for p in ("fast_track_lib", "typesafe-sdk", "aisuite", "duckdb")}}
+            "packages": {p: metadata.version(p) for p in ("fast_track_lib", "typesafe-sdk", "aisuite", "duckdb", "anthropic")},
+            **({"full_context": full_context_info()} if "6_full_context" in names else {})}
 
 
 def run_retrieval(run_id, questions_file, workers=6, only=None, demos=None):
-    spec = json.loads((RETRIEVAL_DIR / questions_file).read_text(encoding="utf-8"))
+    spec = json.loads((QUESTIONS_DIR / questions_file).read_text(encoding="utf-8"))
     chosen = [q for q in spec["questions"] if only is None or q["id"] in only]
     names = demos or DEMOS
-    run_dir = DEMO_DIR / "retrieval_v2" / run_id
+    run_dir = OUT_DIR / run_id
     run_dir.mkdir(parents=True, exist_ok=True)
     info = run_info(run_id, questions_file, spec, workers, names)
     info["started"] = datetime.datetime.now().isoformat()
-    (run_dir / "questions_used.json").write_bytes((RETRIEVAL_DIR / questions_file).read_bytes())
+    used = run_dir / "questions_used.json"
+    raw = (QUESTIONS_DIR / questions_file).read_bytes()
+    if used.exists() and used.read_bytes() != raw:  # an addendum to a run must use the same questions
+        raise SystemExit(f"{used} differs from {questions_file}: refusing to mix question sets in one run")
+    used.write_bytes(raw)
+    if "6_full_context" in names:  # where each leaf sits in the context (for the position analysis)
+        layout = {**full_context_info(), "layout": build_bok_context()[1]}
+        (run_dir / "full_context_layout.json").write_text(json.dumps(layout, ensure_ascii=False), encoding="utf-8")
 
     def one(job):
         q, name = job
@@ -958,13 +1060,15 @@ def run_retrieval(run_id, questions_file, workers=6, only=None, demos=None):
             if stale.exists():
                 stale.rename(stale.with_name(stale.name + f".failed-{datetime.datetime.now():%H%M%S}"))
         # v2: keep the full tool inputs and results (max_tool_chars=None) for the public traces
-        demo = SavingDemo(retrieval_agents()[name], name=f"retrieval_v2/{run_id}/{name}/{q['id']}",
+        demo = SavingDemo(retrieval_agents()[name], name=str(run_dir / name / q["id"]),  # absolute: DEMO_DIR / abs = abs
                           max_tool_chars=None)
         demo._hub.turn_lock.acquire()  # what the web server does before a turn
         demo._run_turn(q["question"] + "\n\n" + spec["answer_format"])
         return name, q["id"], "done" if _finished(out) else "FAILED"
 
     jobs = [(q, name) for q in chosen for name in names]
+    if "6_full_context" in names and chosen:  # warm the prompt cache with one call before the parallel ones
+        print(f"{run_id} [warm-up]: 6_full_context {chosen[0]['id']} {one((chosen[0], '6_full_context'))[2]}", flush=True)
     for attempt in (1, 2):  # second pass only for the turns that failed
         failed = []
         with ThreadPoolExecutor(max_workers=workers) as pool:
@@ -977,7 +1081,9 @@ def run_retrieval(run_id, questions_file, workers=6, only=None, demos=None):
         jobs = failed
     info["finished"] = datetime.datetime.now().isoformat()
     info["failed_after_retry"] = [f"{name}/{q['id']}" for q, name in failed]
-    (run_dir / "RUN_INFO.json").write_text(json.dumps(info, ensure_ascii=False, indent=1), encoding="utf-8")
+    # an addendum (a subset of the architectures) gets its own file, so the run's original RUN_INFO.json is kept
+    info_name = "RUN_INFO.json" if set(names) == set(DEMOS) else f"RUN_INFO_{'+'.join(names)}.json"
+    (run_dir / info_name).write_text(json.dumps(info, ensure_ascii=False, indent=1), encoding="utf-8")
 
 
 if __name__ == "__main__":
@@ -987,5 +1093,12 @@ if __name__ == "__main__":
     ap.add_argument("--questions", nargs="*", default=None, help="question ids (default: all)")
     ap.add_argument("--demos", nargs="*", default=None)
     ap.add_argument("--workers", type=int, default=6)
+    ap.add_argument("--questions-dir", default=None, help="folder of the questions file "
+                    "(default: experiments/benchmark/retrieval)")
+    ap.add_argument("--out-dir", default=None, help="folder of the runs (default: results/demos/retrieval_v2)")
     a = ap.parse_args()
+    if a.questions_dir:
+        QUESTIONS_DIR = Path(a.questions_dir).resolve()
+    if a.out_dir:
+        OUT_DIR = Path(a.out_dir).resolve()
     run_retrieval(a.run, a.questions_file, workers=a.workers, only=a.questions, demos=a.demos)
