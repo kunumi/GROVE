@@ -1,0 +1,22 @@
+services:
+  app:
+    build: .
+    image: retrieval-experiment:local
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      - .:/workspace
+    stdin_open: true
+    tty: true
+
+  jupyter:
+    image: retrieval-experiment:local
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      - .:/workspace
+    ports:
+      - "127.0.0.1:8888:8888"
+    command: jupyter lab --ip=0.0.0.0 --port=8888 --no-browser --allow-root

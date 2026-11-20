@@ -1,0 +1,6 @@
+jupyterlab
+ipykernel
+python-dotenv
+chonkie
+duckdb
+typesafe-sdk
