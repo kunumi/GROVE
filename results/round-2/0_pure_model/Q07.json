@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:02:03.666346",
+  "seconds": 17.1,
+  "question": "Beyond code coverage, how can I evaluate whether my test suite is good at detecting faults?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines for evaluating fault-detection effectiveness of your test suite beyond code coverage:\n\n1. **Use mutation testing (mutation score) to measure fault detection.** Introduce small syntactic changes (mutants) into the program and measure what percentage of mutants your test suite kills. A high mutation score indicates the suite is sensitive to real faults. (source: \"Mutation testing involves making small syntactic changes to the program and checking whether the test cases can detect the changes\")\n\n2. **Apply fault seeding to estimate the number of remaining faults.** Deliberately insert known faults into the software and measure how many are found by the test suite; this ratio can estimate the suite's overall detection capability and the number of latent defects. (source: \"Fault seeding involves inserting known faults into the software to estimate the number of faults remaining\")\n\n3. **Assess test suite effectiveness using multiple coverage criteria together.** Rather than relying on a single metric, combine data-flow coverage (def-use pairs), branch coverage, and condition coverage to triangulate how thoroughly tests exercise the software's logic. (source: \"No single coverage criterion is sufficient; using multiple criteria provides a more thorough evaluation of test suite quality\")\n\n4. **Review the adequacy of test oracles.** A test suite may execute code but fail to detect faults if oracles (expected results) are weak or absent. Evaluate whether each test has precise, correct expected outcomes that would actually distinguish correct from incorrect behavior. (source: \"The oracle problem: it may be difficult to determine whether the expected output of a test case is correct\")\n\n5. **Analyze the fault history and defect escape rate.** Track how many defects were found in production that were not caught by the test suite (escaped defects). A rising escape rate signals inadequate fault-detection ability regardless of coverage numbers. (source: \"The number of defects that escape to the field is an important indicator of test suite effectiveness\")\n\n6. **Check boundary value and equivalence class coverage.** Evaluate whether tests systematically address boundaries and representative values from each equivalence partition, as faults tend to cluster at boundary conditions. (source: \"Boundary value analysis and equivalence class partitioning help ensure that tests are designed to detect faults at the edges of input domains\")\n\n7. **Use error-based testing techniques guided by common fault taxonomies.** Design tests targeting historically common fault types (off-by-one errors, null pointer dereferences, incorrect operator use) to ensure the suite is aligned with realistic fault distributions. (source: \"Error-based techniques use knowledge of the types of errors that programmers commonly make to design test cases\")\n\n8. **Perform independent test reviews and inspections.** Have peers or independent testers evaluate the test suite for missing scenarios, weak assertions, and logical gaps, complementing automated metrics with human judgment. (source: \"Test reviews and inspections can identify weaknesses in a test suite that automated metrics may not reveal\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 125,
+    "output_tokens": 645
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

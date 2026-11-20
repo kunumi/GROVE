@@ -1,0 +1,111 @@
+[
+ {
+  "start": "2026-11-19T07:54:51.125395",
+  "seconds": 55.7,
+  "question": "A test accepts a computed result when its difference from the expected value is below 0.001, which is far too strict for values in the millions and far too loose for values around 0.0001. How should the discrepancy be measured instead, and how does that measure tell how many leading digits of the result can be trusted?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 6 of 6 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Replace the fixed absolute tolerance with a relative error measure. Relative error is defined as |x* − x| / |x|, [SWEBOK excerpt 7454b7d6506d5d7642c4] magnitude of the true value. Unlike a fixed threshold, this measure scales automatically with the size of the value being tested — making the same proportional demand whether values are in the millions or near zero. (source: root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md) [JEV 0.88]\n- Understand that absolute error alone is not a reliable yardstick: the same absolute error of 1 represents a relative error of only 10⁻⁶ when the true value is 1,000,001, but a relative error of 0.1 when the true value is 11. Using relative error instead gives an intuitive and scale-independent picture of how close the approximation actually is. (source: root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md) [JEV 0.97]\n- Prefer relative error as the standard measure of approximation quality. The BoK states explicitly that '[SWEBOK excerpt 08a637ab2472165ebfc5].' (source: root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md) [JEV 0.97]\n- Use relative error to determine how many leading significant digits of a result are correct. [SWEBOK excerpt e4bb630efbfcf7f6de55] and only if its relative error is less than 5 × 10^(−k−1). For example, a relative error below 5 × 10⁻⁴ guarantees three correct significant digits, regardless of the scale of the numbers involved. (source: root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md) [JEV 0.97]\n- Understand what significant digits mean in practice: [SWEBOK excerpt 5b77646556b281e7ad1c] — specifically, [SWEBOK excerpt 028d3595b8100cfdfeca] match those of x. A tighter relative error threshold implies more correct leading digits; a looser one implies fewer. Set the acceptance threshold accordingly. (source: root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md; root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md) [JEV 0.94]\n- Distinguish accuracy from precision when specifying numeric test criteria. Accuracy is the closeness of a computed value to the true value; precision is the closeness of repeated computed values to each other. Numeric test oracles should primarily target accuracy (via relative error) while precision addresses repeatability. (source: root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Fixed-Point Arithmetic and Numerical Precision.md) [JEV 0.65]",
+  "tool_calls": 10,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 8,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 10,
+    "input_tokens": 75206,
+    "output_tokens": 2341
+   }
+  },
+  "jev_calls": 6,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 11060,
+  "jev_input_tokens": 4242,
+  "jev_output_tokens": 120,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/README.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/README.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/README.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/Oracle Limitations and Testing Theory Constraints.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Fixed-Point Arithmetic and Numerical Precision.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Software Testing Types and Methodologies.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Fixed-Point Arithmetic and Numerical Precision.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Replace the fixed absolute tolerance with a relative error measure. Relative error is defined as |x* − x| / |x|, [SWEBOK excerpt 7454b7d6506d5d7642c4] magnitude of the true value. Unlike a fixed threshold, this measure scales automatically with the size of the value being tested — making the same proportional demand whether values are in the millions or near zero.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md"
+    ],
+    "score": 0.88,
+    "admitted": true
+   },
+   {
+    "guideline": "Understand that absolute error alone is not a reliable yardstick: the same absolute error of 1 represents a relative error of only 10⁻⁶ when the true value is 1,000,001, but a relative error of 0.1 when the true value is 11. Using relative error instead gives an intuitive and scale-independent picture of how close the approximation actually is.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Prefer relative error as the standard measure of approximation quality. The BoK states explicitly that '[SWEBOK excerpt 08a637ab2472165ebfc5].'",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Use relative error to determine how many leading significant digits of a result are correct. [SWEBOK excerpt e4bb630efbfcf7f6de55] and only if its relative error is less than 5 × 10^(−k−1). For example, a relative error below 5 × 10⁻⁴ guarantees three correct significant digits, regardless of the scale of the numbers involved.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Understand what significant digits mean in practice: [SWEBOK excerpt 5b77646556b281e7ad1c] — specifically, [SWEBOK excerpt 028d3595b8100cfdfeca] match those of x. A tighter relative error threshold implies more correct leading digits; a looser one implies fewer. Set the acceptance threshold accordingly.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md",
+     "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md"
+    ],
+    "score": 0.94,
+    "admitted": true
+   },
+   {
+    "guideline": "Distinguish accuracy from precision when specifying numeric test criteria. Accuracy is the closeness of a computed value to the true value; precision is the closeness of repeated computed values to each other. Numeric test oracles should primarily target accuracy (via relative error) while precision addresses repeatability.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Fixed-Point Arithmetic and Numerical Precision.md"
+    ],
+    "score": 0.65,
+    "admitted": true
+   }
+  ]
+ }
+]

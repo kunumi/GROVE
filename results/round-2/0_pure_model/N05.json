@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:13:01.828941",
+  "seconds": 19.3,
+  "question": "A customer reports a defect in the executable we shipped to them two years ago, and to investigate it we need that very same executable back, byte for byte, but the toolchain and third-party libraries on our machines have been upgraded since then. What should the team have been tracking and preserving so that this would be possible?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here is a list of guidelines the team should have been following, drawn from SWEBOK v4 knowledge:\n\n---\n\n1. **Place all build inputs under version control, including source code, build scripts, and configuration files.** Every artifact that contributes to the final product should be stored in a configuration management repository so that the exact state at the time of a release can be reconstructed.\n(source: \"Software configuration management (SCM) is a supporting process that benefits all aspects of software engineering by identifying, controlling, auditing, and accounting for the software configuration\")\n\n2. **Establish and record a precise baseline (release baseline) at the time of each delivery.** A baseline captures the exact version identifiers of every component that went into a build, so that the same set can be retrieved later.\n(source: \"A baseline is a formally approved version of a configuration item, regardless of medium, formally designated and fixed at a specific time during the configuration item's life cycle\")\n\n3. **Track and preserve the specific versions of the toolchain used to produce each release, including compilers, linkers, assemblers, and build tools.** The toolchain is itself a configuration item and must be version-identified and stored or archived.\n(source: \"The SCM process also manages the software engineering environment, including the tools and infrastructure used to develop, build, and test software\")\n\n4. **Track and preserve the exact versions of all third-party libraries and external dependencies linked into the product.** These are configuration items whose versions must be recorded in the baseline; upgrading them on the build machines after the fact makes the original build unreproducible.\n(source: \"configuration items may include software libraries, compilers, and other tools; third-party or reusable software components\")\n\n5. **Maintain a software configuration management plan that specifies retention policies and archive procedures for released baselines and their supporting artifacts.** Without a written plan mandating what is kept and for how long, artifacts are routinely discarded or overwritten.\n(source: \"The SCM plan identifies and documents the configuration items, the scheme for identifying versions, the controlled library or repository to be used, the access control and change control procedures\")\n\n6. **Archive or snapshot the actual build environment (operating system, middleware, environment variables, paths) for each release, not just the source code.** Differences in the host environment can alter compiler output even when source and toolchain version numbers are nominally the same.\n(source: \"the software engineering environment includes hardware and software tools, techniques, and methods that support or automate the software engineering tasks\")\n\n7. **Perform configuration audits at release time to verify that what is in the repository matches what was actually built and shipped.** A physical configuration audit confirms that the delivered item matches its documented specification, enabling future reproduction.\n(source: \"A physical configuration audit (PCA) verifies that the configuration item as built conforms to the technical documentation that defines it\")\n\n8. **Implement a controlled software library with access controls so that archived baselines cannot be overwritten or corrupted over time.** Long-term preservation requires that the repository itself be managed and protected.\n(source: \"the software library is a controlled collection of software and related documentation designed to aid in software development, use, and maintenance\")\n\n---\n\nFollowing these guidelines together would have made it possible to check out the exact baseline, reconstitute the identical toolchain and dependency set, reproduce the build environment, and regenerate the byte-for-byte identical executable for defect investigation.",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 174,
+    "output_tokens": 760
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

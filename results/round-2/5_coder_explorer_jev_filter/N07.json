@@ -1,0 +1,147 @@
+[
+ {
+  "start": "2026-11-19T08:16:02.826311",
+  "seconds": 61.9,
+  "question": "We are planning a project that depends on a third-party API nobody on the team has used and on a performance target we may not be able to reach. How should we handle these things that could go wrong, both when planning the work and while it is under way?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 9 of 9 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Distinguish between uncertainty and risk from the outset. Uncertainty (like unfamiliarity with a third-party API or an unproven performance target) is a lack of information; once it creates the potential for negative impact on project objectives it becomes a risk. Treat both concerns as risks and manage them explicitly from day one. (source: root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md) [JEV 0.67]\n- Identify all risk factors systematically. For every risk — the unfamiliar API and the uncertain performance target — name the factor, record it in a risk register, and document supporting information about each risk. The risk register serves as the central repository for all identified risks and can also support regulatory compliance. (source: root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md) [JEV 0.94]\n- Analyze the [SWEBOK excerpt cdbc51435e3683410db0] and prioritize them. Use risk assessment methods such as expert judgment, historical data, decision trees, or process simulations to evaluate the two risks. Also determine, with all relevant stakeholders, the conditions under which the project would be abandoned. (source: root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md; root/Risk Management and Quality Assessment/Risk Assessment Methods and Software Project Risk Management.md) [JEV 0.95]\n- Develop risk mitigation strategies for each identified risk — strategies that reduce the probability of the negative event and minimize its impact if the risk materializes. For the third-party API, this might mean early prototyping or a spike; for the performance target, it might mean early benchmarking and setting measurable performance quality attributes. (source: root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md; root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Quality Management in Software Projects.md) [JEV 0.89]\n- Pay particular attention to software quality requirements such as performance. Quality attributes — including performance — should be identified both quantitatively and qualitatively at the start of the project, and treated as explicit software quality requirements, not afterthoughts. (source: root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Quality Management in Software Projects.md; root/Risk Management and Quality Assessment/Risk Assessment Methods and Software Project Risk Management.md) [JEV 0.89]\n- Consider adopting an iterative or evolutionary life cycle rather than a purely predictive (waterfall) one. Iterative life cycles allow cost and time estimates to be revised as team understanding grows — directly applicable when the team is learning an unfamiliar API or discovering whether the performance target is achievable. Incremental delivery also surfaces problems early. (source: root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Predictive, Iterative, Evolutionary, and Incremental Life Cycles.md) [JEV 0.91]\n- Consider using the spiral (risk-driven) model or rapid prototyping to address the two uncertainties early. The spiral model is evolutionary and explicitly risk-driven; rapid prototyping places emphasis on developing prototypes early to permit early feedback and analysis — both suit a project with significant technical unknowns. (source: root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Development Models and Iterative Approaches/Software Development Process Models and Methodologies.md) [JEV 0.88]\n- Continue risk management throughout the entire project life cycle, not just at the beginning. Revisit and update the risk register at periodic intervals so that the risk profile of the project stays current as team understanding of the API and the performance target evolves. (source: root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Risk Management Throughout Project Life Cycle.md) [JEV 0.92]\n- Monitor the software engineering process execution during the project, assess whether process objectives are being met, and continuously reassess risks. This process monitoring is a core part of software engineering process assessment and project management. (source: root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Process Monitoring and Empirical Assessment in Software Engineering/Software Engineering Process Monitoring and Assessment.md) [JEV 0.96]",
+  "tool_calls": 12,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 10,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 12,
+    "input_tokens": 100749,
+    "output_tokens": 2875
+   }
+  },
+  "jev_calls": 9,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 19088,
+  "jev_input_tokens": 6304,
+  "jev_output_tokens": 180,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/README.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Product Management and Engineering Frameworks/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Product Management and Engineering Frameworks/Products, Services, and Project Delivery Models/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Assessment Methods and Software Project Risk Management.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Risk Management Throughout Project Life Cycle.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Quality Management in Software Projects.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Predictive, Iterative, Evolutionary, and Incremental Life Cycles.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Development Life Cycle Models and Requirements Management.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Development Models and Iterative Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Process Monitoring and Empirical Assessment in Software Engineering/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Development Models and Iterative Approaches/Software Development Process Models and Methodologies.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Process Monitoring and Empirical Assessment in Software Engineering/Software Engineering Process Monitoring and Assessment.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Assessment Methods and Software Project Risk Management.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Quality Management in Software Projects.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Quality Management in Software Projects.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Assessment Methods and Software Project Risk Management.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Predictive, Iterative, Evolutionary, and Incremental Life Cycles.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Development Models and Iterative Approaches/Software Development Process Models and Methodologies.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Risk Management Throughout Project Life Cycle.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Process Monitoring and Empirical Assessment in Software Engineering/Software Engineering Process Monitoring and Assessment.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Distinguish between uncertainty and risk from the outset. Uncertainty (like unfamiliarity with a third-party API or an unproven performance target) is a lack of information; once it creates the potential for negative impact on project objectives it becomes a risk. Treat both concerns as risks and manage them explicitly from day one.",
+    "refs": [
+     "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md"
+    ],
+    "score": 0.67,
+    "admitted": true
+   },
+   {
+    "guideline": "Identify all risk factors systematically. For every risk — the unfamiliar API and the uncertain performance target — name the factor, record it in a risk register, and document supporting information about each risk. The risk register serves as the central repository for all identified risks and can also support regulatory compliance.",
+    "refs": [
+     "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md"
+    ],
+    "score": 0.94,
+    "admitted": true
+   },
+   {
+    "guideline": "Analyze the [SWEBOK excerpt cdbc51435e3683410db0] and prioritize them. Use risk assessment methods such as expert judgment, historical data, decision trees, or process simulations to evaluate the two risks. Also determine, with all relevant stakeholders, the conditions under which the project would be abandoned.",
+    "refs": [
+     "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md",
+     "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Assessment Methods and Software Project Risk Management.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Develop risk mitigation strategies for each identified risk — strategies that reduce the probability of the negative event and minimize its impact if the risk materializes. For the third-party API, this might mean early prototyping or a spike; for the performance target, it might mean early benchmarking and setting measurable performance quality attributes.",
+    "refs": [
+     "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Management_ Identification, Analysis, and Mitigation Strategies.md",
+     "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Quality Management in Software Projects.md"
+    ],
+    "score": 0.89,
+    "admitted": true
+   },
+   {
+    "guideline": "Pay particular attention to software quality requirements such as performance. Quality attributes — including performance — should be identified both quantitatively and qualitatively at the start of the project, and treated as explicit software quality requirements, not afterthoughts.",
+    "refs": [
+     "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Quality Management in Software Projects.md",
+     "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Risk Assessment Methods and Software Project Risk Management.md"
+    ],
+    "score": 0.89,
+    "admitted": true
+   },
+   {
+    "guideline": "Consider adopting an iterative or evolutionary life cycle rather than a purely predictive (waterfall) one. Iterative life cycles allow cost and time estimates to be revised as team understanding grows — directly applicable when the team is learning an unfamiliar API or discovering whether the performance target is achievable. Incremental delivery also surfaces problems early.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Predictive, Iterative, Evolutionary, and Incremental Life Cycles.md"
+    ],
+    "score": 0.91,
+    "admitted": true
+   },
+   {
+    "guideline": "Consider using the spiral (risk-driven) model or rapid prototyping to address the two uncertainties early. The spiral model is evolutionary and explicitly risk-driven; rapid prototyping places emphasis on developing prototypes early to permit early feedback and analysis — both suit a project with significant technical unknowns.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Development Models and Iterative Approaches/Software Development Process Models and Methodologies.md"
+    ],
+    "score": 0.88,
+    "admitted": true
+   },
+   {
+    "guideline": "Continue risk management throughout the entire project life cycle, not just at the beginning. Revisit and update the risk register at periodic intervals so that the risk profile of the project stays current as team understanding of the API and the performance target evolves.",
+    "refs": [
+     "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Risk Management Throughout Project Life Cycle.md"
+    ],
+    "score": 0.92,
+    "admitted": true
+   },
+   {
+    "guideline": "Monitor the software engineering process execution during the project, assess whether process objectives are being met, and continuously reassess risks. This process monitoring is a core part of software engineering process assessment and project management.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Process Monitoring and Empirical Assessment in Software Engineering/Software Engineering Process Monitoring and Assessment.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   }
+  ]
+ }
+]

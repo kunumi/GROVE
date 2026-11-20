@@ -1,0 +1,58 @@
+[
+ {
+  "start": "2026-11-19T08:17:53.407210",
+  "seconds": 98.6,
+  "question": "I must choose one of three candidate libraries for our product. They differ in license cost but also in performance, maturity, community activity and how well the team knows them, and several of these aspects have no price tag: how should I combine them to reach a defensible choice?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nWhen choosing among library candidates that differ on both monetary (license cost) and non-monetary criteria (performance, maturity, community activity, team familiarity), SWEBOK v4 prescribes a **multiple-attribute decision-making process**: explicitly name every criterion (including intangibles), characterise non-monetary ones by their business impact and quality, then apply either a **compensatory technique** (additive weighting, AHP) to collapse all weighted scores into one comparable figure, or a **non-compensatory screen** (satisficing, dominance) to eliminate any candidate that fails an absolute threshold before comparing the survivors. The whole analysis should be grounded in the same planning horizon and basis of comparison for all three options, and the \"do-nothing\" alternative should be consciously evaluated.\n\n# Guidelines\n\n- **Financial criteria are necessary but not sufficient.** \"[SWEBOK excerpt a825f07be0399624ab5e].\" (source: `root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Multiple-Attribute Decision-Making Beyond Financial Criteria.md`)\n\n- **Explicitly name every criterion, including intangibles.** \"[SWEBOK excerpt a4318de5004b25042ec1].'\" Balance comprehensiveness against analysis effort: too few criteria fail to differentiate; too many make the analysis unwieldy. (source: `root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md` and `root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Balancing Decision Criteria Against Analysis Effort.md`)\n\n- **Treat team familiarity as a tacit intangible asset.** \"[SWEBOK excerpt 0df0c42752db11e2edd9].\" Failing to surface team know-how means hidden risks and opportunities are never exposed. (source: `root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Identifying and Characterizing Intangible Assets.md`)\n\n- **Characterise each non-monetary criterion by quality and by business impact, using normalised indicators.** \"[SWEBOK excerpt 13c2fd333247d3bad4a5].\" (source: `root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Defining and Measuring Intangible Asset Indicators.md`)\n\n- **Apply a compensatory technique (additive weighting, AHP) to combine all criteria into a single score.** \"[SWEBOK excerpt 81a99e58d739e8f0f679].\" This collapses everything into one defensible figure of merit. (source: `root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md`)\n\n- **Use non-compensatory screens (satisficing, dominance) first if any criterion is an absolute threshold.** \"[SWEBOK excerpt 9b4631dc047c712ea71b].\" Eliminate disqualified libraries before compensatory comparison. (source: same file as above)\n\n- **Evaluate all three libraries on exactly the same basis and planning horizon.** \"[SWEBOK excerpt 5093aa64927a81e0c9f0] … use the same basis for comparison, [SWEBOK excerpt 6db982fee48d47c533b9].\" (source: `root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Evaluating Alternatives Against Selection Criteria.md`)\n\n- **Explicitly consider the \"do-nothing\" (choose-none) [SWEBOK excerpt 6e0474bf24b8611949c6] … '[SWEBOK excerpt b07ce8b7ca572e2d965e].'\" (source: `root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md`)\n\n- **Prototype and peer-review to verify technical feasibility before scoring.** \"[SWEBOK excerpt 9b2fe02cf1e080bcf85b].\" (source: `root/Engineering Decision-Making and Financial Analysis/Evaluating Candidates and Managing Decision Costs/Solution Generation and Feasibility Verification.md`)\n\n# Gaps\n- The BoK does not cover how to weight open-source community health metrics specifically.\n- No guidance on software licensing compatibility analysis beyond labelling it an intangible criterion.\n- No specific tooling recommendations for running AHP or additive-weighting calculations in a project context.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 10,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 8,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 11,
+    "input_tokens": 100493,
+    "output_tokens": 4907
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making Through Data and Standards/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making Through Data and Standards/README.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/README.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multiple-Attribute Decision Criteria and Evaluation.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Characterizing Intangible Assets by Impact and Quality.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Multiple-Attribute Decision-Making Beyond Financial Criteria.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory Techniques for Multiple Criteria Assessment.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Compensatory and Non-Compensatory Decision-Making Techniques.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Complex Proposals and Strategic Alternatives/Do-Nothing Alternative and Intangible Assets in Decision-Making.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Candidates and Managing Decision Costs/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Balancing Decision Criteria Against Analysis Effort.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Establishing Criteria and Evaluation Methods/Evaluating Alternatives Against Selection Criteria.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Candidates and Managing Decision Costs/Candidate Selection and Engineering Decision Criteria.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Evaluating Candidates and Managing Decision Costs/Solution Generation and Feasibility Verification.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Identifying and Characterizing Intangible Assets.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making and Financial Analysis/Multi-Criteria Decision-Making and Intangible Assets/Defining and Measuring Intangible Asset Indicators.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

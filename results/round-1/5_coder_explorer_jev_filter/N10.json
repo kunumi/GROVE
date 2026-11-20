@@ -1,0 +1,164 @@
+[
+ {
+  "start": "2026-11-19T07:52:45.956622",
+  "seconds": 57.3,
+  "question": "I am handing over a finished system to a client whose in-house team will keep developing it after delivery. Besides the program itself, what written material should I prepare for the client, for its end users and for my own organization, and for how long should it be retained?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 11 of 11 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Prepare a software maintenance plan during software development (before delivery) that specifies [SWEBOK excerpt c3f9b85a22b5819ebd7b]. This plan is the primary handover document for the in-house team taking over development. (source: root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/Software Maintenance Planning and Cost Estimation.md) [JEV 0.91]\n- Define the transition process: document [SWEBOK excerpt 8562d10bcd22b56e6ffa] progressively transferred [SWEBOK excerpt 5f353918e5e83796a897], covering scope of software maintenance, adaptation of maintenance processes and tools, and identification of the software maintenance organization. (source: root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md; root/Software Maintenance Planning and Supporting Activities.md) [JEV 0.88]\n- Prepare a Software Configuration Management Plan ([SWEBOK excerpt 82b6d4985fa30c3f70e8] — covering: Introduction (purpose, scope, terms), SCM Management (organization, responsibilities, authorities, policies, [SWEBOK excerpt cf64a10f4d861c571def], SCM Resources, and SCMP Maintenance. This document should be maintained and updated throughout the software life cycle. (source: root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Plan Development.md) [JEV 0.97]\n- Create design documentation that records: (1) aspects of problems solved using domain vocabulary, (2) a solution vocabulary, (3) the major design decisions [SWEBOK excerpt be4b1e38f666b798e7d9]. This recorded knowledge is specifically needed to enhance [SWEBOK excerpt cdf680b2443a9046114d]. (source: root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Recording Software Designs.md) [JEV 0.98]\n- Record the design rationale — including [SWEBOK excerpt a5d3b636213dce61c542] reasons for decisions are likely [SWEBOK excerpt fa71bfee29aeee7d9e17]. Continue [SWEBOK excerpt eac004a2d4fd7dc5948e] to contribute to the software's long-term viability. (source: root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md) [JEV 0.98]\n- Establish configuration identification documentation: identify and document all software items to be controlled, establish [SWEBOK excerpt 65924b60b6ca79be7192] document [SWEBOK excerpt 52f7531b1931dbf7e23b]. Software configuration should be documented as [SWEBOK excerpt 9e3e9ffaeb7c98d0df61]. (source: root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/SCM Audits and Configuration Identification/Software Configuration Identification and Item Control.md) [JEV 0.97]\n- Produce configuration status accounting (CSA) reports throughout the life cycle that can satisfy quality assurance, security, and provide evidence of compliance with regulations and governance requirements. These reports should include baseline status, indicators of integrity, indicators of security status, evidence of verification and validation activities, and change request metrics per configuration item. (source: root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Configuration Status Accounting and Reporting/Software Configuration Status Reporting and Auditing.md) [JEV 0.96]\n- Ensure that SCM procedures for the maintenance phase provide for verification, validation, and audit documentation [SWEBOK excerpt 7595efc47f34c3c28220] only modification requests or problem reports. (source: root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/Configuration Management in Software Maintenance.md) [JEV 0.98]\n- Include contractual/handover documentation such as maintenance service-level agreements (SLAs), [SWEBOK excerpt 101c78327b3774070425]), and software and hardware licenses and contracts — these [SWEBOK excerpt a85f62e46bec9af8770c] that the in-house team will need to manage. (source: root/Software Maintenance Planning and Supporting Activities.md) [JEV 0.96]\n- Maintainers and the outgoing development team should prepare ongoing supporting documentation including: verification and validation (V&V) records, problem resolution records, software quality assurance (SQA) records, review reports, vulnerability assessments, and audit reports. These support activities form the documented evidence the maintenance organization will need. (source: root/Software Maintenance Planning and Supporting Activities.md) [JEV 0.84]\n- Maintenance planning should address release/version planning documentation: [SWEBOK excerpt ed1cc2f80355c79f1de1], agreement on the content of subsequent releases/versions, identification of potential conflicts and developed alternatives, risk assessments for given releases with back-out plans, and stakeholder notification records. (source: root/Software Maintenance Planning and Supporting Activities.md) [JEV 0.96]",
+  "tool_calls": 10,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 7,
+   "search_tool_history": 1,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 10,
+    "input_tokens": 90105,
+    "output_tokens": 3100
+   }
+  },
+  "jev_calls": 11,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 27262,
+  "jev_input_tokens": 8630,
+  "jev_output_tokens": 220,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Professional Practice and Collaboration in Software Engineering/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/System Design Documentation and Notation Tools/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Recording Software Designs.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Plan Development.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/SCM Audits and Configuration Identification/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Configuration Status Accounting and Reporting/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/Software Maintenance Planning and Cost Estimation.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/Configuration Management in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/SCM Audits and Configuration Identification/Software Configuration Identification and Item Control.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Configuration Status Accounting and Reporting/Software Configuration Status Reporting and Auditing.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/Software Maintenance Planning and Cost Estimation.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Plan Development.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Recording Software Designs.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/SCM Audits and Configuration Identification/Software Configuration Identification and Item Control.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Configuration Status Accounting and Reporting/Software Configuration Status Reporting and Auditing.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/Configuration Management in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Prepare a software maintenance plan during software development (before delivery) that specifies [SWEBOK excerpt c3f9b85a22b5819ebd7b]. This plan is the primary handover document for the in-house team taking over development.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/Software Maintenance Planning and Cost Estimation.md"
+    ],
+    "score": 0.91,
+    "admitted": true
+   },
+   {
+    "guideline": "Define the transition process: document [SWEBOK excerpt 8562d10bcd22b56e6ffa] progressively transferred [SWEBOK excerpt 5f353918e5e83796a897], covering scope of software maintenance, adaptation of maintenance processes and tools, and identification of the software maintenance organization.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+     "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md"
+    ],
+    "score": 0.88,
+    "admitted": true
+   },
+   {
+    "guideline": "Prepare a Software Configuration Management Plan ([SWEBOK excerpt 82b6d4985fa30c3f70e8] — covering: Introduction (purpose, scope, terms), SCM Management (organization, responsibilities, authorities, policies, [SWEBOK excerpt cf64a10f4d861c571def], SCM Resources, and SCMP Maintenance. This document should be maintained and updated throughout the software life cycle.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Plan Development.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Create design documentation that records: (1) aspects of problems solved using domain vocabulary, (2) a solution vocabulary, (3) the major design decisions [SWEBOK excerpt be4b1e38f666b798e7d9]. This recorded knowledge is specifically needed to enhance [SWEBOK excerpt cdf680b2443a9046114d].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Recording Software Designs.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Record the design rationale — including [SWEBOK excerpt a5d3b636213dce61c542] reasons for decisions are likely [SWEBOK excerpt fa71bfee29aeee7d9e17]. Continue [SWEBOK excerpt eac004a2d4fd7dc5948e] to contribute to the software's long-term viability.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Establish configuration identification documentation: identify and document all software items to be controlled, establish [SWEBOK excerpt 65924b60b6ca79be7192] document [SWEBOK excerpt 52f7531b1931dbf7e23b]. Software configuration should be documented as [SWEBOK excerpt 9e3e9ffaeb7c98d0df61].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/SCM Audits and Configuration Identification/Software Configuration Identification and Item Control.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Produce configuration status accounting (CSA) reports throughout the life cycle that can satisfy quality assurance, security, and provide evidence of compliance with regulations and governance requirements. These reports should include baseline status, indicators of integrity, indicators of security status, evidence of verification and validation activities, and change request metrics per configuration item.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Configuration Status Accounting and Reporting/Software Configuration Status Reporting and Auditing.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Ensure that SCM procedures for the maintenance phase provide for verification, validation, and audit documentation [SWEBOK excerpt 7595efc47f34c3c28220] only modification requests or problem reports.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Maintenance Planning and Configuration Management/Configuration Management in Software Maintenance.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Include contractual/handover documentation such as maintenance service-level agreements (SLAs), [SWEBOK excerpt 101c78327b3774070425]), and software and hardware licenses and contracts — these [SWEBOK excerpt a85f62e46bec9af8770c] that the in-house team will need to manage.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Maintainers and the outgoing development team should prepare ongoing supporting documentation including: verification and validation (V&V) records, problem resolution records, software quality assurance (SQA) records, review reports, vulnerability assessments, and audit reports. These support activities form the documented evidence the maintenance organization will need.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md"
+    ],
+    "score": 0.84,
+    "admitted": true
+   },
+   {
+    "guideline": "Maintenance planning should address release/version planning documentation: [SWEBOK excerpt ed1cc2f80355c79f1de1], agreement on the content of subsequent releases/versions, identification of potential conflicts and developed alternatives, risk assessments for given releases with back-out plans, and stakeholder notification records.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   }
+  ]
+ }
+]

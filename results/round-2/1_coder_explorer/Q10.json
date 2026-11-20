@@ -1,0 +1,55 @@
+[
+ {
+  "start": "2026-11-19T08:05:13.554451",
+  "seconds": 85.1,
+  "question": "How can a routine make its assumptions about inputs and outputs explicit and guard itself against callers passing it values it was not built to accept?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nA routine makes its assumptions explicit and guards against invalid inputs primarily through **Design by Contract** (declaring preconditions and postconditions that [SWEBOK excerpt 9d5592f0124dcaca87ed]), **assertions** (executable predicates that check conditions at runtime), and **defensive programming** (explicitly checking all input parameter values and deciding how to handle bad inputs). These techniques are complemented by structured error/exception handling and by writing code that is \"constructible for verification\" — readable, standards-conforming, and readily testable.\n\n# Guidelines\n\n- **Use assertions to encode and enforce assumptions at runtime.** [SWEBOK excerpt 00adbfb1734643beda90]. They are especially useful in high-reliability programs and quickly expose mismatched interface assumptions. (source: `root/Software Construction Techniques and Practices/Parameterization, Templates, Generics, and Assertions.md`, section 4.4; and `root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md`)\n\n- **Apply Design by Contract — include preconditions and postconditions in every routine.** Each routine then forms [SWEBOK excerpt 13c5545a4a774df8cb56] that precisely specifies its semantics and expected behavior, improving construction quality. (source: `root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md` — *\"[SWEBOK excerpt af145750616f7b99e184] … [SWEBOK excerpt 4d3f307a8e38b3123541]\"*; and `root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md`)\n\n- **Practice defensive programming — check the values of all input parameters.** Defensive programming protects [SWEBOK excerpt dd271301c5976e4542f8]; assertions are often the tool used to perform these checks. (source: `root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md` — *\"[SWEBOK excerpt edaaca9c62404676ff9e].\"*)\n\n- **Handle anticipated and exceptional error conditions explicitly in code,** including prevention of security breaches such as buffer overflows or array index bound violations. (source: `root/Software Construction Techniques and Practices/Software Coding and Construction Testing Practices.md` — *\"[SWEBOK excerpt bed528a62e7b385062e9])\"*)\n\n- **Apply error-handling and exception-handling techniques suited to the situation** — returning a neutral value, logging a warning, returning an error code, or throwing an exception. Exception-handling policies should include all information that led to the exception, avoid empty catch blocks, and standardize exception use across the program. (source: `root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md`)\n\n- **Compile assertions in during development; compile them out for production** so they don't degrade performance. (source: `root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md` — *\"[SWEBOK excerpt fc8cffb24cc1696f5f4f].\"*)\n\n- **Treat assertions and defensive programming as primary construction quality techniques,** on a par with unit testing, integration testing, inspections, and static analysis. (source: `root/Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md` — *\"[SWEBOK excerpt e46a3561a4f33e3d466c]: … Use of assertions and defensive programming …\"*)\n\n- **Construct for verification** — follow coding standards, restrict complex language structures, and organize code so that faults are readily found by engineers, testers, and users. (source: `root/Construction Practices, Standards, and Development Models/Constructing for Verification and Reusing Assets.md` — *\"[SWEBOK excerpt 4d87bca32d5b3d518d64].\"*)\n\n# Gaps\n- The BoK does not cover language-specific APIs for enforcing contracts (e.g., Python `assert`, Java `Objects.requireNonNull`, Eiffel `require`/`ensure`).\n- Formal specification languages (Z, Alloy, JML) for expressing contracts are not covered.\n- Class invariants as a distinct contract mechanism are not discussed separately from preconditions and postconditions.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 9,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 7,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 10,
+    "input_tokens": 85365,
+    "output_tokens": 4204
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Parameterization, Templates, Generics, and Assertions.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/Constructing for Verification and Reusing Assets.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Software Coding and Construction Testing Practices.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

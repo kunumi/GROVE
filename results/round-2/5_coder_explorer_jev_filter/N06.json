@@ -1,0 +1,186 @@
+[
+ {
+  "start": "2026-11-19T08:14:58.557616",
+  "seconds": 64.2,
+  "question": "At the end of each release our bug tracker tells us only how many bugs were found, and that count gives the team nothing to act on. What should we do with our bug records so that they help us introduce fewer bugs in later releases?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 12 of 12 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- [SWEBOK excerpt 6caeafab158e568bb914] anomalies found during reviews and testing. Without a taxonomy, [SWEBOK excerpt 18d6512e7355e8c13362] may be lost unless they are recorded. (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md) [JEV 0.96]\n- Record all defect data found during SQA and control activities; data on errors and defects may be lost unless they are recorded. (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md) [JEV 0.96]\n- Perform Root Cause Analysis (RCA) on defect findings: analyze and summarize findings to identify root causes, then use measurement techniques to improve software engineering processes, techniques, and tools. (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md) [JEV 0.97]\n- Track and analyze fault types and their relative frequency of past occurrence. Knowing [SWEBOK excerpt 18a810509a999250c7a0] system under test, and how often each has occurred historically, is useful for making quality predictions and for process improvement. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/SUT Measurements and Fault Classification for Test Planning.md) [JEV 0.98]\n- Measure fault density (the ratio of faults found to system size) rather than just counting bugs. Consider additional dimensions such as fault depth (the minimum number of fault removals needed to make the system [SWEBOK excerpt 03e6a769e17909904ca7]). (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Density Measurement in Software Testing.md) [JEV 0.97]\n- Apply descriptive statistics and trend analysis to defect data. Use charts and graphs as visualization aids so that decision-makers can focus resources and conduct process improvements where [SWEBOK excerpt f46e2c6e857dec416dba] [SWEBOK excerpt 68e683d6e4a645d915fc] corrective action is taken. (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md) [JEV 0.96]\n- Measure defect occurrences and apply [SWEBOK excerpt 4b84d711ac4942726845], enabling targeted quality improvement actions. (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md) [JEV 0.98]\n- Update the organization's measurement database with relevant project defect data at the end of each project, phase, or iteration. Conduct a retrospective analysis so that issues and problems encountered can be analyzed, and feed lessons learned into organizational learning and improvement endeavors. (source: root/Software Quality Management and Project Oversight/Software Measurement and Organizational Learning/Software Engineering Measurement and Organizational Learning.md) [JEV 0.96]\n- Set thresholds for acceptable quality measurements for each software quality requirement. Use these thresholds together with defect data to trigger corrective actions in development. (source: root/Software Quality Management and Project Oversight/Software Quality Planning and Management Challenges.md) [JEV 0.91]\n- Collect and classify testing knowledge—test cases and test results—into knowledge-based repositories to make defect and test information searchable and reusable for future releases, so changes to requirements or design can be reflected in updated tests. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Completion and Knowledge Management/Test Completion and Artifact Reusability in Software Testing.md) [JEV 0.97]\n- Use well-defined test-related measures beyond raw defect counts—such as code coverage, [SWEBOK excerpt f1b40f00a8dbdf172f35]—to assess whether test objectives have been met and to support release decisions. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Completion and Knowledge Management/Test Completion and Artifact Reusability in Software Testing.md; root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test-Related Measures and Quality Evaluation.md) [JEV 0.95]\n- Apply software engineering measurement systematically [SWEBOK excerpt 7eb32c3fa7fede71bbf6], following a structured measurement process (e.g., ISO/IEC/IEEE 15939) to transform raw defect data into actionable improvement information. (source: root/Software Quality Management and Project Oversight/Software Measurement and Organizational Learning/Software Engineering Measurement and Organizational Maturity.md) [JEV 0.90]",
+  "tool_calls": 13,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 11,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 13,
+    "input_tokens": 141609,
+    "output_tokens": 4003
+   }
+  },
+  "jev_calls": 12,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 21044,
+  "jev_input_tokens": 7358,
+  "jev_output_tokens": 240,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Engineering Decision-Making Through Data and Standards/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Software Measurement and Organizational Learning/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Development Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/SUT Measurements and Fault Classification for Test Planning.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Evaluation of the System Under Test.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test-Related Measures and Quality Evaluation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Density Measurement in Software Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Completion and Knowledge Management/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Management and Process Monitoring/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Effectiveness and Process Levels/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Management and Strategic Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Completion and Knowledge Management/Test Completion and Documentation in Test Management.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Completion and Knowledge Management/Test Completion and Artifact Reusability in Software Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Management and Process Monitoring/Test Monitoring and Control in Quality Assurance.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Management and Strategic Approaches/Manager's Role in Failure Discovery and Testing.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Software Measurement and Organizational Learning/Software Engineering Measurement and Organizational Learning.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Software Measurement and Organizational Learning/Software Engineering Measurement and Organizational Maturity.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/Quality Management in Software Projects.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Software Quality Planning and Management Challenges.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Formal Methods, Agile Development, and Software Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Reporting and Evaluation Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Management and Process Improvement/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Management and Process Improvement/Software Quality Improvement Methodologies and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/SUT Measurements and Fault Classification for Test Planning.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Density Measurement in Software Testing.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Software Measurement and Organizational Learning/Software Engineering Measurement and Organizational Learning.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Software Quality Planning and Management Challenges.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Completion and Knowledge Management/Test Completion and Artifact Reusability in Software Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Completion and Knowledge Management/Test Completion and Artifact Reusability in Software Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test-Related Measures and Quality Evaluation.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Software Measurement and Organizational Learning/Software Engineering Measurement and Organizational Maturity.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "[SWEBOK excerpt 6caeafab158e568bb914] anomalies found during reviews and testing. Without a taxonomy, [SWEBOK excerpt 18d6512e7355e8c13362] may be lost unless they are recorded.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Record all defect data found during SQA and control activities; data on errors and defects may be lost unless they are recorded.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Perform Root Cause Analysis (RCA) on defect findings: analyze and summarize findings to identify root causes, then use measurement techniques to improve software engineering processes, techniques, and tools.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Track and analyze fault types and their relative frequency of past occurrence. Knowing [SWEBOK excerpt 18a810509a999250c7a0] system under test, and how often each has occurred historically, is useful for making quality predictions and for process improvement.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/SUT Measurements and Fault Classification for Test Planning.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Measure fault density (the ratio of faults found to system size) rather than just counting bugs. Consider additional dimensions such as fault depth (the minimum number of fault removals needed to make the system [SWEBOK excerpt 03e6a769e17909904ca7]).",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Density Measurement in Software Testing.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply descriptive statistics and trend analysis to defect data. Use charts and graphs as visualization aids so that decision-makers can focus resources and conduct process improvements where [SWEBOK excerpt f46e2c6e857dec416dba] [SWEBOK excerpt 68e683d6e4a645d915fc] corrective action is taken.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Measure defect occurrences and apply [SWEBOK excerpt 4b84d711ac4942726845], enabling targeted quality improvement actions.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Update the organization's measurement database with relevant project defect data at the end of each project, phase, or iteration. Conduct a retrospective analysis so that issues and problems encountered can be analyzed, and feed lessons learned into organizational learning and improvement endeavors.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Software Measurement and Organizational Learning/Software Engineering Measurement and Organizational Learning.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Set thresholds for acceptable quality measurements for each software quality requirement. Use these thresholds together with defect data to trigger corrective actions in development.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Software Quality Planning and Management Challenges.md"
+    ],
+    "score": 0.91,
+    "admitted": true
+   },
+   {
+    "guideline": "Collect and classify testing knowledge—test cases and test results—into knowledge-based repositories to make defect and test information searchable and reusable for future releases, so changes to requirements or design can be reflected in updated tests.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Completion and Knowledge Management/Test Completion and Artifact Reusability in Software Testing.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Use well-defined test-related measures beyond raw defect counts—such as code coverage, [SWEBOK excerpt f1b40f00a8dbdf172f35]—to assess whether test objectives have been met and to support release decisions.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Completion and Knowledge Management/Test Completion and Artifact Reusability in Software Testing.md",
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test-Related Measures and Quality Evaluation.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply software engineering measurement systematically [SWEBOK excerpt 7eb32c3fa7fede71bbf6], following a structured measurement process (e.g., ISO/IEC/IEEE 15939) to transform raw defect data into actionable improvement information.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Software Measurement and Organizational Learning/Software Engineering Measurement and Organizational Maturity.md"
+    ],
+    "score": 0.9,
+    "admitted": true
+   }
+  ]
+ }
+]

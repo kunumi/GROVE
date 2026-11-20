@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T07:39:52.997114",
+  "seconds": 8.8,
+  "question": "What kinds of changes are made to software that is already in use, and what distinguishes each kind from the others?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are the kinds of changes made to software already in use, as described in the SWEBOK Guide:\n\n1. **Corrective maintenance** addresses defects and faults found in the software. It is distinguished by its reactive nature — it responds to failures or incorrect behavior discovered during operation, fixing bugs so the software performs as originally intended. (source: \"corrective maintenance: reactive modification of a software product performed after delivery to correct discovered problems\")\n\n2. **Adaptive maintenance** modifies the software to keep it usable in a changed or changing environment. It is distinguished by its focus on external factors — changes in hardware, operating systems, regulations, or other environmental conditions force updates to the software even though the software itself was not broken. (source: \"adaptive maintenance: modification of a software product performed after delivery to keep a software product usable in a changed or changing environment\")\n\n3. **Perfective maintenance** improves performance or maintainability, or adds new capabilities requested by users. It is distinguished by its proactive and enhancement-oriented nature — the software works correctly, but users or stakeholders want it to do more or do it better. (source: \"[SWEBOK excerpt 4102d6b8711250be31a9] improve performance or maintainability\")\n\n4. **Preventive maintenance** is performed to detect and correct latent faults before they become actual faults or failures. It is distinguished by its anticipatory nature — problems have not yet manifested, but the software is modified to reduce the risk of future failures. (source: \"preventive [SWEBOK excerpt 84b49ac2ec46d0a41b55] detect and correct latent faults in the software product before they become effective faults\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 130,
+    "output_tokens": 358
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

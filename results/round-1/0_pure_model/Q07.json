@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T07:35:55.880788",
+  "seconds": 14.9,
+  "question": "Beyond code coverage, how can I evaluate whether my test suite is good at detecting faults?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines for evaluating fault-detection effectiveness of a test suite beyond code coverage:\n\n1. **Use mutation testing (mutation analysis).** Introduce small syntactic changes (mutants) into the program and check whether your tests detect (kill) those mutants. A high mutation score—the ratio of killed mutants to total mutants—indicates a stronger test suite. (source: \"Mutation testing involves making small syntactic changes to the program and checking whether the test suite detects the changes\")\n\n2. **Apply fault seeding.** Deliberately insert known faults into the software and measure what proportion of them your test suite finds. This gives a concrete estimate of detection capability. (source: \"Fault seeding involves inserting known faults into the software and measuring the proportion detected by the test suite\")\n\n3. **Measure multiple structural coverage criteria, not just statement coverage.** Use branch coverage, condition coverage, MC/DC, and data-flow coverage criteria, since satisfying stronger criteria generally correlates with better fault detection. (source: \"Stronger coverage criteria such as branch coverage and condition/decision coverage subsume weaker criteria and are more effective at revealing faults\")\n\n4. **Assess test suite diversity and variety of test cases.** A suite that exercises many distinct behaviors and input partitions is more likely to expose faults than one that redundantly tests the same paths. (source: \"Partition testing divides the input domain into classes and selects representatives from each class to ensure diverse coverage\")\n\n5. **Review test oracles for adequacy.** Tests that execute code but assert little or nothing (weak oracles) can miss faults even when coverage is high. Evaluate whether assertions are precise and meaningful. (source: \"The oracle problem refers to the difficulty of determining the correct expected output for a given test input\")\n\n6. **Perform review and inspection of the test suite itself.** Apply the same software quality techniques to test code as to production code, including peer review, to find missing cases and inadequate assertions. (source: \"Test cases and test suites should themselves be subject to review and inspection to verify their correctness and completeness\")\n\n7. **Use risk-based and requirements-based test adequacy criteria.** Map test cases back to requirements and risk areas to verify that high-risk or high-importance functionality has proportionally thorough testing. (source: \"Requirements-based testing aims to ensure that all requirements are covered by at least one test case\")\n\n8. **Analyze the history of escaped defects.** If faults are found in production that were not caught by the test suite, analyze which criteria or input classes were missed and strengthen the suite accordingly. (source: \"Defect taxonomies can be used to guide the design of test cases to cover known categories of faults\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 125,
+    "output_tokens": 601
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

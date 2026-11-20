@@ -1,0 +1,60 @@
+[
+ {
+  "start": "2026-11-19T08:06:23.529973",
+  "seconds": 25.3,
+  "question": "What kinds of changes are made to software that is already in use, and what distinguishes each kind from the others?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\n\nSoftware in use undergoes several distinct types of maintenance: corrective (fixing faults), preventive (averting future problems), adaptive (adjusting to environmental changes), perfective (improving quality or documentation), additive (adding significant new features), and emergency (temporary fixes pending corrective action). Each type differs in its trigger, scope, and intent.\n\n# Guidelines\n\n- **Corrective maintenance** addresses faults and latent defects found after delivery, distinguishing it from other types by its reactive, fault-fixing purpose. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md)\n\n- **Perfective maintenance** modifies software after delivery to provide user enhancements, improve documentation, and recode for better performance or maintainability—distinguished by its focus on improving existing functionality rather than adding new capabilities. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md)\n\n- **[SWEBOK excerpt 10da3c278e1ce8d5eae4] it provides additional new functions [SWEBOK excerpt 210738827b6116b1605d]. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md)\n\n- **Emergency maintenance** is [SWEBOK excerpt 29afddbf422c4d134083]—distinguished by its urgency and temporary nature. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md)\n\n- **Adaptive maintenance** responds to changes in interfaced systems or infrastructure, distinguishing it from corrective types by its environmental rather than fault-driven trigger. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md)\n\n- **Preventive maintenance** aims to prevent security threats and remediate technical obsolescence, distinguishing it by its proactive, forward-looking intent rather than response to current failures. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md)\n\n- [SWEBOK excerpt e2ac29c903c109b5a6f3] software rather than merely fixing faults, contrary to common perception. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md)\n\n- [SWEBOK excerpt a88a68981a0e4b36813e]. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Management and Organization/Software Maintainability and Technical Debt Management/Software Maintainability Definition and Importance.md)\n\n- Effort [SWEBOK excerpt 48c115823c2550475f3e] can each be measured separately, confirming these as distinct categories with different resource profiles. (source: /workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Quality and Maintainability Metrics/Software Quality Measurement and Maintenance Metrics.md)",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 16905,
+    "output_tokens": 836
+   }
+  },
+  "jev_calls": 331,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 596466,
+  "jev_input_tokens": 220404,
+  "jev_output_tokens": 9270,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Activities and Cost Distribution.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Management and Organization/Software Maintainability and Technical Debt Management/Software Maintainability Definition and Importance.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/Software Maintenance Role and Necessity.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Quality and Maintainability Metrics/Software Quality Measurement and Maintenance Metrics.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Reengineering and Legacy System Modernization.md",
+   "/workspace/swebok-v4/root/Requirements Validation and Management/Requirements Scrubbing and Change Control Management/Requirements Simplification and Change Control Management.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Engineering Management and Organizational Practices/Software Engineering Management and Project Control.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Management and Organization/Economics of Software Maintenance and Feature Prioritization.md",
+   "/workspace/swebok-v4/root/Requirements Validation and Management/Requirements Scrubbing and Change Control Management/Change Management in Traditional and Agile Project Lifecycles.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Visualization and Reverse Engineering Tools.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Management and Organization/Software Maintainability and Technical Debt Management/Software Maintainability and Technical Debt in Development.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Change Management and Version Control/Implementing Software Changes and Tracking.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Planning and Implementation/Software Configuration Management Planning and Branching Strategies.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Acceptance Testing/Failing Test Cases Drive Production Code Changes.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Behavioral Models and Requirements Documentation/Requirements Documentation and Validation/Requirements Specification Approaches and Versions.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance_ Technical, Management, and Comprehension Challenges/Software Comprehension and Testing in Maintenance.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Engineering Management and Organizational Practices/Challenges in Software Project Management.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Evolution Laws.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/Software Configuration Management and Quality Control.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management Tools and Processes/Configuration Management and Change Control/Baselines and Change Management in Configuration Control.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/Software Configuration Management and Change Control/Software Configuration Control Board Authority and Change Evaluation.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Management and Organization/Aligning Software Maintenance with Organizational Objectives.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

@@ -1,0 +1,64 @@
+[
+ {
+  "start": "2026-11-19T08:38:28.462537",
+  "seconds": 40.8,
+  "question": "Each new version of our web service is switched on for every user at the same moment, so a single faulty version breaks the service for everyone and getting the previous version back takes hours. How should we change the way new versions go live to limit the damage?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are the guidelines SWEBOK recommends for limiting the damage of a faulty release, with sources cited from the passages retrieved:\n\n---\n\n## Guidelines for Safer, Damage-Limited Deployments\n\n### 1. Use an Environment-Based Release Strategy (Staging)\nDeploy new versions to a staging environment first, verifying behaviour there before touching production. This catches problems before every user is exposed.\n\n(source: *\"[SWEBOK excerpt a11c7d9230b04a96dbd6].\"*)\n\n---\n\n### 2. Use Canary Releases to Limit Blast Radius\nInstead of switching the entire user base at once, roll the new version out to a small subset of users first and evaluate it before proceeding.\n\n(source: *\"[SWEBOK excerpt d8f6ea40078561c9b855].\"*)\n\n---\n\n### 3. Use Feature Toggles (Application-Based Release Strategy)\nDecouple deployment from release by hiding new code behind configuration flags. A faulty feature can then be disabled instantly without redeploying anything.\n\n(source: *\"[SWEBOK excerpt 903a8e172cabfed304df].\"*)\n\n---\n\n### 4. Plan, Rehearse, and Automate Rollback Before Every Release\nA rollback plan must exist and be practised before go-live, not improvised during an outage. Automation can make rollback fast enough that users never notice the problem.\n\n(source: *\"[SWEBOK excerpt 934e98b63272335a5a25] [SWEBOK excerpt 38f6b8d3f384481e85f9].\"*)\n\n---\n\n### 5. Automatically Monitor the New Version and Roll Back on Failure\nOnce deployed, observe the new version for a validation period. If it misbehaves, trigger an automatic rollback rather than waiting for manual intervention (which causes the hours-long outage you are experiencing).\n\n(source: *\"[SWEBOK excerpt 07cc42861c87d2679e2a] … [SWEBOK excerpt 81dd40d2cb4a87afdc1c].\"*)\n\n---\n\n### 6. Assess Change Risk and Create a Rollback Plan as Part of Release Planning\nBefore every release, formally assess the risk and decide on a rollback and data migration plan. This should be a mandatory step, not an afterthought.\n\n(source: *\"[SWEBOK excerpt d60bb44926b9fab9e16e].\"*)\n\n---\n\n### 7. Deliver Smaller, Independent Units of Change\nLarge releases bundle many changes, so a single fault breaks many features and is harder to pinpoint. Restructure the service to allow small, independent deployments so the scope of any one failure is narrow.\n\n(source: *\"[SWEBOK excerpt b8b934e78f16f70be67a].\"*)\n\n---\n\n### 8. Keep All Environments Synchronized with Production (Infrastructure as Code)\nFaults often appear in production but not in testing because environments diverge. Automate environment creation from a single code repository so pre-production behaviour reliably predicts production behaviour.\n\n(source: *\"[SWEBOK excerpt f34c73f21576683a69a4]).\"*)\n\n---\n\n### 9. Apply Continuous Testing at Every Stage of the Pipeline\nTest automatically at each step of the delivery pipeline so defects are caught before they ever reach production.\n\n(source: *\"[SWEBOK excerpt cce6d8b9982c10da754e].\"*)\n\n---\n\n### 10. Monitor Production in Real Time with KPIs and Automated Alerts\nInstrument the service so that degradation is detected immediately after a release, reducing the time between a fault being introduced and a rollback being triggered.\n\n(source: *\"[SWEBOK excerpt 1c1a51f63c1990e77355].\"*)\n\n---\n\n### 11. Conduct Post-Mortems and Problem Resolution After Every Incident\nWhen a faulty release does slip through, analyse the root cause and implement corrective actions so the same class of fault cannot recur.\n\n(source: *\"[SWEBOK excerpt 5ce16bc17b21d7ed7db6] from happening again in the future.\"*)",
+  "tool_calls": 3,
+  "tools": {
+   "search_swebok": 3
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 2,
+    "input_tokens": 18635,
+    "output_tokens": 1431
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 3,
+  "embedding_texts": 3,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 158,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [
+   "572ace2b5927dd8e",
+   "1588f840b3bfec8c",
+   "d4adcec6f9f70802",
+   "cc276fabf5ee680a",
+   "06f71d71cfbb50e0",
+   "41d4d1fb826def74",
+   "4b728e8a3de4e7c7",
+   "4cd8f25cd245145f",
+   "ac871e6ea7ede260",
+   "e1fef56a4c3aff32",
+   "cc276fabf5ee680a",
+   "572ace2b5927dd8e",
+   "41d4d1fb826def74",
+   "4b728e8a3de4e7c7",
+   "06f71d71cfbb50e0",
+   "3ff0aea26238d363",
+   "ee1c78366189a38f",
+   "36efd375392da023",
+   "4cd8f25cd245145f",
+   "1c598b150b2f8fec",
+   "d4adcec6f9f70802",
+   "1d5bc748e0a4ef6d",
+   "7bc0daed373d4980",
+   "caf89a26f97f3408",
+   "e1fef56a4c3aff32",
+   "1588f840b3bfec8c",
+   "ee1c78366189a38f",
+   "06f71d71cfbb50e0",
+   "903fb0dabe19404f",
+   "17c3dd6a7706d3cf"
+  ],
+  "admission": []
+ }
+]

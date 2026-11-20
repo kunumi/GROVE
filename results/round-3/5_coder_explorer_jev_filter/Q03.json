@@ -1,0 +1,154 @@
+[
+ {
+  "start": "2026-11-19T08:26:16.214162",
+  "seconds": 48.7,
+  "question": "What principles should guide the design of how a program signals and deals with abnormal conditions, and what alternatives exist for handling errors?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 10 of 10 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Consider the full range of error-handling techniques—[SWEBOK excerpt fab09da3601a283baf81]—and choose the one that best fits your correctness and robustness requirements, since how errors are handled directly affects a program's ability to meet those nonfunctional attributes. (source: root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md) [JEV 0.95]\n- When using exception handling, include in every [SWEBOK excerpt e81da8c796379196c06a], so that the cause of the abnormal condition can be diagnosed. (source: root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md) [JEV 0.98]\n- Avoid empty catch blocks; a caught exception should be processed or control should be explicitly returned to the calling routine rather than silently swallowed. (source: root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md) [JEV 0.98]\n- Know the exceptions that library code throws, so that callers can anticipate and handle abnormal conditions originating from third-party components. (source: root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md) [JEV 0.97]\n- Consider building a centralized exception reporter so that abnormal-condition handling is consistent and observable across the whole program. (source: root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md) [JEV 0.97]\n- Standardize the program's use of exceptions—[SWEBOK excerpt 84175aa1dd75b32066d2] rather than left to ad-hoc decisions. (source: root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md) [JEV 0.98]\n- Use assertions—executable predicates placed in a program—to perform runtime checks, especially in high-reliability programs, to quickly detect mismatched interface assumptions and errors introduced by code changes. (source: root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md; root/Software Construction Techniques and Practices/Parameterization, Templates, Generics, and Assertions.md) [JEV 0.97]\n- Apply Design by Contract: specify preconditions and postconditions for each routine so that every routine forms an explicit contract with the rest of the program, clarifying its behavior and improving construction quality. (source: root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md; root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md) [JEV 0.97]\n- Apply defensive programming by checking the values of all input parameters and deciding in advance how to handle bad inputs, protecting routines from being broken by invalid data. (source: root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md) [JEV 0.97]\n- For fault tolerance, employ strategies such as backing up and retrying, using auxiliary code with voting algorithms, or [SWEBOK excerpt 8b0b1372e25e459ce254], so that software can detect errors and recover from them or contain their effects when recovery is not possible. (source: root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md) [JEV 0.97]",
+  "tool_calls": 12,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 10,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 12,
+    "input_tokens": 94435,
+    "output_tokens": 2516
+   }
+  },
+  "jev_calls": 10,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 18768,
+  "jev_input_tokens": 6464,
+  "jev_output_tokens": 200,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/README.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Methods and Languages/README.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/README.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Parameterization, Templates, Generics, and Assertions.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Construction Quality Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/README.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Parameterization, Templates, Generics, and Assertions.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Consider the full range of error-handling techniques—[SWEBOK excerpt fab09da3601a283baf81]—and choose the one that best fits your correctness and robustness requirements, since how errors are handled directly affects a program's ability to meet those nonfunctional attributes.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "When using exception handling, include in every [SWEBOK excerpt e81da8c796379196c06a], so that the cause of the abnormal condition can be diagnosed.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Avoid empty catch blocks; a caught exception should be processed or control should be explicitly returned to the calling routine rather than silently swallowed.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Know the exceptions that library code throws, so that callers can anticipate and handle abnormal conditions originating from third-party components.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Consider building a centralized exception reporter so that abnormal-condition handling is consistent and observable across the whole program.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Standardize the program's use of exceptions—[SWEBOK excerpt 84175aa1dd75b32066d2] rather than left to ad-hoc decisions.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Error Handling, Exception Handling, and Fault Tolerance.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Use assertions—executable predicates placed in a program—to perform runtime checks, especially in high-reliability programs, to quickly detect mismatched interface assumptions and errors introduced by code changes.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Parameterization, Templates, Generics, and Assertions.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply Design by Contract: specify preconditions and postconditions for each routine so that every routine forms an explicit contract with the rest of the program, clarifying its behavior and improving construction quality.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Assertions and Design by Contract in Programming.md",
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply defensive programming by checking the values of all input parameters and deciding in advance how to handle bad inputs, protecting routines from being broken by invalid data.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Contract Design and Error Handling Strategies/Design by Contract and Defensive Programming.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "For fault tolerance, employ strategies such as backing up and retrying, using auxiliary code with voting algorithms, or [SWEBOK excerpt 8b0b1372e25e459ce254], so that software can detect errors and recover from them or contain their effects when recovery is not possible.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Fault Tolerance Techniques and Executable Models.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   }
+  ]
+ }
+]

@@ -1,0 +1,165 @@
+[
+ {
+  "start": "2026-11-19T07:48:25.622944",
+  "seconds": 62.9,
+  "question": "At the end of each release our bug tracker tells us only how many bugs were found, and that count gives the team nothing to act on. What should we do with our bug records so that they help us introduce fewer bugs in later releases?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 11 of 11 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Establish a defect classification taxonomy. Rather than recording only a count, classify each bug by type, severity, and origin phase. '[SWEBOK excerpt cc445036fb1c8bc4d733].' (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Corrective and Preventive Actions in Quality Management.md) [JEV 0.95]\n- Perform Root Cause Analysis (RCA) on the classified defect data. Analyze and summarize findings to find root causes and use the results to improve software engineering processes, techniques, and tools — not just to remove individual errors. (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md) [JEV 0.97]\n- Record all defect data; never discard it. '[SWEBOK excerpt 1bd4e9984ae7478574ad].' Preserved records are the raw material for every later analysis. (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md) [JEV 0.91]\n- Compute standard quality metrics — error density, defect density, and failure rate — and track them across releases. These measurements help engineers understand trends, assess [SWEBOK excerpt 4e3404a6f700dac21b0c] gauge how well development processes are progressing. (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Software Quality Measurements and Reliability Models.md) [JEV 0.95]\n- Build defect profiles for your application domain and use them to guide future project quality activities. For the next project, the profiles can [SWEBOK excerpt 30963c48e40bd270037b], and accumulated benchmarks (typical defect counts for that domain) can help [SWEBOK excerpt 02353672a2f82548b007]. (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Software Quality Measurements and Reliability Models.md) [JEV 0.98]\n- Build reliability models from the collected failure data. These models [SWEBOK excerpt 4408cccb8691d5f04336] decisions about when to stop testing, and the information can feed Software Process Improvement (SPI) to prevent, reduce, or eliminate defect recurrence. (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Software Quality Measurements and Reliability Models.md) [JEV 0.96]\n- Apply statistical and graphical analysis techniques — Pareto analysis, run charts, control charts, scatter plots, and trend analysis — to the defect measurement data. These are visualization aids that [SWEBOK excerpt f0171a79a381de708525] are most needed, and trend analysis may flag that certain classes of faults will become more likely unless corrective action is taken. (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Cost Analysis Techniques.md; root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md) [JEV 0.95]\n- Apply statistical methods to understand which defect types occur most frequently. 'Software quality measurement also [SWEBOK excerpt ddd77427515d2f2ed0b5].' (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md) [JEV 0.98]\n- Document and track corrective and preventive actions. When quality objectives are not met, corrective actions must be documented, submitted to an independent organization, and monitored for progress, with relevant stakeholders informed — to prevent recurrence in future projects. (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Corrective and Preventive Actions in Quality Management.md) [JEV 0.96]\n- Feed defect data into a continual process-improvement cycle (e.g., Plan-Do-Check-Act) covering fault/defect categorization, detection, removal, and prevention. The process includes '[SWEBOK excerpt f8919ed1ceef36af4237]' as one of several concurrent feedback loops that together improve software product quality. (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Management and Process Improvement/Software Quality Improvement Methodologies and Practices/Software Quality Improvement Through Process Management.md) [JEV 0.96]\n- Use automated tool output to generate defect trend reports for management. When automated SQA tools are used, their output can provide defect trend reports that are provided to the organization's management, enabling informed oversight decisions. (source: root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Assurance Process and Activities.md) [JEV 0.96]",
+  "tool_calls": 13,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 11,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 13,
+    "input_tokens": 120201,
+    "output_tokens": 3734
+   }
+  },
+  "jev_calls": 11,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 24377,
+  "jev_input_tokens": 7639,
+  "jev_output_tokens": 220,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Software Measurement and Organizational Learning/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Development Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Management and Process Improvement/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Reporting and Evaluation Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Management and Process Improvement/Software Quality Improvement Methodologies and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Management and Process Improvement/Software Quality Management and Organizational Support/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Corrective and Preventive Actions in Quality Management.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Software Quality Measurements and Reliability Models.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Management and Process Improvement/Software Quality Improvement Methodologies and Practices/Software Quality Improvement Approaches.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Management and Process Improvement/Software Quality Improvement Methodologies and Practices/Software Quality Improvement Through Process Management.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Cost Analysis Techniques.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Assurance Process and Activities.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Corrective and Preventive Actions in Quality Management.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Software Quality Measurements and Reliability Models.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Software Quality Measurements and Reliability Models.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Software Quality Measurements and Reliability Models.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Cost Analysis Techniques.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Corrective and Preventive Actions in Quality Management.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Management and Process Improvement/Software Quality Improvement Methodologies and Practices/Software Quality Improvement Through Process Management.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Assurance Process and Activities.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Establish a defect classification taxonomy. Rather than recording only a count, classify each bug by type, severity, and origin phase. '[SWEBOK excerpt cc445036fb1c8bc4d733].'",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Corrective and Preventive Actions in Quality Management.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Perform Root Cause Analysis (RCA) on the classified defect data. Analyze and summarize findings to find root causes and use the results to improve software engineering processes, techniques, and tools — not just to remove individual errors.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Record all defect data; never discard it. '[SWEBOK excerpt 1bd4e9984ae7478574ad].' Preserved records are the raw material for every later analysis.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Management and Defect Classification.md"
+    ],
+    "score": 0.91,
+    "admitted": true
+   },
+   {
+    "guideline": "Compute standard quality metrics — error density, defect density, and failure rate — and track them across releases. These measurements help engineers understand trends, assess [SWEBOK excerpt 4e3404a6f700dac21b0c] gauge how well development processes are progressing.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Software Quality Measurements and Reliability Models.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Build defect profiles for your application domain and use them to guide future project quality activities. For the next project, the profiles can [SWEBOK excerpt 30963c48e40bd270037b], and accumulated benchmarks (typical defect counts for that domain) can help [SWEBOK excerpt 02353672a2f82548b007].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Software Quality Measurements and Reliability Models.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Build reliability models from the collected failure data. These models [SWEBOK excerpt 4408cccb8691d5f04336] decisions about when to stop testing, and the information can feed Software Process Improvement (SPI) to prevent, reduce, or eliminate defect recurrence.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Software Quality Measurements and Reliability Models.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply statistical and graphical analysis techniques — Pareto analysis, run charts, control charts, scatter plots, and trend analysis — to the defect measurement data. These are visualization aids that [SWEBOK excerpt f0171a79a381de708525] are most needed, and trend analysis may flag that certain classes of faults will become more likely unless corrective action is taken.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Cost Analysis Techniques.md",
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply statistical methods to understand which defect types occur most frequently. 'Software quality measurement also [SWEBOK excerpt ddd77427515d2f2ed0b5].'",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Measurement and Analysis Techniques/Software Quality Measurement and Statistical Analysis Techniques.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Document and track corrective and preventive actions. When quality objectives are not met, corrective actions must be documented, submitted to an independent organization, and monitored for progress, with relevant stakeholders informed — to prevent recurrence in future projects.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Quality Metrics, Reliability Models, and Corrective Actions/Corrective and Preventive Actions in Quality Management.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Feed defect data into a continual process-improvement cycle (e.g., Plan-Do-Check-Act) covering fault/defect categorization, detection, removal, and prevention. The process includes '[SWEBOK excerpt f8919ed1ceef36af4237]' as one of several concurrent feedback loops that together improve software product quality.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Management and Process Improvement/Software Quality Improvement Methodologies and Practices/Software Quality Improvement Through Process Management.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Use automated tool output to generate defect trend reports for management. When automated SQA tools are used, their output can provide defect trend reports that are provided to the organization's management, enabling informed oversight decisions.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Quality Assurance and Verification Standards/Software Quality Assurance and Defect Management/Software Quality Assurance Process and Activities.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   }
+  ]
+ }
+]

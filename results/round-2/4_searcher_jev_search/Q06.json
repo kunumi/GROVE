@@ -1,0 +1,53 @@
+[
+ {
+  "start": "2026-11-19T08:01:55.349555",
+  "seconds": 85.5,
+  "question": "A function takes six configuration parameters, each with several possible values, and testing every possible mix of their values is too expensive. How should the test cases be derived?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "I have gathered sufficient material from the SWEBOK. Here are the guidelines, drawn exclusively from what was returned.\n\n---\n\n## Guidelines for Deriving Test Cases When Exhaustive Combination Testing Is Too Expensive\n\n---\n\n### 1. Apply equivalence partitioning to reduce each parameter's value space first\n\nBefore tackling combinations, divide each parameter's input domain into equivalence classes and pick one representative value per class. This immediately shrinks the pool of values that need to be combined.\n\n> *\"[SWEBOK excerpt e279d64d08518504c456] criterion or relation … [SWEBOK excerpt 83b36aaa6987b9eb0caf].\"*\n\n(source: `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md` and `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md`)\n\n---\n\n### 2. Add boundary-value tests at the edges of each parameter's range\n\nFor each parameter, include values at or near the boundaries of its domain, because faults tend to cluster there. For extra rigour, also test values just outside the domain (robustness testing).\n\n> *\"[SWEBOK excerpt 22b5a76f3ce0e0a3a3af].\"*\n\n(source: `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md`)\n\n---\n\n### 3. Use combinatorial test techniques to cover interactions systematically rather than exhaustively\n\nOnce the value space per parameter is reduced, apply one of the standard combinatorial strategies instead of \"all combinations\":\n\n- **Each Choice Testing** – ensure every value of every parameter appears in at least one test case.\n- **Base Choice Testing** – choose a base combination of values, then vary one parameter at a time away from the base.\n- **Pair-Wise (2-way) Testing** – ensure every *pair* of parameter values appears together in at least one test case.\n- **t-wise Testing** – generalise pairwise to t > 2, covering every combination of t parameter values.\n\n> *\"[SWEBOK excerpt 06e9858a17d740b5db06].\"*\n\n(source: `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md`)\n\n---\n\n### 4. Treat pair-wise testing (OAT) as the default when interaction coverage must be justified economically\n\nPairwise is the most commonly adopted subset of t-wise testing. It provides a principled balance between coverage and test count, and can be implemented via orthogonal arrays.\n\n> *\"[SWEBOK excerpt 88bf22434c6314e981bd]).\"*\n\n(source: `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md`)\n\n---\n\n### 5. Escalate to t-wise testing when higher-order interactions are suspected\n\nIf there is reason to believe that interactions among three or more parameters cause faults, raise t above 2. Full \"all combinations\" testing (t = number of parameters) is at the other extreme and is used only when completeness is mandatory.\n\n> *\"[SWEBOK excerpt 9efc0f0625a900e6e507]).\"*\n\n(source: `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md`)\n\n---\n\n### 6. Use a decision table to capture and test logical dependencies among parameter values\n\nIf the six parameters have logical relationships (e.g., certain values of one parameter are only meaningful with certain values of another), model these as conditions and actions in a decision table. The table makes all relevant combinations explicit and prevents both gaps and duplicates.\n\n> *\"[SWEBOK excerpt a11245cd76e2da148e79]).\"*\n\n(source: `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md`)\n\n---\n\n### 7. Use cause-effect graphing to uncover non-obvious input-condition interactions\n\nWhere the relationships between parameter values and expected outputs are complex, model them as a cause-effect graph. This technique systematically explores combinations of input conditions and links them to their effects, ensuring that inter-parameter constraints are not missed.\n\n> *\"[SWEBOK excerpt f7aeee26341760feaae7].\"*\n\n(source: `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md`)\n\n---\n\n### 8. Consider combining specification-based techniques with structure-based or experience-based ones\n\nNo single technique is complete. The SWEBOK notes that combining functional (specification-based) and structural techniques, and supplementing with experience-based error guessing, improves overall fault detection.\n\n> *\"[SWEBOK excerpt 2d40edda93318f937a87] … [SWEBOK excerpt 7093339fe3a8e76b30e6].\"*\n\n(source: `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md`)\n\n---\n\n**Summary of the approach:** start by collapsing each parameter's values into equivalence classes (Guideline 1) and add boundary values (Guideline 2); then use a combinatorial strategy—Each Choice, Base Choice, pairwise, or t-wise—to form test cases from those reduced values (Guidelines 3–5); supplement with a decision table or cause-effect graph when logical dependencies exist (Guidelines 6–7); and finally mix in structural or experience-based cases as resources allow (Guideline 8).",
+  "tool_calls": 5,
+  "tools": {
+   "jev_search": 5
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 3,
+    "input_tokens": 87716,
+    "output_tokens": 3005
+   }
+  },
+  "jev_calls": 829,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 1614477,
+  "jev_input_tokens": 567722,
+  "jev_output_tokens": 23169,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/Advanced Software Testing Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/Software Construction and Testing Overview.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/Guide to the Software Engineering Body of Knowledge v4.0a.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/Control Flow Testing Criteria and Coverage.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

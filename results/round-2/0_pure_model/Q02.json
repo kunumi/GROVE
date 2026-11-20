@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T07:57:50.641018",
+  "seconds": 11.0,
+  "question": "A function has grown into a long chain of conditionals that maps combinations of conditions to results, and it is hard to change. What construction approach helps, and what has to be decided when applying it?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are the guidelines for addressing a long chain of conditionals that maps condition-combinations to results, drawn from the SWEBOK Guide's treatment of construction:\n\n1. **Use a table-driven (decision-table or lookup-table) approach** to replace complex conditional logic. When conditions and their corresponding actions or results can be enumerated, a table structure makes the mapping explicit and easier to maintain than a chain of if-else or case statements. (source: \"Table-driven methods are a scheme of looking up information in a table rather than using logic statements to figure it out\")\n\n2. **Decide what data to store in the table** — whether it stores direct results, computed values, indexes to actions, or references to functions/objects that perform actions. This shapes how flexible and reusable the table is. (source: \"you have to decide what to store in the table and what to do with the data you look up\")\n\n3. **Decide how to access the table** — by direct index, by stepped access (scanning sequential entries), or by indexed access (using a secondary lookup to map a key to a table index). Different data distributions call for different access strategies. (source: \"how to look up entries in the table: direct access, indexed access, stair-step access\")\n\n4. **Prefer the table approach when the logic would otherwise require deeply nested or lengthy conditional chains**, because a table separates the data (the mapping) from the logic, making both easier to modify independently. (source: \"complex logic is sometimes better expressed as a table rather than as code\")\n\n5. **Ensure the table structure itself is well-documented**, because the meaning of rows and columns is not self-evident the way named conditionals might be, so comments or naming conventions must carry the explanatory burden that code structure no longer carries. (source: \"If you use a table, you need to explain what the table represents\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 147,
+    "output_tokens": 410
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

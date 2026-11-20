@@ -1,0 +1,55 @@
+[
+ {
+  "start": "2026-11-19T07:57:35.976716",
+  "seconds": 77.0,
+  "question": "How should I derive test cases for a component whose behavior depends on its current state and on the events it receives?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nFor components whose behavior depends on current state and received events, SWEBOK v4 recommends **State Transition Testing**: represent the component as a Finite-State Machine, then derive a test suite that covers states and transitions at a chosen coverage level. This falls within specification-based (black-box) testing, complemented by model-based testing and scenario-based testing for validating behavioral requirements.\n\n# Guidelines\n\n- **Model the component as a Finite-State Machine (FSM).** State Transition Testing techniques are built around this model of the SUT. (source: `root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md` — *\"Techniques based on Finite-State Machines… [SWEBOK excerpt e100766fea5ee2a192d1].\"*)\n\n- **Derive the test suite to cover states and transitions at a specified coverage level.** The choice of coverage level determines how thoroughly the state space and its transitions are exercised. (source: `root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md` — *\"the test [SWEBOK excerpt 1e051e7dde1a64e3a5e8].\"*)\n\n- **Use specification-based (black-box) techniques grounded in the SUT's input/output behavior.** State transition testing belongs to this family: test cases come from the behavioral specification, not from internal code. (source: `root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md`, §3.1 — *\"in the specification-based [SWEBOK excerpt f5237fb14c87734fa3d6].\"*)\n\n- **Adopt model-based testing as the overarching framework.** When a behavioral model such as an FSM exists, model-based testing encompasses all techniques that use it. (source: `root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md`, §3 — *\"model-based testing [SWEBOK excerpt a4f61e38cc73c9322c5a].\"*)\n\n- **Use scenario-based testing to validate state-dependent behavioral requirements.** Scenarios generate test cases focused on behavioral aspects and check requirements for consistency. (source: `root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md`, §3.1.8 — *\"[SWEBOK excerpt e41ffd571d00f5662528].\"*)\n\n- **Apply cause-effect graphing to identify relevant input conditions (causes) and output conditions (effects)** before building the FSM model. (source: `root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md` — *\"[SWEBOK excerpt 86d9317a948fcaa65303].\"*)\n\n# Gaps\n- Detailed step-by-step procedure for constructing a state transition table or diagram.\n- Specific named coverage criteria (all-states, all-transitions, all-transition-pairs, all-paths) and how to choose among them.\n- Handling of hierarchical states, statecharts, or concurrent state machines.\n- Identification of specific fault types introduced by incorrect state transitions.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 12,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 10,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 13,
+    "input_tokens": 111062,
+    "output_tokens": 4029
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/README.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/README.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/Structure-Based Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

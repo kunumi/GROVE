@@ -1,0 +1,42 @@
+[
+ {
+  "start": "2026-11-19T07:34:39.786620",
+  "seconds": 19.5,
+  "question": "How should test inputs be chosen for a function that accepts numeric values within a valid range?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\n\nWhen testing functions that accept numeric values within a valid range, test inputs should be selected using equivalence partitioning, boundary value analysis, and exception/robustness testing. These techniques ensure coverage of valid ranges, edge cases, and invalid inputs to detect domain errors and verify correct error handling.\n\n# Guidelines\n\n- Partition the input domain into equivalence classes (valid and invalid), and select a representative test case from each class. (source: /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md)\n\n- Choose test cases [SWEBOK excerpt bb061752587bc7b35163], as [SWEBOK excerpt 44266d1663bca03e93fd]. (source: /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md)\n\n- Include test cases outside the valid input domain (robustness testing) to verify the program handles unexpected or erroneous inputs correctly. (source: /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md)\n\n- Select test inputs that [SWEBOK excerpt 5f4ea330ea166956e75d]. (source: /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md)\n\n- Include test cases specifically designed to force exceptions such as overflow or underflow to verify correct error handling. (source: /workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Exception Testing and Error Handling in Software Testing.md)\n\n- Consider random test inputs drawn from within the known input domain as a complementary approach to structured selection. (source: /workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md)",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 13146,
+    "output_tokens": 485
+   }
+  },
+  "jev_calls": 303,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 540715,
+  "jev_input_tokens": 202102,
+  "jev_output_tokens": 8941,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Exception Testing and Error Handling in Software Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

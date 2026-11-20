@@ -1,0 +1,67 @@
+[
+ {
+  "start": "2026-11-19T08:35:42.103360",
+  "seconds": 129.4,
+  "question": "A coding agent proposes splitting a large module into several networked services. Before anyone implements it, how can the team check whether this high-level structure will meet goals that pull against each other, such as response time, hosting cost and ease of future change?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nBefore committing to a networked-services decomposition, the team should treat the competing quality goals (response time, hosting cost, modifiability) as Architecturally Significant Requirements (ASRs), then evaluate candidate structures using structured methods—chiefly ATAM—that explicitly surface trade-offs between those goals. The evaluation should rest on concrete Architecture Descriptions, be supported by architecture metrics and formal/simulation analysis for quantitative concerns, and be validated through architecture reviews and use-case walkthroughs, all before any implementation begins.\n\n# Guidelines\n\n- **Formalise the competing goals as ASRs.** [SWEBOK excerpt 9d998d1a052a05552274]'\"; when initial requirements conflict with constraints, negotiation modifies them to make solutions possible. (source: `root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture_ Contexts, Methods, and Design Processes/Architecture Analysis and Synthesis/Architectural Design Analysis and Key Concerns.md`)\n\n- **Enumerate all stakeholder concerns explicitly before evaluating.** The BoK lists performance, cost, maintainability, modifiability, scalability, deployability, and many others as architectural concerns that must be identified upfront; a [SWEBOK excerpt 2b5be14d38e26a8e2cee].\" (source: `root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/Architectural Concerns, Views, and Viewpoints/Stakeholder Concerns in Software Architecture.md`)\n\n- **Apply ATAM (or SAAM / QAW) for structured trade-off evaluation.** \"The Architecture Tradeoff Analysis Method (ATAM) [SWEBOK excerpt 02150566f2318db6d9d7].\" (source: `root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md`)\n\n- **Ask the core \"goodness\" questions about the proposal.** Evaluation should check: Is it robust over its lifetime? Is it fit for purpose? \"[SWEBOK excerpt 2cdc4e866aeccce0834f]?\" and is it understandable to those who must build and maintain it? The BoK also warns that \"[SWEBOK excerpt b2eae3163f0b2bf88962] easy-to-[SWEBOK excerpt 38d1ec47799c52b25ffe].\" (source: `root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md`)\n\n- **Conduct formal architecture reviews, including active reviews.** \"[SWEBOK excerpt bf14a85c53b59c12fd25].\" Active reviews (Parnas & Weiss) replace checklists with specific reviewer activities to obtain the needed information; many organisations institutionalise this practice. (source: `root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Reviews and Metrics for Quality Assessment.md`)\n\n- **Base evaluation on explicit Architecture Descriptions, not just verbal proposals.** \"[SWEBOK excerpt fb6cb616802e058dd465] … [SWEBOK excerpt 569581af625718fb9000].\" (source: `root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Evaluating Software Architectures Through Specialized Representations.md`)\n\n- **Measure structural properties with architecture metrics.** \"[SWEBOK excerpt 0eeb3b6a894638407f5f],\" including component dependency, coupling and cohesion, cyclomatic complexity, and—in DevOps settings—lead time for changes, deployment frequency, and mean time to restore service. (source: `root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Metrics and Evaluation.md`)\n\n- **Use formal analysis and simulation/prototyping to predict performance and cost.** \"[SWEBOK excerpt 7c9848044a0924e23933].\" Simulation and feasibility prototypes are recommended as \"[SWEBOK excerpt fcf2134595cca28d8826]).\" (source: `root/Software Design Quality Evaluation and Assessment/Design Analysis and Quality Metrics/Formal Analysis and Dynamic Evaluation Techniques.md`)\n\n- **Explicitly analyse scaling, performance, and resource-consumption properties during architectural design.** The BoK lists \"[SWEBOK excerpt a5f4b2c55c18f1ab709f]\" as a required concern in architectural design analysis. (source: `root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture_ Contexts, Methods, and Design Processes/Architecture Analysis and Synthesis/Architectural Design Analysis and Key Concerns.md`)\n\n- **Conduct design reviews and audits targeted at quality attributes.** \"[SWEBOK excerpt 36005a8faad196496b0f].\" Quality attributes to check include modularity, maintainability, portability, testability, correctness, and robustness. (source: `root/Software Design Quality Evaluation and Assessment/Design Review and Quality Assessment/Design Reviews, Audits, and Quality Attributes.md`)\n\n- **Trace use cases through the proposed service graph.** \"[SWEBOK excerpt 47250df3263dc7898ea9] [SWEBOK excerpt 5ee3de222c48ddecd1aa].\" This reveals whether the decomposition can support required response times on realistic workloads. (source: `root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Documentation and Use Case Evaluation.md`)\n\n- **Iterate analysis → synthesis → evaluation to resolve trade-offs before committing.** \"[SWEBOK excerpt ad37e76b077a4c5afa6b] architecture analysis … [SWEBOK excerpt 98f79b2db8d2747f35e7],\" allowing the team to refine the design iteratively rather than locking in an unexamined proposal. (source: `root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture_ Contexts, Methods, and Design Processes/Architecture Analysis and Synthesis/Architecture Synthesis and Design Problem Resolution.md`)\n\n# Gaps\n- The BoK does not supply quantitative thresholds or benchmarks for acceptable response time, hosting cost, or modifiability scores.\n- Cloud-specific or microservices-specific cost modelling (e.g., cloud pricing calculators, container orchestration cost models) is not covered.\n- Detailed tooling or templates for running ATAM sessions are referenced conceptually but not described procedurally in the BoK.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 11,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 9,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 12,
+    "input_tokens": 122298,
+    "output_tokens": 6269
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/README.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/README.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/README.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/README.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/Design Review and Quality Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/Design Analysis and Quality Metrics/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Architecture Evaluation and Practices Methods.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Architecting in the Large and Architecture Evaluation.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/Design Review and Quality Assessment/Design Reviews, Audits, and Quality Attributes.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/Design Analysis and Quality Metrics/Formal Analysis and Dynamic Evaluation Techniques.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/Architectural Concerns, Views, and Viewpoints/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture_ Contexts, Methods, and Design Processes/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Evaluation and Quality Tradeoffs.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Reviews and Metrics for Quality Assessment.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Architecture Documentation and Use Case Evaluation.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Evaluating Software Architectures Through Specialized Representations.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Evaluating Software Architecture Quality and Fitness/Software Architecture Metrics and Evaluation.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture_ Contexts, Methods, and Design Processes/Architecture Analysis and Synthesis/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/Architectural Concerns, Views, and Viewpoints/Stakeholder Concerns in Software Architecture.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture_ Contexts, Methods, and Design Processes/Architecture Analysis and Synthesis/Architectural Design Analysis and Key Concerns.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture_ Contexts, Methods, and Design Processes/Architecture Analysis and Synthesis/Architecture Synthesis and Design Problem Resolution.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/Architectural Concerns, Views, and Viewpoints/Software Architecture and Evolving System Concerns.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

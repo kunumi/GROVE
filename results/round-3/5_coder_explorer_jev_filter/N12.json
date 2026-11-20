@@ -1,0 +1,100 @@
+[
+ {
+  "start": "2026-11-19T08:47:52.153541",
+  "seconds": 52.6,
+  "question": "A test accepts a computed result when its difference from the expected value is below 0.001, which is far too strict for values in the millions and far too loose for values around 0.0001. How should the discrepancy be measured instead, and how does that measure tell how many leading digits of the result can be trusted?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 5 of 5 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Replace the fixed absolute threshold with a relative-error check. The absolute error of an approximation x* to a true value x is |x* − x|, but the relative error is |x* − x| / |x|. Because the relative error normalises the discrepancy by the size of the true value, it is scale-independent and remains meaningful whether the values are in the millions or near zero — unlike a fixed tolerance such as 0.001, which is simultaneously too tight for large values and too loose for small ones. The BoK states: '[SWEBOK excerpt 297dadd84958fa3cc461].' (source: root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md) [JEV 0.89]\n- Understand the difference between accuracy and precision before choosing a tolerance. [SWEBOK excerpt 1f471aaf68aafaaa417c], while precision [SWEBOK excerpt 6a95d65282980f06335d]. A test threshold should target the required accuracy (agreement with truth), not just precision (repeatability), so the tolerance must be set relative to the magnitude of the true value. (source: root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Fixed-Point Arithmetic and Numerical Precision.md) [JEV 0.68]\n- Use the relative error to determine how many leading (significant) digits of the result can be trusted. [SWEBOK excerpt 94dcfaf34a6455ae8383] less than 5 × 10^(−k−1). Equivalently, [SWEBOK excerpt 725fb0910000ec9b0406] the true value x. This gives a direct, scale-independent reading of correctness: a relative error below 5 × 10^−4 means the result is correct to three significant digits, regardless of whether those digits represent thousands or millionths. (source: root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md; root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md) [JEV 0.96]\n- Express the acceptance criterion as a maximum permitted relative error, not a fixed absolute difference. For example, the BoK illustrates that the absolute error of approximating 1,000,001 by 1,000,000 is 1 — which would fail a 0.001 absolute test — yet the relative error is only 10^−6, indicating the approximation is correct to six significant digits. Conversely, approximating 11 by 10 also gives an absolute error of 1 but a relative error of 0.1, indicating only about one significant digit, which a 0.001 absolute threshold would not catch if both values happened to be small. Setting the threshold as a relative error prevents both kinds of mis-classification. (source: root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md) [JEV 0.88]\n- When reporting or recording measured results alongside the test, count and state the number of significant digits. [SWEBOK excerpt 11fbdd31787e7073109f] [SWEBOK excerpt 74eb3ea8534ba215b83c]. This practice makes the precision of both the expected value and the computed result explicit, enabling the test threshold to be aligned with the actual precision of the reference data rather than an arbitrary fixed constant. (source: root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md) [JEV 0.78]",
+  "tool_calls": 11,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 9,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 11,
+    "input_tokens": 87393,
+    "output_tokens": 2642
+   }
+  },
+  "jev_calls": 5,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 9958,
+  "jev_input_tokens": 3662,
+  "jev_output_tokens": 100,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/Oracle Limitations and Testing Theory Constraints.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Fixed-Point Arithmetic and Numerical Precision.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/Infeasible Paths, Testability, and Test Execution Automation.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Fixed-Point Arithmetic and Numerical Precision.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Replace the fixed absolute threshold with a relative-error check. The absolute error of an approximation x* to a true value x is |x* − x|, but the relative error is |x* − x| / |x|. Because the relative error normalises the discrepancy by the size of the true value, it is scale-independent and remains meaningful whether the values are in the millions or near zero — unlike a fixed tolerance such as 0.001, which is simultaneously too tight for large values and too loose for small ones. The BoK states: '[SWEBOK excerpt 297dadd84958fa3cc461].'",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md"
+    ],
+    "score": 0.89,
+    "admitted": true
+   },
+   {
+    "guideline": "Understand the difference between accuracy and precision before choosing a tolerance. [SWEBOK excerpt 1f471aaf68aafaaa417c], while precision [SWEBOK excerpt 6a95d65282980f06335d]. A test threshold should target the required accuracy (agreement with truth), not just precision (repeatability), so the tolerance must be set relative to the magnitude of the true value.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Fixed-Point Arithmetic and Numerical Precision.md"
+    ],
+    "score": 0.68,
+    "admitted": true
+   },
+   {
+    "guideline": "Use the relative error to determine how many leading (significant) digits of the result can be trusted. [SWEBOK excerpt 94dcfaf34a6455ae8383] less than 5 × 10^(−k−1). Equivalently, [SWEBOK excerpt 725fb0910000ec9b0406] the true value x. This gives a direct, scale-independent reading of correctness: a relative error below 5 × 10^−4 means the result is correct to three significant digits, regardless of whether those digits represent thousands or millionths.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+     "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Express the acceptance criterion as a maximum permitted relative error, not a fixed absolute difference. For example, the BoK illustrates that the absolute error of approximating 1,000,001 by 1,000,000 is 1 — which would fail a 0.001 absolute test — yet the relative error is only 10^−6, indicating the approximation is correct to six significant digits. Conversely, approximating 11 by 10 also gives an absolute error of 1 but a relative error of 0.1, indicating only about one significant digit, which a 0.001 absolute threshold would not catch if both values happened to be small. Setting the threshold as a relative error prevents both kinds of mis-classification.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md"
+    ],
+    "score": 0.88,
+    "admitted": true
+   },
+   {
+    "guideline": "When reporting or recording measured results alongside the test, count and state the number of significant digits. [SWEBOK excerpt 11fbdd31787e7073109f] [SWEBOK excerpt 74eb3ea8534ba215b83c]. This practice makes the precision of both the expected value and the computed result explicit, enabling the test threshold to be aligned with the actual precision of the reference data rather than an arbitrary fixed constant.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md"
+    ],
+    "score": 0.78,
+    "admitted": true
+   }
+  ]
+ }
+]

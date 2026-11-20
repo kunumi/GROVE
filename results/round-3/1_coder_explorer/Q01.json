@@ -1,0 +1,62 @@
+[
+ {
+  "start": "2026-11-19T08:24:31.285869",
+  "seconds": 84.5,
+  "question": "How should I derive test cases for a component whose behavior depends on its current state and on the events it receives?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nSWEBOK v4 addresses this scenario through **State Transition Testing**, which requires modeling the component as a Finite-State Machine (FSM) and then systematically deriving test cases from that model. Positive test cases are derived for every *defined* (state, event) transition; negative test cases are derived for every *undefined* (state, event) combination. This technique is classified as a specification-based (black-box) approach, and tools can help generate inputs but determining expected outputs may still require domain expertise.\n\n# Guidelines\n\n- **Model the component as a Finite-State Machine.** State Transition Testing techniques [SWEBOK excerpt e100766fea5ee2a192d1]. (source: `root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md` — *\"[SWEBOK excerpt 36107f469ad2e6d2b6e2].\"*)\n\n- **Derive one positive test case per defined transition.** For every valid (state, event) pair present in the model, create a test case that exercises that transition. (source: `root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md` — *\"[SWEBOK excerpt f2d8a55feb05b9720395].\"*)\n\n- **Derive negative test cases from undefined (state, event) combinations.** Every combination that is *not* defined in the model should yield a negative test case verifying the component handles it correctly. (source: `root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md` — *\"[SWEBOK excerpt 24bcfcac1d9464c98f15].\"*)\n\n- **Treat this as a form of model-based testing.** The FSM is a behavioral-specification model; using it to generate tests falls under model-based testing, where \"a model representing behavioral specification … [is used] for test case generation.\" (source: `root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md`)\n\n- **Classify it as a specification-based (black-box) technique.** Test case generation is based solely on the input/output behavioral specification, not on internal code: *\"[SWEBOK excerpt c37129b7fc2f9a3a42a7].\"* (source: `root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md`)\n\n- **Use tools for input generation, but determine expected results separately.** Automation can produce test inputs from the model, but *\"[SWEBOK excerpt b6411ae3eb2e0a84f397].\"* (source: `root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md`)\n\n- **Consider scenario/workflow-based testing as a complement.** If the FSM captures sequences of events, each path is a scenario: *\"[SWEBOK excerpt 4c26fd925a99be130be5])\"*, and test cases can be derived per scenario. (source: `root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md`)\n\n# Gaps\n- The BoK does not elaborate on specific FSM coverage criteria (e.g., all-transitions-pairs, W-method, distinguishing sequences).\n- No guidance on handling non-deterministic or concurrent state machines.\n- No detail on fault models specific to FSM-based testing.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 16,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 13,
+   "search_tool_history": 1,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 17,
+    "input_tokens": 164117,
+    "output_tokens": 4115
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/README.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/README.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/README.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/README.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/System Design Documentation and Notation Tools/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Model-Based Design and Software Notation/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/System Design Documentation and Notation Tools/Notations for Describing Software System Behavior.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/README.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Deriving Test Cases from Requirements Models.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

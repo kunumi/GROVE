@@ -1,0 +1,62 @@
+[
+ {
+  "start": "2026-11-19T08:21:12.768796",
+  "seconds": 84.5,
+  "question": "A test accepts a computed result when its difference from the expected value is below 0.001, which is far too strict for values in the millions and far too loose for values around 0.0001. How should the discrepancy be measured instead, and how does that measure tell how many leading digits of the result can be trusted?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nA fixed absolute tolerance like 0.001 fails because the same numerical gap means very different things at different scales. The BoK prescribes using **relative error** — |x* − x| / |x| — instead, which it explicitly calls \"[SWEBOK excerpt 09180dd579d1a2f529c4] relative error then directly determines how many leading digits are correct: an approximation has *k* significant decimal digits if and only if its relative error is less than 5 × 10^(−k−1).\n\n# Guidelines\n\n- **Replace absolute error with relative error.** The discrepancy should be measured as |x* − x| / |x|, not |x* − x|. (source: `root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md` — *\"[SWEBOK excerpt e34f7850b6927fbf9f5d]|\"*)\n\n- **Prefer relative error as the principal tolerance criterion.** The BoK states: *\"[SWEBOK excerpt 297dadd84958fa3cc461].\"* (source: same file)\n\n- **Understand why absolute error is scale-blind.** The BoK shows: *\"[SWEBOK excerpt 3baaec5a616a729ec42c]⁻⁶, [SWEBOK excerpt 8f40bc3ffa6de1a9ad8f].\"* The same absolute gap is negligible at large scale but catastrophic at small scale. (source: same file)\n\n- **Translate a relative error bound directly into trusted leading digits.** *\"[SWEBOK excerpt d733fa16600e8d921702]).\"* Set your tolerance from however many correct leading digits you require. (source: same file)\n\n- **Count significant digits from the first nonzero digit, not the decimal point.** *\"[SWEBOK excerpt b0cbf7e40e6061f47ac9].\"* Relative error handles this automatically; absolute error does not. (source: `root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md`)\n\n- **Distinguish accuracy from precision.** *\"[SWEBOK excerpt b586fdd39148fb34c49b].\"* A numerical acceptance test is measuring accuracy, to which relative error applies. (source: `root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Fixed-Point Arithmetic and Numerical Precision.md`)\n\n# Gaps\n- The BoK does not cover ULPs (units in the last place) as an alternative error measure.\n- The BoK does not address IEEE 754 floating-point rounding, machine epsilon, or catastrophic cancellation.\n- The BoK does not give guidance on handling the x = 0 edge case (where relative error is undefined) in test oracles.\n- The BoK does not give concrete examples of applying relative-error thresholds inside unit test assertions or testing frameworks.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 13,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 11,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 14,
+    "input_tokens": 134451,
+    "output_tokens": 4345
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/README.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/README.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/README.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/Oracle Limitations and Testing Theory Constraints.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Evaluation of the System Under Test.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Software Testing Types and Methodologies.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/README.md",
+   "/workspace/swebok-v4/root/Core Programming Foundations and Data Structures/INDEX.md",
+   "/workspace/swebok-v4/root/Core Programming Foundations and Data Structures/README.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Significant Digits in Measurements.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Precision, Absolute Error, and Relative Error.md",
+   "/workspace/swebok-v4/root/Foundations of Mathematics and Computational Systems/Numerical Methods, Algebra, and Calculus Foundations/Numerical Precision and Error Measurement/Fixed-Point Arithmetic and Numerical Precision.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/README.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

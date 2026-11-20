@@ -1,0 +1,54 @@
+[
+ {
+  "start": "2026-11-19T07:34:47.620330",
+  "seconds": 78.4,
+  "question": "How should test inputs be chosen for a function that accepts numeric values within a valid range?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are the guidelines for choosing test inputs for a function that accepts numeric values within a valid range, based solely on SWEBOK v4:\n\n---\n\n## Guidelines for Choosing Test Inputs for a Numeric-Range Function\n\n### 1. Partition the input domain into equivalence classes and pick one representative from each\n\nEquivalence partitioning divides the input domain into subsets based on a criterion or relation—such as valid inputs the function accepts and invalid inputs it must reject. A representative test case (sometimes only one) is then drawn from each class, on the rationale that all members of the class are expected to behave the same way.\n\n> (source: \"[SWEBOK excerpt e279d64d08518504c456] [SWEBOK excerpt 9fbbc794267d8d3b05cc].\" — `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md`)\n\n---\n\n### 2. Always include values at or near each boundary of the valid range\n\nBoundary value analysis mandates that test cases be [SWEBOK excerpt a1c5d3139ac43e6ab60a]. The rationale is [SWEBOK excerpt 028ee51fe875384b510f] (minimum and maximum) values of inputs.\n\n> (source: \"[SWEBOK excerpt bedee61fb08d8b967278].\" — `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md`)\n\n---\n\n### 3. Also include at least one value clearly inside the valid range\n\nAlong with boundary values, a representative value from inside the valid equivalence class should be included to confirm normal, in-range processing works correctly.\n\n> (source: \"[SWEBOK excerpt bda2b791e2a71d48fe6c] … [SWEBOK excerpt 83b36aaa6987b9eb0caf].\" — `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md`)\n\n---\n\n### 4. Include values outside the valid range to test robustness (robustness testing)\n\nAn extension of boundary value analysis—called **robustness testing**—calls for test cases chosen **outside** the input domain. This checks whether the function handles unexpected or erroneous inputs gracefully (e.g., with an error message or error-processing routine).\n\n> (source: \"[SWEBOK excerpt ac52d3263555a546a515].\" — `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md`)\n\n---\n\n### 5. Supplement with randomly selected inputs from within the domain\n\nRandom testing involves generating test cases at random from the known input domain. It provides a relatively simple approach to automation and can be enhanced with adaptive strategies (e.g., adaptive random testing) that use additional selection criteria to direct sampling across the domain.\n\n> (source: \"[SWEBOK excerpt 2e0f1efa93239b85b4bd].\" — `/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md`)\n\n---\n\n### 6. Apply error guessing to anticipate plausible fault-inducing values\n\nBased on the tester's experience and [SWEBOK excerpt df027194885f5813d595], error guessing means designing test cases specifically targeted at the most plausible faults—such as off-by-one errors, zero, or values just inside/outside a constraint.\n\n> (source: \"[SWEBOK excerpt 58750920721c36886ebb].\" — `/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Experience-Based Techniques for Test Suite Generation.md`)\n\n---\n\n### 7. Combine specification-based and structure-based techniques for greater coverage\n\nSpecification-based (black-box) techniques such as equivalence partitioning and boundary value analysis, and structure-based (white-box) techniques, are complementary—[SWEBOK excerpt 31bff3873f6ef46cca84]. Combining them, subject to organizational constraints, improves the overall effectiveness of the test suite.\n\n> (source: \"[SWEBOK excerpt 14a15524a4aed4318039].\" — `/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md`)",
+  "tool_calls": 4,
+  "tools": {
+   "jev_search": 4
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 3,
+    "input_tokens": 51061,
+    "output_tokens": 2250
+   }
+  },
+  "jev_calls": 1167,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 2161945,
+  "jev_input_tokens": 784477,
+  "jev_output_tokens": 32868,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Mutation Testing as a Testing Criterion.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/Ad Hoc Testing Methodologies and Techniques.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Experience-Based Techniques for Test Suite Generation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Experience-Based Testing Techniques and Exploratory Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Deterministic vs. Random Test Case Selection.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Testing Tools and Standards/Software Testing Tools and Techniques/Software Testing Tools and Techniques.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

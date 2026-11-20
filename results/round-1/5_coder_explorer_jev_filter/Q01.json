@@ -1,0 +1,157 @@
+[
+ {
+  "start": "2026-11-19T07:31:30.386243",
+  "seconds": 70.6,
+  "question": "How should I derive test cases for a component whose behavior depends on its current state and on the events it receives?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 10 of 10 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Model the component under test as a Finite-State Machine (FSM): represent its behavior using states, transitions triggered by events, and resulting outputs. State Transition Testing techniques focus on building this FSM model of the System Under Test (SUT) so that test cases can be systematically derived from it. (source: root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md) [JEV 0.92]\n- Derive the test suite by targeting coverage of states and transitions. The test suite should be derived to cover the states and transitions of the FSM according to a specific coverage level (e.g., all-states coverage, all-transitions coverage). (source: root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md) [JEV 0.90]\n- Apply specification-based (black-box) techniques when generating test cases: focus on the SUT's input/output behavior — in this case, the events received and the outputs or state changes produced — without requiring knowledge of the internal implementation. State Transition Testing is classified as a specification-based technique. (source: root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md) [JEV 0.72]\n- Consider using model-based testing (MBT): because State Transition Testing uses a model (the FSM) representing the SUT's behavioral specification, it qualifies as model-based testing. MBT approaches use the concept of a model representing a behavioral specification, the SUT's structure, or available knowledge and experience. (source: root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md) [JEV 0.68]\n- Complement state transition testing with scenario-based testing to validate behavioral aspects: use scenario-based testing [SWEBOK excerpt a1639ec413803513c2e2] — particularly useful when the stateful component must follow defined workflows or usage sequences. (source: root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md) [JEV 0.86]\n- Ensure both typical and alternate workflows are tested when using scenario-based approaches. [SWEBOK excerpt a3f162dd6a2aa8bdf27b] (e.g., business process testing focuses on roles in a workflow specification). (source: root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md) [JEV 0.96]\n- Define coverage criteria and measure the percentage of states and transitions exercised by the test suite. For each specification-based test technique (including state transition testing), determine [SWEBOK excerpt 5d06b40fe163babdb50f] — for example, the percentage of states and transitions covered. (source: root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Measurement and Coverage Analysis/Coverage Measures in Software Testing Techniques.md) [JEV 0.92]\n- Use cause-effect graphing to identify and document relevant input conditions (causes — including events and current states) and their consequent output conditions (effects) before constructing the state transition model. Cause-effect graphing allows specification analysis, identification of [SWEBOK excerpt 1af7fcdb8291bfa8f8d4]. (source: root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md) [JEV 0.76]\n- Consider using workflow models to graphically represent sequences of state-dependent activities. Workflow models can [SWEBOK excerpt 7c6a3e63c7ef942058b8], where [SWEBOK excerpt 4c26fd925a99be130be5]). (source: root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md) [JEV 0.96]\n- Automate the execution of state/scenario-based tests when possible. Because of the complexity of scenario-based and state transition testing techniques, these [SWEBOK excerpt 07926dca1fd9ec55b08a]. (source: root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md) [JEV 0.92]",
+  "tool_calls": 14,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 11,
+   "search_tool_history": 1,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 14,
+    "input_tokens": 139304,
+    "output_tokens": 3398
+   }
+  },
+  "jev_calls": 10,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 17777,
+  "jev_input_tokens": 6431,
+  "jev_output_tokens": 200,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/README.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/README.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/README.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Software Testing Types and Methodologies.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Measurement and Coverage Analysis/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Measurement and Coverage Analysis/Coverage Measures in Software Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/Structure-Based Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Measurement and Coverage Analysis/Coverage Measures in Software Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Model the component under test as a Finite-State Machine (FSM): represent its behavior using states, transitions triggered by events, and resulting outputs. State Transition Testing techniques focus on building this FSM model of the System Under Test (SUT) so that test cases can be systematically derived from it.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md"
+    ],
+    "score": 0.92,
+    "admitted": true
+   },
+   {
+    "guideline": "Derive the test suite by targeting coverage of states and transitions. The test suite should be derived to cover the states and transitions of the FSM according to a specific coverage level (e.g., all-states coverage, all-transitions coverage).",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md"
+    ],
+    "score": 0.9,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply specification-based (black-box) techniques when generating test cases: focus on the SUT's input/output behavior — in this case, the events received and the outputs or state changes produced — without requiring knowledge of the internal implementation. State Transition Testing is classified as a specification-based technique.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md"
+    ],
+    "score": 0.72,
+    "admitted": true
+   },
+   {
+    "guideline": "Consider using model-based testing (MBT): because State Transition Testing uses a model (the FSM) representing the SUT's behavioral specification, it qualifies as model-based testing. MBT approaches use the concept of a model representing a behavioral specification, the SUT's structure, or available knowledge and experience.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md"
+    ],
+    "score": 0.68,
+    "admitted": true
+   },
+   {
+    "guideline": "Complement state transition testing with scenario-based testing to validate behavioral aspects: use scenario-based testing [SWEBOK excerpt a1639ec413803513c2e2] — particularly useful when the stateful component must follow defined workflows or usage sequences.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md"
+    ],
+    "score": 0.86,
+    "admitted": true
+   },
+   {
+    "guideline": "Ensure both typical and alternate workflows are tested when using scenario-based approaches. [SWEBOK excerpt a3f162dd6a2aa8bdf27b] (e.g., business process testing focuses on roles in a workflow specification).",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Define coverage criteria and measure the percentage of states and transitions exercised by the test suite. For each specification-based test technique (including state transition testing), determine [SWEBOK excerpt 5d06b40fe163babdb50f] — for example, the percentage of states and transitions covered.",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Measurement and Coverage Analysis/Coverage Measures in Software Testing Techniques.md"
+    ],
+    "score": 0.92,
+    "admitted": true
+   },
+   {
+    "guideline": "Use cause-effect graphing to identify and document relevant input conditions (causes — including events and current states) and their consequent output conditions (effects) before constructing the state transition model. Cause-effect graphing allows specification analysis, identification of [SWEBOK excerpt 1af7fcdb8291bfa8f8d4].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing and State Transition Testing.md"
+    ],
+    "score": 0.76,
+    "admitted": true
+   },
+   {
+    "guideline": "Consider using workflow models to graphically represent sequences of state-dependent activities. Workflow models can [SWEBOK excerpt 7c6a3e63c7ef942058b8], where [SWEBOK excerpt 4c26fd925a99be130be5]).",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Automate the execution of state/scenario-based tests when possible. Because of the complexity of scenario-based and state transition testing techniques, these [SWEBOK excerpt 07926dca1fd9ec55b08a].",
+    "refs": [
+     "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based Testing Components and Workflow Models.md"
+    ],
+    "score": 0.92,
+    "admitted": true
+   }
+  ]
+ }
+]

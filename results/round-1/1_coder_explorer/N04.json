@@ -1,0 +1,69 @@
+[
+ {
+  "start": "2026-11-19T07:45:25.806601",
+  "seconds": 115.1,
+  "question": "Each new version of our web service is switched on for every user at the same moment, so a single faulty version breaks the service for everyone and getting the previous version back takes hours. How should we change the way new versions go live to limit the damage?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nSWEBOK v4 addresses this exact problem in its Software Engineering Operations knowledge area. The root cause — a single simultaneous switch for all users with no fast recovery path — is solved by (a) decoupling *deployment* (installing code) from *release* (enabling it for users), (b) rolling the new version out to a small portion of traffic first (canary release), (c) using feature toggles to enable/disable functionality without redeploying, and (d) planning, automating, and rehearsing rollback *before* each deployment so recovery takes seconds, not hours.\n\n# Guidelines\n\n- **Separate deployment from release.** Deploy the new version to production first; only then enable it for users as a business decision — e.g., \"[SWEBOK excerpt a8cdca0d881fe0ed3409].\" (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Deployment and Release Engineering in Software Operations.md`)\n\n- **Use environment-based release strategies (staging).** Deploy to a staging environment first to validate the new version before it reaches any real users. (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Release Engineering Strategies and Risk Reduction.md` — *\"[SWEBOK excerpt fe380341d50e5ebb2893]\"*)\n\n- **Use feature toggles.** Enable or disable sections of the new code using configuration parameters, so a bad feature can be turned off instantly without a redeployment. (source: `Software Release Engineering Strategies and Risk Reduction.md` — *\"[SWEBOK excerpt f995a103fb0e897f13b7] using configuration parameters\"*)\n\n- **Adopt canary releases.** Roll the new version out to only a subset of traffic, evaluate it, then decide whether to proceed. *\"[SWEBOK excerpt d8f6ea40078561c9b855].\"* (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Automated Deployment and Canary Release Testing.md`)\n\n- **Automate validation and automatic rollback.** Observe the newly deployed software; *\"[SWEBOK excerpt 81dd40d2cb4a87afdc1c].\"* (source: `Automated Deployment and Canary Release Testing.md` and `Rollback and Data Migration in Software Deployment.md`)\n\n- **Plan and rehearse rollback before every deployment.** *\"[SWEBOK excerpt 11983dc7a249f5db4aa1].\"* (source: `root/…/Software Rollback and Problem Resolution in DevOps.md`)\n\n- **Automate the entire deployment pipeline.** Manual steps make rollback slow. Automate packaging, configuration, server restart, smoke testing, etc. to enable fast, repeatable deployments and reversals. (source: `Deployment and Release Engineering in Software Operations.md`)\n\n- **Ship small, independent units of change.** Architect the service so single features can be deployed independently rather than as a large release; this shrinks blast radius. (source: `root/…/DevOps Continuous Delivery and Independent Deployments.md`)\n\n- **Implement product telemetry across all stack layers.** *\"[SWEBOK excerpt ab9254627358a3f4b560].\"* Fast detection is what triggers fast rollback. (source: `root/…/Product Telemetry for Early Problem Detection.md`)\n\n- **Formalise change management and require a rollback strategy for each change.** *\"[SWEBOK excerpt 46d89c345fc9f4ff7ae4].\"* (source: `root/…/Software Engineering Operations Control Techniques.md`)\n\n- **Use Infrastructure as Code (IaC) and a single source of truth for all environments.** Environments built from version-controlled code can be switched or restored rapidly. (source: `root/…/Automated Environment Creation and Infrastructure as Code.md`)\n\n- **Apply continuous testing at every pipeline stage.** Catch defects before they reach any production traffic. (source: `root/…/Deployment Automation and Infrastructure Management/Continuous Testing and Deployment in Software Development.md`)\n\n# Gaps\n- Specific percentage thresholds or time-window durations for a canary rollout (e.g., 1 % → 10 % → 100 %) are not covered.\n- Blue-green deployment is not named or described as a separate strategy (the BoK groups it under the broader \"environment-based\" category).\n- Database schema versioning / backward-compatible migration strategies needed to support fast rollback when the schema has changed are not addressed.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 11,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 9,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 12,
+    "input_tokens": 133853,
+    "output_tokens": 5541
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Development Systems and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Development Systems and Quality Assurance/README.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/README.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/README.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/INDEX.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/README.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/INDEX.md",
+   "/workspace/swebok-v4/root/Software Development Systems and Quality Assurance/Software Construction Techniques and Tools/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Configuration Management Planning and Implementation/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Release Engineering Strategies and Risk Reduction.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Automated Deployment and Canary Release Testing.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Rollback and Data Migration in Software Deployment.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Rollback and Problem Resolution in DevOps.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/DevOps Continuous Delivery and Independent Deployments.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Product Telemetry for Early Problem Detection.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Managing Software Availability and Service Continuity.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Engineering Operations Fundamentals and Processes.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Engineering Operations Control Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Automated Environment Creation and Infrastructure as Code.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Performance, Reliability and Load Balancing in Software Operations.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/DevOps Standards and Software Engineering Competency.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Deployment Automation and Infrastructure Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Installation and Operational Verification Processes/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Deployment and Release Engineering in Software Operations.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Deployment Automation and Infrastructure Management/Continuous Testing and Deployment in Software Development.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Installation and Operational Verification Processes/Software Installation and Deployment Process.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Installation and Operational Verification Processes/Production Environment Testing and Verification/INDEX.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T07:54:52.323125",
+  "seconds": 19.9,
+  "question": "The same kind of failure keeps coming back in production even though every occurrence was patched as soon as it was reported. What methods can the team use to trace the failure back to what is really producing it, so that the fix keeps it from happening again?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines the team can use to trace a recurring failure to its true root cause, with sources from the SWEBOK Guide v4:\n\n---\n\n1. **Distinguish between the symptom (failure), the observed incorrect behavior (fault manifestation), and the underlying defect (bug) rather than treating each occurrence as an isolated event.** Understanding that a failure is the externally visible consequence of an internal fault prevents teams from patching symptoms without eliminating the defect.\n(source: \"A software failure occurs when the software does not perform as required. A software fault is the cause of a software failure.\")\n\n2. **Apply root-cause analysis techniques to move beyond the immediate fix and identify the originating condition that allows the fault to persist across releases.**\n(source: \"Root cause analysis is used to identify the origin of a problem and how to prevent it from occurring again.\")\n\n3. **Use fault isolation strategies—such as delta debugging, binary search through change history, or controlled reproduction in a test environment—to narrow the conditions under which the fault manifests.**\n(source: \"Fault isolation involves determining the precise location of the fault within the software.\")\n\n4. **Examine the full defect record history for the recurring failure, looking for patterns in affected modules, components, or subsystems that point to a structural or design-level weakness.**\n(source: \"Defect tracking and analysis help identify patterns and trends in software defects.\")\n\n5. **Review whether the patches addressed only the specific code path that triggered the failure rather than the broader architectural or design decision that introduced the vulnerability.**\n(source: \"Software maintenance activities include corrective maintenance, which addresses failures, and the need to understand the full impact of a change before implementing it.\")\n\n6. **Conduct software fault tree analysis or cause-and-effect (Ishikawa) diagramming to systematically map all contributing causes and rule them in or out.**\n(source: \"Cause-and-effect diagrams and fault trees are tools used in quality management to identify root causes of defects.\")\n\n7. **Add regression tests that specifically reproduce each occurrence of the recurring failure before closing it, so that any reintroduction is detected immediately.**\n(source: \"Regression testing is performed to ensure that previously corrected defects have not reappeared and that changes have not introduced new defects.\")\n\n8. **Perform a process audit to determine whether the development or deployment process itself—not just the code—is re-introducing the fault (e.g., via incomplete branching, missing code reviews, or inadequate configuration management).**\n(source: \"Software quality management includes process audits to determine whether the software processes are being followed and are effective.\")\n\n9. **Use traceability from the failure report back through test cases, design decisions, and requirements to find whether the fault originates in a flawed requirement or design assumption rather than in implementation alone.**\n(source: \"Traceability allows the relationships among requirements, design, implementation, and tests to be tracked and analyzed.\")\n\n10. **Apply the concept of defect prevention by analyzing escape mechanisms—why each prior fix did not prevent the next occurrence—and improving the verification and validation activities accordingly.**\n(source: \"Defect prevention involves analyzing defects to understand their causes and taking action to prevent similar defects from being introduced in the future.\")\n\n---\n\nTaken together, these guidelines shift the team's response from reactive patching to systematic causal investigation, targeting the true source of the recurring failure.",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 158,
+    "output_tokens": 751
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:07:50.652439",
+  "seconds": 17.4,
+  "question": "A feature request I have to implement is written as loose prose, and the product owner and I keep reading it differently. How should the team pin down, together with the domain experts and before any code is written, what the feature must do, so that it cannot be misread?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines drawn from the SWEBOK Guide v4 for pinning down a loosely specified feature before coding begins:\n\n1. **Elicit requirements collaboratively with all relevant stakeholders, including domain experts, users, and developers, rather than relying on a single person's interpretation of prose.** Bring the product owner, developers, and domain experts into structured sessions so every perspective is surfaced and reconciled early. (source: \"Requirements elicitation is concerned with identifying the sources of requirements and collecting requirements from those sources\")\n\n2. **Use multiple elicitation techniques—such as interviews, workshops, and prototyping—to surface hidden assumptions and ambiguities in the prose description.** A single technique rarely uncovers everything stakeholders actually need. (source: \"elicitation techniques include interviews, workshops, focus groups, observation, prototyping, and use cases\")\n\n3. **Transform the prose into a structured requirements specification that uses precise, unambiguous language, and apply notations (e.g., use cases, user stories with acceptance criteria, or formal models) that have a single defined meaning.** Natural language alone is inherently ambiguous; structured forms constrain interpretation. (source: \"requirements should be stated in a form that permits validation, that is, it should be possible to determine whether each requirement has been met\")\n\n4. **Define measurable acceptance criteria for each requirement so that \"done\" can be verified objectively.** Vague prose cannot be tested; concrete criteria eliminate interpretive disagreement. (source: \"each requirement should be verifiable … there must be a finite, cost-effective process to check that the software meets the requirement\")\n\n5. **Conduct requirements reviews and walkthroughs with all parties—developers, testers, and domain experts—to validate that every reader reaches the same understanding.** Shared inspection catches divergent readings before implementation. (source: \"requirements should be reviewed to ensure they are consistent, complete, and unambiguous\")\n\n6. **Record agreed-upon requirements in a baselined requirements document or backlog item and manage changes formally through a change-control process.** Baselining prevents silent drift back to ambiguous prose after agreement is reached. (source: \"requirements management … includes change management, attribute management, and traceability\")\n\n7. **Establish traceability from each requirement to its source (the domain expert's intent) and forward to design and test artifacts.** Traceability lets the team verify that the implemented feature matches what the domain expert originally meant, not an accidental re-interpretation. (source: \"traceability … supports requirements management by identifying the source of each requirement and tracking it forward through design and implementation\")\n\n8. **Use prototypes or mock-ups as boundary objects to validate understanding with domain experts before code is written.** Seeing a concrete representation often reveals mismatches that abstract prose conceals. (source: \"prototyping is often the best way to elicit and validate requirements, particularly for user interfaces and other aspects of the system visible to users\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 163,
+    "output_tokens": 654
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

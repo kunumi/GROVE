@@ -1,0 +1,54 @@
+[
+ {
+  "start": "2026-11-19T08:28:06.712339",
+  "seconds": 97.6,
+  "question": "A function takes six configuration parameters, each with several possible values, and testing every possible mix of their values is too expensive. How should the test cases be derived?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nWhen testing a function with six configuration parameters and many possible values, full combination testing is impractical. SWEBOK v4 recommends using combinatorial test techniques—especially **pair-wise (t-wise) testing** and **orthogonal array testing**—to cover interactions between parameters with far fewer test cases. These are complemented by **equivalence partitioning** (to reduce each parameter's value space), **boundary value analysis** (to target fault-prone boundary points), and **decision tables** or **cause-effect graphing** (to capture and derive tests from logical relationships between parameter combinations).\n\n# Guidelines\n\n1. **Apply a combinatorial test technique**—All Combinations, Pair-Wise, Each Choice, or Base Choice—based on the coverage-vs-cost trade-off needed: \"[SWEBOK excerpt 12bb367a5311e46b2a98].\" (source: `root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md`)\n\n2. **Prefer pair-wise (t-wise) testing** to ensure every pair (or t-tuple) of parameter values appears in at least one test case without exhaustive enumeration: \"[SWEBOK excerpt 88bf22434c6314e981bd]).\" (source: `root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md`)\n\n3. **Partition each parameter's value space using equivalence partitioning** before forming combinations, selecting one representative per class: \"[SWEBOK excerpt 1129512b62263ddc9b04])…[SWEBOK excerpt 83b36aaa6987b9eb0caf].\" (source: `root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md` and `root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md`)\n\n4. **Add boundary value test cases** for parameters with ordered or numeric values, since faults cluster there: \"[SWEBOK excerpt bedee61fb08d8b967278].\" (source: `root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md`, §3.1.2)\n\n5. **Model parameter interactions with decision tables**, which let you systematically derive tests from logical condition-action relationships: \"[SWEBOK excerpt a11245cd76e2da148e79]).\" (source: `root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md`)\n\n6. **Use cause-effect graphing** as a complementary technique to map combinations of input conditions to their expected effects: \"[SWEBOK excerpt af74cc0c8244e1b0081d].\" (source: `root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md`, §3.1.6)\n\n7. **Frame the overall effort as configuration testing**, recognising that different parameter mixes represent different configurations the software must be verified under: \"[SWEBOK excerpt 9043a2eada52e53c7076].\" (source: `root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/API Interface Testing and Configuration Verification.md`, §2.2.11)\n\n# Gaps\n- The BoK does not provide specific formulas or worked examples showing how many test cases pair-wise or t-wise testing produces for exactly six parameters.\n- No guidance on specific tools for generating orthogonal arrays or covering arrays is included in the passages read.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 10,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 8,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 11,
+    "input_tokens": 87747,
+    "output_tokens": 4285
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/README.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/README.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing for Knowledge Representation and Documentation.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/API Interface Testing and Configuration Verification.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

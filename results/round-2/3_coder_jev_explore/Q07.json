@@ -1,0 +1,67 @@
+[
+ {
+  "start": "2026-11-19T08:02:26.255957",
+  "seconds": 27.1,
+  "question": "Beyond code coverage, how can I evaluate whether my test suite is good at detecting faults?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\n\nBeyond code coverage, test suite quality can be evaluated using fault-based techniques like mutation testing, fault injection, and reliability measures. These approaches assess how effectively tests detect real or artificial faults, compare techniques empirically, and incorporate experience, structure, and usage-based strategies to improve overall fault detection capability.\n\n# Guidelines\n\n- Use mutation testing to evaluate test suite effectiveness: generate mutants (slightly modified versions of the SUT) and measure how many are \"killed\" by the test suite. (source: /workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md)\n\n- Calculate the **mutation score** as the ratio of killed mutants to total generated mutants; the higher the score, the more effective the test suite. (source: /workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation Testing and Fault Injection Evaluation.md)\n\n- Use **fault injection** to introduce artificial faults and evaluate how many the test suite detects, while being careful about the risk of leaving injected faults in the SUT. (source: \"[SWEBOK excerpt 0aef019aa4f6ec045e72]\")\n\n- Compare testing techniques using relative effectiveness measures, [SWEBOK excerpt 9bb4dd931ed3aaefa8b5], or the ratio of faults found through testing to all faults found. (source: /workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Effectiveness and Process Levels/Test Suite Effectiveness and Testing Process Integration.md)\n\n- Apply **fault-based testing** techniques that [SWEBOK excerpt 9a636c5724b3735883bf]. (source: /workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Smoke Testing and Knowledge-Based Testing Approaches.md)\n\n- Use **error guessing** based on [SWEBOK excerpt 3a201dd827e034239377] to design test cases targeting the most plausible faults. (source: /workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Experience-Based Techniques for Test Suite Generation.md)\n\n- Evaluate testability [SWEBOK excerpt 5f66a22b179fd452d263]. (source: /workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/Infeasible Paths, Testability, and Test Execution Automation.md)\n\n- Use **reliability evaluation tools** to analyze test results and assess reliability-related measures, supporting a broader view of test suite quality beyond coverage. (source: /workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Testing Tools and Standards/Software Testing Tools and Techniques/Software Testing and Reliability Evaluation Tools.md)\n\n- Apply **prioritization testing** [SWEBOK excerpt 9a8e7dacd096e39689ec]. (source: /workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Test Case Prioritization for Fault Detection.md)\n\n- Combine functional (specification-based) and structural (code-based) test techniques, as they use different information sources and highlight different problems. (source: /workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md)\n\n- Define and select proper **test effectiveness measures** to evaluate whether testing can be stopped and to judge a technique's efficacy. (source: /workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Scalability, Test Effectiveness, and Testing Controllability.md)",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 18463,
+    "output_tokens": 939
+   }
+  },
+  "jev_calls": 294,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 525039,
+  "jev_input_tokens": 196900,
+  "jev_output_tokens": 9034,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation Testing and Fault Injection Evaluation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Mutation Testing as a Testing Criterion.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Effectiveness and Process Levels/Test Suite Effectiveness and Testing Process Integration.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Smoke Testing and Knowledge-Based Testing Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Testing Across Development Processes and Domains/Testing Approaches for Quality and User Acceptance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Testing Tools and Standards/Software Testing Tools and Techniques/Software Testing and Reliability Evaluation Tools.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/Infeasible Paths, Testability, and Test Execution Automation.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Exception Testing and Error Handling in Software Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Informal and Modern Testing Approaches/Advanced Software Testing Techniques and Practices.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/Control Flow Testing Criteria and Coverage.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Experience-Based Techniques for Test Suite Generation.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Data Flow Testing Techniques and Coverage Criteria.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Metamorphic Testing for Machine Learning Systems.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Acceptance Testing/Failing Test Cases Drive Production Code Changes.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/Oracle Limitations and Testing Theory Constraints.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/Continuous Integration and Incremental Development Benefits.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Structural Testing and Control Flow Analysis/Structure-Based Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Experience-Based Testing Techniques and Exploratory Testing.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Test Case Prioritization for Fault Detection.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Crowdtesting as Complementary Quality Assurance Method.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing for Knowledge Representation and Documentation.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Requirements Specification/Acceptance Criteria and BDD Scenarios for Banking Systems.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Scenario-Based Testing for Requirements Validation.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/Scalability, Test Effectiveness, and Testing Controllability.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Testing Approaches and Test Case Selection Methods/Combining Functional and Structural Testing Techniques.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

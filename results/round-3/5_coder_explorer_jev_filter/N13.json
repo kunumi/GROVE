@@ -1,0 +1,175 @@
+[
+ {
+  "start": "2026-11-19T08:48:46.819894",
+  "seconds": 74.7,
+  "question": "The same kind of failure keeps coming back in production even though every occurrence was patched as soon as it was reported. What methods can the team use to trace the failure back to what is really producing it, so that the fix keeps it from happening again?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 11 of 11 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Conduct proper post-mortem analysis and incident investigation after every recurring failure. [SWEBOK excerpt 890c6f64475e88ea662c] from happening again in the future. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Engineering Operations Control Techniques.md) [JEV 0.97]\n- Engage a multidisciplinary team to investigate recurring production problems, because they [SWEBOK excerpt e13cd00c9c8b4e8df498] requires [SWEBOK excerpt 4afaee686f1da5a0316a] to identify and analyse the true cause of incidents. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Rollback and Problem Resolution in DevOps.md) [JEV 0.97]\n- Implement product telemetry across all layers of the product stack (application, operating system, and infrastructure layers). Data collected at all layers [SWEBOK excerpt f773dbc1e73ac5d8aa66]. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Product Telemetry for Early Problem Detection.md) [JEV 0.97]\n- Perform impact analysis for every change request or problem report. Impact analysis [SWEBOK excerpt bedc6c737d384afc8b87] the maintainer uses it to identify the affected components, develop potential solutions, and recommend a course of action. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Impact Analysis in Software Maintenance.md; root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Request and Problem Report Procedures.md; root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md) [JEV 0.85]\n- Establish continuous monitoring with key performance indicators (KPIs) available to stakeholders in real time, including production system monitoring, [SWEBOK excerpt 8fe7e68558c4ce476863], impact analysis results, and configuration changes unrelated to approved deployment tasks. [SWEBOK excerpt c8759c0ce14a52ebc0d3], not by hope. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Monitor, Measure, Track, and Review.md) [JEV 0.96]\n- Use program comprehension techniques — such as visualization tools and reverse engineering to build graphical representations of the code — to deeply understand the software before attempting a fix, since limited understanding of the codebase is a primary obstacle to finding the true cause of a fault. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance_ Technical, Management, and Comprehension Challenges/Software Comprehension and Testing in Maintenance.md) [JEV 0.90]\n- Distinguish between emergency maintenance (temporary patches to keep a system operational) and corrective maintenance (actual defect resolution). Relying only on emergency patches without following up with corrective maintenance leaves the root cause unresolved and allows the same failure to recur. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md) [JEV 0.84]\n- Automate the overall operations process and integrate automated testing throughout to prevent incidents and problems from recurring. [SWEBOK excerpt 822ac00520b38d2def53]. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Service Reporting and Incident Prevention in Operations.md) [JEV 0.97]\n- Produce service reports that include trend information and analysis of incidents and failures. Service reporting aims to produce [SWEBOK excerpt 4d0efa6129e4ac57f25c]; typical service reports address incidents and failures and trend information, which helps identify patterns behind recurring failures. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Service Reporting and Incident Prevention in Operations.md) [JEV 0.94]\n- Apply regression testing as part of every maintenance fix to validate modifications and verify that changes have not caused unintended effects. Maintainers [SWEBOK excerpt 8ce5281699718f13ea32] appropriate tests — regression testing is important in maintenance — to confirm the fix is complete and has not introduced new problems. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance_ Technical, Management, and Comprehension Challenges/Software Comprehension and Testing in Maintenance.md; root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Regression Testing Challenges in Software Maintenance.md) [JEV 0.95]\n- Record and classify all change requests (e.g., emergency, urgent, major, minor) through a formal change management process that assesses the risk of each change and requires a rollback strategy in case of failure. This controlled and reviewed process ensures that symptom-level patches do not substitute for deeper root-cause fixes. (source: root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Engineering Operations Control Techniques.md) [JEV 0.93]",
+  "tool_calls": 12,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 10,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 12,
+    "input_tokens": 122931,
+    "output_tokens": 3740
+   }
+  },
+  "jev_calls": 11,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 24329,
+  "jev_input_tokens": 7845,
+  "jev_output_tokens": 220,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Test Generation, Environment Setup, and Incident Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Risk Management and Quality Assessment/Continuous Risk and Quality Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Quality Management and Project Oversight/Software Measurement and Organizational Learning/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance_ Technical, Management, and Comprehension Challenges/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Key Issues in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Impact Analysis in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Request and Problem Report Procedures.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance_ Technical, Management, and Comprehension Challenges/Software Maintenance_ Technical and Management Issues.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance_ Technical, Management, and Comprehension Challenges/Software Comprehension and Testing in Maintenance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Service Reporting and Incident Prevention in Operations.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Engineering Operations Control Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Operations, Reliability, and Security Management/Software Failure Handling and Information Security Management.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Product Telemetry for Early Problem Detection.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Monitor, Measure, Track, and Review.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Regression Testing Challenges in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Quality Metrics and Process Tailoring.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Rollback and Problem Resolution in DevOps.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Engineering Operations Control Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Rollback and Problem Resolution in DevOps.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Product Telemetry for Early Problem Detection.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Impact Analysis in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Request and Problem Report Procedures.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Monitor, Measure, Track, and Review.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance_ Technical, Management, and Comprehension Challenges/Software Comprehension and Testing in Maintenance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Service Reporting and Incident Prevention in Operations.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Service Reporting and Incident Prevention in Operations.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance_ Technical, Management, and Comprehension Challenges/Software Comprehension and Testing in Maintenance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Regression Testing Challenges in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Engineering Operations Control Techniques.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Conduct proper post-mortem analysis and incident investigation after every recurring failure. [SWEBOK excerpt 890c6f64475e88ea662c] from happening again in the future.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Engineering Operations Control Techniques.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Engage a multidisciplinary team to investigate recurring production problems, because they [SWEBOK excerpt e13cd00c9c8b4e8df498] requires [SWEBOK excerpt 4afaee686f1da5a0316a] to identify and analyse the true cause of incidents.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Rollback and Problem Resolution in DevOps.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Implement product telemetry across all layers of the product stack (application, operating system, and infrastructure layers). Data collected at all layers [SWEBOK excerpt f773dbc1e73ac5d8aa66].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Product Telemetry for Early Problem Detection.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Perform impact analysis for every change request or problem report. Impact analysis [SWEBOK excerpt bedc6c737d384afc8b87] the maintainer uses it to identify the affected components, develop potential solutions, and recommend a course of action.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Impact Analysis in Software Maintenance.md",
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Request and Problem Report Procedures.md",
+     "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md"
+    ],
+    "score": 0.85,
+    "admitted": true
+   },
+   {
+    "guideline": "Establish continuous monitoring with key performance indicators (KPIs) available to stakeholders in real time, including production system monitoring, [SWEBOK excerpt 8fe7e68558c4ce476863], impact analysis results, and configuration changes unrelated to approved deployment tasks. [SWEBOK excerpt c8759c0ce14a52ebc0d3], not by hope.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Monitor, Measure, Track, and Review.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Use program comprehension techniques — such as visualization tools and reverse engineering to build graphical representations of the code — to deeply understand the software before attempting a fix, since limited understanding of the codebase is a primary obstacle to finding the true cause of a fault.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance_ Technical, Management, and Comprehension Challenges/Software Comprehension and Testing in Maintenance.md"
+    ],
+    "score": 0.9,
+    "admitted": true
+   },
+   {
+    "guideline": "Distinguish between emergency maintenance (temporary patches to keep a system operational) and corrective maintenance (actual defect resolution). Relying only on emergency patches without following up with corrective maintenance leaves the root cause unresolved and allows the same failure to recur.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md"
+    ],
+    "score": 0.84,
+    "admitted": true
+   },
+   {
+    "guideline": "Automate the overall operations process and integrate automated testing throughout to prevent incidents and problems from recurring. [SWEBOK excerpt 822ac00520b38d2def53].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Service Reporting and Incident Prevention in Operations.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Produce service reports that include trend information and analysis of incidents and failures. Service reporting aims to produce [SWEBOK excerpt 4d0efa6129e4ac57f25c]; typical service reports address incidents and failures and trend information, which helps identify patterns behind recurring failures.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Service Reporting and Incident Prevention in Operations.md"
+    ],
+    "score": 0.94,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply regression testing as part of every maintenance fix to validate modifications and verify that changes have not caused unintended effects. Maintainers [SWEBOK excerpt 8ce5281699718f13ea32] appropriate tests — regression testing is important in maintenance — to confirm the fix is complete and has not introduced new problems.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance_ Technical, Management, and Comprehension Challenges/Software Comprehension and Testing in Maintenance.md",
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Regression Testing Challenges in Software Maintenance.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Record and classify all change requests (e.g., emergency, urgent, major, minor) through a formal change management process that assesses the risk of each change and requires a rollback strategy in case of failure. This controlled and reviewed process ensures that symptom-level patches do not substitute for deeper root-cause fixes.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Engineering Operations Control Techniques.md"
+    ],
+    "score": 0.93,
+    "admitted": true
+   }
+  ]
+ }
+]

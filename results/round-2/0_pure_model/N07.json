@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:14:59.850536",
+  "seconds": 23.1,
+  "question": "We are planning a project that depends on a third-party API nobody on the team has used and on a performance target we may not be able to reach. How should we handle these things that could go wrong, both when planning the work and while it is under way?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines drawn from the SWEBOK Guide v4 for handling the two risks you describe—an unfamiliar third-party API and an uncertain performance target—both in planning and during execution.\n\n---\n\n**1. Identify and document each risk explicitly before work begins.**\nName the third-party API risk and the performance risk as distinct items in a risk register, characterizing what could go wrong, when it might occur, and what would be affected.\n(source: \"Risk identification produces a list of risks that might affect the project\")\n\n**2. Analyze each risk for both probability and impact.**\nAssess how likely it is that the API proves unusable or inadequate, and separately how likely you are to miss the performance target, then estimate the consequences of each.\n(source: \"Risk analysis produces a prioritized list of risks based on probability of occurrence and severity of impact\")\n\n**3. Prioritize risks so attention goes where it matters most.**\nBecause you have two qualitatively different risks, rank them so the team knows which deserves more immediate mitigation effort.\n(source: \"Risk exposure is typically determined by estimating the probability and magnitude of risk\")\n\n**4. Plan explicit mitigation actions for each risk.**\nFor the API, this might mean scheduling a brief spike or prototype early; for performance, it might mean establishing benchmark tests from day one. SWEBOK distinguishes risk avoidance, mitigation, and acceptance as the main strategies.\n(source: \"Risk mitigation involves taking steps to reduce the probability or consequences of a risk\")\n\n**5. Use prototyping or spikes to resolve technical unknowns early.**\nBuilding a small throwaway experiment against the third-party API before committing to design decisions is a classic way to convert an unknown into a known.\n(source: \"Prototyping is often used to evaluate technical solutions and to refine software requirements\")\n\n**6. Set measurable success criteria for the uncertain performance target.**\nTurn the vague goal into a specific, testable benchmark so the team knows when it has been met or when escalation is required.\n(source: \"Requirements should be verifiable; a requirement is verifiable if there exists some finite cost-effective process with which a person or machine can check that the software product meets the requirement\")\n\n**7. Incorporate risk-driven contingency into schedule and cost estimates.**\nReserve time and budget specifically for the possibility that the API investigation or performance tuning takes longer than hoped, rather than assuming best-case outcomes.\n(source: \"Reserves are set aside to cover the cost and schedule impacts of risks that occur\")\n\n**8. Monitor risks continuously throughout the project.**\nRevisit the risk register at regular intervals; a risk that seemed low-probability at the start may materialize as integration with the API deepens or profiling reveals a bottleneck.\n(source: \"Risk monitoring involves tracking identified risks and identifying new risks throughout the project lifecycle\")\n\n**9. Define trigger conditions (\"risk triggers\") that prompt escalation.**\nAgree in advance on the signal that the API risk or performance risk has become critical—for example, failing to reach 80 % of the performance target by a certain milestone—so decisions are made in time to act.\n(source: \"Risk triggers are conditions or events that indicate that a risk is about to occur or has occurred\")\n\n**10. Consider the option of accepting a risk consciously when mitigation cost exceeds benefit.**\nIf, after investigation, the performance target proves unreachable without prohibitive effort, formal risk acceptance (with stakeholder sign-off) is a legitimate and documented response.\n(source: \"Risk acceptance involves accepting the consequences should a risk occur, often because the cost of avoiding or mitigating the risk outweighs the potential benefit\")\n\n**11. Communicate risk status to all stakeholders regularly.**\nBoth the third-party API uncertainty and the performance uncertainty affect stakeholder expectations; keeping them informed avoids surprises and allows timely decisions about scope or requirements adjustment.\n(source: \"Risk communication involves informing stakeholders about risks and the status of risk mitigation activities\")\n\n---\n\nFollowing these guidelines will ensure that your two principal uncertainties are visible, analyzed, actively managed, and never silently ignored until they become crises.",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 161,
+    "output_tokens": 920
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

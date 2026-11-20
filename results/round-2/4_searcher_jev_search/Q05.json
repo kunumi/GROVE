@@ -1,0 +1,43 @@
+[
+ {
+  "start": "2026-11-19T08:00:52.947528",
+  "seconds": 62.3,
+  "question": "How should test inputs be chosen for a function that accepts numeric values within a valid range?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "I have enough SWEBOK material from the first two searches to compile the guidelines. Here is what the SWEBOK says:\n\n---\n\n## Guidelines for Choosing Test Inputs for a Numeric Range Function\n\n### 1. Partition the input domain into equivalence classes (valid and invalid)\nDivide all possible numeric inputs into subsets based on expected behaviour. At minimum, create one class for values within the valid range and one (or more) for values outside it. The underlying idea [SWEBOK excerpt f10fb40fa8c272ec4ca2])\" and to \"[SWEBOK excerpt 5f4ea330ea166956e75d].\"\n\n(source: `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md`)\n\n---\n\n### 2. Select at least one representative value from each equivalence class\nOnce the classes are defined, pick one value that is representative of its entire class. The assumption is that any element of the class will expose the same faults as any other. \"[SWEBOK excerpt 83b36aaa6987b9eb0caf].\"\n\n(source: `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md`)\n\n---\n\n### 3. Distinguish valid classes from invalid (out-of-range) classes\nExplicitly model invalid inputs as separate equivalence classes. The criterion for forming them \"[SWEBOK excerpt 4652fb1abb26b63d54a7]: \"[SWEBOK excerpt 7980d4c49f47a3fb8f7f].\"\n\n(source: `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md`)\n\n---\n\n### 4. Test on or near the boundaries of the valid range (Boundary Value Analysis)\nChoose test cases at the edges of the input domain. \"[SWEBOK excerpt bedee61fb08d8b967278].\"\n\n(source: `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md`)\n\n---\n\n### 5. Extend testing to values just outside the valid range (Robustness Testing)\nGo one step further than boundary analysis by also selecting inputs that fall outside the domain. \"[SWEBOK excerpt ac52d3263555a546a515].\"\n\n(source: `/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md`)\n\n---\n\n### 6. Consider random inputs within the domain as a complementary approach\nRandom testing can supplement the structured techniques by selecting random points within the known input domain. \"[SWEBOK excerpt dce1de5f3a49fef127d7].\"\n\n(source: `/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md`)\n\n---\n\n### 7. Use invalid/unexpected inputs to uncover security vulnerabilities\nWhen the numeric function may also receive malformed or adversarial input, include random invalid values. \"[SWEBOK excerpt ae2c1828b3326b204328].\"\n\n(source: `/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md`)\n\n---\n\n**Note:** The SWEBOK passages retrieved cover the core techniques well. They do not provide explicit guidance on topics such as pairwise or combinatorial input reduction for single-variable numeric ranges, or on exact boundary offset values (e.g., ±1). If more detail on those points is needed, additional SWEBOK sections on combinatorial testing or further references would have to be consulted.",
+  "tool_calls": 5,
+  "tools": {
+   "jev_search": 5
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 3,
+    "input_tokens": 37418,
+    "output_tokens": 2175
+   }
+  },
+  "jev_calls": 540,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 974585,
+  "jev_input_tokens": 360259,
+  "jev_output_tokens": 14512,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Software Testing Techniques and Methodologies/Random Testing and Evidence-Based Software Engineering Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

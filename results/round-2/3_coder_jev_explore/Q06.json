@@ -1,0 +1,43 @@
+[
+ {
+  "start": "2026-11-19T08:01:37.623876",
+  "seconds": 26.0,
+  "question": "A function takes six configuration parameters, each with several possible values, and testing every possible mix of their values is too expensive. How should the test cases be derived?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\n\nWhen a function has six configuration parameters each with multiple values, exhaustive testing of all combinations is infeasible. Combinatorial testing techniques systematically reduce the test suite by selecting representative subsets of parameter value combinations, balancing coverage with cost.\n\n# Guidelines\n\n- Use combinatorial test techniques to systematically derive test cases covering specific parameters and values rather than all possible combinations. (source: /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md)\n\n- Apply pairwise (t-wise) testing to derive test cases by combining values of every pair (or t-tuple) of inputs, reducing the total number of tests while maintaining meaningful coverage. (source: /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md)\n\n- Consider orthogonal array testing (OAT) as an equivalent approach to pairwise/t-wise testing for structured parameter coverage. (source: /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md)\n\n- Use decision tables to represent logical relationships between parameter conditions and expected actions, systematically deriving test cases from each combination of conditions. (source: /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md)\n\n- Apply equivalence partitioning to group parameter values into equivalence classes, then select a representative test case from each class to reduce redundancy. (source: /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md)\n\n- Supplement combinatorial tests with boundary value analysis, choosing test cases on or near the boundaries of each parameter's input domain where faults tend to concentrate. (source: /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md)\n\n- Use decision tables or cause-effect graphing to document every possible combination of conditions and resulting actions, ensuring systematic coverage of parameter interactions. (source: /workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing for Knowledge Representation and Documentation.md)",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 13154,
+    "output_tokens": 576
+   }
+  },
+  "jev_calls": 300,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 566698,
+  "jev_input_tokens": 206576,
+  "jev_output_tokens": 8645,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing and Decision Tables.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Combinatorial Test Techniques Overview.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Cause-Effect Graphing Techniques.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/Guide to the Software Engineering Body of Knowledge V4/SWEBOK Guide Version 4.0 Overview/SWEBOK Guide Version 4.0a Table of Contents.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Boundary Value Analysis and Syntax Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/Classification and Specification-Based Testing Techniques.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/Combinatorial Testing for Knowledge Representation and Documentation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/Scenario-Based and Random Testing Approaches.md"
+  ],
+  "chunks": [],
+  "admission": []
+ }
+]

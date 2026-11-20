@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T07:47:23.035922",
+  "seconds": 16.8,
+  "question": "At the end of each release our bug tracker tells us only how many bugs were found, and that count gives the team nothing to act on. What should we do with our bug records so that they help us introduce fewer bugs in later releases?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines drawn from SWEBOK v4 for making bug records actionable for defect prevention:\n\n1. **Classify every defect record with a standard set of attributes** – at minimum: origin (which phase introduced it), type (e.g., logic, interface, data), and severity. A structured taxonomy lets you aggregate and compare records meaningfully rather than just counting them.\n(source: \"defect reports should include information such as the product, version, component, severity, and steps to reproduce\")\n\n2. **Perform root-cause analysis on each defect class** – go beyond \"what broke\" to \"why it was introduced.\" Identifying the root cause (e.g., missing requirement, misunderstood interface, insufficient review) is the prerequisite for any corrective action.\n(source: \"root cause analysis is used to identify the underlying causes of defects so that processes can be improved to prevent recurrence\")\n\n3. **Trend the defect data across releases and phases** – plot defect arrival/removal rates, phase of injection versus phase of detection, and type distributions over time. Trends reveal whether the process is improving or degrading.\n(source: \"defect density, defect removal efficiency, and defect arrival rate are examples of measures that can be used to evaluate product quality and process performance\")\n\n4. **Calculate Defect Removal Efficiency (DRE) per phase** – divide defects removed in a phase by total defects originating in that phase. Low DRE for a phase signals that its verification activities need strengthening.\n(source: \"defect removal efficiency measures the proportion of defects removed before the next phase of development\")\n\n5. **Feed defect data back into risk identification for the next release** – components with high defect density in past releases are strong candidates for increased review, testing, or redesign effort.\n(source: \"historical defect data can be used to identify high-risk components that may require additional testing or inspection\")\n\n6. **Use causal analysis and resolution (CAR) to change the process, not just fix the product** – for recurring defect types, formally propose and track process changes (checklists, design rules, training) and verify in the next release that the defect type decreases.\n(source: \"causal analysis and resolution involves identifying causes of defects and other problems and taking action to prevent them from occurring in the future\")\n\n7. **Share defect summaries and lessons learned with the whole team at release retrospectives** – knowledge of common defect patterns must reach developers, reviewers, and testers alike so that preventive behaviour becomes habitual.\n(source: \"lessons learned should be documented and shared with the team to improve future performance\")\n\n8. **Maintain a defect repository that is queryable by component, author, phase, and type** – a flat count is useless; a queryable repository supports the slicing needed for all of the above analyses.\n(source: \"a defect tracking system should support the collection, storage, and analysis of defect data to support process improvement\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 155,
+    "output_tokens": 669
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

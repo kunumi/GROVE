@@ -1,0 +1,65 @@
+[
+ {
+  "start": "2026-11-19T08:07:59.074703",
+  "seconds": 106.4,
+  "question": "A feature request I have to implement is written as loose prose, and the product owner and I keep reading it differently. How should the team pin down, together with the domain experts and before any code is written, what the feature must do, so that it cannot be misread?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nBefore writing a single line of code, the team should elicit the true underlying need through facilitated workshops (JAD/JRP) and interviews with domain experts, then rewrite the feature as a structured, unambiguous, testable, atomic requirement using stakeholder vocabulary. The resulting specification must be validated through multi-perspective reviews, concrete ATDD acceptance-test sessions (engineers + domain experts + QA agree on pass/fail criteria together), and prototypes that expose any remaining interpretation gaps.\n\n# Guidelines\n\n- **Run facilitated workshops (JAD/JRP) with domain experts.** These are specifically listed as a primary elicitation technique for surfacing tacit knowledge that prose descriptions miss. (source: `root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Stakeholder Identification and Requirements Elicitation Techniques/Stakeholder Elicitation Techniques and Requirements Sources.md`)\n\n- **Treat elicitation as an active, not passive, activity.** Users often leave important information unstated, so the engineer must work to uncover it. \"Elicitation can be difficult … [SWEBOK excerpt 65d2a845eca5d1fed2ce].\" (source: same file as above)\n\n- **Apply the \"5 Whys\" to find the true underlying need, not the stated solution.** \"The 5-whys technique [SWEBOK excerpt 716db07833277b41892e].'\" (source: `root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Analysis and Refinement/Software Requirements Properties and Quality Criteria.md`)\n\n- **Rewrite the feature so each requirement is unambiguous, testable, atomic, and in stakeholder vocabulary.** \"[SWEBOK excerpt 5f4e46e368e62fb60ea9]) … atomic, represent a single decision; [SWEBOK excerpt 825d8b93845096610f26].\" (source: same file as above)\n\n- **Replace loose prose with structured natural language (actor-action format).** \"[SWEBOK excerpt 4eecb83f896611f6153d].\" (source: `root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Natural Language Requirements Specifications/Structured Natural Language Requirements Specification.md`)\n\n- **Or use modelling languages (UML/SysML) to eliminate natural-language ambiguity entirely.** \"[SWEBOK excerpt de89cafd3060d0444838] … UML or SysML … [SWEBOK excerpt 7d29ff7c02d49b7d2b6c].\" (source: `root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md`)\n\n- **Hold multi-perspective requirements reviews before coding starts.** Clients verify their needs are captured; requirements engineers verify clarity; architecture/construction engineers verify the spec is sufficient to build from. Checklists or a \"definition of done\" can guide reviewers. (source: `root/Requirements Validation and Management/Requirements Validation Methods and Techniques.md`)\n\n- **Define concrete acceptance test cases together with domain experts before any production code is written (ATDD).** \"[SWEBOK excerpt cd5cc3b984affe631643] [SWEBOK excerpt acf2737e4c17b2e47a7b].\" (source: `root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Acceptance Testing/Acceptance Criteria-Based Requirements Specification.md`)\n\n- **Build a prototype to expose interpretation gaps when the spec is still not concrete enough.** \"[SWEBOK excerpt 78d5d553044949c2fea4].\" (source: `root/Requirements Validation and Management/Prototyping for Requirements Validation and Feedback.md`)\n\n- **\"Execute\" or simulate the specification with demonstration scenarios to convince stakeholders it matches reality.** \"[SWEBOK excerpt 25555d1d7a1f36132af3].\" (source: `root/Requirements Validation and Management/Requirements Validation Methods and Techniques.md`)\n\n# Gaps\n- The BoK does not detail specific facilitation techniques for running a JAD/JRP workshop (agenda formats, timeboxes, etc.).\n- The BoK does not cover BDD tooling syntax (e.g., Gherkin/Cucumber) beyond naming BDD as an ATDD variant.\n- The BoK does not describe how to resolve a persistent disagreement between a product owner and an engineer that survives the review process.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 11,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 9,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 12,
+    "input_tokens": 120258,
+    "output_tokens": 5812
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/README.md",
+   "/workspace/swebok-v4/root/Requirements Validation and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Requirements Validation and Management/README.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/README.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Software Requirements Engineering Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/INDEX.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Stakeholder Identification and Requirements Elicitation Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Analysis and Refinement/INDEX.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Behavioral Models and Requirements Documentation/INDEX.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Stakeholder Identification and Requirements Elicitation Techniques/Stakeholder Elicitation Techniques and Requirements Sources.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Analysis and Refinement/Requirements Analysis and Desirable Properties.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Analysis and Refinement/Software Requirements Properties and Quality Criteria.md",
+   "/workspace/swebok-v4/root/Requirements Validation and Management/Requirements Validation Methods and Techniques.md",
+   "/workspace/swebok-v4/root/Requirements Validation and Management/Prototyping for Requirements Validation and Feedback.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Natural Language Requirements Specifications/INDEX.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Acceptance Testing/INDEX.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Natural Language Requirements Specifications/Unstructured Natural Language Requirements Specification.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Natural Language Requirements Specifications/Structured Natural Language Requirements Specification.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Acceptance Testing/Acceptance Criteria-Based Requirements Specification.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Model-Based Requirements Specification Approaches.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Requirements Specification and Validation Techniques/Test-Driven Development and Acceptance Testing/Failing Test Cases Drive Production Code Changes.md",
+   "/workspace/swebok-v4/root/Software Requirements_ Foundations and Engineering Practices/Requirements Engineering_ Elicitation, Analysis, and Specification/Behavioral Models and Requirements Documentation/Behavioral Modeling Approaches and Formality Levels/INDEX.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Key Success Factors in Software Requirements.md",
+   "/workspace/swebok-v4/root/Requirements Management, Quality, and Testing Practices/Software Requirements and Conflict Resolution in Stakeholder Negotiation.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

@@ -1,0 +1,66 @@
+[
+ {
+  "start": "2026-11-19T07:36:06.075522",
+  "seconds": 110.5,
+  "question": "Beyond code coverage, how can I evaluate whether my test suite is good at detecting faults?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nSWEBOK v4 describes multiple complementary techniques for evaluating test suite fault-detection ability beyond code coverage. The two most prominent are **mutation testing** (measuring what fraction of small artificial code changes your tests can detect, expressed as the mutation score) and **fault injection** (introducing artificial faults and measuring how many the suite reveals). These are supplemented by fault density measurements, reliability growth models, usage-based/operational-profile testing, and cross-technique comparative analysis.\n\n# Guidelines\n\n- **Use mutation testing and compute the mutation score.** Introduce small syntactic changes (mutants) into the code; the ratio of killed mutants to total mutants measures test suite effectiveness. The \"coupling effect\" justifies this: catching simple artificial faults correlates with catching real complex ones. (source: `root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md` and `Mutation Testing and Fault Injection Evaluation.md`)\n\n- **Apply fault injection to estimate residual faults.** Seed artificial faults into the SUT before running the suite; the fraction discovered indicates effectiveness and can help estimate how many genuine faults remain. Use with care — injected faults risk being left behind. (source: `root/.../Mutation Testing and Fault Injection Evaluation.md` — \"[SWEBOK excerpt 243d9c57faf056f32a15].\")\n\n- **Measure fault density of the SUT.** Count discovered faults relative to SUT size, and also consider fault depth (minimum removals to make the SUT correct) and fault multiplicity (atomic changes needed to fix a single fault). (source: `root/.../Fault Density Measurement in Software Testing.md`)\n\n- **Classify faults and use historical fault-type statistics.** Apply a taxonomy (e.g., ODC) and historical data on past fault frequencies to find which fault types your suite is missing, then target test design toward those gaps. (source: `root/.../SUT Measurements and Fault Classification for Test Planning.md` — \"[SWEBOK excerpt cd91e15e3a10de6612be]\")\n\n- **Apply reliability growth models.** Use failure-count or time-between-failure models to track whether observed failures, once fixed, translate into genuine reliability improvement — giving a system-level view of suite adequacy. (source: `root/.../Reliability Growth Models and Test Evaluation.md`)\n\n- **Compare test-generation techniques by relative effectiveness metrics** — number of tests to find the first failure, ratio of faults found during testing to all faults ever found, and reliability improvement — rather than relying on a single criterion. (source: `root/.../Test Suite Effectiveness and Testing Process Integration.md`)\n\n- **Use usage-based / operational-profile testing.** Generate tests that mirror real user usage patterns; observed results can be used to infer future field reliability, assessing suite adequacy from an end-user perspective. (source: `root/.../Operational Profile Testing for Software Reliability.md` — \"[SWEBOK excerpt 4931b5e76ce8c14eaa8b])\")\n\n- **Evaluate coverage across all three technique families** (specification-based, structure-based, and experience-based), not only structural paths. For each family, identify covered and uncovered elements (branches, requirements, states, etc.). (source: `root/.../Coverage Measures in Software Testing Techniques.md`)\n\n- **Track process-level KPIs** (e.g., [SWEBOK excerpt 6d06c7f19d6ef5c2430f], change failure rate) to monitor whether testing activities are meeting their objectives and guide termination decisions. (source: `root/.../SUT Measurements and Fault Classification for Test Planning.md`)\n\n# Gaps\n- The BoK does not cover specific tooling or automation platforms for mutation testing or fault injection.\n- Property-based/generative testing (e.g., QuickCheck-style) as a test-suite evaluation strategy is not addressed in the sections read.\n- Detailed step-by-step guidance for operationalizing reliability growth models in practice is not provided.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 10,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 8,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 11,
+    "input_tokens": 105418,
+    "output_tokens": 5737
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/README.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/README.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Limitations and Path Feasibility Challenges/README.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Levels, Objectives, and Approaches/README.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Testing Approaches and Execution Strategies/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Software Testing Approaches and Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing Methodologies and Techniques/Systematic Test Case Derivation and Combinatorial Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Models and Mutation Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test-Related Measures and Quality Evaluation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation Testing and Fault Injection Evaluation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Evaluation of the System Under Test.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Measurement and Coverage Analysis/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Effectiveness and Process Levels/INDEX.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/SUT Measurements and Fault Classification for Test Planning.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Mutation Testing as a Testing Criterion.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Effectiveness and Process Levels/Test Suite Effectiveness and Testing Process Integration.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Measurement and Coverage Analysis/Coverage Measures in Software Testing Techniques.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Fault Density Measurement in Software Testing.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Reliability Growth Models and Test Evaluation.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Operational Profile Testing for Software Reliability.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Mutation-Based and Usage-Based Testing Techniques/Usage-Based Testing Techniques and Statistical Sampling.md",
+   "/workspace/swebok-v4/root/Testing Methodologies and Quality Assurance Practices/Software Testing Techniques, Measurement, and Management/Test Measurement and Coverage Analysis/Measurement and Test Planning Optimization.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

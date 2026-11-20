@@ -1,0 +1,64 @@
+[
+ {
+  "start": "2026-11-19T08:33:45.531337",
+  "seconds": 100.9,
+  "question": "How should modules be organized so that the software stays easy to maintain, and how can an existing badly structured program be improved without its users noticing any difference?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nSWEBOK v4 teaches that good module organization requires minimizing complexity through modular design and simple readable code, using divide-and-conquer and stepwise refinement strategies to decompose functions systematically, anticipating change to keep modules extensible, and explicitly designing for non-runtime quality attributes such as modifiability and testability. When an existing system is badly structured, the prescribed approach is **refactoring** — a technique that reorganizes the program's internal structure and improves maintainability *without changing its behavior*, so users notice no difference; in CI/Agile contexts this should be done continuously to manage growing complexity.\n\n# Guidelines\n\n- **Minimize complexity via modular design and simple, readable code** — [SWEBOK excerpt 2a925e82b0ef7eebb1cf], using standards and modular design. (source: `root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md`)\n\n- **Apply divide-and-conquer and stepwise refinement strategies to structure modules** — these general strategies guide designers on [SWEBOK excerpt 2b427e77ae6c2c803297]. (source: `root/Software Design Methodologies and Approaches/Design Strategies and Structured Approaches/Design Strategies and Function-Oriented Methods.md`)\n\n- **Decompose functions top-down in structured design** — structured design focuses on refinement/[SWEBOK excerpt 941beb18987d775abe74]. (source: `root/Software Design Methodologies and Approaches/Design Strategies and Structured Approaches/Structured Design and Top-Down Function Decomposition.md`)\n\n- **Anticipate and embrace change when defining module boundaries** — [SWEBOK excerpt 3005c582c73eababb53e] product without disrupting the underlying structure. (source: `root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md`)\n\n- **Design explicitly for modifiability, portability, reusability, and testability** — these quality attributes cannot be observed at runtime and must be addressed in the design itself. (source: `root/Software Design Quality Evaluation and Assessment/Software Quality Analysis and Evaluation Techniques.md`)\n\n- **Review and statically analyze module structure to find weaknesses** — architecture reviews, design reviews, inspections, scenario-based techniques, and formal static analysis can be used to evaluate design quality. (source: `root/Software Design Quality Evaluation and Assessment/Software Quality Analysis and Evaluation Techniques.md`)\n\n- **Record design rationale to keep the module structure understandable over time** — recording the rationale (assumptions, alternatives, trade-offs) enhances long-term maintainability; continuing to capture it during maintenance also contributes to viability. (source: `root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md`)\n\n- **Refactor: reorganize the program's internals without changing its behavior** — [SWEBOK excerpt 2b93c402ca4e17e31a18], improving internal structure and maintainability; it can reduce technical debt before and after code changes. (source: `root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md`)\n\n- **Refactor continuously in CI/Agile contexts to manage growing complexity** — [SWEBOK excerpt bb2ba03a0a8e6f9e09c9] reducing and managing growing complexity while improving developer productivity. (source: `root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md`)\n\n- **Use reverse engineering to understand the existing structure before restructuring** — reverse engineering identifies components and their interrelationships and creates representations at higher levels of abstraction, enabling informed refactoring. (source: `root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md`)\n\n- **Apply core construction fundamentals when restructuring** — minimizing complexity, anticipating change, constructing for verification, reusing assets, and applying standards all apply to redesign work, not just initial construction. (source: `root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md`)\n\n# Gaps\n- Specific coverage of **cohesion and coupling** (the file `Separation of Concerns and Modularization in Software Design.md` was found in an index but could not be read within the read budget).\n- **Specific refactoring patterns or catalogs** (e.g., Extract Method, Move Class) are not covered in the passages I read.\n- **Coupling/cohesion metrics** (from `Software Design Measures and Evaluation Methods.md`) could not be read due to budget constraints.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 12,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 10,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 13,
+    "input_tokens": 135340,
+    "output_tokens": 5506
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Methodologies and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Methodologies and Approaches/Design Strategies and Structured Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/Design Analysis and Quality Metrics/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/Design Analysis and Quality Metrics/Software Design Metrics and References/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Concerns and Architectural Patterns.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md",
+   "/workspace/swebok-v4/root/Software Design Methodologies and Approaches/Design Strategies and Structured Approaches/Structured Design and Top-Down Function Decomposition.md",
+   "/workspace/swebok-v4/root/Software Design Methodologies and Approaches/Design Strategies and Structured Approaches/Design Strategies and Function-Oriented Methods.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Reengineering and Legacy System Modernization.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Engineering Challenges and Variability Management/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/Software Quality Analysis and Evaluation Techniques.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/INDEX.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

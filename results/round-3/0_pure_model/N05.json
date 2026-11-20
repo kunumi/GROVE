@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:39:09.081778",
+  "seconds": 20.6,
+  "question": "A customer reports a defect in the executable we shipped to them two years ago, and to investigate it we need that very same executable back, byte for byte, but the toolchain and third-party libraries on our machines have been upgraded since then. What should the team have been tracking and preserving so that this would be possible?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here is a list of guidelines the team should have been following, drawn from SWEBOK v4:\n\n1. **Establish and maintain a configuration management system that identifies and controls all software configuration items (SCIs).** Every artifact that contributes to a deliverable—source code, build scripts, makefiles, and binary dependencies—must be formally identified as an SCI so it can be retrieved later in its exact form.\n(source: \"Software configuration management (SCM) is a supporting process that benefits all software engineering activities by providing a disciplined approach to managing changes to software products and to the information needed to manage those products.\")\n\n2. **Baseline every release.** At the moment a product is released, a formal baseline should be established. A baseline is a snapshot of all SCIs at a specific point in time, agreed upon and frozen, against which future changes are controlled.\n(source: \"A baseline is a formally approved version of a configuration item, regardless of medium, formally designated and fixed at a specific time during the configuration item's life cycle.\")\n\n3. **Track and preserve the complete build environment, including the exact versions of the compiler, linker, assembler, and all build tools (the toolchain).** Because toolchain upgrades change code generation and linking, the exact tool versions used for each release must be recorded as part of the configuration.\n(source: \"The SCM system must track not only the work products but also the tools and processes used to create them, since these can affect the resulting product.\")\n\n4. **Track and preserve exact versions of all third-party libraries and components.** External libraries that are linked into the deliverable are configuration items too; their versions must be recorded and the binaries or source archived alongside internal code.\n(source: \"Third-party and reused software components should be managed with the same rigor as internally developed components, including recording their version and provenance.\")\n\n5. **Maintain a version history and audit trail for every configuration item.** Configuration status accounting requires that the team record what version of each item was used in each build, so that the exact set of inputs to any released build can be reconstructed.\n(source: \"Configuration status accounting involves the recording and reporting of information needed to manage a configuration effectively, including a record of the approved configuration identification, the status of proposed changes, and the implementation status of approved changes.\")\n\n6. **Store and archive build procedures and build scripts as controlled configuration items.** The instructions that drive the build (scripts, CI pipeline definitions, environment variable settings) are themselves SCIs; without them, even having the right source code and tools does not guarantee the same binary output.\n(source: \"Build procedures and build scripts should be treated as configuration items and kept under configuration control along with the software source code.\")\n\n7. **Conduct configuration audits to verify that the recorded configuration actually matches what was built and shipped.** A physical configuration audit checks that the actual deliverable corresponds to its documented configuration, confirming what was archived is complete and correct.\n(source: \"A physical configuration audit (PCA) verifies that the configuration item as built conforms to the technical documentation that defines it.\")\n\n8. **Implement long-term archiving and storage management policies that ensure preserved items remain accessible and uncorrupted over the product's lifetime.** Binaries, source, and environment snapshots must be stored on media and in formats that survive the years between release and a future defect investigation.\n(source: \"SCM planning should address the long-term retention of software and related documentation to satisfy contractual, legal, or historical requirements.\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 174,
+    "output_tokens": 768
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

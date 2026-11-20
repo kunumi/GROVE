@@ -1,0 +1,54 @@
+[
+ {
+  "start": "2026-11-19T08:31:00.099450",
+  "seconds": 35.1,
+  "question": "What general practices should developers follow when writing code so that attackers cannot exploit it?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here is a comprehensive list of guidelines developers should follow when writing code so that attackers cannot exploit it, drawn directly from SWEBOK v4:\n\n---\n\n## Secure Coding Guidelines for Developers\n\n### Rules for Coding Security Into Software\n\n1. **Keep privileged code modular and minimal.**\n   [SWEBOK excerpt 4efb029cedb4ed80ee2d].\n   (source: *\"[SWEBOK excerpt 2b7a82b18d63ac5319fd]\"*)\n\n2. **Validate all assumptions — or document them.**\n   [SWEBOK excerpt 0bcf94be1b9045b82f4d].\n   (source: *\"[SWEBOK excerpt 8de4c89f6bad5b1aa1b9]\"*)\n\n3. **Avoid sharing memory objects with other programs.**\n   [SWEBOK excerpt 0bf95a5064c99a220208].\n   (source: *\"[SWEBOK excerpt 0bf95a5064c99a220208]\"*)\n\n4. **Check every function's error status and handle failures securely.**\n   [SWEBOK excerpt f8acf867765e953f75d7].\n   (source: *\"[SWEBOK excerpt baa72cb3c280f453b32e]\"*)\n\n---\n\n### CERT/CC Top 10 Software Security Practices\n\n5. **Validate input.**\n   All input from external sources must be checked before use to prevent injection, overflow, and other input-based attacks.\n   (source: *\"[SWEBOK excerpt 3e71e725c4f83e41d6db].\"*)\n\n6. **Heed compiler warnings.**\n   Compiler warnings often flag code patterns that are known to introduce vulnerabilities and should not be ignored.\n   (source: *\"2. Heed compiler warnings.\"*)\n\n7. **Architect and design for security policies.**\n   Security must be built into the architecture and design of the system, not added as an afterthought.\n   (source: *\"3. Architect and design for security policies.\"*)\n\n8. **Keep it simple.**\n   Complexity is the enemy of security; simpler code is easier to reason about and less likely to contain hidden vulnerabilities.\n   (source: *\"4. Keep it simple.\"*)\n\n9. **Default deny.**\n   Access should be denied by default; permissions must be explicitly granted rather than assumed.\n   (source: *\"5. Default deny.\"*)\n\n10. **Adhere to the principle of least privilege.**\n    Code and components should operate with only the minimum permissions necessary to perform their function.\n    (source: *\"[SWEBOK excerpt 95e3f394f6c21a8e46bd].\"*)\n\n11. **Sanitize data sent to other software.**\n    Data passed to other systems, libraries, or components must be cleaned to prevent injection and similar attacks.\n    (source: *\"7. Sanitize data sent to other software.\"*)\n\n12. **Practice defense in depth.**\n    Multiple, overlapping security controls should be used so that if one layer fails, others still protect the system.\n    (source: *\"8. Practice defense in depth.\"*)\n\n13. **Use effective quality assurance techniques.**\n    Techniques such as code reviews, static analysis, unit testing, and security-oriented reviews help catch vulnerabilities before deployment.\n    (source: *\"9. Use effective quality assurance techniques.\"*)\n\n14. **Adopt a software construction security standard.**\n    Following a recognized secure coding standard (e.g., CERT C, CERT Java) provides consistent, proven practices for avoiding known vulnerability classes.\n    (source: *\"10. Adopt a software construction security standard.\"*)\n\n---\n\n### Additional Construction-Level Practices\n\n15. **Know common vulnerabilities and check for them.**\n    [SWEBOK excerpt 463aa9a1f385c7337a77].\n    (source: *\"[SWEBOK excerpt 77ef07093dda0f108118])\"*)\n\n16. **Choose programming languages carefully.**\n    [SWEBOK excerpt 60903a6d9f8370b2ab92]).\n    (source: *\"[SWEBOK excerpt 55bf287796434cef6781]\"*)\n\n17. **Avoid introducing untrusted external dependencies.**\n    [SWEBOK excerpt 49ef50d7735120334288]. Regulations and monitoring [SWEBOK excerpt fd3c4dabfaf88745b444].\n    (source: *\"[SWEBOK excerpt 0a4e4f2bbda11a933026]\"*)\n\n---\n\nThese guidelines collectively span all phases of the software development life cycle, as SWEBOK notes: *\"[SWEBOK excerpt b72af824df01b369b347].\"*",
+  "tool_calls": 2,
+  "tools": {
+   "search_swebok": 2
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 2,
+    "input_tokens": 15756,
+    "output_tokens": 1328
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 2,
+  "embedding_texts": 2,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 120,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [
+   "dbded4193ff12ef9",
+   "d2b496bed08a9df7",
+   "f3e88a8e118bd664",
+   "187cd14bcef4c1a6",
+   "be0da12e8ff26852",
+   "49de7a0874e48d0c",
+   "360470d3db9f088c",
+   "7c5db767b76581cb",
+   "c59498a2f97b92b1",
+   "5673db5439f7374a",
+   "dbded4193ff12ef9",
+   "f3e88a8e118bd664",
+   "d2b496bed08a9df7",
+   "4cd8f25cd245145f",
+   "77540a7a106e365d",
+   "187cd14bcef4c1a6",
+   "a385f2929f1dbe48",
+   "3b0371ded244ae6f",
+   "7c5db767b76581cb",
+   "9adc5db649cefdbc"
+  ],
+  "admission": []
+ }
+]

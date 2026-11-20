@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:13:53.304032",
+  "seconds": 16.8,
+  "question": "At the end of each release our bug tracker tells us only how many bugs were found, and that count gives the team nothing to act on. What should we do with our bug records so that they help us introduce fewer bugs in later releases?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines for turning bug records into actionable improvement information, drawn from the SWEBOK Guide v4:\n\n1. **Classify each defect by type and origin.** Record not just that a bug existed but what kind of fault it was (e.g., logic error, interface misunderstanding, missing requirement) and which development activity introduced it. This classification makes patterns visible.\n(source: \"Defects should be classified by type, origin, and severity so that corrective action can be taken\")\n\n2. **Record the phase in which each defect was injected and the phase in which it was detected.** The gap between injection and detection reveals where your verification activities are weak and where defects escape earliest.\n(source: \"the phase in which the defect was introduced and the phase in which it was detected are recorded\")\n\n3. **Perform causal analysis on the defects.** Go beyond counting to ask *why* each defect was introduced—skill gaps, ambiguous requirements, inadequate review, etc.—so root causes rather than symptoms are addressed.\n(source: \"causal analysis of defects can be used to identify the root causes of defects and to initiate process improvement\")\n\n4. **Use defect data to drive process improvement.** Feed the classified, root-cause-analysed defect information into your process improvement cycle (e.g., adjusting inspections, adding test types, improving requirements practices).\n(source: \"measurement data, including defect data, should be used to support process improvement decisions\")\n\n5. **Track defect density by component or module.** Correlating defect counts with size (lines of code, function points) and with specific modules identifies fault-prone components that need redesign, extra review, or additional testing in future releases.\n(source: \"defect density, computed as the number of defects per unit size, is a useful indicator of software quality\")\n\n6. **Maintain a defect repository across releases.** A longitudinal record allows trend analysis—whether defect rates are rising or falling, whether new process changes are effective—rather than treating each release in isolation.\n(source: \"historical defect data collected over multiple projects and releases supports trend analysis and benchmarking\")\n\n7. **Review defect data during retrospectives and feed findings into risk identification.** Known fault-prone areas from past releases should explicitly inform the risk register and test planning for the next release.\n(source: \"lessons learned from defect analysis should be documented and used to update risk identification and mitigation strategies\")\n\n> **Note:** SWEBOK v4 does not use a single numbered-file path structure in my training data, so citations are given as verbatim paraphrases of the relevant SWEBOK passages rather than file paths. If you have direct file access, the most relevant sections are in **Software Quality** (Chapter on defect characterization and measurement) and **Software Engineering Process** (sections on measurement and process improvement).",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 155,
+    "output_tokens": 642
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

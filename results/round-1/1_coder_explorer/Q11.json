@@ -1,0 +1,54 @@
+[
+ {
+  "start": "2026-11-19T07:39:55.319861",
+  "seconds": 58.0,
+  "question": "What kinds of changes are made to software that is already in use, and what distinguishes each kind from the others?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nSWEBOK v4 identifies five distinct kinds of changes made to software already in use: **corrective**, **adaptive**, **perfective**, **additive**, and **emergency** maintenance. Each is distinguished by *why* the change is made—to fix a fault, to respond to an environmental change, to improve existing features, to add substantially new features, or to temporarily keep a system running while a proper fix is prepared.\n\n# Guidelines\n\n- **Corrective maintenance** targets actual faults that cause the software to operate incorrectly; it is distinguished from all other types because a defect exists that must be repaired. (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md` — listed as a distinct category alongside perfective, adaptive, additive, and emergency maintenance)\n\n- **Adaptive maintenance** keeps software usable when its surrounding environment changes (e.g., new hardware or OS); the software is not broken, but external conditions have shifted. (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md` — adaptive maintenance listed as a distinct category)\n\n- **Perfective maintenance** is *\"[SWEBOK excerpt b3f0980f7367b3ca8843].\"* It improves what already exists without adding wholly new capabilities. (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md`)\n\n- **Additive maintenance** differs from perfective in two ways: *\"[SWEBOK excerpt 5bd62031f86d85aeedfe].\"* In short, it involves large-scale new functionality rather than small improvements. (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md`)\n\n- **Emergency maintenance** is an *\"[SWEBOK excerpt 972c8f1f2f359acc9f95].\"* It is distinguished from corrective maintenance by being a temporary stopgap, not a permanent fix. (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md`)\n\n- Tracking costs by category matters: *\"[SWEBOK excerpt ff1a651bf399a95a654b],\"* and the data *\"[SWEBOK excerpt 9e158abc0e0d30ca6b6a].\"* (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Effort Categories.md`)\n\n- All these change types are driven by Lehman's law: *\"[SWEBOK excerpt 1d4b16d8f2ed86adaf4c],\"* and as it [SWEBOK excerpt 3be3f5e21a223449434c].\"* (source: `root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Evolution Laws.md`)\n\n# Gaps\n- The retrieved excerpt of `Types of Software Maintenance Activities.md` began mid-list; verbatim definitions for **corrective** and **adaptive** maintenance were not present in the text retrieved (though both are named as distinct categories). The file clearly lists five types but the corrective/adaptive definitions were cut off.\n- No empirical data on the relative frequency of each maintenance type in practice was found in the BoK.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 8,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 6,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 9,
+    "input_tokens": 73837,
+    "output_tokens": 3488
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/README.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/README.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/README.md",
+   "/workspace/swebok-v4/root/Software Maintenance Planning and Supporting Activities.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Maintenance Processes and Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Types of Software Maintenance Activities.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Key Issues in Software Maintenance.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Evolution Laws.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Maintenance_ Organization, Configuration, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Costs and Effort Categories.md",
+   "/workspace/swebok-v4/root/Software Testing, Operations, and Maintenance/Software Operations and Maintenance Practices/Software Maintenance Roles and Cost Distribution/INDEX.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

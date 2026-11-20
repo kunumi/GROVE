@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:18:46.153948",
+  "seconds": 20.7,
+  "question": "I am handing over a finished system to a client whose in-house team will keep developing it after delivery. Besides the program itself, what written material should I prepare for the client, for its end users and for my own organization, and for how long should it be retained?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Documentation and Retention Guidelines for System Handover\n\n## Documentation for the Client's Development/Maintenance Team\n\n1. **Provide system/software documentation** that covers the internal workings of the product so the client's developers can maintain and extend it. This includes architecture descriptions, design documents, source code with comments, and internal interface specifications.\n(source: \"documentation that describes the system or software product itself, including system requirements, software requirements, design, source code, test plans, and test cases\")\n\n2. **Deliver all test artifacts**, including test plans, test cases, and test results, so the inheriting team can perform regression testing and validate future changes.\n(source: \"test plans, test cases, and test results should be delivered to the customer as part of the product documentation\")\n\n3. **Include configuration management records** — version histories, build procedures, dependency lists, and change logs — so the team can reproduce builds and trace the evolution of the system.\n(source: \"configuration management documentation, including the configuration management plan, configuration identification records, change requests, and configuration status accounting records\")\n\n4. **Hand over all maintenance-relevant documentation**, such as known defect lists, workarounds, and maintenance procedures, to reduce the inheriting team's ramp-up time.\n(source: \"maintenance documentation includes maintenance procedures, known problems and workarounds, and future enhancements planned for the system\")\n\n---\n\n## Documentation for End Users\n\n5. **Prepare user documentation** in forms appropriate to the users' roles and skill levels. This typically includes user manuals, quick-reference guides, online help, and tutorials.\n(source: \"user documentation includes tutorials, user manuals, reference manuals, and online help\")\n\n6. **Write user documentation in non-technical language** suited to the intended audience, avoiding jargon that is meaningful only to developers.\n(source: \"user documentation should be written in language the user can understand and should avoid the use of technical jargon\")\n\n7. **Provide operator and administrator documentation** separately from end-user documentation, covering installation, configuration, backup, and recovery procedures.\n(source: \"operator documentation includes instructions for operating the system, including system generation, installation, and configuration instructions\")\n\n---\n\n## Documentation for Your Own Organization\n\n8. **Retain project documentation internally**, including plans, estimates, lessons-learned reports, and process records, to support organizational learning and future project estimation.\n(source: \"lessons learned should be documented and made available to other projects within the organization\")\n\n9. **Archive all contractual and legal documents**, including requirements agreements, acceptance criteria, and delivery receipts, in case of future disputes or audits.\n(source: \"contractual documentation includes the contract itself, statements of work, and acceptance criteria\")\n\n10. **Keep copies of all delivered documentation** in your own repository so you can support warranty obligations or future change requests from the client.\n(source: \"copies of all project documents should be retained by the developing organization for the duration of the product life cycle\")\n\n---\n\n## Retention Periods\n\n11. **Retain project and product documentation for the entire operational life of the system**, and in regulated industries or by contractual obligation, potentially beyond it. The SWEBOK notes that document retention must respect applicable laws, standards, and contracts.\n(source: \"document retention requirements should be established at the start of the project and should comply with legal, organizational, and contractual requirements\")\n\n12. **Follow domain-specific regulatory requirements** for retention (e.g., safety-critical, medical, or government systems may mandate retention periods of 10 years or more after the system is decommissioned).\n(source: \"some documents may need to be retained for the operational life of the system plus an additional period as specified by law or contract\")\n\n13. **Define retention responsibilities explicitly in the handover agreement** so both parties know who holds which documents and for how long.\n(source: \"the organization should establish and document its policies and procedures for document management, including retention and disposition\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 163,
+    "output_tokens": 871
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

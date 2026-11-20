@@ -1,0 +1,65 @@
+[
+ {
+  "start": "2026-11-19T07:49:49.329600",
+  "seconds": 114.4,
+  "question": "A recurring workflow in our team passes work from one person to the next, and today only two senior developers know how it goes. I want to write it down so that new developers and automated coding agents follow it the same way every time: what must the write-up state, and in what forms can it be written?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "# Summary\nSWEBOK v4 defines a process as a set of interrelated activities that transform inputs into outputs, and requires that any process write-up explicitly state its purpose, every required/recommended/permissible task, the hand-off dependencies between steps, the controls and enabling mechanisms involved, and the rationale behind non-trivial decisions. The specification can be expressed in several forms — from plain natural language and textual task lists, through graphical notations (data-flow diagrams, state charts, IDEF0, Petri nets, UML activity diagrams, BPMN), all the way to model-based design artifacts that reduce ambiguity and support automated tooling.\n\n# Guidelines\n\n- **State the workflow's purpose and the conditions under which it applies.** [SWEBOK excerpt 37856bf26653ea9d0559].\" (source: `root/Software Engineering Processes and Quality Assurance/…/Software Engineering Process Definition and Structure/Software Engineering Process Definition.md`, §1.2)\n\n- **Document required inputs, transforming activities, and outputs for every step.** \"[SWEBOK excerpt 45a4e97d663329a39c21].\" (source: `root/…/Software Process Definition and Components.md`)\n\n- **Mark each task as required, recommended, or permissible.** [SWEBOK excerpt 83378fd7df256f5fb252].\" (source: `root/…/Software Engineering Process Definition.md`, §1.2)\n\n- **Identify all hand-off dependencies between steps.** \"[SWEBOK excerpt 9399160eeee1f6e30bd0].\" (source: `root/…/Software Process Definition and Life Cycle Specification.md`)\n\n- **Include controls (directives, constraints) and enabling mechanisms (tools, technologies, resources).** \"[SWEBOK excerpt 7e4f0f5ea03594430af7]).\" (source: `root/…/Software Process Definition and Components.md`)\n\n- **Write so the specification is easy to understand and correct, and usable for communication.** \"[SWEBOK excerpt 8457346a71c68cfe8aca] … [SWEBOK excerpt 9b95324fef99d041e01e].\" (source: `root/…/Software Process Definition and Life Cycle Specification.md`)\n\n- **Record the rationale for every non-trivial decision.** \"[SWEBOK excerpt 72733dbc3de098e315c6].\" (source: `root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md`)\n\n- **Natural language / textual task lists** are a valid and accessible form. \"[SWEBOK excerpt b31623575ab6bb052d27]…\" (source: `root/…/Software Process Infrastructure Tools and Notations.md`)\n\n- **Graphical notations** — data-flow diagrams, state charts, IDEF0, Petri nets, **UML activity diagrams**, or **BPMN** — are well-suited when the workflow branches or has parallel paths. (source: `root/…/Software Process Infrastructure Tools and Notations.md`)\n\n- **Model-Based Design (MBD) artifacts** should be preferred when automated agents must follow the workflow. \"[SWEBOK excerpt 24b89382ff1013f1d14c],\" whereas MBD \"[SWEBOK excerpt c5dad79b0fd108f9d3af].\" (source: `root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Software Design Notations and Model-Based Approaches.md`, §4.1)\n\n- **Use multiple notation types together**; UML covers both structural and behavioural concerns at all stages. \"[SWEBOK excerpt a180d98c6ccc1b4217cc] … [SWEBOK excerpt a1c49624d6f4269cdfc8].\" (source: same file, §4.1)\n\n- **Back the write-up with tooling** (e.g., a BPMN toolkit or process-support tools). \"[SWEBOK excerpt 0556abcbcfe412cf4431].\" (source: `root/…/Software Process Infrastructure Tools and Notations.md`)\n\n# Gaps\n- The BoK does not specifically address how to tailor process documentation for **automated coding agents** (LLM-based tools) versus human readers; model-based design is the closest guidance.\n- The BoK does not provide **templates or standard schemas** for a process write-up document.\n- The BoK does not cover **version control or change management** specifically for process documentation.\n\nFull answer: /workspace/results/runs/explorer/BOK_RESULT.md",
+  "tool_calls": 11,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 9,
+   "write_file": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 12,
+    "input_tokens": 117303,
+    "output_tokens": 6099
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/README.md",
+   "/workspace/swebok-v4/root/Professional Practice and Collaboration in Software Engineering/INDEX.md",
+   "/workspace/swebok-v4/root/Professional Practice and Collaboration in Software Engineering/README.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/README.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/INDEX.md",
+   "/workspace/swebok-v4/root/Construction Practices, Standards, and Development Models/README.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/System Design Documentation and Notation Tools/INDEX.md",
+   "/workspace/swebok-v4/root/Professional Practice and Collaboration in Software Engineering/Collaboration, Communication, and Cognition in Software Engineering/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Engineering Processes and System Lifecycles/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Processes and Life Cycle Management/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Process Foundations and Measurement/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Process Improvement, Standards, and Modeling Frameworks/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Engineering Processes and System Lifecycles/Software Engineering Process Definition and Structure/INDEX.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Processes and Life Cycle Management/Software Process Definition and Life Cycle Specification.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Process Foundations and Measurement/Software Process Infrastructure Tools and Notations.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Engineering Processes and System Lifecycles/Software Engineering Process Definition and Structure/Software Engineering Process Definition.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Engineering Processes and System Lifecycles/Software Engineering Process Definition and Structure/Software Process Definition and Components.md",
+   "/workspace/swebok-v4/root/Software Engineering Processes and Quality Assurance/Software Engineering Processes, Lifecycles, and Measurement/Software Processes and Life Cycle Management/Software Product Life Cycle Processes and Rationale.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/System Design Documentation and Notation Tools/Notations for Describing Software System Behavior.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Recording Software Designs.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Software Design Documentation and Communication Methods/Software Design Notations and Model-Based Approaches.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/System Design Documentation and Notation Tools/Data Modeling and Software Component Documentation.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

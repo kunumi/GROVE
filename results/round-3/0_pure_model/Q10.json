@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T08:31:40.437439",
+  "seconds": 11.7,
+  "question": "How can a routine make its assumptions about inputs and outputs explicit and guard itself against callers passing it values it was not built to accept?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are guidelines for making a routine's assumptions explicit and guarding against invalid inputs/outputs:\n\n1. **Use assertions (preconditions and postconditions) to document and enforce assumptions.** Assertions state what must be true before a routine executes (preconditions) and what must be true after it completes (postconditions), making implicit assumptions explicit and detectable at runtime.\n(source: \"Use assertions to document preconditions and postconditions, that is, the conditions that must be true\")\n\n2. **Decide how the routine will handle errors in its inputs — either through defensive programming or by contract.** A routine can either defensively check every input itself, or rely on callers to satisfy a contract; the choice should be consistent across the codebase.\n(source: \"Decide how the routine will handle incorrect inputs — through defensive programming or by contract\")\n\n3. **Check the values of all input parameters at the start of the routine.** Validating inputs as early as possible (at the point of entry) prevents corrupted data from propagating deeper into the logic.\n(source: \"Check the values of all input parameters\")\n\n4. **Use defensive programming to anticipate and handle unexpected conditions.** Rather than assuming callers always pass valid data, routines should guard themselves by checking parameter ranges, null values, type constraints, and other boundary conditions.\n(source: \"Defensive programming is the practice of anticipating that your routine will be called incorrectly\")\n\n5. **Document all preconditions in the routine's interface specification or comments.** Even when assertions are not enforced at runtime (e.g., in production builds), written documentation of what a routine requires makes the contract visible to callers.\n(source: \"Document preconditions and postconditions for each routine in the routine's header comment\")\n\n6. **Restrict input data to a known, valid range (input validation).** The routine should define the acceptable range of values and reject or handle anything outside that range explicitly.\n(source: \"Check that the values of all input parameters are within the expected range\")\n\n7. **Distinguish between errors that are truly exceptional versus those that are routine.** Not every bad input should raise an exception; some invalid inputs are expected in normal operation and should be handled via return codes or status flags instead.\n(source: \"Use exceptions for conditions that are truly exceptional, that is, conditions that cannot be handled locally\")",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 134,
+    "output_tokens": 525
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]

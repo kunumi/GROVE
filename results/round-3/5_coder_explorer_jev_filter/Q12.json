@@ -1,0 +1,226 @@
+[
+ {
+  "start": "2026-11-19T08:34:25.371999",
+  "seconds": 82.7,
+  "question": "How should modules be organized so that the software stays easy to maintain, and how can an existing badly structured program be improved without its users noticing any difference?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "[JEV filter] kept 16 of 16 guidelines (JEV 'lenient' score > 0.5)\n\n# Guidelines\n- Separate concerns: identify distinct areas of interest and isolate them so that each can be addressed independently. As Dijkstra noted, Separation of Concerns (SoC) is '[SWEBOK excerpt 3c6bcd9d9c4aefd2ba19]', making the system easier to understand and maintain. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Separation of Concerns and Modularization in Software Design.md; root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Decision-Making Methods.md) [JEV 0.96]\n- Decompose large software into smaller, well-named modules (modularization). Each component should have well-defined interfaces for interactions with other components, because [SWEBOK excerpt 55313f73d8cecb767e22] easier to maintain. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Component Modularization and Single Responsibility Principle.md) [JEV 0.97]\n- Apply the Single Responsibility Principle: [SWEBOK excerpt b39476fe9cb17afc35e8]. As David Parnas advocated, [SWEBOK excerpt 4b0d4d0da1169511bdd2]. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Component Modularization and Single Responsibility Principle.md) [JEV 0.97]\n- Maximize cohesion within each module: cohesion is '[SWEBOK excerpt 2cc2fcc5ef2d67075376]'. [SWEBOK excerpt f919b02647d438b38476] by grouping related elements together. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md) [JEV 0.98]\n- Minimize coupling between modules: coupling is '[SWEBOK excerpt 32755a8f9df8a5b4f921]'. [SWEBOK excerpt 747a57aa9e93586dca62] to reduce the ripple effect of changes. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md) [JEV 0.95]\n- Apply encapsulation (information hiding): build upon abstraction and modularization so that non-essential information is less accessible, allowing users of a module to focus on its essential interface elements while the internal implementation details remain hidden. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md) [JEV 0.98]\n- Separate interface from implementation: define each component by specifying its public interfaces accessible to clients, and isolate [SWEBOK excerpt 9cb30d2095473b764f26]. This is an application of the encapsulation/information-hiding principle. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md) [JEV 0.98]\n- Apply the abstraction principle to modules: focus on information relevant to a particular purpose and ignore the rest. This helps [SWEBOK excerpt c3222055a5fe4b09a2c1] and keeps the design intellectually manageable. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Decision-Making Methods.md) [JEV 0.95]\n- Promote uniformity across modules: apply consistent solutions to common or recurring problems. This principle of uniformity across software components reduces cognitive load during maintenance. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md) [JEV 0.94]\n- Minimize construction complexity [SWEBOK excerpt 10437962eacb1e3f82d2], using standards and modular design. Since [SWEBOK excerpt c98759d77253880fe444] in working memory, reducing complexity is critical to testing and long-term maintenance. (source: root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md; root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md) [JEV 0.96]\n- Anticipate and embrace change during construction: build extensible software by anticipating how the system will evolve, so that new functionality can be added without disrupting the underlying structure. (source: root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md) [JEV 0.97]\n- Record design rationale (assumptions made, alternatives considered, trade-offs analyzed) to enhance long-term maintainability. Although reasons for decisions are obvious to the current [SWEBOK excerpt 212e2db6c3f5668bde6b] maintain the system after deployment. Continuing to capture [SWEBOK excerpt 450c2ce0af724fbb8217]. (source: root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md) [JEV 0.97]\n- Use refactoring to improve a badly structured program without changing its behavior. Refactoring is a reengineering technique that reorganizes a program without changing its observable behavior, seeking to improve the internal structure and [SWEBOK excerpt 159390ba75725c3eb918] to reduce technical debt before and after code changes. (source: root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md) [JEV 0.96]\n- Apply continuous refactoring to manage growing complexity over time. In Agile contexts, the incremental nature of continuous integration often requires [SWEBOK excerpt c0315bcceac03a752504], providing better ways to reduce and manage growing complexity while improving developer productivity. (source: root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md) [JEV 0.96]\n- Use reverse engineering to understand the existing structure of a badly organized system before improving it. [SWEBOK excerpt 60926499993e55b85d8f] at higher levels of abstraction. (source: root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md) [JEV 0.72]\n- Document software designs through a Software Design Description (SDD) that encompasses the refinement of [SWEBOK excerpt 86817a8903b3e515bf0c], to a level of detail that enables construction and future maintenance. (source: root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture and Design Principles/Software Design Concepts and Documentation.md) [JEV 0.95]",
+  "tool_calls": 12,
+  "tools": {
+   "plan_tasks": 1,
+   "read_many": 10,
+   "generate_final_recommendation": 1
+  },
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 12,
+    "input_tokens": 138752,
+    "output_tokens": 4364
+   }
+  },
+  "jev_calls": 16,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 41272,
+  "jev_input_tokens": 14387,
+  "jev_output_tokens": 320,
+  "jev_models": [
+   "typesafe/jev-1.14-20261014"
+  ],
+  "embedding_chars": 0,
+  "read": [
+   "/workspace/swebok-v4/root/README.md",
+   "/workspace/swebok-v4/root/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/README.md",
+   "/workspace/swebok-v4/root/Software Design Methodologies and Approaches/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Methodologies and Approaches/README.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/INDEX.md",
+   "/workspace/swebok-v4/root/Software Construction Techniques and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture_ Foundations, Views, and Patterns/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/Design Analysis and Quality Metrics/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Separation of Concerns and Modularization in Software Design.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Aspects.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Software Reengineering and Legacy System Modernization.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture and Design Principles/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/System Architecture and Design Principles/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Design and Construction Fundamentals/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture and Design Principles/Software Design Fundamentals and Principles/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Component Modularization and Single Responsibility Principle.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture and Design Principles/Software Design Concepts and Documentation.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture and Design Principles/Software Design Fundamentals and Methodologies/INDEX.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md",
+   "/workspace/swebok-v4/root/Software Design Quality Evaluation and Assessment/Software Quality Analysis and Evaluation Techniques.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture and Design Principles/Software Design Fundamentals and Methodologies/Software Design Knowledge Area Overview.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Decision-Making Methods.md",
+   "/workspace/swebok-v4/root/Software Maintenance Costs, Metrics, and Quality/Software Quality and Maintainability Metrics/INDEX.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Separation of Concerns and Modularization in Software Design.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Decision-Making Methods.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Component Modularization and Single Responsibility Principle.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Component Modularization and Single Responsibility Principle.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Decision-Making Methods.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md",
+   "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md",
+   "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md",
+   "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md",
+   "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture and Design Principles/Software Design Concepts and Documentation.md"
+  ],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": [
+   {
+    "guideline": "Separate concerns: identify distinct areas of interest and isolate them so that each can be addressed independently. As Dijkstra noted, Separation of Concerns (SoC) is '[SWEBOK excerpt 3c6bcd9d9c4aefd2ba19]', making the system easier to understand and maintain.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Separation of Concerns and Modularization in Software Design.md",
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Decision-Making Methods.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Decompose large software into smaller, well-named modules (modularization). Each component should have well-defined interfaces for interactions with other components, because [SWEBOK excerpt 55313f73d8cecb767e22] easier to maintain.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Component Modularization and Single Responsibility Principle.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply the Single Responsibility Principle: [SWEBOK excerpt b39476fe9cb17afc35e8]. As David Parnas advocated, [SWEBOK excerpt 4b0d4d0da1169511bdd2].",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Component Modularization and Single Responsibility Principle.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Maximize cohesion within each module: cohesion is '[SWEBOK excerpt 2cc2fcc5ef2d67075376]'. [SWEBOK excerpt f919b02647d438b38476] by grouping related elements together.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Minimize coupling between modules: coupling is '[SWEBOK excerpt 32755a8f9df8a5b4f921]'. [SWEBOK excerpt 747a57aa9e93586dca62] to reduce the ripple effect of changes.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply encapsulation (information hiding): build upon abstraction and modularization so that non-essential information is less accessible, allowing users of a module to focus on its essential interface elements while the internal implementation details remain hidden.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Separate interface from implementation: define each component by specifying its public interfaces accessible to clients, and isolate [SWEBOK excerpt 9cb30d2095473b764f26]. This is an application of the encapsulation/information-hiding principle.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md"
+    ],
+    "score": 0.98,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply the abstraction principle to modules: focus on information relevant to a particular purpose and ignore the rest. This helps [SWEBOK excerpt c3222055a5fe4b09a2c1] and keeps the design intellectually manageable.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Decision-Making Methods.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   },
+   {
+    "guideline": "Promote uniformity across modules: apply consistent solutions to common or recurring problems. This principle of uniformity across software components reduces cognitive load during maintenance.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Design Principles and Processes/Modular Design and Core Software Principles/Software Design Principles and Module Organization.md"
+    ],
+    "score": 0.94,
+    "admitted": true
+   },
+   {
+    "guideline": "Minimize construction complexity [SWEBOK excerpt 10437962eacb1e3f82d2], using standards and modular design. Since [SWEBOK excerpt c98759d77253880fe444] in working memory, reducing complexity is critical to testing and long-term maintenance.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md",
+     "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Fundamentals and Practices/Software Construction Fundamentals.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Anticipate and embrace change during construction: build extensible software by anticipating how the system will evolve, so that new functionality can be added without disrupting the underlying structure.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Design and Construction Fundamentals/Software Construction and Code Complexity Management/Software Construction Tools and Anticipating Change.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Record design rationale (assumptions made, alternatives considered, trade-offs analyzed) to enhance long-term maintainability. Although reasons for decisions are obvious to the current [SWEBOK excerpt 212e2db6c3f5668bde6b] maintain the system after deployment. Continuing to capture [SWEBOK excerpt 450c2ce0af724fbb8217].",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Design Concerns, Documentation, and Modeling/Recording Design Rationale for System Maintainability.md"
+    ],
+    "score": 0.97,
+    "admitted": true
+   },
+   {
+    "guideline": "Use refactoring to improve a badly structured program without changing its behavior. Refactoring is a reengineering technique that reorganizes a program without changing its observable behavior, seeking to improve the internal structure and [SWEBOK excerpt 159390ba75725c3eb918] to reduce technical debt before and after code changes.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Apply continuous refactoring to manage growing complexity over time. In Agile contexts, the incremental nature of continuous integration often requires [SWEBOK excerpt c0315bcceac03a752504], providing better ways to reduce and manage growing complexity while improving developer productivity.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md"
+    ],
+    "score": 0.96,
+    "admitted": true
+   },
+   {
+    "guideline": "Use reverse engineering to understand the existing structure of a badly organized system before improving it. [SWEBOK excerpt 60926499993e55b85d8f] at higher levels of abstraction.",
+    "refs": [
+     "/workspace/swebok-v4/root/Software Maintenance and Configuration Management/Software Maintenance, Evolution, and Quality Assurance/Refactoring and Reverse Engineering in Software Development.md"
+    ],
+    "score": 0.72,
+    "admitted": true
+   },
+   {
+    "guideline": "Document software designs through a Software Design Description (SDD) that encompasses the refinement of [SWEBOK excerpt 86817a8903b3e515bf0c], to a level of detail that enables construction and future maintenance.",
+    "refs": [
+     "/workspace/swebok-v4/root/Foundations of Software Architecture/Software Architecture Foundations and Design Principles/Software Architecture and Design Principles/Software Design Concepts and Documentation.md"
+    ],
+    "score": 0.95,
+    "admitted": true
+   }
+  ]
+ }
+]

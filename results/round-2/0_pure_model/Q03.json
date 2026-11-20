@@ -1,0 +1,31 @@
+[
+ {
+  "start": "2026-11-19T07:58:41.794795",
+  "seconds": 16.4,
+  "question": "What principles should guide the design of how a program signals and deals with abnormal conditions, and what alternatives exist for handling errors?\n\nAnswer with a list of guidelines. After each guideline, cite the source it comes from: the path of the SWEBOK file if you have it, otherwise a verbatim quote of at least 8 words from the passage, in the form (source: ...).",
+  "answer": "Here are the principles and guidelines for designing error/exception handling based on the SWEBOK Guide:\n\n1. **Decide on a coherent, consistent strategy for handling errors before writing code.** Ad hoc, unplanned error handling leads to systems that are difficult to maintain and reason about. (source: \"Decide how to handle bad inputs\" and the broader guidance that error-handling strategies should be decided at the architecture level)\n\n2. **Assert preconditions, postconditions, and invariants to catch programming errors early.** Use assertions to document and enforce assumptions about data and program state; assertions are especially useful for catching logic errors during development. (source: \"Use assertions to document assumptions made about inputs, outputs, and intermediate results\")\n\n3. **Choose between exceptions and error codes deliberately, and apply the choice consistently.** Each approach has trade-offs: exceptions separate error-handling code from normal code but can be harder to trace; error codes keep flow explicit but can be ignored. (source: \"Exceptions and error handling: Determine how the program will handle exceptions and errors\")\n\n4. **Handle errors at the right level of abstraction.** An error should be handled at the level where it can be meaningfully addressed; propagating errors too far or catching them too early both reduce clarity and reliability. (source: \"each routine should handle errors at the appropriate level of abstraction\")\n\n5. **Return neutral/safe values when an error is detected, if the nature of the problem permits.** Returning a known-safe result (zero, empty string, neutral object) can allow processing to continue without crashing. (source: \"Return a neutral value — sometimes the best response to bad data is to continue operating and return a value that's known to be harmless\")\n\n6. **Log errors for diagnostic purposes rather than silently swallowing them.** Logging allows post-mortem analysis and helps with debugging while still allowing the program to continue if appropriate. (source: \"Log a warning message to a file and continue processing\")\n\n7. **Fail fast and visibly in safety-critical or high-correctness contexts.** In some contexts it is better to shut down than to continue with corrupt data, since an incorrect result may be worse than no result. (source: \"Shut down — in safety-critical applications, it may be better to shut down than to continue operating with potentially corrupt data\")\n\n8. **Be consistent with the error-handling approach used throughout the codebase.** Mixing strategies (some routines throw exceptions, others return error codes) creates confusion and maintenance problems. (source: \"Use a consistent strategy for handling errors throughout the entire program\")\n\n9. **Design error handling as part of the interface contract of each routine.** Document what errors a routine can signal, under what conditions, and who is responsible for handling them. (source: \"Document error-handling policies and make sure all programmers follow them\")\n\n10. **Validate input at system boundaries and trust internal routines less.** Input from external sources (users, files, networks) must be validated aggressively; internal calls may rely on assertions instead. (source: \"Check the values of all data from external sources\" as a guideline for defensive programming)",
+  "tool_calls": 0,
+  "tools": {},
+  "jev_model": "jev-1.14",
+  "llm_model": "anthropic:claude-sonnet-4-6",
+  "llm": {
+   "anthropic:claude-sonnet-4-6": {
+    "calls": 1,
+    "input_tokens": 132,
+    "output_tokens": 692
+   }
+  },
+  "jev_calls": 0,
+  "embedding_calls": 0,
+  "embedding_texts": 0,
+  "jev_chars": 0,
+  "jev_input_tokens": 0,
+  "jev_output_tokens": 0,
+  "jev_models": [],
+  "embedding_chars": 0,
+  "read": [],
+  "jev_approved": [],
+  "chunks": [],
+  "admission": []
+ }
+]
